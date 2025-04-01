@@ -1,0 +1,40 @@
+services:
+  app-prod-service:
+    container_name: walktheplanet-website-prod-v2
+    # restart: unless-stopped
+    image: walktheplanet-website-prod-img-v2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${NEXT_PUBLIC_APP_PUBLIC_PORT}:${NEXT_PUBLIC_APP_PORT}"
+      
+  app-uat-service:
+    container_name: walktheplanet-website-uat-v2
+    restart: unless-stopped
+    image: walktheplanet-website-uat-img-v2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${NEXT_PUBLIC_APP_PUBLIC_PORT}:${NEXT_PUBLIC_APP_PORT}"
+
+  app-test-service:
+    container_name: walktheplanet-website-test-v2
+    restart: unless-stopped
+    image: walktheplanet-website-test-img-v2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${NEXT_PUBLIC_APP_PUBLIC_PORT}:${NEXT_PUBLIC_APP_PORT}"
+
+  app-dev-service:
+    container_name: walktheplanet-website-dev-v2
+    restart: unless-stopped
+    image: walktheplanet-website-dev-img-v2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${NEXT_PUBLIC_APP_PUBLIC_PORT}:${NEXT_PUBLIC_APP_PORT}"

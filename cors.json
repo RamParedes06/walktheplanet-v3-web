@@ -1,0 +1,10 @@
+[
+    {
+      "AllowedOrigins": ["47.245.126.170"],
+      "AllowedMethods": ["GET", "POST", "PUT", "DELETE", "HEAD"],
+      "AllowedHeaders": ["47.245.126.170"],
+      "ExposeHeaders": ["ETag", "Content-Length"],
+      "MaxAgeSeconds": 3600
+    }
+  ]
+  

@@ -1,0 +1,59 @@
+// MARQUEE TEXT INFINITE TEXT SCROLL
+
+.wrapper {
+ 
+  width: 100%;
+  z-index: 10;
+  position: absolute;
+  height: auto;
+  color: black;
+}
+
+.top-wrapper {
+  top: 0;
+}
+
+.bottom-wrapper {
+  bottom: 0;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: marquee 10s linear infinite;
+}
+
+.marquee p {
+  display: inline-block;
+  margin: 8px 0;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+  .marquee {
+    animation: marquee 15s linear infinite;
+  }
+
+  .marquee p {
+    font-size: 14px;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}

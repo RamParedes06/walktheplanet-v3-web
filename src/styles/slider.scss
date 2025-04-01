@@ -1,0 +1,30 @@
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: center; // ensure content is centered if needed
+  
+    .wrap {
+      display: grid;
+      grid-auto-flow: column;
+      gap: 30px;
+  
+      //! Basta eto yung sa gitna mag start yung scroll
+      transform: translateX(calc(10vw - 241px)); //! 241px is half the image width (482 / 2)
+  
+      animation: slide 10s linear infinite;
+  
+      img {
+        width: 482px;
+        height: 300px;
+        object-fit: cover;
+      }
+    }
+  }
+  
+  @keyframes slide {
+    to {
+      transform: translateX(calc(70vw - 241px - (3 * 482px))); //! 241px is half the image width (482 / 2)
+    }
+  }
+  

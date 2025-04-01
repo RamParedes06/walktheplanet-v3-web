@@ -1,0 +1,63 @@
+stages:
+  - build-dev
+  - build-test
+  - build-uat
+  - build-prod
+  - clean
+
+build-dev:
+  stage: build-dev
+  only:
+    - dev
+  before_script:
+    - rm -f -- .env
+    - cp .env.development .env
+  script:
+    - docker compose -f docker-compose.yml build --no-cache app-dev-service
+    - docker compose -f docker-compose.yml up -d app-dev-service
+  after_script:
+    - tail -2 .env
+
+build-test:
+  stage: build-test
+  only:
+    - staging
+  before_script:
+    - rm -f -- .env
+    - cp .env.staging .env
+  script:
+    - docker compose -f docker-compose.yml build --no-cache app-test-service
+    - docker compose -f docker-compose.yml up -d app-test-service
+  after_script:
+    - tail -2 .env
+
+build-uat:
+  stage: build-uat
+  only:
+    - uat
+  before_script:
+    - rm -f -- .env
+    - cp .env.uat .env
+  script:
+    - docker compose -f docker-compose.yml build --no-cache app-uat-service
+    - docker compose -f docker-compose.yml up -d app-uat-service
+  after_script:
+    - tail -2 .env
+
+build-prod:
+  stage: build-prod
+  only:
+    - main
+  before_script:
+    - rm -f -- .env
+    - cp .env.prod .env
+  script:
+    - docker compose -f docker-compose.yml build --no-cache app-prod-service
+    - docker compose -f docker-compose.yml up -d app-prod-service
+  after_script:
+    - tail -2 .env
+
+clean:
+  stage: clean
+  script:
+    - docker image prune -f

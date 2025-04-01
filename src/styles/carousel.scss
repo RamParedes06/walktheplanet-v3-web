@@ -1,0 +1,49 @@
+$small : 490px;
+
+.carousel {
+    
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  
+    .carousel-title {
+      background-color: white;
+      p {
+        font-size: 34px;
+        font-weight: bold;
+        
+      }
+    }
+    .carousel-container {
+      overflow: hidden;
+      width: 100%;
+      display: flex;
+      
+  
+      .wrap {
+        display: grid;
+        grid-auto-flow: column;
+       
+        grid-auto-columns: 420px;
+        
+        animation: scroll 80s linear infinite;
+
+        // @media screen and (max-width: $small) {
+        //   grid-auto-columns: 300px;
+          
+        // }
+ 
+      }
+    }
+  }
+  
+@keyframes scroll {
+  from {
+    transform: translateX(1);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

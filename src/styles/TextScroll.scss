@@ -1,0 +1,19 @@
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: center; // ensure content is centered if needed
+  
+    .wrap {
+      display: grid;
+      grid-auto-flow: column;
+      gap: 2px;
+      animation: slide 10s linear infinite;
+    }
+  }
+  @keyframes slide {
+    to {
+      transform: translateX(calc(100vw - 241px)); //! 241px is half the image width (482 / 2)
+    }
+  }
+  

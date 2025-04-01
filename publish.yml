@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: walktheplanet-v2-prod
+  name: walktheplanet-v2-prod
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: walktheplanet-v2-prod
+  template:
+    metadata:
+      labels:
+        app: walktheplanet-v2-prod
+    spec:
+      containers:
+        - name: walktheplanet-v2-prod
+          image: registry-intl-vpc.ap-southeast-1.aliyuncs.com/walk-the-planet/walktheplanet-website-prod-img-v2:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 30063
+          volumeMounts:
+            - name: log-volume
+              mountPath: /var/log/walktheplanet
+      volumes:
+        - name: log-volume
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: walktheplanet-v2-prod
+  namespace: default
+spec:
+  selector:
+    app: walktheplanet-v2-prod
+  type: NodePort
+  ports:
+    - port: 3000
+      targetPort: 30063
+      nodePort: 30063
