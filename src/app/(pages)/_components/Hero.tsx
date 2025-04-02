@@ -36,6 +36,7 @@ import { TravelSlides } from "@/library/TravelSlides";
 import { LocalSlides } from "@/library/LocalSlides";
 import { InternationalSlides } from "@/library/InternationalSlides";
 import { DocumentSlides } from "@/library/DocumentSlides";
+
 import Marquee from "./Marquee";
 import GridMotion from "./GridMotion";
 import TravelCarousel from "./TravelOffersCarousel";
@@ -137,6 +138,24 @@ export default function Hero() {
 
 	const totalScrollRequired = 1000;
 	const scrollProgressRef = useRef(0);
+
+	const [isMobileView, setIsMobileView] = useState(false);
+
+	useEffect(() => {
+		// Function to update state based on window width
+		const handleResize = () => {
+			setIsMobileView(window.innerWidth < 768); // Adjust breakpoint as needed
+		};
+
+		// Call once to set initial state
+		handleResize();
+
+		// Add event listener
+		window.addEventListener("resize", handleResize);
+
+		// Cleanup event listener on unmount
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
 
 	useEffect(() => {
 		const target = sectionRef.current;
@@ -619,9 +638,9 @@ export default function Hero() {
 
 						<div className="cardss ">
 							<div className="card " style={{ backgroundColor: "#E5F1F6B2", color: "black" }}>
-								<p className="satoshi font-medium text-xl p-5 lg:p-[32px_40px]">TRAVEL PACKAGE ESSENTIALS</p>
+								<p className="satoshi font-medium text-2xl p-5 lg:p-[32px_40px]">TRAVEL PACKAGE ESSENTIALS</p>
 								<div className="slider-container relative mt-4 ">
-									<TravelCarousel images={TravelSlides} height={160} />
+									<TravelCarousel images={TravelSlides} height={isMobileView ? 160 : 300} />
 
 									<div className="absolute top-0 left-20 max-[490px]:left-5 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
 										<p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">GLOBAL DATA SIM</p>
@@ -634,10 +653,10 @@ export default function Hero() {
 								</div>
 							</div>
 							<div className="card" style={{ backgroundColor: "#FE6000B2", zIndex: 2 }}>
-								<p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]">LOCAL DESTINATIONS</p>
+								<p className="satoshi font-medium  text-2xl p-5 lg:p-[32px_40px]">LOCAL DESTINATIONS</p>
 
 								<div className="slider-container relative ">
-									<TravelCarousel images={LocalSlides} height={179} />
+									<TravelCarousel images={LocalSlides} height={isMobileView ? 160 : 300} />
 
 									<div className="absolute top-0 min-[1440px]:left-155 max-[490px]:left-5 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
 										<p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">PALAWAN TOUR</p>
@@ -650,10 +669,10 @@ export default function Hero() {
 								</div>
 							</div>
 							<div className="card" style={{ backgroundColor: "#333333B2", zIndex: 3 }}>
-								<p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]"> INTERNATIONAL DESTINATIONS</p>
+								<p className="satoshi font-medium  text-2xl p-5 lg:p-[32px_40px]"> INTERNATIONAL DESTINATIONS</p>
 
 								<div className="slider-container relative ">
-									<TravelCarousel images={InternationalSlides} height={160} />
+									<TravelCarousel images={InternationalSlides} height={isMobileView ? 160 : 300} />
 
 									<div className="absolute top-0 left-20 max-[490px]:left-5 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
 										<p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">PARIS TOUR</p>
@@ -667,9 +686,9 @@ export default function Hero() {
 								</div>
 							</div>
 							<div className="card" style={{ backgroundColor: "#00537FB2", zIndex: 4 }}>
-								<p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]"> TRAVEL DOCUMENTATION </p>
+								<p className="satoshi font-medium  text-2xl p-5 lg:p-[32px_40px]"> TRAVEL DOCUMENTATION </p>
 								<div className="slider-container relative ">
-									<TravelCarousel images={DocumentSlides} height={179} />
+									<TravelCarousel images={DocumentSlides} height={isMobileView ? 160 : 300} />
 
 									<div className="absolute top-0 min-[1440px]:left-155 max-[490px]:left-5 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
 										<p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">VISA PROCESSING</p>

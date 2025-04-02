@@ -944,7 +944,7 @@ class InfiniteGridMenu {
 		if (!this.gl) return;
 		const canvasEl = this.gl.canvas as HTMLCanvasElement;
 		this.camera.aspect = canvasEl.clientWidth / canvasEl.clientHeight;
-		const height = this.SPHERE_RADIUS * 0.35;
+		const height = this.SPHERE_RADIUS * 0.45;
 		const distance = this.camera.position[2];
 		if (this.camera.aspect > 1) {
 			this.camera.fov = 2 * Math.atan(height / distance);
@@ -1068,8 +1068,8 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
 	};
 
 	return (
-		<div className="relative w-full h-screen max-[480px]:h-[600px]">
-			<canvas id="infinite-grid-menu-canvas" ref={canvasRef} className="cursor-grab w-full h-full overflow-hidden relative outline-none active:cursor-grabbing" />
+		<div className="relative w-full h-screen max-[480px]:h-[600px] ">
+			<canvas id="infinite-grid-menu-canvas" ref={canvasRef} className="cursor-grab w-full h-full overflow-hidden relative outline-none active:cursor-grabbing " />
 
 			{activeItem && (
 				<>
