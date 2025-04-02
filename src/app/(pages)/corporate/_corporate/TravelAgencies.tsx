@@ -18,16 +18,16 @@ function TravelAgencies() {
 	return (
 		<div className="h-screen bg-white">
 			<div className="h-[40%] max-[490px]:h-[30%] relative overflow-hidden flex items-center" style={{ backgroundImage: `url(${illustration})` }}>
-				<div className="p-20 w-full">
+				<div className="p-20 w-full max-[490px]:p-0 ">
 					<Image src={illustration} alt="" width={1200} className="absolute -top-145 -right-110 " />
-					<div className="flex flex-col gap-2 max-[490px]:px-5">
+					<div className="flex flex-col gap-2 max-[490px]:px-5 max-[490px]:gap-5">
 						<TextReveal>
-							<p className="text-[64px] max-[490px]:text-[40px] font-bold text-[#14476F]  uppercase">Travel Agencies</p>
+							<p className="text-[64px] max-[490px]:text-[40px] font-bold text-[#14476F] font-satoshi  uppercase">Travel Agencies</p>
 							<p className="text-black text-2xl max-[490px]:text-[16px] ">
 								Want to level up your agencys income? <br />
 								Power your business by offering our
 								<i>
-									<strong> unique and curated travel packages</strong>
+									<span className="font-semibold"> unique and curated travel packages</span>
 								</i>
 							</p>
 						</TextReveal>

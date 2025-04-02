@@ -11,11 +11,11 @@ function Section2() {
 						<div className="flex flex-col  gap-3 text-2xl max-[490px]:text-xl font-generalSans">
 							<TextReveal>
 								<i>
-									Your choice of flexibility allows us to <strong>customize journeys without cutting corners on quality. </strong>
+									Your choice of flexibility allows us to <span className="font-semibold">customize journeys without cutting corners on quality. </span>
 								</i>
 								<br />
 								<i>
-									From <strong> flights and hotel booking to documentation</strong>, we handle everything so you can save time
+									From <b> flights and hotel booking to documentation</b>, we handle everything so you can save time
 								</i>
 								<br />
 								<i>and money and stay focused on getting the job done.</i>

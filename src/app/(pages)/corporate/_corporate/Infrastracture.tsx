@@ -7,7 +7,7 @@ function Infrastructure() {
 		<div className="h-screen bg-red-200 bg-cover bg-center bg-no-repeat relative " style={{ backgroundImage: `url(${bgsection.src})` }}>
 			<div className="overlay flex absolute inset-0 top-0 bg-gradient-to-b from-transparent via-[rgba(5,18,28,0.4)] to-[rgba(5,18,28,0.8)] ">
 				<div className="self-end  w-full">
-					<div className="max-w-[1440px] mx-auto px-[80px]  max-[490px]:px-5 py-[112px]  max-[490px]:py-10 z-10">
+					<div className="max-w-[1440px] mx-auto px-[80px]  max-[490px]:px-5 py-[112px]  max-[490px]:py-15 z-10">
 						<TextReveal>
 							<p className="font-bold text-[64px] text-white font-satoshi text-center  max-[490px]:text-[40px]  max-[490px]:text-start">INFRASTRUCTURE</p>
 							<div className="flex flex-col items-center gap-2 text-2xl  max-[490px]:text-[16px]  max-[490px]:items-start">

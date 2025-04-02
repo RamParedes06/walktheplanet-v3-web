@@ -23,20 +23,20 @@ function Insurance() {
 					<Image src={illustration} alt="" width={1200} className="absolute -top-145 -right-110 " />
 					<div className="flex flex-col gap-2 max-[490px]:p-0">
 						<TextReveal>
-							<p className="text-[64px] font-bold text-[#14476F] font-satoshi max-[490px]:text-[40px]">INSURANCE</p>
+							<p className="text-[64px] font-extrabold text-[#14476F] font-satoshi max-[490px]:text-[40px]">INSURANCE</p>
 							<p className="text-black text-2xl  max-[490px]:text-[16px]">
 								Your mission is to protect lives—ours is to
 								<i>
-									<strong> reward your dedication</strong>
+									<span className="font-semibold"> reward your dedication</span>
 								</i>
 								.
 								<br /> We ensure your team enjoys
 								<i>
-									<strong> top-tier incentives </strong>
+									<span className="font-semibold"> top-tier incentives </span>
 								</i>
 								while you
 								<i>
-									<strong> travel the world,</strong>
+									<span className="font-semibold"> travel the world,</span>
 								</i>
 								<br /> making a difference every step of the way.
 							</p>

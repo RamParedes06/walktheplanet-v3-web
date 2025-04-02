@@ -17,11 +17,11 @@ function Manufacturing() {
 						<div className=" px-[80px] max-[490px]:px-5 max-[490px]:py-10 py-[112px] z-10 ">
 							<TextReveal>
 								<p className="font-[900] text-[64px] max-[490px]:text-[40px]  text-[#14476F] font-satoshi  uppercase ">Manufacturing</p>
-								<div className="text-black  text-2xl max-[490px]:text-[16px] font-generalSans">
+								<div className="text-[#333]  text-2xl max-[490px]:text-[16px] font-generalSans">
 									Stay competitive globally while we handle your travel logistics—complex schedules,
 									<br /> frequent trips, and evolving needs.
 									<i>
-										<strong> You focus on business, and we’ll take care of the journey</strong>.
+										<span className="font-semibold"> You focus on business, and we’ll take care of the journey</span>.
 									</i>
 								</div>
 							</TextReveal>

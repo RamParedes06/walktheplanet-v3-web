@@ -13,7 +13,7 @@ interface Props {
 //   title="hi there"
 //   backgroundImage={bg}
 //   position="center" // left | center | right
-//   description={<p>This is a <strong>custom</strong> description.</p>}
+//   description={<p>This is a <span className="font-semibold">custom</span> description.</p>}
 // />
 
 const ReusableSection: React.FC<Props> = ({ title, description, backgroundImage, position }) => {
