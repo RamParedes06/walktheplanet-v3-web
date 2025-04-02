@@ -6,9 +6,14 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: '47.245.126.170',
-        pathname: '**',
+        protocol: "http",
+        hostname: "47.245.126.170",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.kiwi.com",
+        pathname: "/**",
       },
     ],
     // domains: ['47.245.126.170', 'images.kiwi.com'],
