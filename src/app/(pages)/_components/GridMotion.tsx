@@ -55,11 +55,13 @@ const HomeGrid: FC<HomeGridProps> = ({ items = [] }) => {
 	}, []);
 
 	return (
-		<div ref={gridRef} className="h-full w-full overflow-hidden">
+		<div ref={gridRef} className="h-full w-full overflow-hidden  relative">
+			<div className="absolute top-0 left-0 z-10 bg-gradient-to-t from-transparent via-[rgba(0,0,0,0)] via-[70%] to-[rgba(0,0,0,0.6)] h-full w-full"></div>
+			<div className="absolute top-0 left-0 z-10 bg-gradient-to-b from-transparent via-[rgba(0,0,0,0)] via-[70%] to-[rgba(0,0,0,0.6)] h-full w-full"></div>
 			<section
 				className="w-full h-screen overflow-hidden relative flex items-center justify-center"
 				style={{
-					background: " #ffffff",
+					background: " #000000",
 				}}
 			>
 				{/* Noise overlay */}
