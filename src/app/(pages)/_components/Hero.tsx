@@ -32,9 +32,14 @@ import GridMotionMobile from "./GridMotionMobile";
 import Footer from "./Footer";
 import BeliefsMobile from "./BeliefMobile";
 
-import travelSlide1 from "@/assets/images/travel-package-slide.png";
-import travelSlide2 from "@/assets/images/travel-package-slide2.png";
-import travelSlide3 from "@/assets/images/travel-package-slide3.png";
+import { TravelSlides } from "@/library/TravelSlides";
+import { LocalSlides } from "@/library/LocalSlides";
+import { InternationalSlides } from "@/library/InternationalSlides";
+import { DocumentSlides } from "@/library/DocumentSlides";
+
+// import travelSlide1 from "@/assets/images/travel-package-slide.png";
+// import travelSlide2 from "@/assets/images/travel-package-slide2.png";
+// import travelSlide3 from "@/assets/images/travel-package-slide3.png";
 import local1 from "@/assets/images/local-destination1.png";
 import local2 from "@/assets/images/local-destination2.png";
 import local3 from "@/assets/images/local-destination3.png";
@@ -46,6 +51,7 @@ import travel2 from "@/assets/images/travel2.png";
 import travel3 from "@/assets/images/travel3.png";
 import Marquee from "./Marquee";
 import GridMotion from "./GridMotion";
+import TravelCarousel from "./TravelOffersCarousel";
 
 interface Tab {
 	id: string;
@@ -628,18 +634,7 @@ export default function Hero() {
 							<div className="card " style={{ backgroundColor: "#E5F1F6B2", color: "black" }}>
 								<p className="satoshi font-medium text-xl p-5 lg:p-[32px_40px]">TRAVEL PACKAGE ESSENTIALS</p>
 								<div className="slider-container relative mt-4 ">
-									<div className="image-slider">
-										<div className="carousel-container">
-											<div className="wrap">
-												<Image src={travelSlide1} alt="" loading="lazy" />
-												<Image src={travelSlide2} alt="" loading="lazy" />
-												<Image src={travelSlide3} alt="" loading="lazy" />
-												<Image src={travelSlide1} alt="" loading="lazy" />
-												<Image src={travelSlide2} alt="" loading="lazy" />
-												<Image src={travelSlide3} alt="" loading="lazy" />
-											</div>
-										</div>
-									</div>
+									<TravelCarousel images={TravelSlides} height={160} />
 
 									<div className="absolute top-0 left-20 max-[490px]:left-5 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
 										<p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">GLOBAL DATA SIM</p>
@@ -655,22 +650,11 @@ export default function Hero() {
 								<p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]">LOCAL DESTINATIONS</p>
 
 								<div className="slider-container relative ">
-									<div className="image-slider">
-										<div className="carousel-container">
-											<div className="wrap">
-												<Image src={local1} alt="" loading="lazy" />
-												<Image src={local2} alt="" loading="lazy" />
-												<Image src={local3} alt="" loading="lazy" />
-												<Image src={local1} alt="" loading="lazy" />
-												<Image src={local2} alt="" loading="lazy" />
-												<Image src={local3} alt="" loading="lazy" />
-											</div>
-										</div>
-									</div>
+									<TravelCarousel images={LocalSlides} height={179} />
 
 									<div className="absolute top-0 min-[1440px]:left-155 max-[490px]:left-5 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
 										<p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">PALAWAN TOUR</p>
-										<p className="text-black text-2xl -[16px] satoshi max-[490px]:text-[14px]">
+										<p className="text-black text-2xl -[16px] w-full satoshi max-[490px]:text-[14px]">
 											The Philippines’ best-kept secrets.
 											<br /> Pack your bags and uncover your adventure.
 										</p>
@@ -682,18 +666,7 @@ export default function Hero() {
 								<p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]"> INTERNATIONAL DESTINATIONS</p>
 
 								<div className="slider-container relative ">
-									<div className="image-slider">
-										<div className="carousel-container">
-											<div className="wrap">
-												<Image src={international1} alt="" loading="lazy" />
-												<Image src={international2} alt="" loading="lazy" />
-												<Image src={international3} alt="" loading="lazy" />
-												<Image src={international1} alt="" loading="lazy" />
-												<Image src={international2} alt="" loading="lazy" />
-												<Image src={international3} alt="" loading="lazy" />
-											</div>
-										</div>
-									</div>
+									<TravelCarousel images={InternationalSlides} height={160} />
 
 									<div className="absolute top-0 left-20 max-[490px]:left-5 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
 										<p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">PARIS TOUR</p>
@@ -709,18 +682,7 @@ export default function Hero() {
 							<div className="card" style={{ backgroundColor: "#00537FB2", zIndex: 4 }}>
 								<p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]"> TRAVEL DOCUMENTATION </p>
 								<div className="slider-container relative ">
-									<div className="image-slider">
-										<div className="carousel-container">
-											<div className="wrap">
-												<Image src={travel1} alt="" loading="lazy" />
-												<Image src={travel2} alt="" loading="lazy" />
-												<Image src={travel3} alt="" loading="lazy" />
-												<Image src={travel1} alt="" loading="lazy" />
-												<Image src={travel2} alt="" loading="lazy" />
-												<Image src={travel3} alt="" loading="lazy" />
-											</div>
-										</div>
-									</div>
+									<TravelCarousel images={DocumentSlides} height={179} />
 
 									<div className="absolute top-0 min-[1440px]:left-155 max-[490px]:left-5 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
 										<p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">VISA PROCESSING</p>
