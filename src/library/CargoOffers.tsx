@@ -1,23 +1,23 @@
 export const CargoOffers = [
-	"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcargo%20and%20logistics%2FCorporate%20%26%20Business%20Cargo%20and%20Logistics%201.webp&version_id=null",
+	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573658/Corporate_Business_Cargo_and_Logistics_1_ihrspu.webp",
 
-	"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcargo%20and%20logistics%2FCorporate%20%26%20Business%20Cargo%20and%20Logistics%201.webp&version_id=null", // 1
+	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573658/Corporate_Business_Cargo_and_Logistics_4_keqgnp.webp", // 1
 
-	"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcargo%20and%20logistics%2FCorporate%20%26%20Business%20Cargo%20and%20Logistics%202.webp&version_id=null", //2
+	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573658/Corporate_Business_Cargo_and_Logistics_3_szyrib.webp", //2
 
-	"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcargo%20and%20logistics%2FCorporate%20%26%20Business%20Cargo%20and%20Logistics%203.webp&version_id=null", //3
+	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573658/Corporate_Business_Cargo_and_Logistics_5_ylasxy.webp", //3
 
-	"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcargo%20and%20logistics%2FCorporate%20%26%20Business%20Cargo%20and%20Logistics%204.webp&version_id=null",
+	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573658/Corporate_Business_Cargo_and_Logistics_2_kdbsdx.webp",
 
-	"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcargo%20and%20logistics%2FCorporate%20%26%20Business%20Cargo%20and%20Logistics%205.webp&version_id=null",
+	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573658/Corporate_Business_Cargo_and_Logistics_6_nc7zmy.webp",
 
-	"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcargo%20and%20logistics%2FCorporate%20%26%20Business%20Cargo%20and%20Logistics%206.webp&version_id=null",
+	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573658/Corporate_Business_Cargo_and_Logistics_7_qefnfc.webp",
 
-	"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcargo%20and%20logistics%2FCorporate%20%26%20Business%20Cargo%20and%20Logistics%207.webp&version_id=null",
+	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573659/Corporate_Business_Cargo_and_Logistics_8_zd6bfa.webp",
 
-	"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcargo%20and%20logistics%2FCorporate%20%26%20Business%20Cargo%20and%20Logistics%208.webp&version_id=null",
+	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573659/Corporate_Business_Cargo_and_Logistics_9_omkpey.webp",
 
-	"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcargo%20and%20logistics%2FCorporate%20%26%20Business%20Cargo%20and%20Logistics%209.webp&version_id=null",
+	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573659/Corporate_Business_Cargo_and_Logistics_10_yocr13.webp",
 
-	"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcargo%20and%20logistics%2FCorporate%20%26%20Business%20Cargo%20and%20Logistics%2010.webp&version_id=null",
+	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573658/Corporate_Business_Cargo_and_Logistics_2_kdbsdx.webp",
 ];
