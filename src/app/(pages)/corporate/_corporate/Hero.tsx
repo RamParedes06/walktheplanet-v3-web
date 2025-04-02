@@ -11,7 +11,10 @@ import TextReveal from "../../_components/TextReveal";
 const Hero = () => {
 	const corpImages = [
 		"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573279/Corporate_Business_1_en1vue.webp",
-	
+		"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743582437/corporate-3_p6oiem.webp",
+		"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743582437/corporate-4_etyyiy.webp",
+		"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743582438/corporate-1_pynqyo.webp",
+		"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743582438/corporate-2_mpae3j.webp",
 	];
 
 	const [currentImage, setCurrentImage] = useState(0);
@@ -48,21 +51,21 @@ const Hero = () => {
 	const getImageClasses = (index: number) => {
 		// The visible image
 		if (index === currentImage) {
-			return isAnimating ? "opacity-0 -translate-x-full" : "opacity-100 translate-x-0";
+			return isAnimating ? "opacity-0 " : "opacity-100 translate-x-0";
 		}
 
 		// Next image (always enters from right)
 		if (direction === "next" && index === getNextIndex(currentImage)) {
-			return isAnimating ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full";
+			return isAnimating ? "opacity-100 translate-x-0" : "opacity-0";
 		}
 
 		// Previous image (we'll bring it from right too for consistency)
 		if (direction === "prev" && index === getPrevIndex(currentImage)) {
-			return isAnimating ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full";
+			return isAnimating ? "opacity-100 translate-x-0" : "opacity-0";
 		}
 
 		// All other images - keep them at the right side
-		return "opacity-0 translate-x-full";
+		return "opacity-0";
 	};
 
 	//! For the full screen menu animation

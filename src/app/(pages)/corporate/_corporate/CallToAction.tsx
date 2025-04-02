@@ -32,7 +32,9 @@ function CallToAction({ image1, image2, image3, image4, image5, image6, title, b
 			<div className="overlay absolute top-0 left-0 right-0 bottom-0 bg-[#ffffffab]">
 				<div className="relative h-full w-full flex flex-col gap-8  max-[490px]:gap-2 items-center justify-center z-2">
 					<p className="text-2xl text-[#FE6000] font-semibold font-generalSans  max-[490px]:p-5  max-[490px]:text-center">{title}</p>
-					<span className="cta-button px-8 py-3.5 bg-[#FE6000] rounded-full text-white font-semibold text-xl">{buttonLabel}</span>
+					<a href="/contact-us">
+						<span className="cta-button px-8 py-3.5 bg-[#FE6000] rounded-full text-white font-semibold text-xl">{buttonLabel}</span>
+					</a>
 
 					<Image
 						src={image4}

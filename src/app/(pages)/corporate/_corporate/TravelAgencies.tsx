@@ -22,7 +22,7 @@ function TravelAgencies() {
 					<Image src={illustration} alt="" width={1200} className="absolute -top-145 -right-110 " />
 					<div className="flex flex-col gap-2 max-[490px]:px-5 max-[490px]:gap-5">
 						<TextReveal>
-							<p className="text-[64px] max-[490px]:text-[40px] font-bold text-[#14476F] font-satoshi  uppercase">Travel Agencies</p>
+							<p className="text-[64px] max-[490px]:text-[40px] font-extrabold text-[#14476F] font-satoshi  uppercase">Travel Agencies</p>
 							<p className="text-black text-2xl max-[490px]:text-[16px] ">
 								Want to level up your agencys income? <br />
 								Power your business by offering our
