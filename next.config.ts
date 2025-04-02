@@ -4,16 +4,14 @@ const nextConfig: NextConfig = {
   /* config options here */
  
   images: {
-    formats: ["image/avif", "image/webp", ],
     remotePatterns: [
       {
-        protocol: 'https',
+        protocol: 'http',
         hostname: '47.245.126.170',
-        port: '',
-        pathname: '/**',
+        pathname: '**',
       },
     ],
-    domains: ['47.245.126.170', 'images.kiwi.com'],
+    // domains: ['47.245.126.170', 'images.kiwi.com'],
   },
 };
  
