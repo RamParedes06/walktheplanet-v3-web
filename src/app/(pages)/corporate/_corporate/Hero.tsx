@@ -10,7 +10,7 @@ import Marquee from "../../_components/Marquee";
 import TextReveal from "../../_components/TextReveal";
 const Hero = () => {
 	const corpImages = [
-		"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcorporate-5.webp&version_id=null",
+		"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FEduTourism.webp&version_id=null",
 		"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcorporate-1.webp&version_id=null",
 		"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcorporate-3.webp&version_id=null",
 		"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcorporate-4.webp&version_id=null",
