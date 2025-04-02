@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
         hostname: "47.245.126.170",
         pathname: "/**",
       },
+ {
+        protocol: "https",
+        hostname: "47.245.126.170",
+        pathname: "/**",
+      },
       {
         protocol: "https",
         hostname: "images.kiwi.com",
