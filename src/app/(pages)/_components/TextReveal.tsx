@@ -17,7 +17,7 @@ const TextReveal: React.FC<TextRevealProps> = ({ children, rotateOnHover = false
 	return (
 		<div className="group">
 			<motion.div
-				className={`flex flex-col gap-2 max-[490px]:gap-5 overflow-hidden transition-transform duration-100 ${rotateOnHover ? "group-hover:-rotate-3" : ""}`}
+				className={`flex flex-col gap-3 max-[490px]:gap-5 overflow-hidden transition-transform duration-100 ${rotateOnHover ? "group-hover:-rotate-3" : ""}`}
 				initial="hidden"
 				whileInView="visible"
 				viewport={{ once: false, amount: 0.2 }}
