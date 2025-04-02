@@ -38,7 +38,7 @@ const BusinessAdvertisingMedia = () => {
 				/>
 			</div>
 
-			<div className="flex flex-col justify-center mx-auto absolute  h-[40%] max-[490px]:h-[30%]   bottom-0 bg-gradient-to-b from-[rgba(5,18,28,0)] via-[rgba(5,18,28,0.8)] to-[rgba(0,169,206,0.8)] w-full">
+			<div className="flex flex-col justify-center mx-auto absolute  h-[25%] max-[490px]:h-[30%]   bottom-0 bg-gradient-to-b from-[rgba(5,18,28,0)] via-[rgba(5,18,28,0.8)] to-[rgba(0,169,206,0.8)] w-full">
 				<div className="flex justify-center flex-col mx-auto max-w-[1440px] max-[490px]:p-5 ">
 					<TextReveal>
 						<h2 className="font-satoshi font-bold text-center max-[490px]:text-[40px] max-[490px]:text-start text-[64px] sm:text-2xl md:text-4xl lg:6xl xl:text-[64px]">
