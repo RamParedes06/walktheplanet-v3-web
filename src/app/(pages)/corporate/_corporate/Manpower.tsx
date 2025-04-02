@@ -105,7 +105,7 @@ const Manpower = () => {
 								<p>Discover top talent and connect them with the best opportunities, locally and globally. </p>
 								<br />
 								<p>
-									<strong> We help you navigate the world, </strong>
+									<span className="font-semibold"> We help you navigate the world, </span>
 									seamlessly linking the right people with the right careers.
 								</p>
 							</div>

@@ -16,12 +16,12 @@ function CargoLogistics() {
 					<div className="self-end  w-full">
 						<div className="  px-[80px] max-[490px]:px-[20px]  py-[112px] z-10 ">
 							<TextReveal>
-								<p className="font-[900] text-[64px] max-[490px]:text-[40px] text-[#14476F] font-satoshi  uppercase">CARGO AND LOGISTICS</p>
+								<p className="font-[900] text-[64px] max-[490px]:text-[40px] text-[#14476F]  font-satoshi uppercase">CARGO AND LOGISTICS</p>
 								<div className="text-black  text-2xl max-[490px]:text-[16px] font-generalSans">
 									Need to visit your sites or oversee the supply chain?
 									<br /> Just contact us and
 									<i>
-										<strong> we&apos;ll provide your travel needs anytime </strong>
+										<span className="font-semibold"> we&apos;ll provide your travel needs anytime </span>
 									</i>
 									your business requires.
 								</div>
