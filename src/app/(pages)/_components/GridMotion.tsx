@@ -66,7 +66,7 @@ const HomeGrid: FC<HomeGridProps> = ({ items = [] }) => {
 			>
 				{/* Noise overlay */}
 				<div className="absolute inset-0 pointer-events-none z-[4]  bg-[length:250px]"></div>
-				<div className="gap-4 flex-none relative w-[150vw] h-[150vh] grid grid-rows-4 grid-cols-1 rotate-[-15deg] origin-center z-[2]">
+				<div className="gap-4 flex-none relative min-[1441px]:w-[150vw] max-[1442px]:w-[250vw] h-[150vh] grid grid-rows-4 grid-cols-1 rotate-[-15deg] origin-center z-[2]">
 					{Array.from({ length: 4 }, (_, rowIndex) => (
 						<div
 							key={rowIndex}
