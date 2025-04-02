@@ -641,13 +641,13 @@ export default function Hero() {
 										</div>
 									</div>
 
-									<div className="absolute top-0 left-20 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] w-full  flex flex-col gap-4">
-										<p className="text-black text-3xl  satoshi font-bold">GLOBAL DATA SIM</p>
-										<p className="text-black text-2xl -[16px] satoshi">
+									<div className="absolute top-0 left-20 max-[490px]:left-5 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
+										<p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">GLOBAL DATA SIM</p>
+										<p className="text-black text-2xl -[16px] satoshi max-[490px]:text-[14px]">
 											One SIM for every destination.
 											<br /> Roam your way anytime, anywhere.
 										</p>
-										<button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px]">Get Now</button>
+										<button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">Get Now</button>
 									</div>
 								</div>
 							</div>
@@ -668,13 +668,13 @@ export default function Hero() {
 										</div>
 									</div>
 
-									<div className="absolute top-0 min-[1440px]:left-155 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] ] w-full  flex flex-col gap-4">
-										<p className="text-black text-3xl  satoshi font-bold">PALAWAN TOUR</p>
-										<p className="text-black text-2xl -[16px] satoshi">
+									<div className="absolute top-0 min-[1440px]:left-155 max-[490px]:left-5 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
+										<p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">PALAWAN TOUR</p>
+										<p className="text-black text-2xl -[16px] satoshi max-[490px]:text-[14px]">
 											The Philippines’ best-kept secrets.
 											<br /> Pack your bags and uncover your adventure.
 										</p>
-										<button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px]">Get Now</button>
+										<button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">Get Now</button>
 									</div>
 								</div>
 							</div>
@@ -695,14 +695,14 @@ export default function Hero() {
 										</div>
 									</div>
 
-									<div className="absolute top-0 left-20 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] w-full  flex flex-col gap-4">
-										<p className="text-black text-3xl  satoshi font-bold">PARIS TOUR</p>
-										<p className="text-black text-2xl -[16px] satoshi">
+									<div className="absolute top-0 left-20 max-[490px]:left-5 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
+										<p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">PARIS TOUR</p>
+										<p className="text-black text-2xl -[16px] satoshi max-[490px]:text-[14px]">
 											Sought-after global attractions.
 											<br />
 											Travel with us and see the world.
 										</p>
-										<button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px]">Book Now</button>
+										<button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">Book Now</button>
 									</div>
 								</div>
 							</div>
@@ -722,13 +722,13 @@ export default function Hero() {
 										</div>
 									</div>
 
-									<div className="absolute top-0 min-[1440px]:left-155 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] w-full  flex flex-col gap-4">
-										<p className="text-black text-3xl  satoshi font-bold">VISA PROCESSING</p>
-										<p className="text-black text-2xl -[16px] satoshi">
+									<div className="absolute top-0 min-[1440px]:left-155 max-[490px]:left-5 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
+										<p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">VISA PROCESSING</p>
+										<p className="text-black text-2xl -[16px] satoshi max-[490px]:text-[14px]">
 											Visa processing and immigration requirements
 											<br /> handled with ease.
 										</p>
-										<button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px]">Book Now</button>
+										<button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">Book Now</button>
 									</div>
 								</div>
 							</div>
