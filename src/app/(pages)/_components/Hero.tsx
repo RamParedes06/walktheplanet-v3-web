@@ -36,19 +36,6 @@ import { TravelSlides } from "@/library/TravelSlides";
 import { LocalSlides } from "@/library/LocalSlides";
 import { InternationalSlides } from "@/library/InternationalSlides";
 import { DocumentSlides } from "@/library/DocumentSlides";
-
-// import travelSlide1 from "@/assets/images/travel-package-slide.png";
-// import travelSlide2 from "@/assets/images/travel-package-slide2.png";
-// import travelSlide3 from "@/assets/images/travel-package-slide3.png";
-import local1 from "@/assets/images/local-destination1.png";
-import local2 from "@/assets/images/local-destination2.png";
-import local3 from "@/assets/images/local-destination3.png";
-import international1 from "@/assets/images/international1.png";
-import international2 from "@/assets/images/international2.png";
-import international3 from "@/assets/images/international3.png";
-import travel1 from "@/assets/images/travel1.png";
-import travel2 from "@/assets/images/travel2.png";
-import travel3 from "@/assets/images/travel3.png";
 import Marquee from "./Marquee";
 import GridMotion from "./GridMotion";
 import TravelCarousel from "./TravelOffersCarousel";
@@ -609,7 +596,7 @@ export default function Hero() {
 				<div className="travel-section">
 					{" "}
 					{/* New parent container */}
-					<div className="travel-offers-container bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${travelOffers.src})` }}>
+					<div className="travel-offers-container bg-cover bg-center bg-fixed bg-no-repeat" style={{ backgroundImage: `url(${travelOffers.src})` }}>
 						{/* Black overlay with low opacity */}
 						<div className="absolute inset-0 bg-black opacity-30"></div>
 						<div className="cards-parent h-[275px] lg:h-[230px] bg-cover bg-center flex justify-center items-center relative z-10 ">
