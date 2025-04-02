@@ -1,5 +1,5 @@
 export const CargoOffers = [
-	"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcargo%20and%20logistics%2FCorporate%20%26%20Business%20Cargo%20and%20Logistics%201.webp&version_id=null",
+	"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcorporate-1.webp&version_id=null",
 
 	"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcargo%20and%20logistics%2FCorporate%20%26%20Business%20Cargo%20and%20Logistics%201.webp&version_id=null", // 1
 
