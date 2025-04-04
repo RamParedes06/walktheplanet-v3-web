@@ -17,7 +17,7 @@ function HomePage() {
 	return (
 		//! Removed h-screen and w-screen for hero animation
 		<>
-			<div className="w-full h-full">
+			<div className="w-full h-full"> 
 				<Hero />
 			</div>
 

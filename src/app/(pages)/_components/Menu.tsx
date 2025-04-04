@@ -13,7 +13,7 @@ import ArrowUpRight from "@/assets/svg/arrow-up-right.svg";
 import Image from "next/image";
 import Link from "next/link";
 import MenuTooltip from "./MenuTooltip";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 type ExpandableMenuProps = {
   toggleMenu: () => void;
