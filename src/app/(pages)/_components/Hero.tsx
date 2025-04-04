@@ -118,7 +118,7 @@ const tabs: Tab[] = [
     // liveselling,
     description:
       "Exclusive rates and awesome discounts right at your fingertips! Book now on our TikTok live selling hours.",
-    svg: TbMessage2Heart, 
+    svg: TbMessage2Heart,
     buttonText1: "Capture discounts and live updates",
     buttonText2: "Contact Us",
     link: "#",
@@ -570,7 +570,7 @@ export default function Hero() {
         {/* tabs and logos  */}
         <div className="fixed lg:left-[5%] lg:bottom-[20%] bottom-[10%] w-full lg:w-max z-50 flex flex-col lg:flex-row justify-between items-center gap-4 mt-1">
           <div
-            className="flex flex-wrap justify-center lg:justify-start gap-3 lg:gap-4 lg:max-w-[850px] relative"
+            className="flex flex-wrap justify-center lg:justify-start gap-1 lg:gap-4 lg:max-w-[850px] max-w-[350px] relative"
             ref={tabsContainerRef}
           >
             <div
@@ -583,7 +583,7 @@ export default function Hero() {
             {tabs.map((tab, index) => (
               <button
                 key={index}
-                className={`cursor-pointer px-4 py-2 rounded-full flex items-center gap-2 sm:gap-3 text-sm transition whitespace-nowrap hover:text-black hover:bg-white  ${
+                className={`cursor-pointer lg:px-4 lg:py-2 px-2.5 py-1 rounded-full flex items-center gap-2 sm:gap-3 text-sm transition whitespace-nowrap hover:text-black hover:bg-white  ${
                   activeIndex === index ? "text-black bg-white" : "text-white"
                 }`}
                 onMouseEnter={() => {
@@ -602,6 +602,7 @@ export default function Hero() {
                       ? "black"
                       : "white"
                   }
+                  className="lg:block hidden"
                 />
                 <p>{tab.title}</p>
               </button>
@@ -639,19 +640,27 @@ export default function Hero() {
                   }}
                 >
                   <div
-                    className="lg:h-[55%] h-[80%] description flex flex-col gap-5   justify-center items-center lg:items-start lg:pl-[6%] w-full "
+                    className="lg:h-[55%] h-[90%] description flex flex-col gap-5   justify-center items-center lg:items-start lg:pl-[6%] w-full "
                     data-index={index}
                   >
                     <div className="max-w-[90%] lg:max-w-[100%]">
                       <p className="text-white text-4xl sm:text-5xl lg:text-6xl font-semibold text-center lg:text-left satoshi">
                         {tabs[index].title}
                       </p>
-                      <p className={`text-white lg:text-xl sm:text-lg ${index <= 3 ? "max-w-3xl" : index == 6 ? "max-w-[24rem]" : "max-w-xl"} text-center sm:text-left mx-auto sm:mx-0 mt-5`}>
+                      <p
+                        className={`text-white lg:text-xl sm:text-lg ${
+                          index <= 3
+                            ? "max-w-3xl"
+                            : index == 6
+                            ? "max-w-[24rem]"
+                            : "max-w-xl"
+                        } text-center sm:text-left mx-auto sm:mx-0 mt-5`}
+                      >
                         {tabs[index].description}
                       </p>
                     </div>
 
-                    <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:mt-8 justify-center sm:justify-start w-full max-w-[350px] lg:max-w-[500px]">
+                    <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 mt-8 justify-center sm:justify-start w-full max-w-[350px] lg:max-w-[500px]">
                       <button
                         onClick={() =>
                           (window.location.href = tabs[index].link)
