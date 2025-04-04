@@ -46,7 +46,6 @@ import travel2 from "@/assets/images/travel2.png";
 import travel3 from "@/assets/images/travel3.png";
 import Marquee from "./Marquee";
 
-
 interface Tab {
   id: string;
   title: string;
@@ -567,11 +566,11 @@ export default function Hero() {
       </div>
 
       {/* Menu Desktop View */}
-      <div className="hero-container lg:p-8 bg-white" ref={heroContainerRef}>
+      <div className="hero-container  bg-white" ref={heroContainerRef}>
         {/* tabs and logos  */}
-        <div className="fixed lg:left-[6%] lg:bottom-[20%] bottom-[10%] w-full lg:w-max z-50 flex flex-col lg:flex-row justify-between items-center gap-4 mt-1">
+        <div className="fixed lg:left-[5%] lg:bottom-[20%] bottom-[10%] w-full lg:w-max z-50 flex flex-col lg:flex-row justify-between items-center gap-4 mt-1">
           <div
-            className="flex flex-wrap justify-center lg:justify-start gap-3 lg:gap-4 lg:max-w-[850px] relative "
+            className="flex flex-wrap justify-center lg:justify-start gap-3 lg:gap-4 lg:max-w-[850px] relative"
             ref={tabsContainerRef}
           >
             <div
@@ -611,27 +610,14 @@ export default function Hero() {
         </div>
 
         <div
-          className="racesWrapper  w-full lg:overflow-hidden lg:rounded-xl max-w-full mx-auto flex justify-between relative"
+          className="racesWrapper  w-full lg:overflow-hidden  max-w-full mx-auto flex justify-between relative"
           ref={wrapperRef}
         >
-          <div
-            className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40 z-10 pointer-events-none"
-            style={{
-              backgroundImage: `
-        linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.201792) 50.45%, rgba(0, 0, 0, 0.4) 100%),
-        linear-gradient(180deg, rgba(0, 0, 0, 0) 67.7%, rgba(0, 0, 0, 0.399908) 86.53%, rgba(0, 0, 0, 0.8) 105.36%),
-        linear-gradient(0deg, rgba(0, 0, 0, 0) 81.66%, rgba(0, 0, 0, 0.4) 110.95%)
-      `,
-            }}
-          />
           {/* scroll animation!!  */}
           <Marquee variant="homeHero" />
           {/* End of infinite scroll animation  */}
 
-          <div
-            className="races !max-h-[100vh] lg:!max-h-[92vh] w-full"
-            ref={racesRef}
-          >
+          <div className="races !max-h-[100vh]  w-full" ref={racesRef}>
             {tabs.map((tab, index: number) => (
               <div key={index} className="racesDiv">
                 <Image
@@ -640,25 +626,32 @@ export default function Hero() {
                   alt={`Images ${index}`}
                   width={1920}
                   height={150}
-                  className="relative object-center object-cover"
+                  // className="relative object-center object-cover"
                   style={{ zIndex: 0 }}
                 />
 
-                <div className="description-container  w-full !z-50  ">
+                <div
+                  className="description-container  w-full  "
+                  style={{
+                    backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.201792) 50.45%, rgba(0, 0, 0, 0.4) 100%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 67.7%, rgba(0, 0, 0, 0.399908) 86.53%, rgba(0, 0, 0, 0.8) 105.36%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0) 81.66%, rgba(0, 0, 0, 0.4) 110.95%)`,
+                  }}
+                >
                   <div
-                    className="description flex flex-col gap-5 my-[20%] lg:my-0 justify-center items-center lg:items-start lg:pl-[100px] w-full "
+                    className="lg:h-[50%] h-[80%] description flex flex-col gap-5   justify-center items-center lg:items-start lg:pl-[6%] w-full "
                     data-index={index}
                   >
                     <div className="max-w-[90%] lg:max-w-[100%]">
-                      <p className="!text-white text-4xl sm:text-5xl lg:text-6xl font-semibold text-center lg:text-left satoshi">
+                      <p className="text-white text-4xl sm:text-5xl lg:text-6xl font-semibold text-center lg:text-left satoshi">
                         {tabs[index].title}
                       </p>
-                      <p className="!text-white text-base sm:text-lg max-w-2xl text-center sm:text-left mx-auto sm:mx-0">
+                      <p className="text-white text-base sm:text-lg max-w-2xl text-center sm:text-left mx-auto sm:mx-0">
                         {tabs[index].description}
                       </p>
                     </div>
 
-                    <div className="!z-50 flex flex-col lg:flex-row gap-4 sm:gap-6 justify-center sm:justify-start w-full max-w-[350px] lg:max-w-[500px]">
+                    <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 justify-center sm:justify-start w-full max-w-[350px] lg:max-w-[500px]">
                       <button
                         onClick={() =>
                           (window.location.href = tabs[index].link)
