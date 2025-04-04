@@ -13,7 +13,7 @@ import ArrowUpRight from "@/assets/svg/arrow-up-right.svg";
 import Image from "next/image";
 import Link from "next/link";
 import MenuTooltip from "./MenuTooltip";
-
+import { useRouter, usePathname } from "next/navigation";
 
 type ExpandableMenuProps = {
   toggleMenu: () => void;
@@ -91,6 +91,7 @@ function ContactTemplate({
   );
 }
 const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
+  const pathname = usePathname();
   const homeImage =
     "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fmenu%2Fmenu-home.webp&version_id=null";
   const productsImage =
@@ -141,7 +142,6 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
         title: "HOME",
         href: "/",
         highlighted: true,
-        active: true,
         image: homeImage,
       },
       { title: "LEISURE", href: "#", image: homeImage },
@@ -198,10 +198,21 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
     ],
   };
 
-  // Update the main content container
+  // Helper function to check if a menu item is active based on URL
+  const isActive = (href: string): boolean => {
+    // For home page
+    if (href === "/" && pathname === "/") {
+      return true;
+    }
+
+    // For other pages, check if the pathname starts with the href
+    // This ensures '/corporate' matches both '/corporate' and '/corporate/something'
+    return href !== "/" && pathname === href;
+  };
+
   return (
     <motion.div
-      className="fixed z-60 "
+      className="fixed z-60"
       initial={{
         top: headerRect.top,
         left: headerRect.left,
@@ -228,7 +239,7 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
     >
       {/* Content container - Updated for mobile scrolling */}
       <motion.div
-        className="w-full h-full overflow-hidden"
+        className="w-full h-full !overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
@@ -240,7 +251,7 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
         }}
       >
         {/* Added overflow-y-auto to the outer container for mobile */}
-        <div className="p-[30px] font-satoshi h-full overflow-hidden z-30">
+        <div className="p-[30px] font-satoshi h-full !overflow-hidden z-30">
           {/* Header menu for mobile view  */}
           <div className=" justify-between flex lg:hidden p-6">
             {/* Logo in expanded view */}
@@ -338,89 +349,101 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
                   <div className="flex justify-between w-full md:flex-row flex-col pt-4 md:pt-8 gap-6 md:gap-0">
                     {/* Left Column */}
                     <div className="flex flex-col gap-3">
-                      {leftColumn.items.map((item, index) => (
-                        <div key={`left-${index}`} className="relative group">
-                          <Link
-                            href={item.href}
-                            onMouseEnter={() =>
-                              setImageDisplay(item.image ? item.image : "")
-                            }
-                            className={`text-base transition-all duration-200 hover:text-[#00537F] inline-flex items-center ${
-                              item.highlighted
-                                ? "text-[#00537F] font-medium"
-                                : "text-gray-700 hover:text-[#333333] hover:font-medium"
-                            } ${
-                              item.active
-                                ? "underline"
-                                : "no-underline group-hover:translate-x-6"
-                            }`}
-                          >
-                            {item.title}
-                          </Link>
-                          <div
-                            className={`${
-                              item.active
-                                ? "hidden"
-                                : "absolute left-0 bottom-[25%] opacity-0 transform scale-75 translate-y-3 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100"
-                            }`}
-                          >
-                            <Image
-                              src={ArrowUpRight}
-                              alt="Arrow Up Right"
-                              width={10}
-                              height={10}
-                              className={`${
-                                !item.highlighted
-                                  ? "brightness-75 sepia-100 hue-rotate-180" // Cobalt to black
-                                  : ""
+                      {leftColumn.items.map((item, index) => {
+                        const active = isActive(item.href);
+                        return (
+                          <div key={`left-${index}`} className="relative group">
+                            <Link
+                              href={item.href}
+                              onMouseEnter={() =>
+                                setImageDisplay(item.image ? item.image : "")
+                              }
+                              className={`text-base transition-all duration-200 hover:text-[#00537F] inline-flex items-center ${
+                                item.highlighted
+                                  ? "text-[#00537F] font-medium"
+                                  : "text-gray-700 hover:text-[#333333] hover:font-medium"
+                              } ${
+                                active
+                                  ? "underline"
+                                  : "no-underline group-hover:translate-x-6"
                               }`}
-                            />
+                            >
+                              {item.title}
+                            </Link>
+
+                            <div
+                              className={`${
+                                pathname === item.href || item.active
+                                  ? "hidden"
+                                  : "absolute left-0 bottom-[25%] opacity-0 transform scale-75 translate-y-3 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100"
+                              }`}
+                            >
+                              <Image
+                                src={ArrowUpRight}
+                                alt="Arrow Up Right"
+                                width={10}
+                                height={10}
+                                className={`${
+                                  !item.highlighted
+                                    ? "brightness-75 sepia-100 hue-rotate-180" // Cobalt to black
+                                    : ""
+                                }`}
+                              />
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
 
                     {/* Right Column */}
                     <div className="flex flex-col gap-3">
-                      {rightColumn.items.map((item, index) => (
-                        <div key={`right-${index}`} className="relative group">
-                          <Link
-                            onMouseEnter={() => setImageDisplay(productsImage)}
-                            href={item.href}
-                            key={`right-${index}`}
-                            className={`text-base transition-all duration-200 hover:text-[#00537F] inline-flex items-center ${
-                              item.highlighted
-                                ? "text-[#00537F] font-medium"
-                                : "text-gray-700 hover:text-[#333333] hover:font-medium"
-                            } ${
-                              item.active
-                                ? "underline"
-                                : "no-underline group-hover:translate-x-6"
-                            }`}
-                          >
-                            {item.title}
-                          </Link>
+                      {rightColumn.items.map((item, index) => {
+                        const active = isActive(item.href);
+                        return (
                           <div
-                            className={`${
-                              item.active
-                                ? "hidden"
-                                : "absolute left-0 bottom-[25%] opacity-0 transform scale-75 translate-y-3 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100"
-                            }`}
+                            key={`right-${index}`}
+                            className="relative group"
                           >
-                            <Image
-                              src={ArrowUpRight}
-                              alt="Arrow Up Right"
-                              width={10}
-                              height={10}
-                              className={`${
-                                !item.highlighted
-                                  ? "brightness-75 sepia-100 hue-rotate-180"
-                                  : ""
+                            <Link
+                              onMouseEnter={() =>
+                                setImageDisplay(productsImage)
+                              }
+                              href={item.href}
+                              key={`right-${index}`}
+                              className={`text-base transition-all duration-200 hover:text-[#00537F] inline-flex items-center ${
+                                item.highlighted
+                                  ? "text-[#00537F] font-medium"
+                                  : "text-gray-700 hover:text-[#333333] hover:font-medium"
+                              } ${
+                                active
+                                  ? "underline"
+                                  : "no-underline group-hover:translate-x-6"
                               }`}
-                            />
+                            >
+                              {item.title}
+                            </Link>
+                            <div
+                              className={`${
+                                pathname === item.href || item.active
+                                  ? "hidden"
+                                  : "absolute left-0 bottom-[25%] opacity-0 transform scale-75 translate-y-3 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100"
+                              }`}
+                            >
+                              <Image
+                                src={ArrowUpRight}
+                                alt="Arrow Up Right"
+                                width={10}
+                                height={10}
+                                className={`${
+                                  !item.highlighted
+                                    ? "brightness-75 sepia-100 hue-rotate-180"
+                                    : ""
+                                }`}
+                              />
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
 
                     <div className="flex flex-col gap-1">
@@ -432,19 +455,17 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
                             setImageDisplay(contactImage);
                           }}
                           onMouseLeave={() => setIsContactUsHovered(false)}
-                          className={`text-base  cursor-pointer transition-all duration-200 text-[#00537F] font-medium hover:text-[#00537F] inline-flex items-center 
-                          
-                        ${
-                          !isContactUsHovered
-                            ? ""
-                            : "no-underline group-hover:translate-x-6"
-                        }`}
+                          className={`text-base cursor-pointer transition-all duration-200 text-[#00537F] font-medium hover:text-[#00537F] inline-flex items-center ${
+                            pathname === "/contact-us"
+                              ? "underline"
+                              : "no-underline group-hover:translate-x-6"
+                          }`}
                         >
                           CONTACT US
                         </p>
                         <div
                           className={`${
-                            !isContactUsHovered
+                            pathname === "/contact-us" || !isContactUsHovered
                               ? "hidden"
                               : "absolute left-0 bottom-[25%] opacity-0 transform scale-75 translate-y-3 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100"
                           }`}
