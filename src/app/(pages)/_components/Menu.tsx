@@ -239,7 +239,7 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
     >
       {/* Content container - Updated for mobile scrolling */}
       <motion.div
-        className="w-full h-full !overflow-hidden"
+        className="w-screen h-screen !overflow-hidden "
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
@@ -251,7 +251,7 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
         }}
       >
         {/* Added overflow-y-auto to the outer container for mobile */}
-        <div className="p-[30px] font-satoshi h-full !overflow-hidden z-30">
+        <div className="p-[30px] font-satoshi w-screen h-screen !overflow-hidden z-30">
           {/* Header menu for mobile view  */}
           <div className=" justify-between flex lg:hidden p-6">
             {/* Logo in expanded view */}
@@ -286,8 +286,8 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
           </div>
 
           {/* Start of the  body (gray bg) */}
-          <div className="px-[28px] py-[28px] bg-[#FAFAFA]">
-            <div className="w-full max-w-[1280px] mx-auto flex flex-col gap-[32px] ">
+          <div className="w-full h-full px-[28px] py-[28px] bg-[#FAFAFA]">
+            <div className="w-full h-full max-w-[1200px] mx-auto flex flex-col  gap-[32px]">
               {/* Header of the menu */}
               <div className=" justify-between hidden lg:flex">
                 {/* Logo in expanded view */}
@@ -322,14 +322,14 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
               </div>
 
               {/* Updated Body layout for mobile scrolling */}
-              <div className="flex lg:gap-[48px]">
-                <div className="relative h-[650px] !w-[600px] hidden lg:block">
+              <div className="w-full h-full flex lg:gap-[48px] ">
+                <div className="relative h-screen !w-[600px] hidden lg:block">
                   <Image
                     src={currentImage}
                     alt="logo"
                     width={600}
                     height={650}
-                    className={`h-[650px] !w-[600px] object-cover absolute transition-all duration-500 ease-in-out ${
+                    className={` !w-[600px] object-cover absolute transition-all duration-500 ease-in-out ${
                       isChanging
                         ? "opacity-0 translate-y-8"
                         : "opacity-100 translate-y-0"
@@ -338,7 +338,7 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
                 </div>
 
                 {/* Updated with max-height and overflow for mobile */}
-                <div className="flex w-full flex-col gap-6 md:justify-between md:h-full overflow-y-auto max-h-[70vh] md:max-h-none">
+                <div className=" flex w-full flex-col gap-6  md:h-full overflow-y-auto md:max-h-none">
                   {/* Menu content (three rows) */}
                   <div>
                     <p className="text-[#333333A6] font-semibold">
@@ -346,9 +346,9 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
                     </p>
                   </div>
 
-                  <div className="flex justify-between w-full md:flex-row flex-col pt-4 md:pt-8 gap-6 md:gap-0">
+                  <div className="flex justify-around w-full md:flex-row flex-col pt-4 md:pt-8 gap-6 md:gap-0">
                     {/* Left Column */}
-                    <div className="flex flex-col gap-3">
+                    <div className="w-full flex flex-col gap-3 ">
                       {leftColumn.items.map((item, index) => {
                         const active = isActive(item.href);
                         return (
@@ -396,7 +396,7 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
                     </div>
 
                     {/* Right Column */}
-                    <div className="flex flex-col gap-3">
+                    <div className="w-full  flex flex-col gap-3">
                       {rightColumn.items.map((item, index) => {
                         const active = isActive(item.href);
                         return (
@@ -446,7 +446,7 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
                       })}
                     </div>
 
-                    <div className="flex flex-col gap-1">
+                    <div className="w-full  flex flex-col gap-1">
                       <div className="relative group">
                         <p
                           onClick={() => (window.location.href = "/contact-us")}
