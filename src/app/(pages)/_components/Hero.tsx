@@ -27,710 +27,910 @@ import { IconType } from "react-icons";
 import Beliefs from "./beliefs";
 import InfiniteMenu from "./discVertShaderSource";
 import { partners } from "@/app/partners";
-
+import GridMotion from "./GridMotion";
 import GridMotionMobile from "./GridMotionMobile";
 import Footer from "./Footer";
 import BeliefsMobile from "./BeliefMobile";
 
-import { TravelSlides } from "@/library/TravelSlides";
-import { LocalSlides } from "@/library/LocalSlides";
-import { InternationalSlides } from "@/library/InternationalSlides";
-import { DocumentSlides } from "@/library/DocumentSlides";
-
+import travelSlide1 from "@/assets/images/travel-package-slide.png";
+import travelSlide2 from "@/assets/images/travel-package-slide2.png";
+import travelSlide3 from "@/assets/images/travel-package-slide3.png";
+import local1 from "@/assets/images/local-destination1.png";
+import local2 from "@/assets/images/local-destination2.png";
+import local3 from "@/assets/images/local-destination3.png";
+import international1 from "@/assets/images/international1.png";
+import international2 from "@/assets/images/international2.png";
+import international3 from "@/assets/images/international3.png";
+import travel1 from "@/assets/images/travel1.png";
+import travel2 from "@/assets/images/travel2.png";
+import travel3 from "@/assets/images/travel3.png";
 import Marquee from "./Marquee";
-import GridMotion from "./GridMotion";
-import TravelCarousel from "./TravelOffersCarousel";
+
 
 interface Tab {
-	id: string;
-	title: string;
-	image: StaticImageData | string;
-	description: string;
-	svg: IconType;
-	buttonText1: string;
-	buttonText2: string;
+  id: string;
+  title: string;
+  image: StaticImageData | string;
+  description: string;
+  svg: IconType;
+  buttonText1: string;
+  buttonText2: string;
+  link: string;
 }
 
 const tabs: Tab[] = [
-	{
-		id: "edutourism",
-		title: "EDUTOURISM",
-		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FEduTourism.webp&version_id=null",
-		// edutorism,
-		description: "Immersive tours for all levels of education to enrich your students’ knowledge.",
-		svg: LuGraduationCap,
-		buttonText1: "See where learning takes you",
-		buttonText2: "Contact Us",
-	},
-	{
-		id: "corporate",
-		title: "CORPORATE & BUSINESS",
-		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FCorporate%20and%20Business.webp&version_id=null",
-		// corporate,
-		description: "Personalized services suited for all corporate and business travel needs.",
-		svg: PiBriefcaseMetal,
-		buttonText1: "See how we elevate your business",
-		buttonText2: "Contact Us",
-	},
-	{
-		id: "mice",
-		title: "M.I.C.E",
-		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FMICE.webp&version_id=null",
-		// mice,
-		description: "Meticulously planned events designed for your organization’s success.",
-		svg: HiOutlinePresentationChartLine,
-		buttonText1: "Explore Solutions",
-		buttonText2: "Contact Us",
-	},
-	{
-		id: "travelpackage",
-		title: "TRAVEL PACKAGE ESSENTIALS",
-		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FTravel%20Package%20Essentials.webp&version_id=null",
-		// travel,
-		description: "One SIM, 190+ destinations connecting you anywhere in the world.",
-		svg: FaBusAlt,
-		buttonText1: "Find out what to pack",
-		buttonText2: "Contact Us",
-	},
-	{
-		id: "liveselling",
-		title: "LIVE SELLING",
-		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FLive%20Selling.webp&version_id=null",
-		// liveselling,
-		description: "Exclusive rates and awesome discounts right at your fingertips! Book now on our TikTok live selling hours.",
-		svg: TbMessage2Heart,
-		buttonText1: "Capture discounts and live updates",
-		buttonText2: "Contact Us",
-	},
-	{
-		id: "onlinestore",
-		title: "ONLINE STORE",
-		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FOnline%20Store.webp&version_id=null",
-		// onlinestore,
-		description: "One-stop shop packed with an array of options for all travelers. Explore our selections at tours.walktheplanet.com",
-		svg: RiShoppingCart2Line,
-		buttonText1: "See what's new in store",
-		buttonText2: "Contact Us",
-	},
-	{
-		id: "aboutus",
-		title: "ABOUT US",
-		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FAbout%20Us.webp&version_id=null",
-		// aboutus,
-		description: "Exclusive Travel, Unique Experiences. Get to know who we are and where we play.",
-		svg: AiOutlineHeart,
-		buttonText1: "Find out what drives us",
-		buttonText2: "Contact Us",
-	},
+  {
+    id: "edutourism",
+    title: "EDUTOURISM",
+    image:
+      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FEduTourism.webp&version_id=null",
+    // edutorism,
+    description:
+      "Immersive tours for all levels of education to enrich your students’ knowledge.",
+    svg: LuGraduationCap,
+    buttonText1: "See where learning takes you",
+    buttonText2: "Contact Us",
+    link: "#",
+  },
+  {
+    id: "corporate",
+    title: "CORPORATE & BUSINESS",
+    image:
+      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FCorporate%20and%20Business.webp&version_id=null",
+    // corporate,
+    description:
+      "Personalized services suited for all corporate and business travel needs.",
+    svg: PiBriefcaseMetal,
+    buttonText1: "See how we elevate your business",
+    buttonText2: "Contact Us",
+    link: "/corporate",
+  },
+  {
+    id: "mice",
+    title: "M.I.C.E",
+    image:
+      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FMICE.webp&version_id=null",
+    // mice,
+    description:
+      "Meticulously planned events designed for your organization’s success.",
+    svg: HiOutlinePresentationChartLine,
+    buttonText1: "Explore Solutions",
+    buttonText2: "Contact Us",
+    link: "#",
+  },
+  {
+    id: "travelpackage",
+    title: "TRAVEL PACKAGE ESSENTIALS",
+    image:
+      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FTravel%20Package%20Essentials.webp&version_id=null",
+    // travel,
+    description:
+      "One SIM, 190+ destinations connecting you anywhere in the world.",
+    svg: FaBusAlt,
+    buttonText1: "Find out what to pack",
+    buttonText2: "Contact Us",
+    link: "#",
+  },
+  {
+    id: "liveselling",
+    title: "LIVE SELLING",
+    image:
+      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FLive%20Selling.webp&version_id=null",
+    // liveselling,
+    description:
+      "Exclusive rates and awesome discounts right at your fingertips! Book now on our TikTok live selling hours.",
+    svg: TbMessage2Heart,
+    buttonText1: "Capture discounts and live updates",
+    buttonText2: "Contact Us",
+    link: "#",
+  },
+  {
+    id: "onlinestore",
+    title: "ONLINE STORE",
+    image:
+      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FOnline%20Store.webp&version_id=null",
+    // onlinestore,
+    description:
+      "One-stop shop packed with an array of options for all travelers. Explore our selections at tours.walktheplanet.com",
+    svg: RiShoppingCart2Line,
+    buttonText1: "See what's new in store",
+    buttonText2: "Contact Us",
+    link: "#",
+  },
+  {
+    id: "aboutus",
+    title: "ABOUT US",
+    image:
+      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FAbout%20Us.webp&version_id=null",
+    // aboutus,
+    description:
+      "Exclusive Travel, Unique Experiences. Get to know who we are and where we play.",
+    svg: AiOutlineHeart,
+    buttonText1: "Find out what drives us",
+    buttonText2: "Contact Us",
+    link: "#",
+  },
 ];
 
 export default function Hero() {
-	// const [activeIndex, setActiveIndex] = useState(0);
-	//! For the full screen menu animation
-	const [isOpenDesktop, setIsOpenDesktop] = useState(false);
-	const [isOpenMobile, setIsOpenMobile] = useState(false);
+  // const [activeIndex, setActiveIndex] = useState(0);
+  //! For the full screen menu animation
+  const [isOpenDesktop, setIsOpenDesktop] = useState(false);
+  const [isOpenMobile, setIsOpenMobile] = useState(false);
 
-	//! Slide Section
-	const sectionRef = useRef<HTMLDivElement>(null);
-	const scrollDelta = useRef(0);
-	// const [scrollProgress, setScrollProgress] = useState(0);
-	const [isActive, setIsActive] = useState(false);
+  //! Slide Section
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const scrollDelta = useRef(0);
+  // const [scrollProgress, setScrollProgress] = useState(0);
+  const [isActive, setIsActive] = useState(false);
 
-	const totalScrollRequired = 1000;
-	const scrollProgressRef = useRef(0);
+  const totalScrollRequired = 1000;
+  const scrollProgressRef = useRef(0);
 
-	const [isMobileView, setIsMobileView] = useState(false);
+  useEffect(() => {
+    const target = sectionRef.current;
 
-	useEffect(() => {
-		// Function to update state based on window width
-		const handleResize = () => {
-			setIsMobileView(window.innerWidth < 768); // Adjust breakpoint as needed
-		};
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsActive(true);
+        } else {
+          setIsActive(false);
+          document.body.style.overflow = "";
 
-		// Call once to set initial state
-		handleResize();
+          // Only reset if user scrolls upwards to the top
+          if (scrollProgressRef.current < 0) {
+            scrollDelta.current = 0;
+            scrollProgressRef.current = 0;
+            // setScrollProgress(0);
+          }
+        }
+      },
+      { threshold: 0.9 }
+    );
 
-		// Add event listener
-		window.addEventListener("resize", handleResize);
+    if (target) observer.observe(target);
 
-		// Cleanup event listener on unmount
-		return () => window.removeEventListener("resize", handleResize);
-	}, []);
+    return () => {
+      if (target) observer.unobserve(target);
+    };
+  }, []);
 
-	useEffect(() => {
-		const target = sectionRef.current;
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      if (!isActive) return;
 
-		const observer = new IntersectionObserver(
-			([entry]) => {
-				if (entry.isIntersecting) {
-					setIsActive(true);
-				} else {
-					setIsActive(false);
-					document.body.style.overflow = "";
+      const currentProgress = scrollProgressRef.current;
 
-					// Only reset if user scrolls upwards to the top
-					if (scrollProgressRef.current < 0) {
-						scrollDelta.current = 0;
-						scrollProgressRef.current = 0;
-						// setScrollProgress(0);
-					}
-				}
-			},
-			{ threshold: 0.9 }
-		);
+      // Prevent scrolling if section is fully collapsed or fully expanded
+      if (
+        (currentProgress <= 0 && e.deltaY < 0) ||
+        (currentProgress >= 1 && e.deltaY > 0)
+      ) {
+        document.body.style.overflow = "";
+        return;
+      }
 
-		if (target) observer.observe(target);
+      e.preventDefault();
+      document.body.style.overflow = "hidden";
 
-		return () => {
-			if (target) observer.unobserve(target);
-		};
-	}, []);
+      scrollDelta.current += e.deltaY;
+      scrollDelta.current = Math.max(
+        0,
+        Math.min(scrollDelta.current, totalScrollRequired)
+      );
 
-	useEffect(() => {
-		const handleWheel = (e: WheelEvent) => {
-			if (!isActive) return;
+      const progress = scrollDelta.current / totalScrollRequired;
+      scrollProgressRef.current = progress;
+      // setScrollProgress(progress);
 
-			const currentProgress = scrollProgressRef.current;
+      //  a delay before enabling scrolling
+      if (progress >= 1) {
+        setTimeout(() => {
+          document.body.style.overflow = "";
+        }, 2000); // Delay to prevent skipping
+      }
+    };
 
-			// Prevent scrolling if section is fully collapsed or fully expanded
-			if ((currentProgress <= 0 && e.deltaY < 0) || (currentProgress >= 1 && e.deltaY > 0)) {
-				document.body.style.overflow = "";
-				return;
-			}
+    window.addEventListener("wheel", handleWheel, { passive: false });
 
-			e.preventDefault();
-			document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("wheel", handleWheel);
+    };
+  }, [isActive]);
 
-			scrollDelta.current += e.deltaY;
-			scrollDelta.current = Math.max(0, Math.min(scrollDelta.current, totalScrollRequired));
+  //! For Navigation Menu
+  const headerRef = useRef<HTMLDivElement>(null);
+  const headerRefMobile = useRef<HTMLDivElement>(null);
+  const [headerRect, setHeaderRect] = useState({
+    top: 0,
+    left: 0,
+    width: 0,
+    height: 0,
+  });
 
-			const progress = scrollDelta.current / totalScrollRequired;
-			scrollProgressRef.current = progress;
-			// setScrollProgress(progress);
+  const [headerRectMobile, setHeaderRectMobile] = useState({
+    top: 0,
+    left: 0,
+    width: 0,
+    height: 0,
+  });
 
-			//  a delay before enabling scrolling
-			if (progress >= 1) {
-				setTimeout(() => {
-					document.body.style.overflow = "";
-				}, 2000); // Delay to prevent skipping
-			}
-		};
+  const toggleMenu = () => {
+    if (!isOpenDesktop && headerRef.current) {
+      const rect = headerRef.current.getBoundingClientRect();
+      setHeaderRect({
+        top: rect.top,
+        left: rect.left,
+        width: rect.width,
+        height: rect.height,
+      });
+    }
+    setIsOpenDesktop(!isOpenDesktop);
+  };
 
-		window.addEventListener("wheel", handleWheel, { passive: false });
+  const toggleMenuMobile = () => {
+    if (!isOpenMobile && headerRefMobile.current) {
+      const rect = headerRefMobile.current.getBoundingClientRect();
+      setHeaderRectMobile({
+        top: rect.top,
+        left: rect.left,
+        width: rect.width,
+        height: rect.height,
+      });
+    }
+    setIsOpenMobile(!isOpenMobile);
+  };
 
-		return () => {
-			document.body.style.overflow = "";
-			window.removeEventListener("wheel", handleWheel);
-		};
-	}, [isActive]);
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isOpenDesktop || isOpenMobile) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
 
-	//! For Navigation Menu
-	const headerRef = useRef<HTMLDivElement>(null);
-	const headerRefMobile = useRef<HTMLDivElement>(null);
-	const [headerRect, setHeaderRect] = useState({
-		top: 0,
-		left: 0,
-		width: 0,
-		height: 0,
-	});
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpenDesktop, isOpenMobile]);
 
-	const [headerRectMobile, setHeaderRectMobile] = useState({
-		top: 0,
-		left: 0,
-		width: 0,
-		height: 0,
-	});
+  //! For horizontal scroll effect
+  const racesRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const heroContainerRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [hoveredTab, setHoveredTab] = useState<number>();
 
-	const toggleMenu = () => {
-		if (!isOpenDesktop && headerRef.current) {
-			const rect = headerRef.current.getBoundingClientRect();
-			setHeaderRect({
-				top: rect.top,
-				left: rect.left,
-				width: rect.width,
-				height: rect.height,
-			});
-		}
-		setIsOpenDesktop(!isOpenDesktop);
-	};
+  //! Sliding animation for the tabs
+  const tabsContainerRef = useRef<HTMLDivElement>(null);
+  const slideRef = useRef<HTMLDivElement>(null);
+  const [initialRender, setInitialRender] = useState(true);
 
-	const toggleMenuMobile = () => {
-		if (!isOpenMobile && headerRefMobile.current) {
-			const rect = headerRefMobile.current.getBoundingClientRect();
-			setHeaderRectMobile({
-				top: rect.top,
-				left: rect.left,
-				width: rect.width,
-				height: rect.height,
-			});
-		}
-		setIsOpenMobile(!isOpenMobile);
-	};
+  const goToSlide = (index: number) => {
+    // Set the active index
+    setActiveIndex(index);
 
-	// Prevent scrolling when menu is open
-	useEffect(() => {
-		if (isOpenDesktop || isOpenMobile) {
-			document.body.style.overflow = "hidden";
-		} else {
-			document.body.style.overflow = "unset";
-		}
+    // Get the ScrollTrigger instance
+    const st = ScrollTrigger.getById("main-scroll");
 
-		return () => {
-			document.body.style.overflow = "unset";
-		};
-	}, [isOpenDesktop, isOpenMobile]);
+    if (st) {
+      const targetPosition =
+        st.start + (st.end - st.start) * (index / (tabs.length - 1));
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
 
-	//! For horizontal scroll effect
-	const racesRef = useRef<HTMLDivElement>(null);
-	const wrapperRef = useRef<HTMLDivElement>(null);
-	const heroContainerRef = useRef<HTMLDivElement>(null);
-	const [mounted, setMounted] = useState(false);
-	const [activeIndex, setActiveIndex] = useState(0);
-	const [hoveredTab, setHoveredTab] = useState<number>();
+  useEffect(() => {
+    setMounted(true);
+    window.scrollTo(0, 0);
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrollTrigger);
 
-	//! Sliding animation for the tabs
-	const tabsContainerRef = useRef<HTMLDivElement>(null);
-	const slideRef = useRef<HTMLDivElement>(null);
-	const [initialRender, setInitialRender] = useState(true);
+    // Only run the animation after the component is mounted
+    if (mounted) {
+      const races = racesRef.current;
 
-	const goToSlide = (index: number) => {
-		// Set the active index
-		setActiveIndex(index);
+      // Function to calculate the scroll amount based on current dimensions
+      const getScrollAmount = () => {
+        const racesWidth = races!.scrollWidth;
+        return -(racesWidth - window.innerWidth);
+      };
 
-		// Get the ScrollTrigger instance
-		const st = ScrollTrigger.getById("main-scroll");
+      // Create the horizontal scrolling animation
+      const tween = gsap.to(races, {
+        x: getScrollAmount,
+        duration: 3,
+        ease: "none",
+      });
 
-		if (st) {
-			const targetPosition = st.start + (st.end - st.start) * (index / (tabs.length - 1));
-			window.scrollTo({
-				top: targetPosition,
-				behavior: "smooth",
-			});
-		}
-	};
+      // Create the ScrollTrigger
+      const st = ScrollTrigger.create({
+        trigger: heroContainerRef.current,
+        start: "top top",
+        end: () => `+=${Math.abs(getScrollAmount())}`, // Use absolute value and ensure it's positive
+        pin: true,
+        animation: tween,
+        scrub: 1,
+        id: "main-scroll",
+        invalidateOnRefresh: true,
+        markers: false,
+        anticipatePin: 1,
+        // fastScrollEnd: true,
+        // preventOverlaps: true,
+        snap: {
+          snapTo: (value) => {
+            // Calculate the closest snap point (7 images = 7 points from 0 to 1)
+            const snapPoints = [];
+            for (let i = 0; i < tabs.length; i++) {
+              snapPoints.push(i / (tabs.length - 1));
+            }
+            // Find the closest snap point
+            const closest = snapPoints.reduce((prev, curr) => {
+              return Math.abs(curr - value) < Math.abs(prev - value)
+                ? curr
+                : prev;
+            });
+            return closest;
+          },
+          duration: 0.2,
+          ease: "power1.inOut",
+        },
+        onUpdate: (self) => {
+          // Calculate which slide is active based on the progress
+          const progress = self.progress;
+          const rawIndex = progress * (tabs.length - 1);
+          const currentIndex = Math.round(rawIndex);
+          setActiveIndex(currentIndex);
+        },
 
-	useEffect(() => {
-		setMounted(true);
-		window.scrollTo(0, 0);
-		// Register GSAP plugins
-		gsap.registerPlugin(ScrollTrigger);
+        onRefresh: () => {
+          // Update the animation target when window is resized
+          tween.vars.x = getScrollAmount();
+          tween.invalidate();
+        },
+      });
 
-		// Only run the animation after the component is mounted
-		if (mounted) {
-			const races = racesRef.current;
+      // Set initial state for all descriptions
+      gsap.set(".description", {
+        opacity: 0,
+        y: 150,
+        position: "absolute",
+        top: "0%",
+        left: "0%",
+        width: "100%",
+      });
 
-			// Function to calculate the scroll amount based on current dimensions
-			const getScrollAmount = () => {
-				const racesWidth = races!.scrollWidth;
-				return -(racesWidth - window.innerWidth);
-			};
+      // Select all description elements
+      const descriptions = document.querySelectorAll(".description");
 
-			// Create the horizontal scrolling animation
-			const tween = gsap.to(races, {
-				x: getScrollAmount,
-				duration: 3,
-				ease: "none",
-			});
+      // Create individual animations for each description
+      descriptions.forEach((desc, index) => {
+        gsap.to(desc, {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "circ.out",
+          scrollTrigger: {
+            trigger: desc.parentElement, // The container holding the description
+            containerAnimation: tween,
+            start: "left center",
+            toggleActions: "restart none restart reverse",
+            id: `desc-${index}`,
+            markers: false,
+          },
+        });
+      });
 
-			// Create the ScrollTrigger
-			const st = ScrollTrigger.create({
-				trigger: heroContainerRef.current,
-				start: "top top",
-				end: () => `+=${Math.abs(getScrollAmount())}`, // Use absolute value and ensure it's positive
-				pin: true,
-				animation: tween,
-				scrub: 1,
-				id: "main-scroll",
-				invalidateOnRefresh: true,
-				markers: false,
-				anticipatePin: 1,
-				// fastScrollEnd: true,
-				// preventOverlaps: true,
-				snap: {
-					snapTo: (value) => {
-						// Calculate the closest snap point (7 images = 7 points from 0 to 1)
-						const snapPoints = [];
-						for (let i = 0; i < tabs.length; i++) {
-							snapPoints.push(i / (tabs.length - 1));
-						}
-						// Find the closest snap point
-						const closest = snapPoints.reduce((prev, curr) => {
-							return Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev;
-						});
-						return closest;
-					},
-					duration: 0.2,
-					ease: "power1.inOut",
-				},
-				onUpdate: (self) => {
-					// Calculate which slide is active based on the progress
-					const progress = self.progress;
-					const rawIndex = progress * (tabs.length - 1);
-					const currentIndex = Math.round(rawIndex);
-					setActiveIndex(currentIndex);
-				},
+      //! Cards travel offers
+      const calculateSpacer = () => {
+        // For larger screens, use larger spacing
+        if (window.innerWidth >= 1200) {
+          return 80; // 15% of viewport height on large screens
+        }
+        // For medium screens
+        else if (window.innerWidth > 768) {
+          return 50; // 12% of viewport height on medium screens
+        }
+        // For smaller screens and mobile devices
+        else {
+          return 50; // 8% of viewport height on small screens
+        }
+      };
 
-				onRefresh: () => {
-					// Update the animation target when window is resized
-					tween.vars.x = getScrollAmount();
-					tween.invalidate();
-				},
-			});
+      // Set the dynamic spacer
+      const spacer = calculateSpacer();
 
-			// Set initial state for all descriptions
-			gsap.set(".description", {
-				opacity: 0,
-				y: 50,
-				position: "absolute",
-				top: "20%",
-				left: "0%",
-				bottom: "20%",
-				width: "100%",
-			});
+      // const spacer = 50;
+      const cards = gsap.utils.toArray<HTMLElement>(".card");
+      // Set width for all cards to be the same
+      // gsap.set(cards, {
+      //   width: "100%", // Set all cards to the same width (adjust percentage as needed)
+      // });
 
-			// Select all description elements
-			const descriptions = document.querySelectorAll(".description");
+      // // First card starts visible
+      // gsap.set(cards[0], {
+      //   width: "100%", // First card starts at full width
+      // });
 
-			// Create individual animations for each description
-			descriptions.forEach((desc, index) => {
-				gsap.to(desc, {
-					y: 0,
-					opacity: 1,
-					duration: 1,
-					ease: "circ.out",
-					scrollTrigger: {
-						trigger: desc.parentElement, // The container holding the description
-						containerAnimation: tween,
-						start: "left center",
-						toggleActions: "restart none restart reverse",
-						id: `desc-${index}`,
-						markers: false,
-					},
-				});
-			});
+      // Position other cards off-screen initially
+      gsap.set(cards.slice(1), {
+        y: (index) => window.innerHeight / 2 + spacer * index,
+      });
 
-			//! Cards travel offers
-			const calculateSpacer = () => {
-				// For larger screens, use larger spacing
-				if (window.innerWidth >= 1200) {
-					return 80; // 15% of viewport height on large screens
-				}
-				// For medium screens
-				else if (window.innerWidth > 768) {
-					return 50; // 12% of viewport height on medium screens
-				}
-				// For smaller screens and mobile devices
-				else {
-					return 50; // 8% of viewport height on small screens
-				}
-			};
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".travel-section",
+          pin: true,
+          scrub: true,
+          start: "top top",
+          end: "+=300%",
+          markers: false,
+        },
+      });
 
-			// Set the dynamic spacer
-			const spacer = calculateSpacer();
+      // Animate width AND position
+      tl.fromTo(
+        ".card:not(:first-child)",
+        {
+          y: (index) => window.innerHeight / 2 + spacer * index,
+          width: "100%", // Starting width for non-first cards
+          stagger: 0.5,
+          backgroundColor: (index, element) => {
+            // Get the original background color from inline style or computed style
+            const bgColor =
+              element.style.backgroundColor ||
+              window.getComputedStyle(element).backgroundColor;
+            return bgColor; // Keep original background color initially
+          },
+        },
+        {
+          y: (index) => spacer * (index + 1),
+          width: "100%", // Ending width - same as starting to maintain consistency
+          backgroundColor: (index, element) => {
+            // Get the original background color
+            const bgColor =
+              element.style.backgroundColor ||
+              window.getComputedStyle(element).backgroundColor;
 
-			// const spacer = 50;
-			const cards = gsap.utils.toArray<HTMLElement>(".card");
-			// Set width for all cards to be the same
-			// gsap.set(cards, {
-			//   width: "100%", // Set all cards to the same width (adjust percentage as needed)
-			// });
+            // Create a more opaque version by adding alpha channel
+            // This preserves the color but makes it more solid
+            if (bgColor.includes("rgba")) {
+              // If already has transparency, modify it
+              return bgColor.replace(
+                /rgba\((\d+,\s*\d+,\s*\d+),\s*[\d.]+\)/,
+                "rgba($1, 0.9)"
+              );
+            } else if (bgColor.includes("rgb")) {
+              // Convert rgb to rgba
+              return bgColor.replace(/rgb/, "rgba").replace(/\)/, ", 0.9)");
+            }
+            return bgColor;
+          },
+          stagger: 0.5,
+        }
+      );
 
-			// // First card starts visible
-			// gsap.set(cards[0], {
-			//   width: "100%", // First card starts at full width
-			// });
+      // Clean up
+      return () => {
+        st.kill();
+        ScrollTrigger.getAll().forEach((trigger) => {
+          if (trigger.vars.id && trigger.vars.id.startsWith("desc-")) {
+            trigger.kill();
+          }
+        });
+      };
+    }
+  }, [mounted]);
 
-			// Position other cards off-screen initially
-			gsap.set(cards.slice(1), {
-				y: (index) => window.innerHeight / 2 + spacer * index,
-			});
+  useEffect(() => {
+    if (!tabsContainerRef.current || !slideRef.current) return;
 
-			const tl = gsap.timeline({
-				scrollTrigger: {
-					trigger: ".travel-section",
-					pin: true,
-					scrub: true,
-					start: "top top",
-					end: "+=300%",
-					markers: false,
-				},
-			});
+    const buttons = tabsContainerRef.current.querySelectorAll("button");
+    if (buttons.length === 0 || activeIndex >= buttons.length) return;
 
-			// Animate width AND position
-			tl.fromTo(
-				".card:not(:first-child)",
-				{
-					y: (index) => window.innerHeight / 2 + spacer * index,
-					width: "100%", // Starting width for non-first cards
-					stagger: 0.5,
-					backgroundColor: (index, element) => {
-						// Get the original background color from inline style or computed style
-						const bgColor = element.style.backgroundColor || window.getComputedStyle(element).backgroundColor;
-						return bgColor; // Keep original background color initially
-					},
-				},
-				{
-					y: (index) => spacer * (index + 1),
-					width: "100%", // Ending width - same as starting to maintain consistency
-					backgroundColor: (index, element) => {
-						// Get the original background color
-						const bgColor = element.style.backgroundColor || window.getComputedStyle(element).backgroundColor;
+    const activeButton = buttons[activeIndex];
 
-						// Create a more opaque version by adding alpha channel
-						// This preserves the color but makes it more solid
-						if (bgColor.includes("rgba")) {
-							// If already has transparency, modify it
-							return bgColor.replace(/rgba\((\d+,\s*\d+,\s*\d+),\s*[\d.]+\)/, "rgba($1, 0.9)");
-						} else if (bgColor.includes("rgb")) {
-							// Convert rgb to rgba
-							return bgColor.replace(/rgb/, "rgba").replace(/\)/, ", 0.9)");
-						}
-						return bgColor;
-					},
-					stagger: 0.5,
-				}
-			);
+    // Position the sliding background using CSS
+    // Add slight padding to ensure it fully covers the text
+    slideRef.current.style.transform = `translateX(${activeButton.offsetLeft}px)`;
+    slideRef.current.style.width = `${activeButton.offsetWidth}px`;
 
-			// Clean up
-			return () => {
-				st.kill();
-				ScrollTrigger.getAll().forEach((trigger) => {
-					if (trigger.vars.id && trigger.vars.id.startsWith("desc-")) {
-						trigger.kill();
-					}
-				});
-			};
-		}
-	}, [mounted]);
+    // Remove initial render flag after first positioning
+    if (initialRender) {
+      setInitialRender(false);
+    }
+  }, [activeIndex, initialRender]);
 
-	useEffect(() => {
-		if (!tabsContainerRef.current || !slideRef.current) return;
+  return (
+    <>
+      {/* Logo Menu  */}
+      {/* Header - only visible when not animating */}
+      <div className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block ">
+        {/* Header - only visible when menu is closed */}
+        <div
+          ref={headerRef}
+          className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl rounded-full w-[300px] lg:w-[436px]  ${
+            isOpenDesktop ? "invisible" : "visible"
+          }`}
+        >
+          <Image src={Logo} alt="logo" width={70} height={50} />
+          <div onClick={toggleMenu} className="cursor-pointer">
+            <MenuSvg />
+          </div>
+        </div>
+      </div>
 
-		const buttons = tabsContainerRef.current.querySelectorAll("button");
-		if (buttons.length === 0 || activeIndex >= buttons.length) return;
+      {/* Menu Desktop View */}
+      <div className="hero-container lg:p-8 bg-white" ref={heroContainerRef}>
+        {/* tabs and logos  */}
+        <div className="fixed lg:left-[6%] lg:bottom-[20%] bottom-[10%] w-full lg:w-max z-50 flex flex-col lg:flex-row justify-between items-center gap-4 mt-1">
+          <div
+            className="flex flex-wrap justify-center lg:justify-start gap-3 lg:gap-4 lg:max-w-[850px] relative "
+            ref={tabsContainerRef}
+          >
+            <div
+              ref={slideRef}
+              className={`absolute bg-white rounded-full z-10 pointer-events-none ${
+                initialRender ? "" : "transition-all duration-300 ease-in-out"
+              }`}
+              style={{ top: "2px" }}
+            />
+            {tabs.map((tab, index) => (
+              <button
+                key={index}
+                className={`cursor-pointer px-4 py-2 rounded-full flex items-center gap-2 sm:gap-3 text-sm transition whitespace-nowrap hover:text-black hover:bg-white  ${
+                  activeIndex === index ? "text-black bg-white" : "text-white"
+                }`}
+                onMouseEnter={() => {
+                  setHoveredTab(index);
+                }}
+                onMouseLeave={() => {
+                  setHoveredTab(-1);
+                }}
+                onClick={() => {
+                  goToSlide(index);
+                }}
+              >
+                <tab.svg
+                  color={
+                    activeIndex === index || hoveredTab === index
+                      ? "black"
+                      : "white"
+                  }
+                />
+                <p>{tab.title}</p>
+              </button>
+            ))}
+          </div>
+        </div>
 
-		const activeButton = buttons[activeIndex];
-
-		// Position the sliding background using CSS
-		// Add slight padding to ensure it fully covers the text
-		slideRef.current.style.transform = `translateX(${activeButton.offsetLeft}px)`;
-		slideRef.current.style.width = `${activeButton.offsetWidth}px`;
-
-		// Remove initial render flag after first positioning
-		if (initialRender) {
-			setInitialRender(false);
-		}
-	}, [activeIndex, initialRender]);
-
-	return (
-		<>
-			{/* Menu Desktop View */}
-			<div className="hero-container lg:p-8 bg-white" ref={heroContainerRef}>
-				{/* Logo Menu  */}
-				{/* Header - only visible when not animating */}
-				<div className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block">
-					{/* Header - only visible when menu is closed */}
-					<div ref={headerRef} className={`bg-white flex items-center justify-between px-4  py-3 rounded-full w-[300px] lg:w-[436px] ${isOpenDesktop ? "invisible" : "visible"}`}>
-						<Image src={Logo} alt="logo" width={70} height={50} />
-						<div onClick={toggleMenu} className="cursor-pointer">
-							<MenuSvg />
-						</div>
-					</div>
-				</div>
-
-				{/* tabs and logos  */}
-				<div className="fixed lg:left-[6%] lg:bottom-[20%] bottom-[10%] w-full lg:w-max z-50 flex flex-col lg:flex-row justify-between items-center gap-4 mt-1">
-					<div className="flex flex-wrap justify-center lg:justify-start gap-3 lg:gap-4 lg:max-w-[850px] relative " ref={tabsContainerRef}>
-						<div
-							ref={slideRef}
-							className={`absolute bg-white rounded-full z-10 pointer-events-none ${initialRender ? "" : "transition-all duration-300 ease-in-out"}`}
-							style={{ top: "2px" }}
-						/>
-						{tabs.map((tab, index) => (
-							<button
-								key={index}
-								className={`cursor-pointer px-4 py-2 rounded-full flex items-center gap-2 sm:gap-3 text-sm transition whitespace-nowrap hover:text-black hover:bg-white  ${
-									activeIndex === index ? "text-black bg-white" : "text-white"
-								}`}
-								onMouseEnter={() => {
-									setHoveredTab(index);
-								}}
-								onMouseLeave={() => {
-									setHoveredTab(-1);
-								}}
-								onClick={() => {
-									goToSlide(index);
-								}}
-							>
-								<tab.svg color={activeIndex === index || hoveredTab === index ? "black" : "white"} />
-								<p>{tab.title}</p>
-							</button>
-						))}
-					</div>
-				</div>
-
-				<AnimatePresence>{isOpenDesktop && <Menu toggleMenu={toggleMenu} headerRect={headerRect} />}</AnimatePresence>
-
-				<div className="racesWrapper  w-full lg:overflow-hidden lg:rounded-xl max-w-full mx-auto flex justify-between relative" ref={wrapperRef}>
-					<div
-						className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40 z-10"
-						style={{
-							backgroundImage: `
+        <div
+          className="racesWrapper  w-full lg:overflow-hidden lg:rounded-xl max-w-full mx-auto flex justify-between relative"
+          ref={wrapperRef}
+        >
+          <div
+            className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40 z-10 pointer-events-none"
+            style={{
+              backgroundImage: `
         linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.201792) 50.45%, rgba(0, 0, 0, 0.4) 100%),
         linear-gradient(180deg, rgba(0, 0, 0, 0) 67.7%, rgba(0, 0, 0, 0.399908) 86.53%, rgba(0, 0, 0, 0.8) 105.36%),
         linear-gradient(0deg, rgba(0, 0, 0, 0) 81.66%, rgba(0, 0, 0, 0.4) 110.95%)
       `,
-						}}
-					/>
-					{/* scroll animation!!  */}
-					<Marquee variant="homeHero" />
-					{/* End of infinite scroll animation  */}
+            }}
+          />
+          {/* scroll animation!!  */}
+          <Marquee variant="homeHero" />
+          {/* End of infinite scroll animation  */}
 
-					<div className="races !max-h-[100vh] lg:!max-h-[92vh] w-full" ref={racesRef}>
-						{tabs.map((tab, index: number) => (
-							<div key={index} className="racesDiv">
-								<Image key={index} src={tab.image} alt={`Images ${index}`} width={1920} height={150} className="relative object-center object-cover" style={{ zIndex: 0 }} />
+          <div
+            className="races !max-h-[100vh] lg:!max-h-[92vh] w-full"
+            ref={racesRef}
+          >
+            {tabs.map((tab, index: number) => (
+              <div key={index} className="racesDiv">
+                <Image
+                  key={index}
+                  src={tab.image}
+                  alt={`Images ${index}`}
+                  width={1920}
+                  height={150}
+                  className="relative object-center object-cover"
+                  style={{ zIndex: 0 }}
+                />
 
-								<div className="description-container h-full w-full ">
-									<div className="description flex flex-col gap-5 my-[20%] lg:my-0 justify-center items-center lg:items-start lg:pl-[100px] w-full " data-index={index}>
-										<div className="max-w-[90%] lg:max-w-[100%">
-											<p className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center lg:text-left satoshi">{tabs[index].title}</p>
-											<p className="text-base sm:text-lg max-w-2xl text-center sm:text-left mx-auto sm:mx-0">{tabs[index].description}</p>
-										</div>
+                <div className="description-container  w-full !z-50  ">
+                  <div
+                    className="description flex flex-col gap-5 my-[20%] lg:my-0 justify-center items-center lg:items-start lg:pl-[100px] w-full "
+                    data-index={index}
+                  >
+                    <div className="max-w-[90%] lg:max-w-[100%]">
+                      <p className="!text-white text-4xl sm:text-5xl lg:text-6xl font-semibold text-center lg:text-left satoshi">
+                        {tabs[index].title}
+                      </p>
+                      <p className="!text-white text-base sm:text-lg max-w-2xl text-center sm:text-left mx-auto sm:mx-0">
+                        {tabs[index].description}
+                      </p>
+                    </div>
 
-										<div className="flex flex-col lg:flex-row gap-4 sm:gap-6 justify-center sm:justify-start w-full max-w-[350px] lg:max-w-[500px]">
-											<button className="px-6 py-2 bg-[#D0F6FF] text-[#00537F] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min">{tab.buttonText1}</button>
-											<button className="px-6 py-2 bg-white text-[#333] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min">{tab.buttonText2}</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
-			</div>
+                    <div className="!z-50 flex flex-col lg:flex-row gap-4 sm:gap-6 justify-center sm:justify-start w-full max-w-[350px] lg:max-w-[500px]">
+                      <button
+                        onClick={() =>
+                          (window.location.href = tabs[index].link)
+                        }
+                        className="px-6 py-2 bg-[#D0F6FF] text-[#00537F] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min"
+                      >
+                        {tab.buttonText1}
+                      </button>
+                      <button
+                        onClick={() => (window.location.href = "/contact-us")}
+                        className="px-6 py-2 bg-white text-[#333] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min"
+                      >
+                        {tab.buttonText2}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <AnimatePresence>
+        {isOpenDesktop && (
+          <Menu toggleMenu={toggleMenu} headerRect={headerRect} />
+        )}
+      </AnimatePresence>
+      {/* For smooth introduction of the vertical scroll  */}
+      <div>
+        <div className="travel-section">
+          {" "}
+          {/* New parent container */}
+          <div
+            className="travel-offers-container bg-cover bg-center bg-fixed"
+            style={{ backgroundImage: `url(${travelOffers.src})` }}
+          >
+            {/* Black overlay with low opacity */}
+            <div className="absolute inset-0 bg-black opacity-30"></div>
+            <div className="cards-parent h-[275px] lg:h-[230px] bg-cover bg-center flex justify-center items-center relative z-10 ">
+              <div className="wrap marquee-container  mt-20 lg:mt-0 w-full overflow-hidden">
+                <div className="marquee text-[64px] lg:text-8xl font-semibold text-white opacity-90">
+                  <p className="drop-shadow-xl inline-block !text-[64px] ">
+                    {" OUR TRAVEL OFFERS "}
+                  </p>
+                  <span
+                    className="inline-block"
+                    style={{ width: "100px" }}
+                  ></span>
+                  <p className="drop-shadow-xl inline-block !text-[64px] ">
+                    {" OUR TRAVEL OFFERS "}
+                  </p>
+                  <span
+                    className="inline-block"
+                    style={{ width: "100px" }}
+                  ></span>
+                  <p className="drop-shadow-xl inline-block !text-[64px] ">
+                    {" OUR TRAVEL OFFERS "}
+                  </p>
+                  <span
+                    className="inline-block"
+                    style={{ width: "100px" }}
+                  ></span>
+                  <p className="drop-shadow-xl inline-block !text-[64px] ">
+                    {" OUR TRAVEL OFFERS "}
+                  </p>
+                  <span
+                    className="inline-block !text-[64px] "
+                    style={{ width: "100px" }}
+                  ></span>
+                  <p className="drop-shadow-xl inline-bloc !text-[64px] k">
+                    {" OUR TRAVEL OFFERS "}
+                  </p>
+                  <span
+                    className="inline-block"
+                    style={{ width: "100px" }}
+                  ></span>
+                  <p className="drop-shadow-xl inline-block !text-[64px] ">
+                    {" OUR TRAVEL OFFERS "}
+                  </p>
+                </div>
+              </div>
+            </div>
 
-			{/* For smooth introduction of the vertical scroll  */}
-			<div>
-				<div className="travel-section">
-					{" "}
-					{/* New parent container */}
-					<div className="travel-offers-container bg-cover bg-center bg-fixed bg-no-repeat" style={{ backgroundImage: `url(${travelOffers.src})` }}>
-						{/* Black overlay with low opacity */}
-						<div className="absolute inset-0 bg-black opacity-30"></div>
-						<div className="cards-parent h-[275px] lg:h-[230px] bg-cover bg-center flex justify-center items-center relative z-10 ">
-							<div className="wrap marquee-container  mt-20 lg:mt-0 w-full overflow-hidden">
-								<div className="marquee text-[64px] lg:text-8xl font-semibold text-white opacity-90">
-									<p className="drop-shadow-xl inline-block !text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
-									<span className="inline-block" style={{ width: "100px" }}></span>
-									<p className="drop-shadow-xl inline-block !text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
-									<span className="inline-block" style={{ width: "100px" }}></span>
-									<p className="drop-shadow-xl inline-block !text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
-									<span className="inline-block" style={{ width: "100px" }}></span>
-									<p className="drop-shadow-xl inline-block !text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
-									<span className="inline-block !text-[64px] " style={{ width: "100px" }}></span>
-									<p className="drop-shadow-xl inline-bloc !text-[64px] k">{" OUR TRAVEL OFFERS "}</p>
-									<span className="inline-block" style={{ width: "100px" }}></span>
-									<p className="drop-shadow-xl inline-block !text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
-								</div>
-							</div>
-						</div>
+            <div className="cardss ">
+              <div
+                className="card "
+                style={{ backgroundColor: "#E5F1F6B2", color: "black" }}
+              >
+                <p className="satoshi font-medium text-xl p-5 lg:p-[32px_40px]">
+                  TRAVEL PACKAGE ESSENTIALS
+                </p>
+                <div className="slider-container relative mt-4 ">
+                  <div className="image-slider">
+                    <div className="carousel-container">
+                      <div className="wrap">
+                        <Image src={travelSlide1} alt="" loading="lazy" />
+                        <Image src={travelSlide2} alt="" loading="lazy" />
+                        <Image src={travelSlide3} alt="" loading="lazy" />
+                        <Image src={travelSlide1} alt="" loading="lazy" />
+                        <Image src={travelSlide2} alt="" loading="lazy" />
+                        <Image src={travelSlide3} alt="" loading="lazy" />
+                      </div>
+                    </div>
+                  </div>
 
-						<div className="cardss ">
-							<div className="card " style={{ backgroundColor: "#E5F1F6B2", color: "black" }}>
-								<p className="satoshi font-medium text-2xl p-5 lg:p-[32px_40px]">TRAVEL PACKAGE ESSENTIALS</p>
-								<div className="slider-container relative mt-4 ">
-									<TravelCarousel images={TravelSlides} height={isMobileView ? 160 : 300} />
+                  <div className="absolute top-0 left-20 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] w-full  flex flex-col gap-4">
+                    <p className="text-black text-3xl  satoshi font-bold">
+                      GLOBAL DATA SIM
+                    </p>
+                    <p className="text-black text-2xl -[16px] satoshi">
+                      One SIM for every destination.
+                      <br /> Roam your way anytime, anywhere.
+                    </p>
+                    <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px]">
+                      Get Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="card"
+                style={{ backgroundColor: "#FE6000B2", zIndex: 2 }}
+              >
+                <p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]">
+                  LOCAL DESTINATIONS
+                </p>
 
-									<div className="absolute top-0 left-20 max-[490px]:left-5 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
-										<p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">GLOBAL DATA SIM</p>
-										<p className="text-black text-2xl -[16px] satoshi max-[490px]:text-[14px]">
-											One SIM for every destination.
-											<br /> Roam your way anytime, anywhere.
-										</p>
-										<button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">Get Now</button>
-									</div>
-								</div>
-							</div>
-							<div className="card" style={{ backgroundColor: "#FE6000B2", zIndex: 2 }}>
-								<p className="satoshi font-medium  text-2xl p-5 lg:p-[32px_40px]">LOCAL DESTINATIONS</p>
+                <div className="slider-container relative ">
+                  <div className="image-slider">
+                    <div className="carousel-container">
+                      <div className="wrap">
+                        <Image src={local1} alt="" loading="lazy" />
+                        <Image src={local2} alt="" loading="lazy" />
+                        <Image src={local3} alt="" loading="lazy" />
+                        <Image src={local1} alt="" loading="lazy" />
+                        <Image src={local2} alt="" loading="lazy" />
+                        <Image src={local3} alt="" loading="lazy" />
+                      </div>
+                    </div>
+                  </div>
 
-								<div className="slider-container relative ">
-									<TravelCarousel images={LocalSlides} height={isMobileView ? 160 : 300} />
+                  <div className="absolute top-0 min-[1440px]:left-155 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] ] w-full  flex flex-col gap-4">
+                    <p className="text-black text-3xl  satoshi font-bold">
+                      PALAWAN TOUR
+                    </p>
+                    <p className="text-black text-2xl -[16px] satoshi">
+                      The Philippines’ best-kept secrets.
+                      <br /> Pack your bags and uncover your adventure.
+                    </p>
+                    <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px]">
+                      Get Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="card"
+                style={{ backgroundColor: "#333333B2", zIndex: 3 }}
+              >
+                <p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]">
+                  {" "}
+                  INTERNATIONAL DESTINATIONS
+                </p>
 
-									<div className="absolute top-0 min-[1440px]:left-155 max-[490px]:left-5 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
-										<p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">PALAWAN TOUR</p>
-										<p className="text-black text-2xl -[16px] w-full satoshi max-[490px]:text-[14px]">
-											The Philippines’ best-kept secrets.
-											<br /> Pack your bags and uncover your adventure.
-										</p>
-										<button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">Get Now</button>
-									</div>
-								</div>
-							</div>
-							<div className="card" style={{ backgroundColor: "#333333B2", zIndex: 3 }}>
-								<p className="satoshi font-medium  text-2xl p-5 lg:p-[32px_40px]"> INTERNATIONAL DESTINATIONS</p>
+                <div className="slider-container relative ">
+                  <div className="image-slider">
+                    <div className="carousel-container">
+                      <div className="wrap">
+                        <Image src={international1} alt="" loading="lazy" />
+                        <Image src={international2} alt="" loading="lazy" />
+                        <Image src={international3} alt="" loading="lazy" />
+                        <Image src={international1} alt="" loading="lazy" />
+                        <Image src={international2} alt="" loading="lazy" />
+                        <Image src={international3} alt="" loading="lazy" />
+                      </div>
+                    </div>
+                  </div>
 
-								<div className="slider-container relative ">
-									<TravelCarousel images={InternationalSlides} height={isMobileView ? 160 : 300} />
+                  <div className="absolute top-0 left-20 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] w-full  flex flex-col gap-4">
+                    <p className="text-black text-3xl  satoshi font-bold">
+                      PARIS TOUR
+                    </p>
+                    <p className="text-black text-2xl -[16px] satoshi">
+                      Sought-after global attractions.
+                      <br />
+                      Travel with us and see the world.
+                    </p>
+                    <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px]">
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="card"
+                style={{ backgroundColor: "#00537FB2", zIndex: 4 }}
+              >
+                <p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]">
+                  {" "}
+                  TRAVEL DOCUMENTATION{" "}
+                </p>
+                <div className="slider-container relative ">
+                  <div className="image-slider">
+                    <div className="carousel-container">
+                      <div className="wrap">
+                        <Image src={travel1} alt="" loading="lazy" />
+                        <Image src={travel2} alt="" loading="lazy" />
+                        <Image src={travel3} alt="" loading="lazy" />
+                        <Image src={travel1} alt="" loading="lazy" />
+                        <Image src={travel2} alt="" loading="lazy" />
+                        <Image src={travel3} alt="" loading="lazy" />
+                      </div>
+                    </div>
+                  </div>
 
-									<div className="absolute top-0 left-20 max-[490px]:left-5 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
-										<p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">PARIS TOUR</p>
-										<p className="text-black text-2xl -[16px] satoshi max-[490px]:text-[14px]">
-											Sought-after global attractions.
-											<br />
-											Travel with us and see the world.
-										</p>
-										<button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">Book Now</button>
-									</div>
-								</div>
-							</div>
-							<div className="card" style={{ backgroundColor: "#00537FB2", zIndex: 4 }}>
-								<p className="satoshi font-medium  text-2xl p-5 lg:p-[32px_40px]"> TRAVEL DOCUMENTATION </p>
-								<div className="slider-container relative ">
-									<TravelCarousel images={DocumentSlides} height={isMobileView ? 160 : 300} />
-
-									<div className="absolute top-0 min-[1440px]:left-155 max-[490px]:left-5 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
-										<p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">VISA PROCESSING</p>
-										<p className="text-black text-2xl -[16px] satoshi max-[490px]:text-[14px]">
-											Visa processing and immigration requirements
-											<br /> handled with ease.
-										</p>
-										<button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">Book Now</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div className="scroll-spacer lg:h-[200px] !h-[150px]"></div>
-					</div>
-					{/* <div className="spacer"></div> */}
-				</div>
-			</div>
-			<Beliefs />
-			<BeliefsMobile />
-			<InfiniteMenu items={partners} />
-			<GridMotion items={HomeOffers} />
-			<GridMotionMobile />
-			<Footer />
-			{/* Mobile Menu  */}
-			<div className=" w-full relative overflow-hidden rounded-xl max-[480px]:rounded-none max-w-full mx-auto flex justify-between">
-				<div className="lg:hidden">
-					{/* Logo Menu */}
-					{/* Header - only visible when not animating */}
-					<div className="fixed z-10 top-[70px]  w-full flex items-center justify-center ">
-						{/* Header - only visible when menu is closed */}
-						<div ref={headerRefMobile} className={` flex items-center justify-between px-4  py-3 rounded-full w-[300px] lg:w-[436px] bg-white ${isOpenMobile ? "invisible" : "visible"}`}>
-							<Image src={Logo} alt="logo" width={70} height={50} />
-							<div onClick={toggleMenuMobile} className="cursor-pointer">
-								<MenuSvg />
-								{/* </div> */}
-							</div>
-						</div>
-					</div>
-					{/* Menu Mobile View*/}
-					<AnimatePresence>{isOpenMobile && <Menu toggleMenu={toggleMenuMobile} headerRect={headerRectMobile} />}</AnimatePresence>
-				</div>
-			</div>
-		</>
-	);
+                  <div className="absolute top-0 min-[1440px]:left-155 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] w-full  flex flex-col gap-4">
+                    <p className="text-black text-3xl  satoshi font-bold">
+                      VISA PROCESSING
+                    </p>
+                    <p className="text-black text-2xl -[16px] satoshi">
+                      Visa processing and immigration requirements
+                      <br /> handled with ease.
+                    </p>
+                    <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px]">
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="scroll-spacer lg:h-[200px] !h-[150px]"></div>
+          </div>
+          {/* <div className="spacer"></div> */}
+        </div>
+      </div>
+      <Beliefs />
+      <BeliefsMobile />
+      <InfiniteMenu items={partners} />
+      <GridMotion items={HomeOffers} />
+      <GridMotionMobile />
+      <Footer />
+      {/* Mobile Menu  */}
+      <div className=" w-full relative overflow-hidden rounded-xl max-[480px]:rounded-none max-w-full mx-auto flex justify-between">
+        <div className="lg:hidden">
+          {/* Logo Menu */}
+          {/* Header - only visible when not animating */}
+          <div className="fixed z-10 top-[70px]  w-full flex items-center justify-center ">
+            {/* Header - only visible when menu is closed */}
+            <div
+              ref={headerRefMobile}
+              className={` flex items-center justify-between px-4  py-3 rounded-full w-[300px] lg:w-[436px] bg-white ${
+                isOpenMobile ? "invisible" : "visible"
+              }`}
+            >
+              <Image src={Logo} alt="logo" width={70} height={50} />
+              <div onClick={toggleMenuMobile} className="cursor-pointer">
+                <MenuSvg />
+                {/* </div> */}
+              </div>
+            </div>
+          </div>
+          {/* Menu Mobile View*/}
+          <AnimatePresence>
+            {isOpenMobile && (
+              <Menu
+                toggleMenu={toggleMenuMobile}
+                headerRect={headerRectMobile}
+              />
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+    </>
+  );
 }

@@ -1,8 +1,8 @@
 services:
   app-prod-service:
     container_name: walktheplanet-website-prod-v2
-    # restart: unless-stopped
-    image: walktheplanet-website-prod-img-v2
+    restart: unless-stopped
+    image: walktheplanet-website-img-v2
     build:
       context: .
       dockerfile: Dockerfile
@@ -12,7 +12,7 @@ services:
   app-uat-service:
     container_name: walktheplanet-website-uat-v2
     restart: unless-stopped
-    image: walktheplanet-website-uat-img-v2
+    image: walktheplanet-website-img-v2
     build:
       context: .
       dockerfile: Dockerfile
@@ -22,7 +22,7 @@ services:
   app-test-service:
     container_name: walktheplanet-website-test-v2
     restart: unless-stopped
-    image: walktheplanet-website-test-img-v2
+    image: walktheplanet-website-img-v2
     build:
       context: .
       dockerfile: Dockerfile
@@ -32,7 +32,7 @@ services:
   app-dev-service:
     container_name: walktheplanet-website-dev-v2
     restart: unless-stopped
-    image: walktheplanet-website-dev-img-v2
+    image: walktheplanet-website-img-v2
     build:
       context: .
       dockerfile: Dockerfile
