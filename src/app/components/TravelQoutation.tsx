@@ -18,10 +18,10 @@ export default function TravelQuotation() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col md:flex-row h-full">
+      <div className="relative z-10 flex items-center justify-center w-full h-full flex-col md:flex-row md:justify-start ">
         <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
           <div className="max-w-xl">
-            <h2 className="text-white text-2xl font-medium mb-4">
+            <h2 className="text-white text-[16px] md:text-2xl md:font-medium mb-4">
               For us to better provide a{" "}
               <span className="text-sky-300">quotation</span>,
               <br /> you may simply share the following details,
@@ -30,7 +30,7 @@ export default function TravelQuotation() {
 
             <div className="mt-8 space-y-6">
               <div className="flex items-start gap-4">
-                <span className="text-white text-xl md:text-2xl font-medium">
+                <span className="text-white  text-[16px] md:text-2xl md:font-medium ">
                   01
                 </span>
                 <span className="text-white text-xl md:text-2xl">
@@ -39,7 +39,7 @@ export default function TravelQuotation() {
               </div>
 
               <div className="flex items-start gap-4">
-                <span className="text-white text-xl md:text-2xl font-medium">
+                <span className="text-white  text-[16px] md:text-2xl md:font-medium ">
                   02
                 </span>
                 <span className="text-white text-xl md:text-2xl">
@@ -48,7 +48,7 @@ export default function TravelQuotation() {
               </div>
 
               <div className="flex items-start gap-4">
-                <span className="text-white text-xl md:text-2xl font-medium">
+                <span className="text-white  text-[16px] md:text-2xl md:font-medium ">
                   03
                 </span>
                 <span className="text-white text-xl md:text-2xl">
@@ -57,7 +57,7 @@ export default function TravelQuotation() {
               </div>
 
               <div className="flex items-start gap-4">
-                <span className="text-white text-xl md:text-2xl font-medium">
+                <span className="text-white  text-[16px] md:text-2xl md:font-medium ">
                   04
                 </span>
                 <span className="text-white text-xl md:text-2xl">
@@ -66,10 +66,10 @@ export default function TravelQuotation() {
               </div>
 
               <div className="flex items-start gap-4">
-                <span className="text-white text-xl md:text-2xl font-medium">
+                <span className="text-white  text-[16px] md:text-2xl md:font-medium ">
                   05
                 </span>
-                <span className="text-white text-xl md:text-2xl">
+                <span className="text-white  text-[16px] md:text-2xl md:font-medium ">
                   Preferred budget (if applicable)
                 </span>
               </div>

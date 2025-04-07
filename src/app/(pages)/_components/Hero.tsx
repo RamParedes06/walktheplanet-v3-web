@@ -32,19 +32,12 @@ import GridMotion from "./GridMotion";
 import GridMotionMobile from "./GridMotionMobile";
 import Menu from "./Menu";
 
-import international1 from "@/assets/images/international1.png";
-import international2 from "@/assets/images/international2.png";
-import international3 from "@/assets/images/international3.png";
-import local1 from "@/assets/images/local-destination1.png";
-import local2 from "@/assets/images/local-destination2.png";
-import local3 from "@/assets/images/local-destination3.png";
-import travelSlide1 from "@/assets/images/travel-package-slide.png";
-import travelSlide2 from "@/assets/images/travel-package-slide2.png";
-import travelSlide3 from "@/assets/images/travel-package-slide3.png";
-import travel1 from "@/assets/images/travel1.png";
-import travel2 from "@/assets/images/travel2.png";
-import travel3 from "@/assets/images/travel3.png";
+import { DocumentSlides } from "@/library/DocumentSlides";
+import { InternationalSlides } from "@/library/InternationalSlides";
+import { LocalSlides } from "@/library/LocalSlides";
+import { TravelSlides } from "@/library/TravelSlides";
 import Marquee from "./Marquee";
+import TravelCarousel from "./TravelOffersCarousel";
 
 interface Tab {
   id: string;
@@ -142,6 +135,7 @@ export default function Hero() {
   //! For the full screen menu animation
   const [isOpenDesktop, setIsOpenDesktop] = useState(false);
   const [isOpenMobile, setIsOpenMobile] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(false);
 
   //! Slide Section
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -151,6 +145,22 @@ export default function Hero() {
 
   const totalScrollRequired = 1000;
   const scrollProgressRef = useRef(0);
+
+  useEffect(() => {
+    // Function to update state based on window width
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 768); // Adjust breakpoint as needed
+    };
+
+    // Call once to set initial state
+    handleResize();
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const target = sectionRef.current;
@@ -615,127 +625,90 @@ export default function Hero() {
             <div className="absolute inset-0 bg-black opacity-30"></div>
             <div className="cards-parent h-[275px] lg:h-[230px] bg-cover bg-center flex justify-center items-center relative z-10 ">
               <div className="wrap marquee-container  mt-20 lg:mt-0 w-full overflow-hidden">
-                <div className="marquee  lg:text-8xl font-semibold text-white opacity-90">
-                  <p className="drop-shadow-xl inline-block text-[36px] lg:text-[64px]">{" OUR TRAVEL OFFERS "}</p>
+                <div className="marquee text-[32px] lg:text-8xl font-semibold text-white opacity-90">
+                  <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
                   <span className="inline-block" style={{ width: "100px" }}></span>
-                  <p className="drop-shadow-xl inline-block text-[36px] lg:text-[64px]">{" OUR TRAVEL OFFERS "}</p>
+                  <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
                   <span className="inline-block" style={{ width: "100px" }}></span>
-                  <p className="drop-shadow-xl inline-block text-[36px] lg:text-[64px]">{" OUR TRAVEL OFFERS "}</p>
+                  <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
                   <span className="inline-block" style={{ width: "100px" }}></span>
-                  <p className="drop-shadow-xl inline-block text-[36px] lg:text-[64px]">{" OUR TRAVEL OFFERS "}</p>
+                  <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
                   <span className="inline-block  " style={{ width: "100px" }}></span>
-                  <p className="drop-shadow-xl inline-bloc text-[36px] lg:text-[64px]">{" OUR TRAVEL OFFERS "}</p>
+                  <p className="drop-shadow-xl inline-bloc text-[32px] lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
                   <span className="inline-block" style={{ width: "100px" }}></span>
-                  <p className="drop-shadow-xl inline-block text-[36px] lg:text-[64px]">{" OUR TRAVEL OFFERS "}</p>
+                  <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
                 </div>
               </div>
             </div>
 
             <div className="cardss ">
               <div className="card " style={{ backgroundColor: "#E5F1F6B2", color: "black" }}>
-                <p className="satoshi font-medium lg:text-xl text-[16px] p-5 lg:p-[32px_40px]">TRAVEL PACKAGE ESSENTIALS</p>
+                <p className="satoshi font-medium text-xl p-5 lg:p-[32px_40px]">TRAVEL PACKAGE ESSENTIALS</p>
                 <div className="slider-container relative mt-4 ">
-                  <div className="image-slider">
-                    <div className="carousel-container">
-                      <div className="wrap">
-                        <Image src={travelSlide1} alt="" loading="lazy" />
-                        <Image src={travelSlide2} alt="" loading="lazy" />
-                        <Image src={travelSlide3} alt="" loading="lazy" />
-                        <Image src={travelSlide1} alt="" loading="lazy" />
-                        <Image src={travelSlide2} alt="" loading="lazy" />
-                        <Image src={travelSlide3} alt="" loading="lazy" />
-                      </div>
-                    </div>
-                  </div>
+                  <TravelCarousel images={TravelSlides} height={isMobileView ? 160 : 300} />
 
-                  <div className="absolute top-0 left-20 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] w-full  flex flex-col gap-4">
-                    <p className="text-black text-3xl  satoshi font-bold">GLOBAL DATA SIM</p>
-                    <p className="text-black text-2xl -[16px] satoshi">
+                  <div className="absolute top-0 left-20 max-[490px]:left-5 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
+                    <p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">GLOBAL DATA SIM</p>
+                    <p className="text-black text-2xl -[16px] satoshi max-[490px]:text-[14px]">
                       One SIM for every destination.
                       <br /> Roam your way anytime, anywhere.
                     </p>
-                    <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px]">Get Now</button>
+                    <a href="https://tours.walktheplanet.com/collections/global-data-sim">
+                      <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">Get Now</button>
+                    </a>
                   </div>
                 </div>
               </div>
               <div className="card" style={{ backgroundColor: "#FE6000B2", zIndex: 2 }}>
-                <p className="satoshi font-medium lg:text-xl text-[16px] p-5 lg:p-[32px_40px]">LOCAL DESTINATIONS</p>
+                <p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]">LOCAL DESTINATIONS</p>
 
                 <div className="slider-container relative ">
-                  <div className="image-slider">
-                    <div className="carousel-container">
-                      <div className="wrap">
-                        <Image src={local1} alt="" loading="lazy" />
-                        <Image src={local2} alt="" loading="lazy" />
-                        <Image src={local3} alt="" loading="lazy" />
-                        <Image src={local1} alt="" loading="lazy" />
-                        <Image src={local2} alt="" loading="lazy" />
-                        <Image src={local3} alt="" loading="lazy" />
-                      </div>
-                    </div>
-                  </div>
+                  <TravelCarousel images={LocalSlides} height={isMobileView ? 179 : 300} />
 
-                  <div className="absolute top-0 min-[1440px]:left-155 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] ] w-full  flex flex-col gap-4">
-                    <p className="text-black text-3xl  satoshi font-bold">PALAWAN TOUR</p>
-                    <p className="text-black text-2xl -[16px] satoshi">
+                  <div className="absolute top-0 min-[1440px]:left-155 max-[490px]:left-5 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
+                    <p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">PALAWAN TOUR</p>
+                    <p className="text-black text-2xl -[16px] w-full satoshi max-[490px]:text-[14px]">
                       The Philippines’ best-kept secrets.
                       <br /> Pack your bags and uncover your adventure.
                     </p>
-                    <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px]">Get Now</button>
+                    <a href="https://tours.walktheplanet.com/collections/local-destinations">
+                      <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">Get Now</button>
+                    </a>
                   </div>
                 </div>
               </div>
               <div className="card" style={{ backgroundColor: "#333333B2", zIndex: 3 }}>
-                <p className="satoshi font-medium lg:text-xl text-[16px] p-5 lg:p-[32px_40px]"> INTERNATIONAL DESTINATIONS</p>
+                <p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]"> INTERNATIONAL DESTINATIONS</p>
 
                 <div className="slider-container relative ">
-                  <div className="image-slider">
-                    <div className="carousel-container">
-                      <div className="wrap">
-                        <Image src={international1} alt="" loading="lazy" />
-                        <Image src={international2} alt="" loading="lazy" />
-                        <Image src={international3} alt="" loading="lazy" />
-                        <Image src={international1} alt="" loading="lazy" />
-                        <Image src={international2} alt="" loading="lazy" />
-                        <Image src={international3} alt="" loading="lazy" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="absolute top-0 left-20 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] w-full  flex flex-col gap-4">
-                    <p className="text-black text-3xl  satoshi font-bold">PARIS TOUR</p>
-                    <p className="text-black text-2xl -[16px] satoshi">
+                  <TravelCarousel images={InternationalSlides} height={isMobileView ? 160 : 300} />
+                  <div className="absolute top-0 left-20 max-[490px]:left-5 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
+                    <p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">PARIS TOUR</p>
+                    <p className="text-black text-2xl -[16px] satoshi max-[490px]:text-[14px]">
                       Sought-after global attractions.
                       <br />
                       Travel with us and see the world.
                     </p>
-                    <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px]">Book Now</button>
+                    <a href="https://tours.walktheplanet.com/collections/international-destinations">
+                      <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">Book Now</button>
+                    </a>
                   </div>
                 </div>
               </div>
-              <div className="card" style={{ backgroundColor: "#00537FB2", zIndex: 4 }}>
-                <p className="satoshi font-medium lg:text-xl text-[16px] p-5 lg:p-[32px_40px]"> TRAVEL DOCUMENTATION </p>
+              <div className="card " style={{ backgroundColor: "#00537FB2", zIndex: 4 }}>
+                <p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]"> TRAVEL DOCUMENTATION </p>
                 <div className="slider-container relative ">
-                  <div className="image-slider">
-                    <div className="carousel-container">
-                      <div className="wrap">
-                        <Image src={travel1} alt="" loading="lazy" />
-                        <Image src={travel2} alt="" loading="lazy" />
-                        <Image src={travel3} alt="" loading="lazy" />
-                        <Image src={travel1} alt="" loading="lazy" />
-                        <Image src={travel2} alt="" loading="lazy" />
-                        <Image src={travel3} alt="" loading="lazy" />
-                      </div>
-                    </div>
-                  </div>
+                  <TravelCarousel images={DocumentSlides} height={isMobileView ? 180 : 300} />
 
-                  <div className="absolute top-0 min-[1440px]:left-155 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] w-full  flex flex-col gap-4">
-                    <p className="text-black text-3xl  satoshi font-bold">VISA PROCESSING</p>
-                    <p className="text-black text-2xl -[16px] satoshi">
+                  <div className="absolute top-0 min-[1440px]:left-155 max-[490px]:left-5 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
+                    <p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">VISA PROCESSING</p>
+                    <p className="text-black text-2xl -[16px] satoshi max-[490px]:text-[14px]">
                       Visa processing and immigration requirements
                       <br /> handled with ease.
                     </p>
-                    <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px]">Book Now</button>
+                    <a href="https://tours.walktheplanet.com/pages/contact">
+                      <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">Book Now</button>
+                    </a>
                   </div>
                 </div>
               </div>

@@ -70,17 +70,19 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="flex items-center justify-center w-full h-full bg-gradient-to-b from-blue-900 via-teal-800 to-yellow-500 text-white px-20">
-      <div className="max-w-4xl mx-auto">
+    <section className="flex items-center justify-center w-full h-full bg-gradient-to-b from-blue-900 via-teal-800 to-yellow-500 text-white px-4 md:px-20">
+      <div className="max-w-4xl mx-auto py-10">
         {faqItems.map((item) => (
-          <div key={item.id} className="border-b border-white/20 py-4">
+          <div key={item.id} className="border-b border-white/20 py-10 md:py-4">
             <div
               className="flex justify-between items-center cursor-pointer"
               onClick={() => toggleItem(item.id)}
             >
               <div className="flex items-start gap-6">
                 <span className="text-white/70 font-medium">{item.number}</span>
-                <h3 className="text-lg font-medium">{item.question}</h3>
+                <h3 className="text-[16px] px-6 md:text-lg md:font-medium">
+                  {item.question}
+                </h3>
               </div>
               <button className="flex-shrink-0">
                 {openItem === item.id ? (
