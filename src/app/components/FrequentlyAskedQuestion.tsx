@@ -23,16 +23,16 @@ export default function FrequentlyAskedQuestion() {
           <Image
             src={bg}
             alt="Background Illustration"
-            className="opacity-70"
+            className="opacity-30"
           />
         </div>
 
         {/* Content */}
-        <div className="relative z-10 px-6 py-15 lg:px-20 ml-4 lg:ml-8 mb-6">
-          <h1 className="text-3xl lg:text-[32px] text-[#333] font-normal leading-none">
+        <div className="relative z-10 px-2 py-20 md:px-10 lg:px-20 ml-4 lg:ml-8 mb-6">
+          <h1 className="text-[20px] md:text-3xl lg:text-[32px] text-[#333] font-normal leading-none">
             FREQUENTLY
           </h1>
-          <h1 className="text-3xl lg:text-[64px] text-[#333] font-semibold leading-none mt-2">
+          <h1 className="text-[40px] md:text-3xl lg:text-[64px] text-[#333] font-semibold leading-none mt-2">
             ASKED QUESTION
           </h1>
           <p className="text-base lg:text-[24px] mt-4 lg:mt-8 text-[#333]">
@@ -43,7 +43,7 @@ export default function FrequentlyAskedQuestion() {
       </section>
 
       {/* Right Section */}
-      <section className="w-full lg:w-1/2 bg-white flex flex-col justify-center items-center p-6min-h-screen">
+      <section className="w-full lg:w-1/2 bg-white flex flex-col justify-center items-center min-h-screen">
         {/* Form */}
         <FAQSection />
       </section>
