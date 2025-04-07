@@ -38,7 +38,7 @@ const cards = [
 
 function BeliefsMobile() {
 	return (
-		<div className="space-y-10 pb-10 min-[481px]:hidden" style={{ backgroundImage: `url(${bgbeliefs.src})` }}>
+		<div className="space-y-10 pb-40 min-[481px]:hidden" style={{ backgroundImage: `url(${bgbeliefs.src})` }}>
 			<ScrollVelocity texts={["OUR BELIEFS"]} className="custom-scroll-text pt-15" textColor="black" />
 			<p className="text-center text-2xl max-w-6xl mx-auto max-[480px]:hidden text-[#333333A6]">
 				Your love for travel inspires the way for our passion to create unforgettable journeys.
