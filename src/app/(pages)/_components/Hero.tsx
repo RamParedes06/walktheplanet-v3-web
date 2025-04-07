@@ -60,7 +60,7 @@ const tabs: Tab[] = [
 		svg: LuGraduationCap,
 		buttonText1: "See where learning takes you",
 		buttonText2: "Contact Us",
-		link: "#",
+		link: "/edutourism",
 	},
 	{
 		id: "corporate",
