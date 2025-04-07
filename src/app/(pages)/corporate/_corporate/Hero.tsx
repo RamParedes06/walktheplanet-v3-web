@@ -51,21 +51,21 @@ const Hero = () => {
 	const getImageClasses = (index: number) => {
 		// The visible image
 		if (index === currentImage) {
-			return isAnimating ? "opacity-0 -translate-x-full" : "opacity-100 translate-x-0";
+			return isAnimating ? "opacity-0" : "opacity-100";
 		}
 
 		// Next image (always enters from right)
 		if (direction === "next" && index === getNextIndex(currentImage)) {
-			return isAnimating ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full";
+			return isAnimating ? "opacity-100 translate-x-0" : "opacity-0";
 		}
 
 		// Previous image (we'll bring it from right too for consistency)
 		if (direction === "prev" && index === getPrevIndex(currentImage)) {
-			return isAnimating ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full";
+			return isAnimating ? "opacity-100 translate-x-0" : "opacity-0";
 		}
 
 		// All other images - keep them at the right side
-		return "opacity-0 translate-x-full";
+		return "opacity-0";
 	};
 
 	//! For the full screen menu animation
