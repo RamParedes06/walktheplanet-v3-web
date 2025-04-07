@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import LogoSvg from "@/assets/svg/WTPLogo.svg";
 import FacebookSvg from "@/assets/svg/facebook-btn.svg";
@@ -14,6 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import MenuTooltip from "./MenuTooltip";
 import { usePathname } from "next/navigation";
+import React, { useEffect, useRef, useState } from "react";
 
 type ExpandableMenuProps = {
   toggleMenu: () => void;
@@ -251,7 +251,7 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
         }}
       >
         {/* Added overflow-y-auto to the outer container for mobile */}
-        <div className="p-[30px] font-satoshi w-screen h-screen !overflow-hidden z-30">
+        <div className="p-[30px] font-satoshi w-screen h-screen overflow-hidden z-30 bg-white lg:pb-[32px] pb-[120px]">
           {/* Header menu for mobile view  */}
           <div className=" justify-between flex lg:hidden p-6">
             {/* Logo in expanded view */}
@@ -286,8 +286,8 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
           </div>
 
           {/* Start of the  body (gray bg) */}
-          <div className="w-full h-full px-[28px] py-[28px] bg-[#FAFAFA]">
-            <div className="w-full h-full max-w-[1200px] mx-auto flex flex-col  gap-[32px]">
+          <div className="w-full h-full px-[28px] py-[28px] bg-[#FAFAFA] lg:pb-0 pb-[50px]">
+            <div className="w-full h-full max-w-[1280px] mx-auto flex flex-col  gap-[32px]">
               {/* Header of the menu */}
               <div className=" justify-between hidden lg:flex">
                 {/* Logo in expanded view */}
@@ -322,14 +322,15 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
               </div>
 
               {/* Updated Body layout for mobile scrolling */}
-              <div className="w-full h-full flex lg:gap-[48px] ">
-                <div className="relative h-screen !w-[600px] hidden lg:block">
+              <div className="flex lg:gap-[48px]  overflow-y-auto h-full">
+                {/* Image Section  */}
+                <div className="relative !w-[600px] hidden lg:block ">
                   <Image
                     src={currentImage}
                     alt="logo"
                     width={600}
-                    height={650}
-                    className={` !w-[600px] object-cover absolute transition-all duration-500 ease-in-out ${
+                    height={600}
+                    className={` !w-[600px] !h-[570px] object-cover absolute transition-all duration-500 ease-in-out ${
                       isChanging
                         ? "opacity-0 translate-y-8"
                         : "opacity-100 translate-y-0"
@@ -338,16 +339,19 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
                 </div>
 
                 {/* Updated with max-height and overflow for mobile */}
-                <div className=" flex w-full flex-col gap-6  md:h-full overflow-y-auto md:max-h-none">
-                  {/* Menu content (three rows) */}
+                <div className=" flex w-full flex-col gap-2 overflow-y-auto  h-full ">
+                  {/* Menu content (three columns) */}
+
+                  {/* Discover pages section  */}
                   <div>
-                    <p className="text-[#333333A6] font-semibold">
+                    <p className="text-[#333333A6] font-semibold ">
                       DISCOVER PAGES
                     </p>
                   </div>
 
-                  <div className="flex justify-around w-full md:flex-row flex-col pt-4 md:pt-8 gap-6 md:gap-0">
-                    {/* Left Column */}
+                  {/* Three columns section  */}
+                  <div className="flex justify-around w-full md:flex-row flex-col  gap-6 md:gap-0">
+                    {/* First Column */}
                     <div className="w-full flex flex-col gap-3 ">
                       {leftColumn.items.map((item, index) => {
                         const active = isActive(item.href);
@@ -395,7 +399,7 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
                       })}
                     </div>
 
-                    {/* Right Column */}
+                    {/* All-in Products Section / Second Column */}
                     <div className="w-full  flex flex-col gap-3">
                       {rightColumn.items.map((item, index) => {
                         const active = isActive(item.href);
@@ -446,7 +450,8 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
                       })}
                     </div>
 
-                    <div className="w-full  flex flex-col gap-1">
+                    {/* Contact Us Section / Third Column */}
+                    <div className="w-full  flex flex-col ">
                       <div className="relative group">
                         <p
                           onClick={() => (window.location.href = "/contact-us")}
@@ -490,8 +495,9 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
                     </div>
                   </div>
 
-                  <div className="flex flex-col md:flex-row justify-between mt-4 md:mt-0">
-                    <div className="flex flex-col gap-4 md:gap-8 mb-4 md:mb-0">
+                  {/* Connect with us  */}
+                  <div className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between mt-1 md:mt-0">
+                    <div className="flex flex-col gap-4 ">
                       <p className="text-[#333333A6] font-semibold">
                         CONNECT WITH US
                       </p>

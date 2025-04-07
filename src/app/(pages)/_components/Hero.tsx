@@ -544,7 +544,7 @@ export default function Hero() {
 			<div className="hero-container  bg-white" ref={heroContainerRef}>
 				{/* tabs and logos  */}
 				<div className="fixed lg:left-[5%] lg:bottom-[20%] bottom-[10%] w-full lg:w-max z-50 flex flex-col lg:flex-row justify-between items-center gap-4 mt-1">
-					<div className="flex flex-wrap justify-center lg:justify-start gap-1 lg:gap-4 lg:max-w-[850px] max-w-[350px] relative" ref={tabsContainerRef}>
+					<div className="flex flex-wrap justify-center lg:justify-start gap-2.5 lg:gap-4 lg:max-w-[850px] max-w-[350px] relative" ref={tabsContainerRef}>
 						<div
 							ref={slideRef}
 							className={`absolute bg-white rounded-full z-10 pointer-events-none ${initialRender ? "" : "transition-all duration-300 ease-in-out"}`}
@@ -643,18 +643,18 @@ export default function Hero() {
 						<div className="absolute inset-0 bg-black opacity-30"></div>
 						<div className="cards-parent h-[275px] lg:h-[230px] bg-cover bg-center flex justify-center items-center relative z-10 ">
 							<div className="wrap marquee-container  mt-20 lg:mt-0 w-full overflow-hidden">
-								<div className="marquee  lg:text-8xl font-semibold text-white opacity-90">
-									<p className="drop-shadow-xl inline-block !text-[36px] ">{" OUR TRAVEL OFFERS "}</p>
+								<div className="marquee text-[32px] lg:text-8xl font-semibold text-white opacity-90">
+									<p className="drop-shadow-xl inline-block text-[32px] !lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
 									<span className="inline-block" style={{ width: "100px" }}></span>
-									<p className="drop-shadow-xl inline-block !text-[36px] ">{" OUR TRAVEL OFFERS "}</p>
+									<p className="drop-shadow-xl inline-block text-[32px] !lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
 									<span className="inline-block" style={{ width: "100px" }}></span>
-									<p className="drop-shadow-xl inline-block !text-[36px] ">{" OUR TRAVEL OFFERS "}</p>
+									<p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
 									<span className="inline-block" style={{ width: "100px" }}></span>
-									<p className="drop-shadow-xl inline-block !text-[36px] ">{" OUR TRAVEL OFFERS "}</p>
+									<p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
 									<span className="inline-block  " style={{ width: "100px" }}></span>
-									<p className="drop-shadow-xl inline-bloc !text-[36px] ">{" OUR TRAVEL OFFERS "}</p>
+									<p className="drop-shadow-xl inline-bloc text-[32px] lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
 									<span className="inline-block" style={{ width: "100px" }}></span>
-									<p className="drop-shadow-xl inline-block !text-[36px] ">{" OUR TRAVEL OFFERS "}</p>
+									<p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
 								</div>
 							</div>
 						</div>
@@ -713,7 +713,7 @@ export default function Hero() {
 									</div>
 								</div>
 							</div>
-							<div className="card" style={{ backgroundColor: "#00537FB2", zIndex: 4 }}>
+							<div className="card " style={{ backgroundColor: "#00537FB2", zIndex: 4 }}>
 								<p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]"> TRAVEL DOCUMENTATION </p>
 								<div className="slider-container relative ">
 									<TravelCarousel images={DocumentSlides} height={isMobileView ? 180 : 300} />
