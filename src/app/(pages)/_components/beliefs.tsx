@@ -48,8 +48,8 @@ function Beliefs() {
 							<>
 								<ScrollReveal rotateOnHover>
 									<div className="bg-[#FE6000] p-11 flex flex-col gap-8 h-full px-8">
-										<h3 className="text-[28px] font-bold">{card.title}</h3>
-										<h6 className="font-medium text-[24px]">{card.description}</h6>
+										<h3 className="text-[28px] font-bold text-white">{card.title}</h3>
+										<h6 className="font-medium text-[24px] text-white">{card.description}</h6>
 									</div>
 								</ScrollReveal>
 								<ScrollReveal className="overflow-hidden">
@@ -76,8 +76,8 @@ function Beliefs() {
 								</ScrollReveal>
 								<ScrollReveal rotateOnHover>
 									<div className="bg-[#333333] p-11 flex flex-col gap-8 h-full px-8">
-										<h3 className="text-[28px] font-bold">{card.title}</h3>
-										<h6 className="font-medium text-[24px]">{card.description}</h6>
+										<h3 className="text-[28px] font-bold text-white">{card.title}</h3>
+										<h6 className="font-medium text-[24px] text-white">{card.description}</h6>
 									</div>
 								</ScrollReveal>
 								<ScrollReveal className="overflow-hidden">
@@ -104,8 +104,8 @@ function Beliefs() {
 								</ScrollReveal>
 								<ScrollReveal rotateOnHover>
 									<div className="bg-[#14476F] p-11 flex flex-col gap-8 h-full px-8">
-										<h3 className="text-[28px] font-bold">{card.title}</h3>
-										<h6 className="font-medium text-[24px]">{card.description}</h6>
+										<h3 className="text-[28px] font-bold text-white">{card.title}</h3>
+										<h6 className="font-medium text-[24px] text-white">{card.description}</h6>
 									</div>
 								</ScrollReveal>
 							</>
