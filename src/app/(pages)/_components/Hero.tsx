@@ -570,7 +570,7 @@ export default function Hero() {
         {/* tabs and logos  */}
         <div className="fixed lg:left-[5%] lg:bottom-[20%] bottom-[10%] w-full lg:w-max z-50 flex flex-col lg:flex-row justify-between items-center gap-4 mt-1">
           <div
-            className="flex flex-wrap justify-center lg:justify-start gap-1 lg:gap-4 lg:max-w-[850px] max-w-[350px] relative"
+            className="flex flex-wrap justify-center lg:justify-start gap-2.5 lg:gap-4 lg:max-w-[850px] max-w-[350px] relative"
             ref={tabsContainerRef}
           >
             <div
@@ -701,43 +701,43 @@ export default function Hero() {
             <div className="absolute inset-0 bg-black opacity-30"></div>
             <div className="cards-parent h-[275px] lg:h-[230px] bg-cover bg-center flex justify-center items-center relative z-10 ">
               <div className="wrap marquee-container  mt-20 lg:mt-0 w-full overflow-hidden">
-                <div className="marquee  lg:text-8xl font-semibold text-white opacity-90">
-                  <p className="drop-shadow-xl inline-block !text-[36px] ">
+                <div className="marquee text-[32px] lg:text-8xl font-semibold text-white opacity-90">
+                  <p className="drop-shadow-xl inline-block text-[32px] !lg:text-[64px] ">
                     {" OUR TRAVEL OFFERS "}
                   </p>
                   <span
                     className="inline-block"
                     style={{ width: "100px" }}
                   ></span>
-                  <p className="drop-shadow-xl inline-block !text-[36px] ">
+                  <p className="drop-shadow-xl inline-block text-[32px] !lg:text-[64px] ">
                     {" OUR TRAVEL OFFERS "}
                   </p>
                   <span
                     className="inline-block"
                     style={{ width: "100px" }}
                   ></span>
-                  <p className="drop-shadow-xl inline-block !text-[36px] ">
+                  <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">
                     {" OUR TRAVEL OFFERS "}
                   </p>
                   <span
                     className="inline-block"
                     style={{ width: "100px" }}
                   ></span>
-                  <p className="drop-shadow-xl inline-block !text-[36px] ">
+                  <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">
                     {" OUR TRAVEL OFFERS "}
                   </p>
                   <span
                     className="inline-block  "
                     style={{ width: "100px" }}
                   ></span>
-                  <p className="drop-shadow-xl inline-bloc !text-[36px] ">
+                  <p className="drop-shadow-xl inline-bloc text-[32px] lg:text-[64px] ">
                     {" OUR TRAVEL OFFERS "}
                   </p>
                   <span
                     className="inline-block"
                     style={{ width: "100px" }}
                   ></span>
-                  <p className="drop-shadow-xl inline-block !text-[36px] ">
+                  <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">
                     {" OUR TRAVEL OFFERS "}
                   </p>
                 </div>

@@ -1,7 +1,7 @@
-// MARQUEE TEXT INFINITE TEXT SCROLL
+// MARQUEE INFINITE TEXT SCROLL
 
 .wrapper {
- 
+  background-color: #ffc000 !important;
   width: 100%;
   z-index: 10;
   position: absolute;
@@ -42,10 +42,6 @@
 @media (max-width: 768px) {
   .marquee {
     animation: marquee 15s linear infinite;
-  }
-
-  .marquee p {
-    font-size: 14px;
   }
 }
 
