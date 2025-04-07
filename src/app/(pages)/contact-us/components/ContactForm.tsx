@@ -108,7 +108,7 @@ export default function ContactForm() {
 			</section>
 
 			{/* Right Section */}
-			<section className="w-full lg:w-1/2 bg-white flex flex-col justify-center items-center p-6 lg:p-8 min-h-screen">
+			<section className="w-full lg:w-1/2 bg-white  flex flex-col justify-center items-center p-6 lg:p-8">
 				{/* Form */}
 				<div className="w-full max-w-md">
 					{/* Toggle Buttons */}
@@ -135,7 +135,7 @@ export default function ContactForm() {
 
 					{/* Conditional Form Rendering */}
 					{travelType === "Leisure Travel" ? (
-						<form onSubmit={leisureForm.handleSubmit(onLeisureSubmit)} className="space-y-4 lg:space-y-6 h-150 overflow-auto">
+						<form onSubmit={leisureForm.handleSubmit(onLeisureSubmit)} className="space-y-4 lg:space-y-6  overflow-auto">
 							{/* Hidden travel type field */}
 							<input type="hidden" {...leisureForm.register("travelType")} value="Leisure Travel" />
 
