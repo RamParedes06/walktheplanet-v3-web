@@ -72,10 +72,6 @@
   .marquee {
     animation: marquee 15s linear infinite;
   }
-
-  .marquee p {
-    font-size: 14px;
-  }
 }
 
 @keyframes marquee {

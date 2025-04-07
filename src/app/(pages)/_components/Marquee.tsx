@@ -11,7 +11,7 @@ const Marquee = ({ variant }: MarqueeProps) => {
         <>
           {/* scroll animation for home hero page */}
           <div className="wrapper top-wrapper bg-[#ffc000]">
-            <div className="marquee">
+            <div className="marquee text-sm lg:text-[16px]">
               <p>
                 {
                   "Explore more, spend less! Get 20% off educational tours today! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Book now and enjoy 10% off your next adventure\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Travel smarter, save bigger! Get free upgrades on select packages!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0"
@@ -25,7 +25,7 @@ const Marquee = ({ variant }: MarqueeProps) => {
             </div>
           </div>
           <div className="wrapper bottom-wrapper">
-            <div className="marquee ">
+            <div className="marquee text-sm lg:text-[16px]">
               <p>
                 {
                   "Explore more, spend less! Get 20% off educational tours today! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Book now and enjoy 10% off your next adventure\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Travel smarter, save bigger! Get free upgrades on select packages!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0"
