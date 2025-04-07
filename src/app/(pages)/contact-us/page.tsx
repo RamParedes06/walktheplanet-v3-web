@@ -25,7 +25,7 @@ const ContactPage = () => {
       <ContactForm />
       <TravelQuotation />
       <FrequentlyAskedQuestion />
-      <ContactSection />
+      <ContactSection />x
       <CallToAction
         image1={image1}
         image2={image2}
