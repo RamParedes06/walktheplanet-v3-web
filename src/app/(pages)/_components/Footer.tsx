@@ -15,7 +15,7 @@ function Footer() {
 						<div className="">
 							<div className="flex flex-col justify-between h-full max-w-[230px] max-[490px]:text-center max-[490px]:items-center max-[490px]:sticky max-[490px]:top-5">
 								<Image src={logo} width={200} height={138} alt="walktheplanet inc" loading="lazy" />
-								<p className="max-[490px]:hidden">Unit 1803 PSE Tower 28th Street 5th Avenue Bonifacio Global City, Fort Bonifacio, City of Taguig</p>
+								<p className="max-[490px]:hidden text-white">Unit 1803 PSE Tower 28th Street 5th Avenue Bonifacio Global City, Fort Bonifacio, City of Taguig</p>
 							</div>
 						</div>
 						<div className="flex flex-col max-[490px]:text-center max-[490px]:mt-15">
@@ -114,14 +114,14 @@ function Footer() {
 											Contact us
 										</a>
 									</div>
-									<p className="min-[481px]:hidden max-[490]:text-[9px] mt-15">Unit 1803 PSE Tower 28th Street 5th Avenue Bonifacio Global City, Fort Bonifacio, City of Taguig</p>
+									<p className="min-[481px]:hidden max-[490]:text-[9px] mt-15 text-white">Unit 1803 PSE Tower 28th Street 5th Avenue Bonifacio Global City, Fort Bonifacio, City of Taguig</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div className="bg-[#124064] h-[50px] flex justify-start items-center">
-					<div className="max-w-[1280px] mx-auto">© 2023 WalkThePlanet, Inc. All rights reserved.</div>
+					<div className="max-w-[1280px] mx-auto text-white" >© 2023 WalkThePlanet, Inc. All rights reserved.</div>
 				</div>
 			</div>
 		</>

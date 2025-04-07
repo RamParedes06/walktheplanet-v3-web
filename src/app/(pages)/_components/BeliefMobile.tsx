@@ -38,7 +38,7 @@ const cards = [
 
 function BeliefsMobile() {
 	return (
-		<div className="space-y-10 pb-10 min-[481px]:hidden" style={{ backgroundImage: `url(${bgbeliefs.src})` }}>
+		<div className="space-y-10 pb-40 min-[481px]:hidden" style={{ backgroundImage: `url(${bgbeliefs.src})` }}>
 			<ScrollVelocity texts={["OUR BELIEFS"]} className="custom-scroll-text pt-15" textColor="black" />
 			<p className="text-center text-2xl max-w-6xl mx-auto max-[480px]:hidden text-[#333333A6]">
 				Your love for travel inspires the way for our passion to create unforgettable journeys.
@@ -54,8 +54,8 @@ function BeliefsMobile() {
 							{/* Text section appears first on mobile */}
 							<ScrollReveal rotateOnHover>
 								<div className=" p-11 flex flex-col gap-8 h-full px-8" style={{ backgroundColor: card.bgColor }}>
-									<h3 className="text-[28px] font-bold">{card.title}</h3>
-									<h6 className="font-medium text-[24px]">{card.description}</h6>
+									<h3 className="text-[28px] font-bold text-white">{card.title}</h3>
+									<h6 className="font-medium text-[24px] text-white">{card.description}</h6>
 								</div>
 							</ScrollReveal>
 
