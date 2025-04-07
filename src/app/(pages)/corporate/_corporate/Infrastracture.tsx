@@ -10,7 +10,7 @@ function Infrastructure() {
 					<div className="max-w-[1440px] mx-auto px-[80px]  max-[490px]:px-5 py-[112px]  max-[490px]:py-15 z-10">
 						<TextReveal>
 							<p className="font-bold text-[64px] text-white font-satoshi text-center  max-[490px]:text-[40px]  max-[490px]:text-start">INFRASTRUCTURE</p>
-							<div className="flex flex-col items-center gap-2 text-2xl  max-[490px]:text-[16px]  max-[490px]:items-start">
+							<div className="text-white flex flex-col items-center gap-2 text-2xl  max-[490px]:text-[16px]  max-[490px]:items-start">
 								<i>As you drive innovation, we ensure your journey is just as progressive. </i>
 								<i>From feasibility studies to onsite supervision our all-in travel services </i>
 								<i>provide hassle-free booking wherever the location is.</i>

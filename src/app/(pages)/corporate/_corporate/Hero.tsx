@@ -162,8 +162,8 @@ const Hero = () => {
 
 					<div className="max-w-[600px] absolute bottom-[15%] left-[5%]">
 						<TextReveal>
-							<h1 className="font-satoshi lg:text-[64px] text-[40px] font-semibold">CORPORATE AND BUSINESS</h1>
-							<p className="lg:text-2xl text-base font-generalSans">
+							<h1 className="font-satoshi lg:text-[64px] text-[40px] font-semibold text-white">CORPORATE AND BUSINESS</h1>
+							<p className="lg:text-2xl text-base font-generalSans text-white">
 								{" "}
 								<span className="text-[#7EE7FC] ">Seamless travel experience</span> tailor-made for your corporate and business goals.
 							</p>

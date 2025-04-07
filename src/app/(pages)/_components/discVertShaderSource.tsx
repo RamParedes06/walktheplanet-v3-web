@@ -1088,6 +1088,7 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
           -translate-y-1/2
           transition-all
           ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+		  text-white
           ${isMoving ? "opacity-0 pointer-events-none duration-[100ms] " : "opacity-100 pointer-events-auto duration-[500ms]"}
         `}
 					>
@@ -1106,6 +1107,7 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
           right-[1%]
           transition-all
           ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+		  text-white
           ${isMoving ? "opacity-0 pointer-events-none duration-[100ms] translate-x-[-60%] -translate-y-1/2" : "opacity-100 pointer-events-auto duration-[500ms] translate-x-[-90%] -translate-y-1/2"}
         `}
 					>

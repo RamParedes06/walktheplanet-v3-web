@@ -784,7 +784,7 @@ export default function Hero() {
                 className="card"
                 style={{ backgroundColor: "#FE6000B2", zIndex: 2 }}
               >
-                <p className="satoshi font-medium lg:text-xl text-[16px] p-5 lg:p-[32px_40px]">
+                <p className="satoshi font-medium lg:text-xl text-[16px] p-5 lg:p-[32px_40px] text-white">
                   LOCAL DESTINATIONS
                 </p>
 
@@ -820,7 +820,7 @@ export default function Hero() {
                 className="card"
                 style={{ backgroundColor: "#333333B2", zIndex: 3 }}
               >
-                <p className="satoshi font-medium lg:text-xl text-[16px] p-5 lg:p-[32px_40px]">
+                <p className="satoshi font-medium lg:text-xl text-[16px] p-5 lg:p-[32px_40px] text-white">
                   {" "}
                   INTERNATIONAL DESTINATIONS
                 </p>
@@ -858,7 +858,7 @@ export default function Hero() {
                 className="card"
                 style={{ backgroundColor: "#00537FB2", zIndex: 4 }}
               >
-                <p className="satoshi font-medium lg:text-xl text-[16px] p-5 lg:p-[32px_40px]">
+                <p className="satoshi font-medium lg:text-xl text-[16px] p-5 lg:p-[32px_40px] text-white">
                   {" "}
                   TRAVEL DOCUMENTATION{" "}
                 </p>
