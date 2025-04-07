@@ -702,42 +702,42 @@ export default function Hero() {
             <div className="cards-parent h-[275px] lg:h-[230px] bg-cover bg-center flex justify-center items-center relative z-10 ">
               <div className="wrap marquee-container  mt-20 lg:mt-0 w-full overflow-hidden">
                 <div className="marquee  lg:text-8xl font-semibold text-white opacity-90">
-                  <p className="drop-shadow-xl inline-block !text-[36px] ">
+                  <p className="drop-shadow-xl inline-block text-[36px] lg:text-[64px]">
                     {" OUR TRAVEL OFFERS "}
                   </p>
                   <span
                     className="inline-block"
                     style={{ width: "100px" }}
                   ></span>
-                  <p className="drop-shadow-xl inline-block !text-[36px] ">
+                  <p className="drop-shadow-xl inline-block text-[36px] lg:text-[64px]">
                     {" OUR TRAVEL OFFERS "}
                   </p>
                   <span
                     className="inline-block"
                     style={{ width: "100px" }}
                   ></span>
-                  <p className="drop-shadow-xl inline-block !text-[36px] ">
+                  <p className="drop-shadow-xl inline-block text-[36px] lg:text-[64px]">
                     {" OUR TRAVEL OFFERS "}
                   </p>
                   <span
                     className="inline-block"
                     style={{ width: "100px" }}
                   ></span>
-                  <p className="drop-shadow-xl inline-block !text-[36px] ">
+                  <p className="drop-shadow-xl inline-block text-[36px] lg:text-[64px]">
                     {" OUR TRAVEL OFFERS "}
                   </p>
                   <span
                     className="inline-block  "
                     style={{ width: "100px" }}
                   ></span>
-                  <p className="drop-shadow-xl inline-bloc !text-[36px] ">
+                  <p className="drop-shadow-xl inline-bloc text-[36px] lg:text-[64px]">
                     {" OUR TRAVEL OFFERS "}
                   </p>
                   <span
                     className="inline-block"
                     style={{ width: "100px" }}
                   ></span>
-                  <p className="drop-shadow-xl inline-block !text-[36px] ">
+                  <p className="drop-shadow-xl inline-block text-[36px] lg:text-[64px]">
                     {" OUR TRAVEL OFFERS "}
                   </p>
                 </div>
