@@ -27,7 +27,7 @@ export const partners = [
     },
     {
       image: TPBPHL,
-      link: ' https://www.tpb.gov.ph/',
+      link: 'https://www.tpb.gov.ph/',
       title: 'TPBPHL',
       description: 'Travel Affiliations'
     },
