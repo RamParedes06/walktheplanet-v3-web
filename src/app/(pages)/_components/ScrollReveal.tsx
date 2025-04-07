@@ -17,7 +17,9 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, rotateOnHover = f
 	return (
 		<div className="group">
 			<motion.div
-				className={`p-4 bg-white max-h-[410px] h-full overflow-hidden object-center flex items-center transition-transform duration-100 ${rotateOnHover ? "group-hover:-rotate-3" : ""}`}
+				className={`p-4 bg-white max-h-[410px] h-full overflow-hidden object-center text-white flex items-center transition-transform duration-100 ${
+					rotateOnHover ? "group-hover:-rotate-3" : ""
+				}`}
 				initial="hidden"
 				whileInView="visible"
 				viewport={{ once: false, amount: 0.2 }}
