@@ -12,13 +12,12 @@ const Carousel: React.FC<CarouselProps> = ({ images = [] }) => {
 
 	return (
 		<div className="relative w-full overflow-hidden group">
-			<div
-				className="flex animate-marquee group-hover:[animation-play-state:paused] min-w-max"
-				style={{ animationDuration: "30s" }} // slower speed
-			>
+			<div className="flex animate-marquee group-hover:[animation-play-state:paused] min-w-max" style={{ animationDuration: "30s" }}>
 				{[...images, ...images].map((image, index) => (
-					<div key={index} className="flex-shrink-0 w-[400px] h-[400px] scroll-snap-align-start">
-						<Image src={image} alt={`carousel-image-${index}`} width={400} height={400} className=" object-cover w-full h-full" loading="lazy" />
+					<div key={index} className="flex-shrink-0 w-[600px] sm:w-[400px] h-[500px]">
+						<div className="relative w-full h-full">
+							<Image src={image} alt={`carousel-image-${index}`} fill className="object-cover" loading="lazy" />
+						</div>
 					</div>
 				))}
 			</div>
