@@ -58,16 +58,16 @@ function Footer() {
 										<div>
 											<p className="font-medium mb-1">Connect with us</p>
 											<div className="flex gap-4 max-[490px]:justify-center max-[490px]:mt-4">
-												<a href="">
+												<a href="https://www.facebook.com/walktheplanetinc">
 													<FacebookSvg width={24} height={24} />
 												</a>
-												<a href="">
+												<a href="https://www.instagram.com/walktheplanetinc/">
 													<InstagramSvg width={24} height={24} />
 												</a>
-												<a href="">
+												<a href="https://www.tiktok.com/@walktheplanetinc">
 													<TiktokSvg width={24} height={24} />
 												</a>
-												<a href="">
+												<a href="https://ph.linkedin.com/company/walktheplanet?trk=public_post_feed-actor-name">
 													<LinkedInSvg width={24} height={24} />
 												</a>
 											</div>
