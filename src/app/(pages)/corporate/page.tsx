@@ -17,13 +17,22 @@ import { image1, image2, image3, image4, image5, image6 } from "@/library/CorpoC
 import Emergency from "./_corporate/Emergency";
 import Footer from "../_components/Footer";
 import SmoothScroll from "../_components/SmoothScroll";
+import { corpoHero } from "@/library/CorpHero";
 
 function Corporate() {
 	return (
 		<div className="snap-y snap-mandatory overflow-y-auto h-screen">
 			<SmoothScroll>
 				<section id="hero" className="snap-start">
-					<Hero />
+					<Hero
+						images={corpoHero}
+						title="CORPORATE AND BUSINESS"
+						description={
+							<p>
+								<span className="text-[#7EE7FC] ">Seamless travel experience</span> tailor-made for your corporate and business goals.
+							</p>
+						}
+					/>
 				</section>
 				<section id="section2" className="snap-start">
 					<Section2 />

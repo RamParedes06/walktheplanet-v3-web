@@ -1,7 +1,7 @@
 "use client";
 import MenuSvg from "@/assets/svg/MenuSvg";
 import Image from "next/image";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { JSX, useCallback, useEffect, useRef, useState } from "react";
 import Logo from "@/assets/images/Logo.png";
 import { AnimatePresence } from "framer-motion";
 import "../../../../styles/hero-horizontal-scroll.scss";
@@ -9,13 +9,26 @@ import Marquee from "../../_components/Marquee";
 import TextReveal from "../../_components/TextReveal";
 import Menu from "../../_components/Menu";
 
-const Hero = () => {
-	const corpImages = [
-		"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcorporate-5.webp&version_id=null",
-		"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcorporate-1.webp&version_id=null",
-		"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcorporate-3.webp&version_id=null",
-		"http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcorporate-4.webp&version_id=null",
-	];
+interface HeroProps {
+	images: string[];
+	title: string;
+	description?: JSX.Element;
+}
+//! How to use
+{
+	/* <Hero
+						images={corpoHero} //! Pass an array of image URLs
+						title="CORPORATE AND BUSINESS" //! Kailangan ko pa ba to i explain ? HAHAHAH
+						description={ //! Pass a JSX element for the description , you can use a div, p, span, etc.
+							<p>
+								<span className="text-[#7EE7FC] ">Seamless travel experience</span> tailor-made for your corporate and business goals.
+							</p>
+						}
+					/> */
+}
+
+const Hero = ({ images, title, description }: HeroProps) => {
+	const corpImages = images;
 
 	const [currentImage, setCurrentImage] = useState(0);
 	const [isAnimating, setIsAnimating] = useState(false);
@@ -162,11 +175,8 @@ const Hero = () => {
 
 					<div className="max-w-[600px] absolute bottom-[15%] left-[5%]">
 						<TextReveal>
-							<h1 className="font-satoshi lg:text-[64px] text-[40px] font-bold text-white">CORPORATE AND BUSINESS</h1>
-							<p className="lg:text-2xl text-base font-generalSans text-white">
-								{" "}
-								<span className="text-[#7EE7FC] ">Seamless travel experience</span> tailor-made for your corporate and business goals.
-							</p>
+							<h1 className="font-satoshi lg:text-[64px] text-[40px] font-semibold">{title}</h1>
+							<div className="lg:text-2xl text-base font-generalSans">{description}</div>
 						</TextReveal>
 					</div>
 
