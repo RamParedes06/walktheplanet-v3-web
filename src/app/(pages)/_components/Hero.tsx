@@ -3,9 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import Logo from "@/assets/images/Logo.png";
-
 import MenuSvg from "@/assets/svg/MenuSvg";
-
 import { TbMessage2Heart } from "react-icons/tb";
 import { PiBriefcaseMetal } from "react-icons/pi";
 import { HiOutlinePresentationChartLine } from "react-icons/hi";
@@ -16,7 +14,6 @@ import { LuGraduationCap } from "react-icons/lu";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "@/styles/hero-horizontal-scroll.scss";
-import travelOffers from "@/assets/images/travel_offers.webp";
 import "@/styles/slider.scss";
 import { HomeOffers } from "@/library/HomePartner";
 
@@ -31,14 +28,8 @@ import GridMotion from "./GridMotion";
 import GridMotionMobile from "./GridMotionMobile";
 import Footer from "./Footer";
 import BeliefsMobile from "./BeliefMobile";
-
 import Marquee from "./Marquee";
 import TravelOffersV2 from "./TravelOffersV2";
-// import TravelCarousel from "./TravelOffersCarousel";
-// import { TravelSlides } from "@/library/TravelSlides";
-// import { LocalSlides } from "@/library/LocalSlides";
-// import { InternationalSlides } from "@/library/InternationalSlides";
-// import { DocumentSlides } from "@/library/DocumentSlides";
 
 interface Tab {
   id: string;
@@ -55,7 +46,7 @@ const tabs: Tab[] = [
 	{
 		id: "edutourism",
 		title: "EDUTOURISM",
-		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FEduTourism.webp&version_id=null",
+		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744094660/EduTourism_sig6gy.png",
 		// edutorism,
 		description: "Immersive tours for all levels of education to enrich your students’ knowledge.",
 		svg: LuGraduationCap,
@@ -66,7 +57,7 @@ const tabs: Tab[] = [
 	{
 		id: "corporate",
 		title: "CORPORATE & BUSINESS",
-		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FCorporate%20and%20Business.webp&version_id=null",
+		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744095169/Hero1Figma_xcgzrt.png",
 		// corporate,
 		description: "Personalized services suited for all corporate and business travel needs.",
 		svg: PiBriefcaseMetal,
@@ -77,7 +68,7 @@ const tabs: Tab[] = [
 	{
 		id: "mice",
 		title: "M.I.C.E",
-		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FMICE.webp&version_id=null",
+		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744094664/MICE_hszdlj.png",
 		// mice,
 		description: "Meticulously planned events designed for your organization’s success.",
 		svg: HiOutlinePresentationChartLine,
@@ -88,7 +79,7 @@ const tabs: Tab[] = [
 	{
 		id: "travelpackage",
 		title: "TRAVEL PACKAGE ESSENTIALS",
-		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FTravel%20Package%20Essentials.webp&version_id=null",
+		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744094663/Travel_Package_Essentials_libo0p.png",
 		// travel,
 		description: "One SIM, 190+ destinations connecting you anywhere in the world.",
 		svg: FaBusAlt,
@@ -99,7 +90,7 @@ const tabs: Tab[] = [
 	{
 		id: "liveselling",
 		title: "LIVE SELLING",
-		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FLive%20Selling.webp&version_id=null",
+		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744095321/LiveSelling_t3jgmq.png",
 		// liveselling,
 		description: "Exclusive rates and awesome discounts right at your fingertips! Book now on our TikTok live selling hours.",
 		svg: TbMessage2Heart,
@@ -110,7 +101,7 @@ const tabs: Tab[] = [
 	{
 		id: "onlinestore",
 		title: "ONLINE STORE",
-		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FOnline%20Store.webp&version_id=null",
+		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744094662/Online_Store_t1xmy8.png",
 		// onlinestore,
 		description: "One-stop shop packed with an array of options for all travelers. Explore our selections at tours.walktheplanet.com",
 		svg: RiShoppingCart2Line,
@@ -121,7 +112,7 @@ const tabs: Tab[] = [
 	{
 		id: "aboutus",
 		title: "ABOUT US",
-		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FAbout%20Us.webp&version_id=null",
+		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744094662/About_Us_vaia05.png",
 		// aboutus,
 		description: "Exclusive Travel, Unique Experiences. Get to know who we are and where we play.",
 		svg: AiOutlineHeart,
