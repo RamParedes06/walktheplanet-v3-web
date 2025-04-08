@@ -82,7 +82,7 @@ const tabs: Tab[] = [
 		svg: HiOutlinePresentationChartLine,
 		buttonText1: "Explore Solutions",
 		buttonText2: "Contact Us",
-		link: "#",
+		link: "/mice",
 	},
 	{
 		id: "travelpackage",

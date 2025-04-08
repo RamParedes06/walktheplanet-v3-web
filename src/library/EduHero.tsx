@@ -1,7 +1,7 @@
 export const EduImages = [
-	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744012214/Edutourism1_rvwbnx.png",
-	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744012209/Edutourism2_rmvtcl.png",
-	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744012207/Edutourism3_hlisce.png",
-	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744012206/Edutourism5_o3shvg.png",
-	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744012206/Edutourism4_ycu42u.png",
+	"https://res.cloudinary.com/dmxvasob7/image/upload/v1744012926/Hero_-_1_ainlxv.webp",
+	"https://res.cloudinary.com/dmxvasob7/image/upload/v1744012905/Hero_-_2_stqjzp.webp",
+	"https://res.cloudinary.com/dmxvasob7/image/upload/v1744012906/Hero_-_3_q8uw3l.webp",
+	"https://res.cloudinary.com/dmxvasob7/image/upload/v1744012906/Hero_-_4_puwxi4.webp",
+	"https://res.cloudinary.com/dmxvasob7/image/upload/v1744012925/Hero_-_5_bzzvgr.webp",
 ];

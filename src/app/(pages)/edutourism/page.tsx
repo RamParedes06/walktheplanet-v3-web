@@ -4,6 +4,10 @@ import Footer from "../_components/Footer";
 import { EduImages } from "@/library/EduHero";
 import Hero from "../corporate/_corporate/Hero";
 import NetflixCarousel from "./_components/NetflixCarousel";
+import Quotes from "./_components/Quotes";
+import FrequentlyAskedQuestion from "./_components/FrequentlyAskedQuestion";
+import CallToAction from "../corporate/_corporate/CallToAction";
+import { image1, image2, image3, image4, image5, image6 } from "@/library/eduCTA";
 
 function edutourism() {
 	return (
@@ -23,6 +27,24 @@ function edutourism() {
 				</section>
 				<section>
 					<NetflixCarousel />
+				</section>
+				<section>
+					<Quotes />
+				</section>
+				<section>
+					<FrequentlyAskedQuestion />
+				</section>
+				<section>
+					<CallToAction
+						image1={image1}
+						image2={image2}
+						image3={image3}
+						image4={image4}
+						image5={image5}
+						image6={image6}
+						title="Discover amazing places and learn something new"
+						buttonLabel="Plan your tours with us today!"
+					/>
 				</section>
 
 				<section id="footer" className="snap-start">
