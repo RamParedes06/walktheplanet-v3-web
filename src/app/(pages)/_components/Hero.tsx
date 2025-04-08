@@ -49,7 +49,7 @@ const tabs: Tab[] = [
 	{
 		id: "edutourism",
 		title: "EDUTOURISM",
-		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744094660/EduTourism_sig6gy.png",
+		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744095169/Hero1Figma_xcgzrt.png",
 		// edutorism,
 		description: "Immersive tours for all levels of education to enrich your students’ knowledge.",
 		svg: LuGraduationCap,
@@ -60,7 +60,7 @@ const tabs: Tab[] = [
 	{
 		id: "corporate",
 		title: "CORPORATE & BUSINESS",
-		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744095169/Hero1Figma_xcgzrt.png",
+		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096416/Corporate_Business_1_4_dab6y2.png",
 		// corporate,
 		description: "Personalized services suited for all corporate and business travel needs.",
 		svg: PiBriefcaseMetal,
@@ -71,7 +71,7 @@ const tabs: Tab[] = [
 	{
 		id: "mice",
 		title: "M.I.C.E",
-		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744094664/MICE_hszdlj.png",
+		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096418/MICE_1_2_c65uoh.png",
 		// mice,
 		description: "Meticulously planned events designed for your organization’s success.",
 		svg: HiOutlinePresentationChartLine,
@@ -82,7 +82,7 @@ const tabs: Tab[] = [
 	{
 		id: "travelpackage",
 		title: "TRAVEL PACKAGE ESSENTIALS",
-		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744094663/Travel_Package_Essentials_libo0p.png",
+		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096417/Travel_Essentials_Global_Data_Sim_1_1_ieqaf6.png",
 		// travel,
 		description: "One SIM, 190+ destinations connecting you anywhere in the world.",
 		svg: FaBusAlt,
