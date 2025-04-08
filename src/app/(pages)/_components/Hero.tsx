@@ -160,7 +160,6 @@ export default function Hero() {
   const totalScrollRequired = 1000;
   const scrollProgressRef = useRef(0);
 
-
   useEffect(() => {
     const target = sectionRef.current;
 
@@ -683,18 +682,18 @@ export default function Hero() {
           <Menu toggleMenu={toggleMenu} headerRect={headerRect} />
         )}
       </AnimatePresence>
-	  
+
       {/* For smooth introduction of the vertical scroll  */}
 
-	<TravelOffersV2 />
+      <TravelOffersV2 />
       <Beliefs />
       <BeliefsMobile />
       <InfiniteMenu items={partners} />
       <GridMotion items={HomeOffers} />
       <GridMotionMobile />
       <Footer />
-	  
-      {/* Mobile Menu  */}
+
+      {/* Mobile Menu  */} 
       <div className=" w-full relative overflow-hidden rounded-xl max-[480px]:rounded-none max-w-full mx-auto flex justify-between">
         <div className="lg:hidden">
           {/* Logo Menu */}
