@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 
 const page = () => {
@@ -7,3 +8,16 @@ const page = () => {
 }
 
 export default page
+=======
+import React from "react";
+
+function page() {
+	return (
+		<div>
+			<div>mice page</div>
+		</div>
+	);
+}
+
+export default page;
+>>>>>>> dev

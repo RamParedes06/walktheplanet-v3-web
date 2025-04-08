@@ -52,97 +52,83 @@ interface Tab {
 }
 
 const tabs: Tab[] = [
-  {
-    id: "edutourism",
-    title: "EDUTOURISM",
-    image:
-      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744081228/Hero1Figma_ixukie.webp",
-    // edutorism,
-    description:
-      "Immersive tours for all levels of education to enrich your students’ knowledge.",
-    svg: LuGraduationCap,
-    buttonText1: "See where learning takes you",
-    buttonText2: "Contact Us",
-    link: "#",
-  },
-  {
-    id: "corporate",
-    title: "CORPORATE & BUSINESS",
-    image:
-      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744080980/Hero1Figma_zxyoci.png",
-    // corporate,
-    description:
-      "Personalized services suited for all corporate and business travel needs.",
-    svg: PiBriefcaseMetal,
-    buttonText1: "See how we elevate your business",
-    buttonText2: "Contact Us",
-    link: "/corporate",
-  },
-  {
-    id: "mice",
-    title: "M.I.C.E",
-    image:
-      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FMICE.webp&version_id=null",
-    // mice,
-    description:
-      "Meticulously planned events designed for your organization’s success.",
-    svg: HiOutlinePresentationChartLine,
-    buttonText1: "Explore Solutions",
-    buttonText2: "Contact Us",
-    link: "#",
-  },
-  {
-    id: "travelpackage",
-    title: "TRAVEL PACKAGE ESSENTIALS",
-    image:
-      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FTravel%20Package%20Essentials.webp&version_id=null",
-    // travel,
-    description:
-      "One SIM, 190+ destinations connecting you anywhere in the world.",
-    svg: FaBusAlt,
-    buttonText1: "Find out what to pack",
-    buttonText2: "Contact Us",
-    link: "#",
-  },
-  {
-    id: "liveselling",
-    title: "LIVE SELLING",
-    image:
-      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FLive%20Selling.webp&version_id=null",
-    // liveselling,
-    description:
-      "Exclusive rates and awesome discounts right at your fingertips! Book now on our TikTok live selling hours.",
-    svg: TbMessage2Heart,
-    buttonText1: "Capture discounts and live updates",
-    buttonText2: "Contact Us",
-    link: "#",
-  },
-  {
-    id: "onlinestore",
-    title: "ONLINE STORE",
-    image:
-      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FOnline%20Store.webp&version_id=null",
-    // onlinestore,
-    description:
-      "One-stop shop packed with an array of options for all travelers. Explore our selections at tours.walktheplanet.com",
-    svg: RiShoppingCart2Line,
-    buttonText1: "See what's new in store",
-    buttonText2: "Contact Us",
-    link: "#",
-  },
-  {
-    id: "aboutus",
-    title: "ABOUT US",
-    image:
-      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FAbout%20Us.webp&version_id=null",
-    // aboutus,
-    description:
-      "Exclusive Travel, Unique Experiences. Get to know who we are and where we play.",
-    svg: AiOutlineHeart,
-    buttonText1: "Find out what drives us",
-    buttonText2: "Contact Us",
-    link: "#",
-  },
+	{
+		id: "edutourism",
+		title: "EDUTOURISM",
+		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FEduTourism.webp&version_id=null",
+		// edutorism,
+		description: "Immersive tours for all levels of education to enrich your students’ knowledge.",
+		svg: LuGraduationCap,
+		buttonText1: "See where learning takes you",
+		buttonText2: "Contact Us",
+		link: "/edutourism",
+	},
+	{
+		id: "corporate",
+		title: "CORPORATE & BUSINESS",
+		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FCorporate%20and%20Business.webp&version_id=null",
+		// corporate,
+		description: "Personalized services suited for all corporate and business travel needs.",
+		svg: PiBriefcaseMetal,
+		buttonText1: "See how we elevate your business",
+		buttonText2: "Contact Us",
+		link: "/corporate",
+	},
+	{
+		id: "mice",
+		title: "M.I.C.E",
+		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FMICE.webp&version_id=null",
+		// mice,
+		description: "Meticulously planned events designed for your organization’s success.",
+		svg: HiOutlinePresentationChartLine,
+		buttonText1: "Explore Solutions",
+		buttonText2: "Contact Us",
+		link: "/mice",
+	},
+	{
+		id: "travelpackage",
+		title: "TRAVEL PACKAGE ESSENTIALS",
+		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FTravel%20Package%20Essentials.webp&version_id=null",
+		// travel,
+		description: "One SIM, 190+ destinations connecting you anywhere in the world.",
+		svg: FaBusAlt,
+		buttonText1: "Find out what to pack",
+		buttonText2: "Contact Us",
+		link: "#",
+	},
+	{
+		id: "liveselling",
+		title: "LIVE SELLING",
+		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FLive%20Selling.webp&version_id=null",
+		// liveselling,
+		description: "Exclusive rates and awesome discounts right at your fingertips! Book now on our TikTok live selling hours.",
+		svg: TbMessage2Heart,
+		buttonText1: "Capture discounts and live updates",
+		buttonText2: "Contact Us",
+		link: "#",
+	},
+	{
+		id: "onlinestore",
+		title: "ONLINE STORE",
+		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FOnline%20Store.webp&version_id=null",
+		// onlinestore,
+		description: "One-stop shop packed with an array of options for all travelers. Explore our selections at tours.walktheplanet.com",
+		svg: RiShoppingCart2Line,
+		buttonText1: "See what's new in store",
+		buttonText2: "Contact Us",
+		link: "#",
+	},
+	{
+		id: "aboutus",
+		title: "ABOUT US",
+		image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FAbout%20Us.webp&version_id=null",
+		// aboutus,
+		description: "Exclusive Travel, Unique Experiences. Get to know who we are and where we play.",
+		svg: AiOutlineHeart,
+		buttonText1: "Find out what drives us",
+		buttonText2: "Contact Us",
+		link: "#",
+	},
 ];
 
 export default function Hero() {
