@@ -1,4 +1,4 @@
-import { EduImages } from "@/library/EduHero";
+import { MiceImages } from "@/library/MiceHero";
 import React from "react";
 import Footer from "../_components/Footer";
 
@@ -16,7 +16,7 @@ function page() {
 			<SmoothScroll>
 				<section id="hero" className="snap-start">
 					<Hero
-						images={EduImages}
+						images={MiceImages}
 						title="M.I.C.E."
 						description={
 							<div className="flex flex-col gap-3">
