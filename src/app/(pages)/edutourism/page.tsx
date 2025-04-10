@@ -29,7 +29,13 @@ function edutourism() {
 					<NetflixCarousel />
 				</section>
 				<section>
-					<Quotes />
+					<Quotes
+						title={
+							<p>
+								Your students <span className="font-semibold">safety, comfort, and confidentiality</span> are our priorityt <br /> ensure each moment is unique and memorable{" "}
+							</p>
+						}
+					/>
 				</section>
 				<section>
 					<FrequentlyAskedQuestion />
