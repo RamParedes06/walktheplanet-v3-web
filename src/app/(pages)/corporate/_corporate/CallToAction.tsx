@@ -48,7 +48,7 @@ function CallToAction({ image1, image2, image3, image4, image5, image6, title, b
 						alt="image2"
 						width={250}
 						height={250}
-						className="border-9 border-white shadow-xl absolute -top-20 right-10 rotate-30 z-2 transition-all ease-in-out hover:translate-y-40 hover:-translate-x-20 hover:scale-110 hover:z-5  max-[490px]:hidden"
+						className="border-9 overflow-hidden border-white shadow-xl absolute -top-20 right-10 rotate-30 z-2 transition-all ease-in-out hover:translate-y-40 hover:-translate-x-20 hover:scale-110 hover:z-5  max-[490px]:hidden"
 					/>
 					<Image
 						src={image6}

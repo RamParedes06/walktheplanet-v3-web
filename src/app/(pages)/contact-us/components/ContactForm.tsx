@@ -108,15 +108,15 @@ export default function ContactForm() {
 			</section>
 
 			{/* Right Section */}
-			<section className="w-full lg:w-1/2 bg-white  flex flex-col justify-center items-center p-6 lg:p-8">
+			<section className="w-full lg:w-1/2 bg-white flex flex-col justify-center items-center p-6 lg:p-8">
 				{/* Form */}
 				<div className="w-full max-w-md">
 					{/* Toggle Buttons */}
-					<div className="flex mb-6 lg:mb-10 bg-gray-100 rounded-full p-1">
+					<div className="flex mt-10 mb-5 lg:mb-5 bg-gray-100 rounded-full p-1">
 						<button
 							type="button"
 							className={`cursor-pointer w-1/2 py-2 lg:py-3 px-4 rounded-full font-medium transition-colors ${
-								travelType === "Leisure Travel" ? "bg-[#333] text-white" : "bg-transparent text-[#333]"
+								travelType === "Leisure Travel" ? "bg-[#14476F] text-white" : "bg-transparent text-[#00537F]"
 							}`}
 							onClick={() => handleTabChange("Leisure Travel")}
 						>
@@ -125,7 +125,7 @@ export default function ContactForm() {
 						<button
 							type="button"
 							className={`cursor-pointer w-1/2 py-2 lg:py-3 px-4 rounded-full font-medium transition-colors ${
-								travelType === "Business Travel" ? "bg-[#333] text-white" : "bg-transparent text-[#333]"
+								travelType === "Business Travel" ? "bg-[#14476F] text-white" : "bg-transparent text-[#00537F]"
 							}`}
 							onClick={() => handleTabChange("Business Travel")}
 						>
@@ -141,7 +141,7 @@ export default function ContactForm() {
 
 							{/* Leisure Travel Fields */}
 							<div>
-								<label className="block text-sm font-medium text-gray-700 mb-1">
+								<label className="block text-sm font-medium text-[#14476F] ">
 									First Name <span className="text-red-500">*</span>
 								</label>
 								<input
@@ -153,7 +153,7 @@ export default function ContactForm() {
 								{leisureForm.formState.errors.firstName && <p className="text-red-500 text-xs mt-1">{leisureForm.formState.errors.firstName?.message}</p>}
 							</div>
 							<div>
-								<label className="block text-sm font-medium text-gray-700 mb-1">
+								<label className="block text-sm font-medium text-[#14476F] ">
 									Middle Name <span className="text-red-500">*</span>
 								</label>
 								<input
@@ -165,7 +165,7 @@ export default function ContactForm() {
 								{leisureForm.formState.errors.middleName && <p className="text-red-500 text-xs mt-1">{leisureForm.formState.errors.middleName?.message}</p>}
 							</div>
 							<div>
-								<label className="block text-sm font-medium text-gray-700 mb-1">
+								<label className="block text-sm font-medium text-[#14476F] ">
 									Last Name <span className="text-red-500">*</span>
 								</label>
 								<input
@@ -179,7 +179,7 @@ export default function ContactForm() {
 
 							{/* Common Fields */}
 							<div>
-								<label className="block text-sm font-medium text-gray-700 mb-1">
+								<label className="block text-sm font-medium text-[#14476F] ">
 									Email <span className="text-red-500">*</span>
 								</label>
 								<input
@@ -192,7 +192,7 @@ export default function ContactForm() {
 							</div>
 
 							<div>
-								<label className="block text-sm font-medium text-gray-700 mb-1">
+								<label className="block text-sm font-medium text-[#14476F] ">
 									Phone Number <span className="text-red-500">*</span>
 								</label>
 								<input
@@ -205,16 +205,16 @@ export default function ContactForm() {
 							</div>
 
 							<div>
-								<label className="block text-sm font-medium text-gray-700 mb-1">Comment</label>
+								<label className="block text-sm font-medium text-[#14476F] ">Comment</label>
 								<textarea
 									placeholder="Add your comment here"
 									{...leisureForm.register("comment")}
-									className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600 min-h-[80px]"
+									className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
 								/>
 								{leisureForm.formState.errors.comment && <p className="text-red-500 text-xs mt-1">{leisureForm.formState.errors.comment?.message}</p>}
 							</div>
 
-							<button type="submit" className="w-full bg-gray-300 text-gray-700 font-medium py-3 rounded-full mt-6 lg:mt-8 hover:bg-gray-400 transition-colors">
+							<button type="submit" className="w-full bg-[#CCCCCC] text-white font-medium py-3 rounded-full hover:bg-[#00537F] transition-colors">
 								Send to us
 							</button>
 						</form>
@@ -225,7 +225,7 @@ export default function ContactForm() {
 
 							{/* Business Travel Fields */}
 							<div>
-								<label className="block text-sm font-medium text-gray-700 mb-1">
+								<label className="block text-sm font-medium text-gray-700 ">
 									Company Name <span className="text-red-500">*</span>
 								</label>
 								<input
@@ -237,7 +237,7 @@ export default function ContactForm() {
 								{businessForm.formState.errors.companyName && <p className="text-red-500 text-xs mt-1">{businessForm.formState.errors.companyName?.message}</p>}
 							</div>
 							<div>
-								<label className="block text-sm font-medium text-gray-700 mb-1">
+								<label className="block text-sm font-medium text-gray-700 ">
 									Client Name <span className="text-red-500">*</span>
 								</label>
 								<input
@@ -251,7 +251,7 @@ export default function ContactForm() {
 
 							{/* Common Fields */}
 							<div>
-								<label className="block text-sm font-medium text-gray-700 mb-1">
+								<label className="block text-sm font-medium text-gray-700 ">
 									Email <span className="text-red-500">*</span>
 								</label>
 								<input
@@ -264,7 +264,7 @@ export default function ContactForm() {
 							</div>
 
 							<div>
-								<label className="block text-sm font-medium text-gray-700 mb-1">
+								<label className="block text-sm font-medium text-gray-700 ">
 									Phone Number <span className="text-red-500">*</span>
 								</label>
 								<input
@@ -277,17 +277,17 @@ export default function ContactForm() {
 							</div>
 
 							<div>
-								<label className="block text-sm font-medium text-gray-700 mb-1">Comment</label>
+								<label className="block text-sm font-medium text-gray-700 ">Comment</label>
 								<textarea
 									placeholder="Add your comment here"
 									{...businessForm.register("comment")}
-									className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600 min-h-[80px]"
+									className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
 								/>
 								{businessForm.formState.errors.comment && <p className="text-red-500 text-xs mt-1">{businessForm.formState.errors.comment?.message}</p>}
 							</div>
 
 							{/* Submit Button */}
-							<button type="submit" className="w-full bg-gray-300 text-gray-700 font-medium py-3 rounded-full mt-6 lg:mt-8 hover:bg-gray-400 transition-colors">
+							<button type="submit" className="w-full bg-[#CCCCCC] text-white font-medium py-3 rounded-full hover:bg-[#00537F] transition-colors">
 								Send to us
 							</button>
 						</form>
