@@ -11,6 +11,8 @@ function InstagramCards() {
 	const [isComplete, setIsComplete] = useState(false);
 
 	useEffect(() => {
+		if (isComplete) return;
+
 		const interval = setInterval(() => {
 			setActiveIndexes((prev) => {
 				const newIndexes = [...prev];
@@ -35,6 +37,7 @@ function InstagramCards() {
 	}, [activeIndexes, currentCardIndex, isComplete]);
 
 	const handleCardClick = (index: number) => {
+		// Set the clicked card as active and do not reset the progress of other cards
 		setCurrentCardIndex(index);
 	};
 
@@ -76,25 +79,21 @@ function InstagramCards() {
 							return (
 								<div
 									key={card.id}
-									className={`w-[390px] h-[580px] rounded-xl shadow-lg relative overflow-hidden bg-center bg-cover duration-700 border-6 border-white ${
+									className={`w-[390px] h-[580px] rounded-xl shadow-lg relative overflow-hidden bg-center bg-cover  duration-700 border-6 border-white ${
 										currentCardIndex === i || isComplete ? "opacity-100" : "opacity-100"
 									}`}
 									style={{
 										backgroundImage: `url(${currentItem.image})`,
 									}}
-									onClick={() => handleCardClick(i)}
+									onClick={() => handleCardClick(i)} // Click handler
 								>
 									{/* Progress bar */}
 									<div className="absolute top-4 left-4 right-4 flex gap-1 z-30">
 										{card.items.map((_, idx) => (
-											<div key={idx} className="h-[4px] flex-1 rounded-full bg-white/30 relative overflow-hidden">
+											<div key={idx} className={`h-[4px] flex-1 rounded-full bg-white/30 relative overflow-hidden`}>
 												<div
-													className={`absolute left-0 top-0 h-full bg-white ${
-														activeIndexes[i] > idx
-															? "w-full"
-															: activeIndexes[i] === idx && currentCardIndex === i
-															? "w-full transition-all duration-[5000ms] ease-linear"
-															: "w-0"
+													className={`absolute left-0 top-0 h-full bg-white transition-all duration-5000 ease-linear ${
+														activeIndexes[i] === idx && currentCardIndex === i ? "w-full" : activeIndexes[i] > idx ? "w-full" : "w-0"
 													}`}
 												/>
 											</div>

@@ -1,12 +1,16 @@
+"use client";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import React from "react";
 import logo from "@/assets/images/Logo-Footer.png";
 import FacebookSvg from "@/assets/svg/FacebookSvg";
 import InstagramSvg from "@/assets/svg/InstagramSvg";
 import TiktokSvg from "@/assets/svg/TiktokSvg";
 import LinkedInSvg from "@/assets/svg/LinkedInSvg";
+import Link from "next/link";
 
 function Footer() {
+	const pathname = usePathname();
 	return (
 		<>
 			<div className=" bg-[#00537F]  w-full">
@@ -80,13 +84,13 @@ function Footer() {
 
 								<div className="flex flex-col md:flex-row md:justify-between gap-6 md:gap-12">
 									<div className="space-y-10 flex flex-col">
-										<a href="#" className="font-semibold hover:underline">
+										<Link href="/" className={`hover:underline ${pathname === "/" ? "font-bold" : ""}`}>
 											Home
-										</a>
-										<a href="#" className="hover:underline">
+										</Link>
+										<a href="/edutourism" className={`hover:underline ${pathname === "/edutourism" ? "font-bold" : ""}`}>
 											EduTourism
 										</a>
-										<a href="#" className="hover:underline">
+										<a href="/mice" className={`hover:underline ${pathname === "/mice" ? "font-bold" : ""}`}>
 											M.I.C.E
 										</a>
 									</div>
@@ -96,7 +100,7 @@ function Footer() {
 											Business travel
 										</a>
 										<a href="#" className="hover:underline">
-											Success stories
+											Travel stories
 										</a>
 										<a href="#" className="hover:underline">
 											Leisure travel offerings
@@ -114,14 +118,16 @@ function Footer() {
 											Contact us
 										</a>
 									</div>
-									<p className="min-[481px]:hidden max-[490]:text-[9px] mt-15 text-white">Unit 1803 PSE Tower 28th Street 5th Avenue Bonifacio Global City, Fort Bonifacio, City of Taguig</p>
+									<p className="min-[481px]:hidden max-[490]:text-[9px] mt-15 text-white">
+										Unit 1803 PSE Tower 28th Street 5th Avenue Bonifacio Global City, Fort Bonifacio, City of Taguig
+									</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div className="bg-[#124064] h-[50px] flex justify-start items-center">
-					<div className="max-w-[1280px] mx-auto text-white" >© 2023 WalkThePlanet, Inc. All rights reserved.</div>
+					<div className="max-w-[1280px] mx-auto text-white">© 2023 WalkThePlanet, Inc. All rights reserved.</div>
 				</div>
 			</div>
 		</>
