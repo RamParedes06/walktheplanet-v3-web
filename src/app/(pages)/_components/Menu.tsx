@@ -151,14 +151,14 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
       { title: "OTHER PRODUCTS", href: "#", image: homeImage },
       {
         title: "EDUTOURISM",
-        href: "#",
+        href: "/edutourism",
         highlighted: true,
         image:
           "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fmenu%2Fmenu-edutourism.webp&version_id=null",
       },
       {
         title: "M.I.C.E",
-        href: "#",
+        href: "/mice",
         highlighted: true,
         image:
           "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fmenu%2Fmenu-mice.webp&version_id=null",
