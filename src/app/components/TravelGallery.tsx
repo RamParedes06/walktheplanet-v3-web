@@ -49,18 +49,18 @@ export default function TravelGallery() {
         ></div>
 
         <div className="relative z-10">
-          <p className="text-md md:text-xl text-blue-800 leading-relaxed ">
+          <p className="text-md md:text-xl text-[#00537F] leading-relaxed italic">
             At {""}
             <span className="font-semibold">WalkThePlanet</span> we are
             dedicated to making your travel{" "}
             <span className="font-semibold">seamless</span> and{" "}
             <span className="font-semibold">memorable</span>.
           </p>
-          <p className="text-md md:text-xl text-blue-800 leading-relaxed mt-4">
+          <p className="text-md md:text-xl text-[#00537F] leading-relaxed mt-4 italic">
             Whether it&apos;s a business trip or events, a luxury getaway, or a
             carefully planned itinerary,
           </p>
-          <p className="text-md md:text-xl text-blue-800 leading-relaxed mt-4 font-semibold">
+          <p className="text-md md:text-xl text-[#00537F] leading-relaxed mt-4 font-semibold italic">
             we are here to assist you every step of the way
           </p>
         </div>
