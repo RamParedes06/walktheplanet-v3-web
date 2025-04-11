@@ -18,7 +18,15 @@ export default function LocationSection() {
       </div>
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-800/90 to-transparent"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-800/90 to-transparent"></div> */}
+
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(to left, #FFFFFF00, #006FA980, #00537F)",
+        }}
+      ></div>
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-center p-8 md:p-16 max-w-xl">
@@ -43,7 +51,7 @@ export default function LocationSection() {
         <Link
           href="https://maps.google.com/?q=Philippine+Stock+Exchange+Tower+Bonifacio+Global+City"
           target="_blank"
-          className="inline-block border-2 border-white text-white font-medium px-8 py-3 rounded-full transition-colors duration-200 hover:bg-white/10 w-fit"
+          className="inline-block border-2 bg-white text-[#006FA9] font-medium px-8 py-3 rounded-full transition-colors duration-200 hover:bg-white/10 w-fit"
         >
           View us in Google Map!
         </Link>
