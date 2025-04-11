@@ -14,7 +14,7 @@ type BusinessFormData = z.infer<typeof schemaBusiness>;
 export default function ContactForm() {
   const [travelType, setTravelType] = useState<
     "Leisure Travel" | "Business Travel"
-  >("Leisure Travel");
+  >("Business Travel");
 
   const leisureForm = useForm<LeisureFormData>({
     resolver: zodResolver(schemaLeisure),
@@ -68,7 +68,7 @@ export default function ContactForm() {
   const onLeisureSubmit: SubmitHandler<LeisureFormData> = async (data) => {
     try {
       const response = await axios.post(
-        "http://47.245.126.170:30088/api/v2/wtp-contact-us",
+        `${process.env.NEXT_PUBLIC_APP_API_BASE_URL}/v2/wtp-contact-us`,
         { ...data, countryCode: "+63" }
       );
       console.log("Form submitted successfully:", response);
@@ -81,7 +81,7 @@ export default function ContactForm() {
   const onBusinessSubmit: SubmitHandler<BusinessFormData> = async (data) => {
     try {
       const response = await axios.post(
-        "http://47.245.126.170:30088/api/v2/wtp-contact-us",
+        `${process.env.NEXT_PUBLIC_APP_API_BASE_URL}/v2/wtp-contact-us`,
         { ...data, countryCode: "+63" }
       );
       console.log("Form submitted successfully:", response);
@@ -127,17 +127,17 @@ export default function ContactForm() {
       </section>
 
       {/* Right Section */}
-      <section className="w-full lg:w-1/2 bg-white flex flex-col justify-center items-center p-6 lg:p-8">
+      <section className="w-full lg:w-1/2 bg-white flex flex-col justify-center items-center p-6">
         {/* Form */}
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-md lg:max-w-lg p-6 lg:p-8">
           {/* Toggle Buttons */}
-          <div className="flex mt-10 mb-5 lg:mb-5 bg-gray-100 rounded-full p-1">
+          <div className="flex w-full border border-[#14476F] rounded-full overflow-hidden mt-10 mb-5 lg:mb-5">
             <button
               type="button"
-              className={`cursor-pointer w-1/2 py-2 lg:py-3 px-4 rounded-full font-medium transition-colors ${
+              className={`cursor-pointer w-full py-2 lg:py-3 px-4 font-semibold text-sm transition-all duration-300 ${
                 travelType === "Leisure Travel"
                   ? "bg-[#14476F] text-white"
-                  : "bg-transparent text-[#00537F]"
+                  : "bg-white text-[#14476F]"
               }`}
               onClick={() => handleTabChange("Leisure Travel")}
             >
@@ -145,10 +145,10 @@ export default function ContactForm() {
             </button>
             <button
               type="button"
-              className={`cursor-pointer w-1/2 py-2 lg:py-3 px-4 rounded-full font-medium transition-colors ${
+              className={`cursor-pointer w-full py-2 lg:py-3 px-4 font-semibold text-sm transition-all duration-300 ${
                 travelType === "Business Travel"
                   ? "bg-[#14476F] text-white"
-                  : "bg-transparent text-[#00537F]"
+                  : "bg-white text-[#14476F]"
               }`}
               onClick={() => handleTabChange("Business Travel")}
             >
@@ -171,7 +171,7 @@ export default function ContactForm() {
 
               {/* Leisure Travel Fields */}
               <div>
-                <label className="block text-sm font-medium text-[#14476F] ">
+                <label className="block text-sm font-medium text-[#14476F] mb-2">
                   First Name <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -187,7 +187,7 @@ export default function ContactForm() {
                 )}
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#14476F] ">
+                <label className="block text-sm font-medium text-[#14476F] mb-2">
                   Middle Name <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -203,7 +203,7 @@ export default function ContactForm() {
                 )}
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#14476F] ">
+                <label className="block text-sm font-medium text-[#14476F] mb-2">
                   Last Name <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -221,7 +221,7 @@ export default function ContactForm() {
 
               {/* Common Fields */}
               <div>
-                <label className="block text-sm font-medium text-[#14476F] ">
+                <label className="block text-sm font-medium text-[#14476F] mb-2">
                   Email <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -238,9 +238,10 @@ export default function ContactForm() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#14476F] ">
+                <label className="block text-sm font-medium text-[#14476F] mb-2">
                   Phone Number <span className="text-red-500">*</span>
                 </label>
+
                 <input
                   type="tel"
                   placeholder="Input phone number here"
@@ -255,10 +256,11 @@ export default function ContactForm() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[#14476F] ">
+                <label className="block text-sm font-medium text-[#14476F] mb-2">
                   Comment
                 </label>
-                <textarea
+                <input
+                  type="text"
                   placeholder="Add your comment here"
                   {...leisureForm.register("comment")}
                   className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
@@ -291,14 +293,14 @@ export default function ContactForm() {
 
               {/* Business Travel Fields */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 ">
+                <label className="block text-sm font-medium text-[#14476F] mb-2">
                   Company Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   placeholder="Input company name here"
                   {...businessForm.register("companyName")}
-                  className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
+                  className="w-full border-b border-[#14476F] text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
                 {businessForm.formState.errors.companyName && (
                   <p className="text-red-500 text-xs mt-1">
@@ -307,14 +309,14 @@ export default function ContactForm() {
                 )}
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 ">
+                <label className="block text-sm font-medium text-[#14476F] mb-2">
                   Client Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   placeholder="Input client name here"
                   {...businessForm.register("clientName")}
-                  className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
+                  className="w-full border-b border-[#14476F] text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
                 {businessForm.formState.errors.clientName && (
                   <p className="text-red-500 text-xs mt-1">
@@ -325,14 +327,14 @@ export default function ContactForm() {
 
               {/* Common Fields */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 ">
+                <label className="block text-sm font-medium text-[#14476F] mb-2">
                   Email <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="email"
                   placeholder="Input email here"
                   {...businessForm.register("email")}
-                  className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
+                  className="w-full border-b border-[#14476F] text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
                 {businessForm.formState.errors.email && (
                   <p className="text-red-500 text-xs mt-1">
@@ -342,7 +344,7 @@ export default function ContactForm() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 ">
+                <label className="block text-sm font-medium text-[#14476F] mb-2">
                   Phone Number <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -359,13 +361,13 @@ export default function ContactForm() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 ">
+                <label className="block text-sm font-medium text-[#14476F] mb-2">
                   Comment
                 </label>
-                <textarea
+                <input
                   placeholder="Add your comment here"
                   {...businessForm.register("comment")}
-                  className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
+                  className="w-full border-b border-[#14476F] text-black focus:outline-none focus:border-gray-600 pb-2"
                 />
                 {businessForm.formState.errors.comment && (
                   <p className="text-red-500 text-xs mt-1">
