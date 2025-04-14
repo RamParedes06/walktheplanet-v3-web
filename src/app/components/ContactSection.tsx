@@ -4,7 +4,11 @@ export default function ContactSection() {
       {/* Large background text - positioned absolutely to the entire section */}
       <div className="flex flex-col justify-center items-center absolute inset-0 overflow-hidden pointer-events-none h-[348px]">
         <div className="top-30 text-[150px] sm:text-[150px] md:text-[200px] lg:text-[290px] text-gray-600/30 font-medium absolute right-0 w-full">
-          ONTACT U
+          <div className="relative w-full h-[348px] overflow-hidden bg-[#333333]">
+            <div className="absolute top-1/2 left-0 -translate-y-1/2 whitespace-nowrap text-[21vw] leading-none text-gray-600/30 font-medium tracking-tight pointer-events-none -translate-x-[5vw]">
+              ONTACT U
+            </div>
+          </div>
         </div>
       </div>
 

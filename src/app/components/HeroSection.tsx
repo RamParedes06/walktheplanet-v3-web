@@ -131,35 +131,40 @@ const Hero = () => {
         )}
       </AnimatePresence>
 
-      {/* Mobile Menu  */}
-      <div className=" w-full relative overflow-hidden rounded-xl max-[480px]:rounded-none max-w-full mx-auto flex justify-between">
-        <div className="lg:hidden">
-          {/* Logo Menu */}
-          {/* Header - only visible when not animating */}
-          <div className="fixed z-10 top-[70px]  w-full flex items-center justify-center ">
-            {/* Header - only visible when menu is closed */}
+      {/* Mobile Menu Wrapper */}
+      <div className="w-full relative overflow-hidden rounded-xl max-[480px]:rounded-none max-w-full mx-auto flex justify-between">
+        {/* Only shown on mobile */}
+        <div className="lg:hidden w-full">
+          {/* Fixed Mobile Header */}
+          <div className="fixed z-20 top-[70px] w-full flex items-center justify-center">
             <div
               ref={headerRefMobile}
-              className={` flex items-center justify-between px-4  py-3 rounded-full w-[300px] lg:w-[436px] bg-white ${
+              className={`flex items-center justify-between px-4 py-3 rounded-full w-[300px] lg:w-[436px] bg-white shadow-md transition-opacity duration-300 ${
                 isOpenMobile ? "invisible" : "visible"
               }`}
             >
               <Image src={Logo} alt="logo" width={70} height={50} />
               <div onClick={toggleMenuMobile} className="cursor-pointer">
                 <MenuSvg />
-                {/* </div> */}
               </div>
             </div>
           </div>
-          {/* Menu Mobile View*/}
+
+          {/* Menu Component Overlay */}
           <AnimatePresence>
             {isOpenMobile && (
-              <Menu
-                toggleMenu={toggleMenuMobile}
-                headerRect={headerRectMobile}
-              />
+              <div className="fixed z-30 top-[130px] left-0 w-full">
+                {/* Give some margin to appear below the header */}
+                <Menu
+                  toggleMenu={toggleMenuMobile}
+                  headerRect={headerRectMobile}
+                />
+              </div>
             )}
           </AnimatePresence>
+
+          {/* Push content down to avoid overlap */}
+          <div className="pt-[160px]">{/* Page content starts here */}</div>
         </div>
       </div>
     </div>
