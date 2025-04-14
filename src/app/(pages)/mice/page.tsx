@@ -62,7 +62,7 @@ function page() {
             images={emergencyImages}
             accordionItems={accordionData}
             captionText="We prioritize your safety, comfort, and confidentiality in arranging your M.I.C.E travel needs to make every journey unforgettable and worry-free."
-            rightSideClassName="bg-gradient-to-br from-teal-900 via-emerald-700 to-amber-500"
+            rightSideClassName="bg-gradient-to-br from-teal-900 via-emerald-700 to-amber-500 "
           />
         </section>
         <section>

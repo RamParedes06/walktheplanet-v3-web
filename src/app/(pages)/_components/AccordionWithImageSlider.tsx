@@ -208,7 +208,14 @@ const AccordionWithImageSlider: React.FC<AccordionWithImageSliderProps> = ({
       </div>
 
       {/* Right side - Accordion with teal-amber gradient background */}
-      <div className={`w-full md:w-1/2 relative order-1 ${rightSideClassName}`}>
+      <div
+        className={`w-full md:w-1/2 relative order-1`}
+        style={{
+          background:
+            "linear-gradient(90deg, #006FA9 0%, #599D6A 50%, #FE8840 100%), " +
+            "linear-gradient(360deg, rgba(5, 18, 28, 0) 3.33%, rgba(20, 72, 113, 0.498536) 51.52%, #05121C 100%)",
+        }}
+      >
         {/* Gradient background using Tailwind classes */}
         <div
           className="absolute inset-0 "
