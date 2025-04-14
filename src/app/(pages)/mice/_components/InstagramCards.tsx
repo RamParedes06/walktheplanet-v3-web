@@ -191,7 +191,7 @@ function InstagramCards() {
           </p>
 
           {/* Desktop View - Multiple Cards */}
-          <div className="lg:flex md:flex gap-8 lg:w-[85%] w-[100%] hidden px-[5%]">
+          <div className="lg:flex md:flex gap-8 lg:w-[80%] w-[100%] hidden px-[5%]">
             {IgOpportunities.map((set, index) => (
               <div className="w-full" key={set.id}>
                 <CarouselItem
