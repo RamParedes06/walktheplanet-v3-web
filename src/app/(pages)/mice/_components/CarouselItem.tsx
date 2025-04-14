@@ -202,10 +202,18 @@ const CarouselItem = ({
     startProgressTimer();
   };
 
+  const handleClick = () => {
+    // Only trigger onActivate if the card is NOT already completed
+    if (!isCompleted) {
+      onActivate();
+    }
+    // Do nothing if the card is already completed
+  };
+
   return (
     <div
-      className="relative rounded-3xl  overflow-hidden shadow-xl cursor-pointer transition-all duration-300"
-      onClick={() => onActivate()}
+      className="relative rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-300"
+      onClick={handleClick}
     >
       {/* Outer container for progress border */}
       <div className="absolute inset-0 rounded-3xl z-30 pointer-events-none overflow-hidden">
@@ -281,9 +289,9 @@ const CarouselItem = ({
             />
           </div>
 
-          <div className="absolute bottom-0 left-0 p-4 text-white z-10">
-            <h2 className="text-xl font-bold">{slides[activeIndex].title}</h2>
-            <p className="text-sm">{slides[activeIndex].desc}</p>
+          <div className="absolute bottom-0 left-0 py-[64px] px-[32px] text-white z-10">
+            <h2 className="text-2xl font-bold pb-3">{slides[activeIndex].title}</h2>
+            <p className="text-base">{slides[activeIndex].desc}</p>
           </div>
           <div className="absolute inset-0 bg-black bg-opacity-20" />
         </div>

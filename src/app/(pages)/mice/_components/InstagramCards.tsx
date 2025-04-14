@@ -9,59 +9,32 @@ const overlay =
   "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744089957/LetterBg_cbmiri.png";
 
 function InstagramCards() {
-  // const [activeIndexes, setActiveIndexes] = useState([0, 0, 0]);
-  // const [currentCardIndex, setCurrentCardIndex] = useState(0);
-  // const [isComplete, setIsComplete] = useState(false);
-
-  // useEffect(() => {
-  // 	const interval = setInterval(() => {
-  // 		setActiveIndexes((prev) => {
-  // 			const newIndexes = [...prev];
-  // 			const currentIndex = prev[currentCardIndex];
-  // 			const itemLength = IgOpportunities[currentCardIndex].items.length;
-
-  // 			if (currentIndex < itemLength - 1) {
-  // 				newIndexes[currentCardIndex] = currentIndex + 1;
-  // 			} else {
-  // 				if (currentCardIndex < IgOpportunities.length - 1) {
-  // 					setCurrentCardIndex(currentCardIndex + 1);
-  // 				} else {
-  // 					setIsComplete(true);
-  // 				}
-  // 			}
-
-  // 			return newIndexes;
-  // 		});
-  // 	}, 5000);
-
-  // 	return () => clearInterval(interval);
-  // }, [activeIndexes, currentCardIndex, isComplete]);
-
-  // const handleCardClick = (index: number) => {
-  // 	setCurrentCardIndex(index);
-  // };
-
   // Main view state - which set is currently being viewed
   const [activeSetIndex, setActiveSetIndex] = useState(0);
-  //   const [completedSets, setCompletedSets] = useState(
-  //     IgOpportunities.map(() => false)
-  //   );
 
   // In InstagramCards.tsx
   const [completedSets, setCompletedSets] = useState(
     IgOpportunities.map(() => false) // Make sure this is creating an array of false values
   );
 
-  // Add to render temporarily
-  console.log("Active Set:", activeSetIndex);
-  console.log("Completed Sets:", completedSets);
+  // Mobile Responsiveness
+  const [activeSetIndexMobile, setActiveSetIndexMobile] = useState(0);
+  const [completedSetsMobile, setCompletedSetsMobile] = useState(
+    IgOpportunities.map(() => false) // Make sure this is creating an array of false values
+  );
 
-  // Handle set activation and automatic advancement
+  // Get current set to display
+  const currentSet = IgOpportunities[activeSetIndexMobile];
+
+  // Handle set activation (advancement nung cards)
   const handleSetActivation = (
     index: number,
     reason: string | null | undefined
   ) => {
+
+  
     if (reason === "completed") {
+      
       // Auto-advance to the next set when current set completes
       const nextSetIndex = (activeSetIndex + 1) % IgOpportunities.length;
 
@@ -74,16 +47,18 @@ function InstagramCards() {
       setActiveSetIndex(nextSetIndex);
     } else if (index !== activeSetIndex) {
       // Manual selection of a different set
-      if (completedSets[index]) {
-        // If clicking on a previously completed set, make it active but don't change completion status
-        setActiveSetIndex(index);
-      } else {
-        // Mark current set as completed when moving to a new, uncompleted set
-        const newCompletedSets = [...completedSets];
-        newCompletedSets[activeSetIndex] = true;
-        setCompletedSets(newCompletedSets);
-        setActiveSetIndex(index);
+      const newCompletedSets = [...completedSets];
+
+      // Key change: If jumping ahead, mark all cards in between as completed
+      if (index > activeSetIndex) {
+        // Mark all cards from current to selected (exclusive) as completed
+        for (let i = activeSetIndex; i < index; i++) {
+          newCompletedSets[i] = true;
+        }
       }
+
+      setCompletedSets(newCompletedSets);
+      setActiveSetIndex(index);
     }
   };
 
@@ -101,7 +76,30 @@ function InstagramCards() {
     }
   }, [completedSets]);
 
+  //! MOBILE RESPONSIVENESS
+  const handleSetActivationMobile = (
+    index: number,
+    reason: string | null | undefined
+  ) => {
+    setActiveSetIndexMobile(index);
+    if (!completedSetsMobile[index]) {
+      const newCompletedSetsMobile = [...completedSetsMobile];
+      newCompletedSetsMobile[index] = true;
+      setCompletedSetsMobile(newCompletedSetsMobile);
+    }
+  };
 
+  const handleNext = () => {
+    if (activeSetIndexMobile < IgOpportunities.length - 1) {
+      handleSetActivationMobile(activeSetIndexMobile + 1, "navigation");
+    }
+  };
+
+  const handlePrev = () => {
+    if (activeSetIndexMobile > 0) {
+      handleSetActivationMobile(activeSetIndexMobile - 1, "navigation");
+    }
+  };
 
   return (
     <div className="h-screen relative">
@@ -118,6 +116,14 @@ function InstagramCards() {
       {/* White overlay */}
       <div className="absolute inset-0 bg-white opacity-40 z-10" />
 
+      <div
+        className="absolute inset-0 z-10 "
+        style={{
+          backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 36.35%, rgba(51, 51, 51, 0.3) 68.16%, rgba(0, 0, 0, 1) 100%), 
+                            linear-gradient(180deg, #006FA9 0%, rgba(255, 175, 128, 0.5) 50%, rgba(0, 83, 127, 0) 100%)`,
+        }}
+      ></div>
+
       {/* Main content */}
       <div
         className="absolute inset-0 z-20"
@@ -128,7 +134,7 @@ function InstagramCards() {
         }}
       >
         <div className="h-full flex flex-col justify-center items-center gap-10 px-8">
-          <p className="text-center italic text-2xl font-generalSans font-medium max-w-4xl">
+          <p className="text-center italic text-base font-generalSans font-medium lg:text-2xl max-w-4xl">
             We view each corporate occasion as a crucial opportunity for your
             organization to reach its goals.
             <br />
@@ -136,7 +142,7 @@ function InstagramCards() {
             experiences that help you achieve your desired results
           </p>
 
-          <div className="flex gap-8">
+          <div className="lg:flex gap-8 hidden">
             {IgOpportunities.map((set, index) => (
               <div className="w-full" key={set.id}>
                 <CarouselItem
@@ -147,6 +153,47 @@ function InstagramCards() {
                 />
               </div>
             ))}
+          </div>
+
+          {/* Mobile responsive  */}
+          <div className="relative w-[95%] mx-auto">
+            <div className="lg:hidden">
+              <div className="w-full">
+                <CarouselItem
+                  set={currentSet}
+                  isActive={true}
+                  isCompleted={completedSetsMobile[activeSetIndexMobile]}
+                  onActivate={(reason) =>
+                    handleSetActivationMobile(activeSetIndexMobile, reason)
+                  }
+                />
+              </div>
+
+              <div className=" flex justify-end space-x-2 mt-5">
+                <button
+                  onClick={handlePrev}
+                  className={` text-white px-4 py-1 rounded-md ${
+                    activeSetIndexMobile === 0
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-white/50"
+                  }`}
+                  disabled={activeSetIndexMobile === 0}
+                >
+                  Prev
+                </button>
+                <button
+                  onClick={handleNext}
+                  className={` text-white px-4 py-1 rounded-md ${
+                    activeSetIndexMobile === IgOpportunities.length - 1
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-white/50"
+                  }`}
+                  disabled={activeSetIndexMobile === IgOpportunities.length - 1}
+                >
+                  Next
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
