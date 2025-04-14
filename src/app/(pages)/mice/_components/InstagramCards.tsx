@@ -191,7 +191,7 @@ function InstagramCards() {
           </p>
 
           {/* Desktop View - Multiple Cards */}
-          <div className="lg:flex gap-8 hidden">
+          <div className="lg:flex md:flex gap-8 lg:w-[80%] w-[100%] hidden px-[5%]">
             {IgOpportunities.map((set, index) => (
               <div className="w-full" key={set.id}>
                 <CarouselItem
@@ -208,7 +208,7 @@ function InstagramCards() {
 
           {/* Mobile View - Single Card */}
           <div className="relative w-[95%] mx-auto">
-            <div className="lg:hidden">
+            <div className="lg:hidden md:hidden">
               {/* Important: Only render the active card for mobile */}
               <div className="w-full">
                 <CarouselItem
