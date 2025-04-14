@@ -251,15 +251,10 @@ const CarouselItem = ({
     if (!isCompleted) {
       onActivate();
     }
-    // Do nothing if the card is already completed
   };
-
   // Get current slide safely
   const currentSlide = slides.length > 0 && activeIndex < slides.length ? slides[activeIndex] : null;
   
-  // Default placeholder image to use if image is missing
-  const placeholderImage = "/api/placeholder/580/390"; // Or any default image path
-
   return (
     <div
       className="relative rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-300"
