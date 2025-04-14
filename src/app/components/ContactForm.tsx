@@ -7,6 +7,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { schemaBusiness, schemaLeisure } from "@/schema";
+import bg from "@/assets/svg/contact/bgIllustration.svg";
 
 type LeisureFormData = z.infer<typeof schemaLeisure>;
 type BusinessFormData = z.infer<typeof schemaBusiness>;
@@ -104,7 +105,7 @@ export default function ContactForm() {
           }}
         >
           <Image
-            src="/placeholder.svg?height=1024&width=1024"
+            src={bg}
             width={1024}
             height={1024}
             alt="Background Illustration"
