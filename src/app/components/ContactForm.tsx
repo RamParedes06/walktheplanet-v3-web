@@ -222,14 +222,24 @@ export default function ContactForm() {
 
               {/* Common Fields */}
               <div>
-                <label className="block text-sm font-medium text-[#14476F] mb-2">
+                <label
+                  className={`block text-sm font-medium t ${
+                    leisureForm.formState.errors.email
+                      ? "text-red-500"
+                      : "text-[#14476F] "
+                  } mb-2 `}
+                >
                   Email <span className="text-red-500">*</span>
                 </label>
                 <input
-                  type="email"
+                  type="text"
                   placeholder="Input email here"
                   {...leisureForm.register("email")}
-                  className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
+                  className={`w-full border-b text-black   ${
+                    leisureForm.formState.errors.email
+                      ? "text-red-500"
+                      : "text-[#14476F] "
+                  } pb-2 focus:outline-none focus:border-gray-600`}
                 />
                 {leisureForm.formState.errors.email && (
                   <p className="text-red-500 text-xs mt-1">
@@ -328,14 +338,24 @@ export default function ContactForm() {
 
               {/* Common Fields */}
               <div>
-                <label className="block text-sm font-medium text-[#14476F] mb-2">
+                <label
+                  className={`block text-sm font-medium t ${
+                    businessForm.formState.errors.email
+                      ? "text-red-500"
+                      : "text-[#14476F] "
+                  } mb-2 `}
+                >
                   Email <span className="text-red-500">*</span>
                 </label>
                 <input
-                  type="email"
+                  type="text"
                   placeholder="Input email here"
                   {...businessForm.register("email")}
-                  className="w-full border-b border-[#14476F] text-black pb-2 focus:outline-none focus:border-gray-600"
+                  className={`w-full border-b border-[#14476F] ${
+                    businessForm.formState.errors.email
+                      ? "text-red-500"
+                      : "text-[#14476F] "
+                  } text-black pb-2 focus:outline-none focus:border-gray-600`}
                 />
                 {businessForm.formState.errors.email && (
                   <p className="text-red-500 text-xs mt-1">

@@ -60,7 +60,6 @@ const Hero = () => {
     setIsOpenMobile(!isOpenMobile);
   };
 
-  // Prevent scrolling when menu is open
   useEffect(() => {
     if (isOpenDesktop || isOpenMobile) {
       document.body.style.overflow = "hidden";
@@ -73,13 +72,9 @@ const Hero = () => {
     };
   }, [isOpenDesktop, isOpenMobile]);
 
-  console.log(isOpenDesktop);
   return (
     <div className="relative">
-      {/* Logo Menu  */}
-      {/* Header - only visible when not animating */}
       <div className="absolute right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block overflow-hidden">
-        {/* Header - only visible when menu is closed */}
         <div
           ref={headerRef}
           className={`bg-white flex items-center justify-between px-4  py-3 rounded-full w-[300px] lg:w-[436px]  ${
@@ -92,26 +87,22 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="relative w-screen h-screen">
-        {/* Background image */}
-        {/* <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${corpImage1})` }}
-        ></div> */}
-
+      <div className="relative w-screen h-[90vh] md:h-screen">
+        {/* Full-screen background */}
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${corpImage1.src})` }}
         ></div>
 
-        {/* Gradient overlay with responsive classes */}
+        {/* Gradient overlay */}
         <div
           className="absolute inset-0 w-full h-full 
-               bg-gradient-to-l from-transparent to-[rgba(18,60,140,0.4)] 
-               lg:bg-gradient-to-l lg:from-transparent lg:from-[52.21%] lg:to-[rgba(18,60,140,0.4)] lg:to-[60.75%]"
+             bg-gradient-to-l from-transparent to-[rgba(18,60,140,0.4)] 
+             lg:bg-gradient-to-l lg:from-transparent lg:from-[52.21%] lg:to-[rgba(18,60,140,0.4)] lg:to-[60.75%]"
         ></div>
 
-        <div className="max-w-[600px] absolute bottom-[15%] left-[5%]">
+        {/* Main text content */}
+        <div className="max-w-[600px] absolute left-[5%] bottom-[10%] sm:bottom-[15%] z-10">
           <TextReveal>
             <h1 className="font-satoshi lg:text-[64px] text-[40px] font-semibold text-white">
               CONTACT US
@@ -122,7 +113,10 @@ const Hero = () => {
           </TextReveal>
         </div>
 
-        <Marquee variant="corporateHero" />
+        {/* Marquee */}
+        <div className="absolute bottom-0 w-full h-[10vh]">
+          <Marquee variant="corporateHero" />
+        </div>
       </div>
 
       <AnimatePresence>
@@ -130,7 +124,6 @@ const Hero = () => {
           <Menu toggleMenu={toggleMenu} headerRect={headerRect} />
         )}
       </AnimatePresence>
-
       {/* Mobile Menu Wrapper */}
       <div className="w-full relative overflow-hidden rounded-xl max-[480px]:rounded-none max-w-full mx-auto flex justify-between">
         {/* Only shown on mobile */}
@@ -164,7 +157,6 @@ const Hero = () => {
           </AnimatePresence>
 
           {/* Push content down to avoid overlap */}
-          <div className="pt-[160px]">{/* Page content starts here */}</div>
         </div>
       </div>
     </div>
