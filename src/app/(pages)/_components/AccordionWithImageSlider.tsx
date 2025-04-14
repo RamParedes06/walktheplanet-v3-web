@@ -90,7 +90,6 @@ const AccordionWithImageSlider: React.FC<AccordionWithImageSliderProps> = ({
   accordionItems,
   captionText = "We prioritize your safety, comfort, and confidentiality in every arrangement to make your journeys smooth and worry-free",
   leftSideClassName = "bg-black",
-  rightSideClassName = "",
   textOverlayClassName = "bg-gradient-to-t from-black/80 via-black/40 to-transparent",
 }) => {
   const [openItem, setOpenItem] = useState<number | null>(0);
