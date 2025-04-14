@@ -7,10 +7,8 @@ import FAQSection from "./FaqSection";
 
 export default function FrequentlyAskedQuestion() {
   return (
-    <div className="flex flex-col lg:flex-row w-full h-auto lg:h-screen">
-      {/* Left Section */}
-      <section className="w-full lg:w-1/2 bg-[#E7F0FF] flex flex-col justify-end relative overflow-hidden h-auto lg:h-full">
-        {/* Background Image */}
+    <div className="flex flex-col lg:flex-row w-full h-auto">
+      <section className="w-full lg:w-1/2 bg-[#E7F0FF] flex flex-col justify-end relative overflow-hidden h-auto">
         <div
           className="absolute"
           style={{

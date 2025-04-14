@@ -1,108 +1,540 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
-
-interface FAQItem {
-  id: string;
-  number: string;
-  question: string;
-  answer: string;
-}
 
 export default function FAQSection() {
   const [openItem, setOpenItem] = useState<string | null>(null);
+  const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const toggleItem = (id: string) => {
     setOpenItem(openItem === id ? null : id);
   };
 
-  const faqItems: FAQItem[] = [
-    {
-      id: "faq-1",
-      number: "01",
-      question: "What are the partners and affiliations of WalkThePlanet?",
-      answer:
-        "WalkThePlanet partners with various hotels, airlines, tour operators, and local businesses worldwide to provide comprehensive travel services. Our affiliations include major international travel associations and sustainable tourism initiatives.",
-    },
-    {
-      id: "faq-2",
-      number: "02",
-      question: "How can I find WalkThePlanet?",
-      answer:
-        "You can find WalkThePlanet through our website, mobile app, social media channels, or by visiting one of our physical locations in major cities. Our customer service is also available 24/7 via phone and email.",
-    },
-    {
-      id: "faq-3",
-      number: "03",
-      question: "How can I know more about WalkThePlanet?",
-      answer:
-        "To learn more about WalkThePlanet, you can browse our website, subscribe to our newsletter, follow us on social media, or contact our customer service team directly for specific information about our services and offerings.",
-    },
-    {
-      id: "faq-4",
-      number: "04",
-      question: "What payment methods are available?",
-      answer:
-        "WalkThePlanet accepts various payment methods including credit/debit cards (Visa, Mastercard, American Express), PayPal, bank transfers, and in some locations, we offer installment payment plans for larger bookings.",
-    },
-    {
-      id: "faq-5",
-      number: "05",
-      question: "How does WalkThePlanet customize travel packages?",
-      answer:
-        "WalkThePlanet customizes travel packages based on your preferences, budget, and travel goals. Our travel experts work with you to create personalized itineraries that include accommodations, transportation, activities, and special experiences tailored to your interests.",
-    },
-    {
-      id: "faq-6",
-      number: "06",
-      question: "How can I find the latest travel promos from WalkThePlanet?",
-      answer:
-        "You can find our latest travel promotions by subscribing to our newsletter, checking our website's 'Deals' section, following us on social media, or enabling notifications on our mobile app for real-time updates on special offers.",
-    },
-    {
-      id: "faq-7",
-      number: "07",
-      question: "Tell us more about your thoughts with WalkThePlanet?",
-      answer:
-        "We value your feedback! You can share your thoughts about WalkThePlanet through our customer satisfaction surveys, by leaving reviews on our website or social media, or by contacting our customer service team directly with your comments and suggestions.",
-    },
-  ];
-
   return (
     <section className="flex items-center justify-center w-full h-full bg-gradient-to-b from-blue-900 via-teal-800 to-yellow-500 text-white px-4 md:px-20">
-      <div className="max-w-4xl mx-auto py-10">
-        {faqItems.map((item) => (
-          <div key={item.id} className="border-b border-white/20 py-10 md:py-4">
-            <div
-              className="flex justify-between items-center cursor-pointer"
-              onClick={() => toggleItem(item.id)}
-            >
-              <div className="flex items-start gap-6">
-                <span className="text-white/70 font-medium">{item.number}</span>
-                <h3 className="text-[16px] px-6 md:text-lg md:font-medium">
-                  {item.question}
-                </h3>
-              </div>
-              <button className="flex-shrink-0">
-                {openItem === item.id ? (
-                  <FaMinus className="w-5 h-5 text-white" />
-                ) : (
-                  <FaPlus className="w-5 h-5 text-white" />
-                )}
-              </button>
+      <div className="max-w-4xl mx-auto py-10 space-y-6">
+        {/* FAQ Item 1 */}
+        <div className="border-b border-white/20 py-4">
+          <div
+            className="flex justify-between items-start cursor-pointer"
+            onClick={() => toggleItem("faq-1")}
+          >
+            <div className="flex items-start gap-6">
+              <span className="text-white/70 font-medium">01</span>
+              <h3 className="text-[16px] px-2 md:text-lg md:font-medium">
+                <span className="font-bold">
+                  What are the partners and affiliations of WalkThePlanet?
+                </span>
+              </h3>
             </div>
-            <div
-              className={`overflow-hidden transition-all duration-300 ${
-                openItem === item.id
-                  ? "max-h-40 opacity-100 mt-3"
-                  : "max-h-0 opacity-0"
-              }`}
-            >
-              <p className="pl-12 text-white/80">{item.answer}</p>
+            <button className="flex-shrink-0">
+              {openItem === "faq-1" ? (
+                <FaMinus className="w-5 h-5 text-white" />
+              ) : (
+                <FaPlus className="w-5 h-5 text-white" />
+              )}
+            </button>
+          </div>
+
+          <div
+            className={`transition-opacity duration-300 ${
+              openItem === "faq-1"
+                ? "opacity-100 mt-4"
+                : "opacity-0 h-0 overflow-hidden"
+            }`}
+          >
+            <div className="pl-12 pr-4 text-white/90 space-y-3">
+              <p>WalkThePlanet is an accredited member of the followings:</p>
+              <ul className="list-disc list-inside space-y-1 text-white/80">
+                <li>Department of Tourism (DOT)</li>
+                <li>Philippine Hop-On Hop-Off (HOHO by DOT-NCR)</li>
+                <li>Philippine Tour Operators Association (PHILTOA)</li>
+                <li>
+                  National Association of Independent Travel Agencies (NAITAS)
+                </li>
+                <li>Tourism Promotions Board</li>
+              </ul>
             </div>
           </div>
-        ))}
+        </div>
+
+        {/* FAQ Item 2 */}
+        <div className="border-b border-white/20 py-4">
+          <div
+            className="flex justify-between items-start cursor-pointer"
+            onClick={() => toggleItem("faq-2")}
+          >
+            <div className="flex items-start gap-6">
+              <span className="text-white/70 font-medium">02</span>
+              <h3 className="text-[16px] px-2 md:text-lg md:font-medium">
+                <span className="font-bold">How can I find WalkThePlanet?</span>
+              </h3>
+            </div>
+            <button className="flex-shrink-0">
+              {openItem === "faq-2" ? (
+                <FaMinus className="w-5 h-5 text-white" />
+              ) : (
+                <FaPlus className="w-5 h-5 text-white" />
+              )}
+            </button>
+          </div>
+
+          <div
+            className={`transition-opacity duration-300 ${
+              openItem === "faq-2"
+                ? "opacity-100 mt-4"
+                : "opacity-0 h-0 overflow-hidden"
+            }`}
+          >
+            <div className="pl-12 pr-4 text-white/90 space-y-4">
+              <p>
+                You can visit us at 1803-04 Philippine Stock Exchange Tower,
+                28th Street corner 5th Avenue, Bonifacio Global City, Taguig
+                City, Metro Manila, Philippines
+              </p>
+              <p>
+                We accommodate walk-in from{" "}
+                <span className="font-semibold">
+                  MONDAYS to FRIDAYS, 9:00 AM to 6:00 PM
+                </span>
+                .
+              </p>
+              <p>
+                We highly recommend wearing{" "}
+                <span className="font-semibold">smart casual</span> or{" "}
+                <span className="font-semibold">business attire</span> as per
+                building dress code requirements.
+              </p>
+              <p>
+                <a
+                  href="https://www.google.com/maps/place/Philippine+Stock+Exchange+Tower"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyan-300 underline"
+                >
+                  Click here to find us on Google Map!
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* FAQ Item 3 - The one with lots of content */}
+        <div className="border-b border-white/20 py-4">
+          <div
+            className="flex justify-between items-start cursor-pointer"
+            onClick={() => toggleItem("faq-3")}
+          >
+            <div className="flex items-start gap-6">
+              <span className="text-white/70 font-medium">03</span>
+              <h3 className="text-[16px] px-2 md:text-lg md:font-medium">
+                <span className="font-bold">
+                  How can I know more about WalkThePlanet?
+                </span>
+              </h3>
+            </div>
+            <button className="flex-shrink-0">
+              {openItem === "faq-3" ? (
+                <FaMinus className="w-5 h-5 text-white" />
+              ) : (
+                <FaPlus className="w-5 h-5 text-white" />
+              )}
+            </button>
+          </div>
+
+          {/* This is the key change - no max-height limitation for this content-heavy item */}
+          <div
+            className={`transition-opacity duration-300 ${
+              openItem === "faq-3"
+                ? "opacity-100 mt-4"
+                : "opacity-0 h-0 overflow-hidden"
+            }`}
+          >
+            <div className="pl-12 pr-4 text-white/90 space-y-4">
+              <p>You may inquire and book with us through the following:</p>
+
+              <div className="space-y-1">
+                <p className="text-white/70 font-medium">Via Online Booking</p>
+                <p>
+                  For flights and hotels:{" "}
+                  <a
+                    href="https://www.galago.com.ph/"
+                    className="text-cyan-300 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    https://www.galago.com.ph/
+                  </a>
+                </p>
+                <p>
+                  For tours and more:{" "}
+                  <a
+                    href="https://www.tours.walktheplanet.com/"
+                    className="text-cyan-300 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    https://www.tours.walktheplanet.com/
+                  </a>
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <p className="text-white/70 font-medium">Via Email</p>
+                <p>
+                  Leisure travel:{" "}
+                  <a
+                    href="mailto:customersupport@walktheplanet.com"
+                    className="text-cyan-300 underline"
+                  >
+                    customersupport@walktheplanet.com
+                  </a>
+                </p>
+                <p>
+                  Corporate and business travel:{" "}
+                  <span className="text-cyan-300 underline">walktheplanet</span>
+                </p>
+                <p>
+                  Travel agent and partner:{" "}
+                  <a
+                    href="mailto:partners@walktheplanet.com"
+                    className="text-cyan-300 underline"
+                  >
+                    partners@walktheplanet.com
+                  </a>
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <p className="text-white/70 font-medium">Via Social Media</p>
+                <p>
+                  Facebook:{" "}
+                  <a
+                    href="https://www.facebook.com/walktheplanetinc"
+                    className="text-cyan-300 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    https://www.facebook.com/walktheplanetinc
+                  </a>
+                </p>
+                <p>
+                  Instagram:{" "}
+                  <a
+                    href="https://www.instagram.com/walktheplanetinc"
+                    className="text-cyan-300 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    https://www.instagram.com/walktheplanetinc
+                  </a>
+                </p>
+                <p>
+                  TikTok:{" "}
+                  <a
+                    href="https://www.tiktok.com/@walktheplanetinc?lang=en"
+                    className="text-cyan-300 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    https://www.tiktok.com/@walktheplanetinc?lang=en
+                  </a>
+                </p>
+                <p>
+                  LinkedIn:{" "}
+                  <a
+                    href="https://www.linkedin.com/company/walktheplanet/"
+                    className="text-cyan-300 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    https://www.linkedin.com/company/walktheplanet/
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* FAQ Item 4 */}
+        <div className="border-b border-white/20 py-4">
+          <div
+            className="flex justify-between items-start cursor-pointer"
+            onClick={() => toggleItem("faq-4")}
+          >
+            <div className="flex items-start gap-6">
+              <span className="text-white/70 font-medium">04</span>
+              <h3 className="text-[16px] px-2 md:text-lg md:font-medium">
+                <span className="font-bold">
+                  What payment methods are available?
+                </span>
+              </h3>
+            </div>
+            <button className="flex-shrink-0">
+              {openItem === "faq-4" ? (
+                <FaMinus className="w-5 h-5 text-white" />
+              ) : (
+                <FaPlus className="w-5 h-5 text-white" />
+              )}
+            </button>
+          </div>
+
+          <div
+            className={`transition-opacity duration-300 ${
+              openItem === "faq-4"
+                ? "opacity-100 mt-4"
+                : "opacity-0 h-0 overflow-hidden"
+            }`}
+          >
+            <div className="pl-12 pr-4 ml-1 text-white/90">
+              <div>
+                <p className="mb-4 font-medium">
+                  We accept the following payment methods:
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+                  <div className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Cash</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Credit / Debit Cards (POS)</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Cheque</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Credit / Debit Cards (Online)</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Local Bank Transfers</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>E-Wallets (GCash, PayMaya)</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Bank Wire Transfer</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>QR PH</span>
+                  </div>
+                </div>
+                <p className="mt-4 text-sm text-white">
+                  Note: if you do not see the payment method that fits your
+                  needs, <br />
+                  please feel free to contact us at{" "}
+                  <a
+                    href="mailto:customersupport@walktheplanet.com"
+                    className="text-[#7EE7FC] underline"
+                  >
+                    customersupport@walktheplanet.com
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* FAQ Item 5 */}
+        <div className="border-b border-white/20 py-4">
+          <div
+            className="flex justify-between items-start cursor-pointer"
+            onClick={() => toggleItem("faq-5")}
+          >
+            <div className="flex items-start gap-6">
+              <span className="text-white/70 font-medium">05</span>
+              <h3 className="text-[16px] px-2 md:text-lg md:font-medium">
+                <span className="font-bold">
+                  How does WalkThePlanet customize travel packages?
+                </span>
+              </h3>
+            </div>
+            <button className="flex-shrink-0">
+              {openItem === "faq-5" ? (
+                <FaMinus className="w-5 h-5 text-white" />
+              ) : (
+                <FaPlus className="w-5 h-5 text-white" />
+              )}
+            </button>
+          </div>
+
+          <div
+            className={`transition-opacity duration-300 ${
+              openItem === "faq-5"
+                ? "opacity-100 mt-4"
+                : "opacity-0 h-0 overflow-hidden"
+            }`}
+          >
+            <div className="pl-12 pr-4 text-white/90">
+              <p>
+                We tailor each travel experience to match your unique needs and
+                preferences, whether for individuals or groups. Our team
+                carefully curates itineraries, accommodations, travel
+                essentials, documentation and relevant services to ensure a
+                seamless and memorable journey.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* FAQ Item 6 */}
+        <div className="border-b border-white/20 py-4">
+          <div
+            className="flex justify-between items-start cursor-pointer"
+            onClick={() => toggleItem("faq-6")}
+          >
+            <div className="flex items-start gap-6">
+              <span className="text-white/70 font-medium">06</span>
+              <h3 className="text-[16px] px-2 md:text-lg md:font-medium">
+                <span className="font-bold">
+                  How can I find the latest travel promos from WalkThePlanet?
+                </span>
+              </h3>
+            </div>
+            <button className="flex-shrink-0">
+              {openItem === "faq-6" ? (
+                <FaMinus className="w-5 h-5 text-white" />
+              ) : (
+                <FaPlus className="w-5 h-5 text-white" />
+              )}
+            </button>
+          </div>
+
+          {/* This is the key change - no max-height limitation for this content-heavy item */}
+          <div
+            className={`transition-opacity duration-300 ${
+              openItem === "faq-6"
+                ? "opacity-100 mt-4"
+                : "opacity-0 h-0 overflow-hidden"
+            }`}
+          >
+            <div className="pl-12 pr-4 text-white/90 space-y-4">
+              <p>
+                To keep yourself updated with our latest travel packages and
+                exclusive promos, you may catch us on our official{" "}
+                <span className="underline text-[#7EE7FC]">Facebook, </span>
+                <span className="underline text-[#7EE7FC]">
+                  {" "}
+                  Instagram{" "}
+                </span>{" "}
+                and
+                <span className="underline text-[#7EE7FC]"> TikTok </span>
+                accounts.
+              </p>
+
+              <div className="space-y-1">
+                <p>
+                  You may also join our WalkThePlanet Facebook Community  for
+                  travel opportunities.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* FAQ Item 7 */}
+        <div className="border-b border-white/20 py-4">
+          <div
+            className="flex justify-between items-start cursor-pointer"
+            onClick={() => toggleItem("faq-7")}
+          >
+            <div className="flex items-start gap-6">
+              <span className="text-white/70 font-medium">07</span>
+              <h3 className="text-[16px] px-2 md:text-lg md:font-medium">
+                <span className="font-bold">
+                  Tell us more about your thoughts with WalkThePlanet?
+                </span>
+              </h3>
+            </div>
+            <button className="flex-shrink-0">
+              {openItem === "faq-7" ? (
+                <FaMinus className="w-5 h-5 text-white" />
+              ) : (
+                <FaPlus className="w-5 h-5 text-white" />
+              )}
+            </button>
+          </div>
+
+          {/* This is the key change - no max-height limitation for this content-heavy item */}
+          <div
+            className={`transition-opacity duration-300 ${
+              openItem === "faq-7"
+                ? "opacity-100 mt-4"
+                : "opacity-0 h-0 overflow-hidden"
+            }`}
+          >
+            <div className="pl-12 pr-4 text-white/90 space-y-4">
+              <div className="space-y-1">
+                <p className="text-white/70 font-medium">For B2C Customer</p>
+                <p>
+                  <a
+                    href="https://www.galago.com.ph/"
+                    className="text-cyan-300 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    customersupport@walktheplanet.com
+                  </a>
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <p className="text-white/70 font-medium">
+                  For Corporate Client
+                </p>
+                <p>
+                  <a
+                    href="https://www.galago.com.ph/"
+                    className="text-cyan-300 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    corp@walktheplanet.com
+                  </a>
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <p className="text-white/70 font-medium">For M.I.C.E Client</p>
+                <p>
+                  <a
+                    href="https://www.galago.com.ph/"
+                    className="text-cyan-300 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    mice@walktheplanet.com
+                  </a>
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <p className="text-white/70 font-medium">
+                  For Travel Agent and Partner
+                </p>
+                <p>
+                  <a
+                    href="partners@walktheplanet.com"
+                    className="text-cyan-300 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    partners@walktheplanet.com
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Additional FAQ items would follow the same pattern */}
       </div>
     </section>
   );
