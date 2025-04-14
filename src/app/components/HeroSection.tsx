@@ -77,11 +77,11 @@ const Hero = () => {
       <div className="absolute right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block overflow-hidden">
         <div
           ref={headerRef}
-          className={`bg-white flex items-center justify-between px-4  py-3 rounded-full w-[300px] lg:w-[436px]  ${
+          className={`bg-white flex items-center justify-between px-8 py-[18px] rounded-full w-[300px] lg:w-[436px]  ${
             isOpenDesktop ? "invisible" : "visible"
           }`}
         >
-          <Image src={Logo} alt="logo" width={70} height={50} />
+          <Image src={Logo} alt="logo" width={70} height={50} className="cursor-pointer" onClick={() => window.location.href = "/"}/>
           <div onClick={toggleMenu} className="cursor-pointer">
             <MenuSvg />
           </div>
