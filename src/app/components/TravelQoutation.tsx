@@ -70,7 +70,7 @@ export default function TravelQuotation() {
                 <span className="text-white  text-[16px] md:text-2xl md:font-medium ">
                   05
                 </span>
-                <span className="text-white  text-[16px] md:text-2xl md:font-medium ">
+                <span className="text-white text-xl md:text-2xl">
                   Preferred budget (if applicable)
                 </span>
               </div>
