@@ -101,11 +101,7 @@ function InstagramCards() {
     }
   }, [completedSets]);
 
-  // Reset all carousels and start from the beginning
-  const resetAllCarousels = () => {
-    setCompletedSets(IgOpportunities.map(() => false));
-    setActiveSetIndex(0);
-  };
+
 
   return (
     <div className="h-screen relative">

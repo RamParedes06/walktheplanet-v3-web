@@ -23,9 +23,10 @@ export default function TravelQuotation() {
           <div className="max-w-xl">
             <h2 className="text-white text-[16px] md:text-2xl md:font-medium mb-4">
               For us to better provide a{" "}
-              <span className="text-sky-300">quotation</span>,
+              <span className="text-sky-300 font-medium italic">quotation</span>
+              ,
               <br /> you may simply share the following details,
-              <br /> we&apos;ll get back to you within two business days.
+              <br /> we&apos;ll get back to you within two business days
             </h2>
 
             <div className="mt-8 space-y-6">

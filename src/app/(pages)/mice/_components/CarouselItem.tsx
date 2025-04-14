@@ -28,7 +28,7 @@ const CarouselItem = ({
 }: CarouselItemProps) => {
   const slides = set.items;
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  //   const [isPaused, setIsPaused] = useState(false);
   const progressInterval = useRef<number | null>(null);
   const [progress, setProgress] = useState(0);
   const [totalProgress, setTotalProgress] = useState(0);
@@ -36,21 +36,7 @@ const CarouselItem = ({
   const slideDuration = 5000; // 5 seconds per slide
   const progressUpdateFrequency = 50; // Update progress every 50ms
   const progressIncrement = (progressUpdateFrequency / slideDuration) * 100;
-  const totalDuration = slideDuration * slides.length;
-
-  // Function declarations using useCallback to avoid unnecessary re-renders
-  const goToNextSlide = useCallback(() => {
-    const nextIndex = activeIndex + 1;
-
-    // If we've reached the end of this set's slides
-    if (nextIndex >= slides.length) {
-      // Mark this set as completed
-      onSetCompleted();
-      return;
-    }
-
-    setActiveIndex(nextIndex);
-  }, [activeIndex, slides.length]);
+  //   const totalDuration = slideDuration * slides.length;
 
   // Callback to tell parent component this set is completed
   const onSetCompleted = useCallback(() => {
@@ -68,6 +54,20 @@ const CarouselItem = ({
     }
   }, [wasCompletedBefore, onActivate]);
 
+  // Function declarations using useCallback to avoid unnecessary re-renders
+  const goToNextSlide = useCallback(() => {
+    const nextIndex = activeIndex + 1;
+
+    // If we've reached the end of this set's slides
+    if (nextIndex >= slides.length) {
+      // Mark this set as completed
+      onSetCompleted();
+      return;
+    }
+
+    setActiveIndex(nextIndex);
+  }, [activeIndex, slides.length, onSetCompleted]);
+
   const startProgressTimer = useCallback(() => {
     // Clear any existing interval
     if (progressInterval.current) {
@@ -78,7 +78,7 @@ const CarouselItem = ({
     setProgress(0);
 
     // Don't start timer if paused or not active
-    if (isPaused || !isActive) return;
+    if (!isActive) return;
 
     // Start new timer
     progressInterval.current = window.setInterval(() => {
@@ -86,7 +86,7 @@ const CarouselItem = ({
         const newProgress = prevProgress + progressIncrement;
 
         // Update total progress
-        setTotalProgress((prevTotal) => {
+        setTotalProgress(() => {
           // Calculate new total based on current slide and progress
           const slideProgress = activeIndex * 100 + newProgress;
           return slideProgress / slides.length;
@@ -106,7 +106,7 @@ const CarouselItem = ({
   }, [
     activeIndex,
     isActive,
-    isPaused,
+    // isPaused,
     progressIncrement,
     progressUpdateFrequency,
     slides.length,
@@ -174,7 +174,7 @@ const CarouselItem = ({
         clearInterval(progressInterval.current);
       }
     };
-  }, [activeIndex, isPaused, isActive, isCompleted, startProgressTimer]);
+  }, [activeIndex, isActive, isCompleted, startProgressTimer]);
 
   // Navigation within completed carousels
   const goToSlide = (index: number) => {
@@ -202,33 +202,13 @@ const CarouselItem = ({
     startProgressTimer();
   };
 
-    // Calculate a conic gradient for the progress border
-  // This creates a line that grows from a point in both directions
-  const calculateProgressGradient = (progress: number) => {
-    // Start at bottom center (270 degrees) and expand in both directions
-    const halfAngle = (progress / 100) * 180; // Half of the total angle coverage
-    const startAngle = 270 - halfAngle;
-    const endAngle = 270 + halfAngle;
-    
-    if (progress >= 100) {
-      return "conic-gradient(white 0deg, white 360deg)";
-    }
-    
-    return `conic-gradient(
-      white ${startAngle}deg, 
-      white ${endAngle}deg, 
-      transparent ${endAngle}deg, 
-      transparent ${startAngle + 360}deg
-    )`;
-  };
-
   return (
     <div
       className="relative rounded-3xl  overflow-hidden shadow-xl cursor-pointer transition-all duration-300"
       onClick={() => onActivate()}
     >
-     {/* Outer container for progress border */}
-     <div className="absolute inset-0 rounded-3xl z-30 pointer-events-none overflow-hidden">
+      {/* Outer container for progress border */}
+      <div className="absolute inset-0 rounded-3xl z-30 pointer-events-none overflow-hidden">
         {/* Base border with shadows - always visible */}
         <div
           className="absolute inset-0 rounded-3xl"
@@ -238,18 +218,18 @@ const CarouselItem = ({
               "0px 2px 4px -2px rgba(0,0,0,0.08), 0px 4px 6px -1px rgba(0,0,0,0.1)",
           }}
         />
-       {/* Progress border - shows the completion */}
-<div
-  className="absolute inset-0 border-[10px] border-white border-opacity-50 rounded-3xl"
-  style={{
-    clipPath: `polygon(
+        {/* Progress border - shows the completion */}
+        <div
+          className="absolute inset-0 border-[10px] border-white border-opacity-50 rounded-3xl"
+          style={{
+            clipPath: `polygon(
       0 100%, 
       100% 100%, 
       100% ${Math.max(100 - totalProgress, 0)}%, 
       0 ${Math.max(100 - totalProgress, 0)}%
     )`,
-  }}
-/>
+          }}
+        />
       </div>
 
       {/* Inner content with the ring */}

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 interface AccordionItemData {
@@ -26,46 +26,37 @@ const Accordion: React.FC<AccordionProps> = ({
   isOpen,
   toggleAccordion,
 }) => {
+  const contentRef = useRef<HTMLDivElement>(null);
   return (
-    <div className="border-b border-white/20">
+    <div className="border-b border-gray-200 border-opacity-30">
       <div
-        className="flex justify-between items-center py-4 cursor-pointer text-white"
         onClick={toggleAccordion}
+        className="flex justify-between items-center py-4 cursor-pointer"
       >
-        <div className="flex items-center gap-4">
-          <span className="text-xl font-light opacity-60">{number}</span>
-          <h3 className="text-lg font-medium">{title}</h3>
+        <div className="flex items-center font-generalSans  pb-5">
+          <span className="text-xl opacity-70 text-white  pr-4">{number}</span>
+          <h3 className="font-semibold text-xl md:text-2xl text-white">
+            {title}
+          </h3>
         </div>
-        <div className="transform transition-transform duration-300">
-          {isOpen ? (
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M18 15L12 9L6 15" stroke="white" strokeWidth="2" />
-            </svg>
-          ) : (
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M6 9L12 15L18 9" stroke="white" strokeWidth="2" />
-            </svg>
-          )}
-        </div>
+        <button className="text-2xl focus:outline-none text-white">
+          {isOpen ? "−" : "+"}
+        </button>
       </div>
+
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-40" : "max-h-0"
-        }`}
+        ref={contentRef}
+        className="overflow-hidden transition-all duration-300 ease-in-out"
+        style={{
+          maxHeight: isOpen
+            ? `${contentRef.current?.scrollHeight || 1000}px`
+            : "0",
+          opacity: isOpen ? 1 : 0,
+        }}
       >
-        <div className="pb-4 text-white/80">{content}</div>
+        <div className="md:pl-9 pl-10 pb-5 text-white md:text-xl text-base">
+          {content}
+        </div>
       </div>
     </div>
   );
@@ -219,7 +210,12 @@ const AccordionWithImageSlider: React.FC<AccordionWithImageSliderProps> = ({
       {/* Right side - Accordion with teal-amber gradient background */}
       <div className={`w-full md:w-1/2 relative order-1 ${rightSideClassName}`}>
         {/* Gradient background using Tailwind classes */}
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-900 via-teal-600 to-amber-500"></div>
+        <div
+          className="absolute inset-0 "
+          style={{
+            backgroundImage: `url('https://res.cloudinary.com/dmxvasob7/image/upload/v1744594491/Noise_jbbzkn.webp')`,
+          }}
+        ></div>
 
         {/* Content container */}
         <div className="relative h-full ">
