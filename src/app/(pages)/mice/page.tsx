@@ -10,7 +10,7 @@ import {
   image4,
   image5,
   image6,
-} from "@/library/CorpoCTA";
+} from "@/library/MiceCTA";
 import CallToAction from "../corporate/_corporate/CallToAction";
 import Quotes from "../edutourism/_components/Quotes";
 import InstagramCards from "./_components/InstagramCards";
