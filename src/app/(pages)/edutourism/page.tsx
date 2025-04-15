@@ -47,9 +47,9 @@ function edutourism() {
           <Quotes
             title={
               <p className="font-medium text-2xl">
-                Your students'{" "}
+                Your students&apos;&nbsp;
                 <span className="font-semibold">
-                  safety, comfort, and confidentiality
+                   safety, comfort, and confidentiality
                 </span>{" "}
                 are our priority
                 <br />
