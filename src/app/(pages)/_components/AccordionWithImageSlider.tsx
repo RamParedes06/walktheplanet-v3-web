@@ -171,7 +171,7 @@ const AccordionWithImageSlider: React.FC<AccordionWithImageSliderProps> = ({
   };
 
   return (
-    <div className="flex flex-col md:flex-row w-full h-screen">
+    <div className="flex flex-col md:flex-row w-full h-full md:h-screen">
       {/* Left side - Image with text overlay */}
       <div
         className={`w-full md:w-1/2 relative h-[428px] md:h-full overflow-hidden ${leftSideClassName}`}

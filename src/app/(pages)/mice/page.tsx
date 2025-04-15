@@ -43,7 +43,7 @@ function page() {
         <section>
           <Quotes
             title={
-              <div className="flex flex-col lg:gap-0 gap-3 italic text-base lg:text-2xl px-[32px] max-w-[364px] lg:w-full">
+              <div className="flex flex-col lg:gap-0 gap-3 italic text-base lg:text-2xl px-[32px]  max-w-[364px] lg:max-w-full">
                 <p>
                   M.I.C.E fuels connections, bringing leaders, brands, and
                   innovators together.
