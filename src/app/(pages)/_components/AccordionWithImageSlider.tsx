@@ -34,8 +34,10 @@ const Accordion: React.FC<AccordionProps> = ({
         className="flex justify-between items-center py-4 cursor-pointer"
       >
         <div className="flex items-center font-generalSans  pb-5">
-          <span className="text-xl opacity-70 text-white  pr-4">{number}</span>
-          <h3 className="font-semibold text-xl md:text-2xl text-white">
+          <span className=" text-base md:text-xl  opacity-70 text-white  pr-4">
+            {number}
+          </span>
+          <h3 className="font-semibold text-base md:text-2xl text-white">
             {title}
           </h3>
         </div>
@@ -169,10 +171,10 @@ const AccordionWithImageSlider: React.FC<AccordionWithImageSliderProps> = ({
   };
 
   return (
-    <div className="flex flex-col md:flex-row w-full h-screen">
+    <div className="flex flex-col md:flex-row w-full h-full md:h-screen">
       {/* Left side - Image with text overlay */}
       <div
-        className={`w-full md:w-1/2 relative h-screen overflow-hidden ${leftSideClassName}`}
+        className={`w-full md:w-1/2 relative h-[428px] md:h-full overflow-hidden ${leftSideClassName}`}
       >
         {/* Render all slides */}
         {slides.map((slide, index) => (
