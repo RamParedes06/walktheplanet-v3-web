@@ -1,13 +1,13 @@
 import React from "react";
 import Hero from "../corporate/_corporate/Hero";
-import { EduImages } from "@/library/EduHero";
+import { LeisureImages } from "@/library/LeisureHero";
 
 const LeisurePage = () => {
   return (
     <div>
       {" "}
       <Hero
-        images={EduImages}
+        images={LeisureImages}
         title="LEISURE"
         description={
           <div className="flex flex-col gap-3">
