@@ -1,4 +1,5 @@
 import React from "react";
+import TextReveal from "../../_components/TextReveal";
 
 const LiveSelling = () => {
   const image =
@@ -13,16 +14,20 @@ const LiveSelling = () => {
       }}
     >
       <div className="h-full flex flex-col justify-end items-start md:items-center gap-[64px] px-[32px] md:px-[80px] py-[112px]">
-        <div className="flex flex-col gap-5">
-          <h1 className="md:text-[64px] text-[40px] font-semibold">TIKTOK LIVE SELLING</h1>
-          <p className="text-base md:text-2xl font-medium md:text-center italic md:not-italic">
-            Premium offers just for you! <br /> Catch our stream for greater
-            travel details
-          </p>
-        </div>
-        <button className="bg-white text-[#00537F] text-base p-4 rounded-[14px] font-semibold cursor-pointer">
-          Grab yours now, for limited time offers
-        </button>
+        <TextReveal>
+          <div className="flex flex-col gap-5">
+            <h1 className="md:text-[64px] text-[40px] font-semibold">
+              TIKTOK LIVE SELLING
+            </h1>
+            <p className="text-base md:text-2xl font-medium md:text-center italic md:not-italic">
+              Premium offers just for you! <br /> Catch our stream for greater
+              travel details
+            </p>
+          </div>
+          <button className="bg-white text-[#00537F] text-base p-4 rounded-[14px] font-semibold cursor-pointer">
+            Grab yours now, for limited time offers
+          </button>
+        </TextReveal>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import { LeisureOBImages } from "@/library/LeisureOnlineBooking";
 import Image from "next/image";
 import background from "@/assets/svg/BgIllustrationOnlineBooking.svg";
+import TextReveal from "../../_components/TextReveal";
 
 const OnlineBooking = () => {
   // Get first three images
@@ -32,20 +33,24 @@ const OnlineBooking = () => {
         {/* Content Section */}
         <div className="flex px-20 flex-1 items-center relative">
           {/* Left side content */}
-          <div className="w-1/2">
-            <h1 className="text-5xl lg:text-6xl font-semibold text-[#00537F] mb-4 leading-18">
-              FLIGHTS AND HOTEL
-              <br />
-              ONLINE BOOKING
-            </h1>
-            <p className="text-xl mb-8 text-black">
-              Easy travels just got easier! Book today, travel tomorrow.
-            </p>
+     
+            <div className="w-1/2">
+            <TextReveal>
+              <h1 className="text-5xl lg:text-6xl font-semibold text-[#00537F] mb-4 leading-18">
+                FLIGHTS AND HOTEL
+                <br />
+                ONLINE BOOKING
+              </h1>
+              <p className="text-xl mb-8 text-black">
+                Easy travels just got easier! Book today, travel tomorrow.
+              </p>
 
-            <button className="bg-[#00537F] text-white px-8 py-4 rounded-[24px] text-lg font-medium hover:bg-[#00537F] cursor-pointer transition-colors">
-              Book it now and get your trip ready!
-            </button>
-          </div>
+              <button className="w-max bg-[#00537F] text-white px-8 py-4 rounded-[24px] text-lg font-medium hover:bg-[#00537F] cursor-pointer transition-colors">
+                Book it now and get your trip ready!
+              </button>
+              </TextReveal>
+            </div>
+
 
           {/* Background SVG  */}
           <div className="w-2/5 h-full absolute top-0 right-0">
