@@ -25,12 +25,12 @@ const LeisurePage = () => {
             </p>
           </div>
         }
+        gradient="bg-gradient-to-r from-[#FAAE19] via-[#198A6F] to-[#14476F]"
       />
       {/* Section 2 - Online booking  */}
       <OnlineBooking />
-
       {/* Section 3 - Tiktok Live Selling  */}
-      <LiveSelling/> 
+      <LiveSelling />
       {/* Section 5 - Footer  */}
       <Footer />
     </div>
