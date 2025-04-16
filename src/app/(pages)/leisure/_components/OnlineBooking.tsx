@@ -33,7 +33,7 @@ const OnlineBooking = () => {
         <div className="flex px-20 flex-1 items-center relative">
           {/* Left side content */}
           <div className="w-1/2">
-            <h1 className="text-5xl lg:text-6xl font-semibold text-[#00537F] mb-4">
+            <h1 className="text-5xl lg:text-6xl font-semibold text-[#00537F] mb-4 leading-18">
               FLIGHTS AND HOTEL
               <br />
               ONLINE BOOKING
@@ -103,7 +103,7 @@ const OnlineBooking = () => {
 
           {/* Text content */}
           <div className="relative z-10">
-            <h1 className="text-3xl font-bold text-[#00537F] mb-3">
+            <h1 className="text-3xl font-bold text-[#00537F] mb-3  ">
               FLIGHTS
               <br />
               AND HOTEL
