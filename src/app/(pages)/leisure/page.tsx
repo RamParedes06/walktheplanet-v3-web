@@ -3,6 +3,7 @@ import Hero from "../corporate/_corporate/Hero";
 import { LeisureImages } from "@/library/LeisureHero";
 import Footer from "../_components/Footer";
 import OnlineBooking from "./_components/OnlineBooking";
+import LiveSelling from "./_components/LiveSelling";
 
 const LeisurePage = () => {
   return (
@@ -27,6 +28,9 @@ const LeisurePage = () => {
       />
       {/* Section 2 - Online booking  */}
       <OnlineBooking />
+
+      {/* Section 3 - Tiktok Live Selling  */}
+      <LiveSelling/> 
       {/* Section 5 - Footer  */}
       <Footer />
     </div>
