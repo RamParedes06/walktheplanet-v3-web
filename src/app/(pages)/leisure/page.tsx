@@ -1,11 +1,14 @@
 import React from "react";
 import Hero from "../corporate/_corporate/Hero";
 import { LeisureImages } from "@/library/LeisureHero";
+import Footer from "../_components/Footer";
+import OnlineBooking from "./_components/OnlineBooking";
 
 const LeisurePage = () => {
   return (
     <div>
       {" "}
+      {/* Section 1 - Hero  */}
       <Hero
         images={LeisureImages}
         title="LEISURE"
@@ -22,6 +25,10 @@ const LeisurePage = () => {
           </div>
         }
       />
+      {/* Section 2 - Online booking  */}
+      <OnlineBooking />
+      {/* Section 5 - Footer  */}
+      <Footer />
     </div>
   );
 };
