@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { schemaBusiness, schemaLeisure } from "@/schema";
 import bg from "@/assets/svg/contact/bgIllustration.svg";
+import Modal from "./Modal";
 
 type LeisureFormData = z.infer<typeof schemaLeisure>;
 type BusinessFormData = z.infer<typeof schemaBusiness>;
@@ -16,6 +17,9 @@ export default function ContactForm() {
   const [travelType, setTravelType] = useState<
     "Leisure Travel" | "Business Travel"
   >("Business Travel");
+
+  const [successModal, setSuccessModal] = useState(false);
+  const [failedModal, setFailedModal] = useState(false);
 
   const leisureForm = useForm<LeisureFormData>({
     resolver: zodResolver(schemaLeisure),
@@ -66,29 +70,41 @@ export default function ContactForm() {
     }
   };
 
+  const onCloseFailedModal = () => {
+    setFailedModal(false);
+  };
+
+  const onCloseSucessModal = () => {
+    setSuccessModal(false);
+  };
+
   const onLeisureSubmit: SubmitHandler<LeisureFormData> = async (data) => {
     try {
-      const response = await axios.post(
+      await axios.post(
         `${process.env.NEXT_PUBLIC_APP_API_BASE_URL}/v2/wtp-contact-us`,
         { ...data, countryCode: "+63" }
       );
-      console.log("Form submitted successfully:", response);
+
       leisureForm.reset();
+      setSuccessModal(true);
     } catch (error) {
       console.log("Error submitting form:", error);
+      setFailedModal(true);
     }
   };
 
   const onBusinessSubmit: SubmitHandler<BusinessFormData> = async (data) => {
     try {
-      const response = await axios.post(
+      await axios.post(
         `${process.env.NEXT_PUBLIC_APP_API_BASE_URL}/v2/wtp-contact-us`,
         { ...data, countryCode: "+63" }
       );
-      console.log("Form submitted successfully:", response);
+
       businessForm.reset();
+      setSuccessModal(true);
     } catch (error) {
       console.log("Error submitting form:", error);
+      setFailedModal(true);
     }
   };
 
@@ -408,6 +424,73 @@ export default function ContactForm() {
           )}
         </div>
       </section>
+
+      {successModal && (
+        <Modal
+          iconSvg={
+            <svg
+              width="35"
+              height="35"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.6663 8L11.9997 22.6667L5.33301 16"
+                stroke="#8CC152"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          }
+          iconBorder="#D8EACC"
+          title="Thanks for reaching out!"
+          description1="We've received your message."
+          description2="We will get back to you as soon as possible"
+          showModal={successModal}
+          handleCloseModal={onCloseSucessModal}
+        />
+      )}
+
+      {failedModal && (
+        <Modal
+          iconSvg={
+            <svg
+              width="35"
+              height="35"
+              viewBox="0 0 50 50"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="12"
+                y1="12"
+                x2="38"
+                y2="38"
+                stroke="#F27474"
+                strokeWidth="6"
+                strokeLinecap="round"
+              />
+              <line
+                x1="38"
+                y1="12"
+                x2="12"
+                y2="38"
+                stroke="#F27474"
+                strokeWidth="6"
+                strokeLinecap="round"
+              />
+            </svg>
+          }
+          iconBorder="#F27474"
+          title="Something went wrong!"
+          description1="We couldn’t send your message."
+          description2="Please try again in a moment or try refreshing the page"
+          showModal={failedModal}
+          handleCloseModal={onCloseFailedModal}
+        />
+      )}
     </div>
   );
 }
