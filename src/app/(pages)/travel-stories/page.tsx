@@ -26,7 +26,7 @@ const page = () => {
               come true.
             </p>
             <p className="font-normal lg:text-[24px] text-base">
-              See why our clients can't stop raving about their unforgettable
+              See why our clients can&apos;t stop raving about their unforgettable
               journeys with WalkThePlanet!
             </p>
           </div>
