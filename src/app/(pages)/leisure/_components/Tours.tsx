@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { LeisureOBImages } from "@/library/LeisureOnlineBooking";
+import { LeisureToursImages } from "@/library/LeisureTours";
 import BackgroundSvg from "@/assets/svg/BGIllustrationManpower.svg";
 import Image from "next/image";
 import TextReveal from "../../_components/TextReveal";
@@ -10,7 +10,7 @@ const Tours = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   // Create a duplicate array for looping
-  const duplicatedImages = [...LeisureOBImages, ...LeisureOBImages];
+  const duplicatedImages = [...LeisureToursImages, ...LeisureToursImages];
 
   // Check for mobile viewport
   useEffect(() => {
@@ -133,11 +133,11 @@ const Tours = () => {
           <div className="flex-grow w-full overflow-hidden relative bg-white">
             <div className="absolute inset-0 h-[80%]">
               {/* First image (full width) */}
-              {LeisureOBImages.length > 0 && (
+              {LeisureToursImages.length > 0 && (
                 <div
                   className="h-full w-full rounded-lg overflow-hidden"
                   style={{
-                    backgroundImage: `url(${LeisureOBImages[0]})`,
+                    backgroundImage: `url(${LeisureToursImages[0]})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
