@@ -6,7 +6,7 @@ import bg from "@/assets/images/about/BGIllustration.svg";
 
 export default function WhoWeAreSection() {
   return (
-    <div className="flex flex-col w-full max-w-full mx-auto pt-20 bg-white">
+    <div className="flex flex-col w-full max-w-full mx-auto pt-10 md:pt-20 bg-white">
       <div className="relative bg-white">
         {/* Top Images */}
         <div className="flex w-full h-[500px] md:h-[500px] gap-1">
@@ -50,17 +50,17 @@ export default function WhoWeAreSection() {
         </div>
 
         {/* Overlay Text */}
-        <div className="absolute inset-0 flex items-end justify-center pointer-events-none">
-          <h2 className="text-[45px] md:text-[125px] font-bold text-white tracking-[0.03em] text-center uppercase">
+        <div className="absolute inset-0 -bottom-5 md:-bottom-15 flex items-end justify-center pointer-events-none">
+          <h2 className="text-[45px] md:text-[150px] font-bold text-white tracking-[0.03em] text-center uppercase">
             who we are?
           </h2>
         </div>
       </div>
 
       {/* Description Section */}
-      <div className="relative py-[80px] md:py-[112px] px-4 md:px-8 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-lg md:text-xl text-gray-800 leading-relaxed">
+      <div className="relative py-[64px] md:py-[112px] px-4 md:px-8 bg-white">
+        <div className="max-w-4xl mx-auto text-start md:text-center space-y-4">
+          <p className="text-[16px] md:text-xl text-gray-800 leading-relaxed">
             We&apos;re a Filipino-founded startup that{" "}
             <span className="font-semibold">
               understands every Juan&apos;s desire
@@ -69,14 +69,14 @@ export default function WhoWeAreSection() {
             </span>
           </p>
 
-          <p className="text-lg md:text-xl text-gray-800 leading-relaxed">
+          <p className="text-[16px] md:text-xl text-gray-800 leading-relaxed">
             That&apos;s why we expertly curate journeys that match your pace,
             style, and budget,
             <br />
             from spontaneous weekend outings to once-in-a-lifetime adventures.
           </p>
 
-          <p className="text-lg md:text-xl text-gray-800 leading-relaxed">
+          <p className="text-[16px] md:text-xl text-gray-800 leading-relaxed">
             <span className="font-semibold">
               Wherever you dream of going, WalkThePlanet takes you there.
             </span>

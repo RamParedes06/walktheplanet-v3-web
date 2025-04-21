@@ -5,7 +5,7 @@ const StorySection = () => {
     <div className="w-full py-8 md:py-16 bg-white text-gray-800">
       {/* OUR STORY */}
       <div className="flex flex-col items-center text-center md:text-left md:items-start md:flex-row md:gap-12 px-6 py-8 md:py-[112px] md:px-[80px]">
-        <h2 className="text-2xl md:text-4xl font-extrabold text-[#00537F] mb-4 md:mb-0 md:w-1/3">
+        <h2 className="text-[40px] md:text-4xl font-bold md:font-extrabold text-[#00537F] mb-4 md:mb-0 md:w-1/3">
           OUR STORY
         </h2>
         <p className="text-base md:text-[32px] leading-relaxed md:w-4/6">
