@@ -251,7 +251,7 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
         }}
       >
         {/* Added overflow-y-auto to the outer container for mobile */}
-        <div className="p-[30px] font-satoshi w-screen h-screen overflow-hidden z-30 bg-white lg:pb-[32px] pb-[120px]">
+        <div className="font-satoshi w-screen h-screen overflow-hidden z-30 bg-white lg:pb-[32px] pb-[120px]">
           {/* Header menu for mobile view  */}
           <div className=" justify-between flex lg:hidden p-6">
             {/* Logo in expanded view */}
