@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import TextReveal from "../../_components/TextReveal";
+import NavigationButton from "./NavigationButton";
 
 interface TestimonialProps {
   id: number;
@@ -25,7 +26,7 @@ const Testimonials = () => {
       id: 2,
       title: "TESTIMONIALS",
       message:
-        "Overall, the transaction was smooth, from flights and hotel transfers to van rentals for tours and other arrangements. I also appreciate that my request to extend my stay from 3 to 4 days was accommodated.  Thank you!"  ,
+        "Overall, the transaction was smooth, from flights and hotel transfers to van rentals for tours and other arrangements. I also appreciate that my request to extend my stay from 3 to 4 days was accommodated. Thank you!",
       user: "- Claudio Rugay (Client for Coron Package)",
       image:
         "https://res.cloudinary.com/dmxvasob7/image/upload/v1744774300/testimonials2_wkzfcp.webp",
@@ -34,7 +35,7 @@ const Testimonials = () => {
       id: 3,
       title: "TESTIMONIALS",
       message:
-        "Very smooth! Magmula sa booking process hanggang sa makauwi kami, very accommodating kayong lahat, pati ang staff ninyo sa Hong Kong, kaya masayang-masaya ang senior citizen. Kung puwede lang mag-book every month! Isa pa sa nagustuhan ko, kahit medyo rush, naitawid nang maayos ang travel. Good job, guys!  Until our next travel. Discount po ha",
+        "Very smooth! Magmula sa booking process hanggang sa makauwi kami, very accommodating kayong lahat, pati ang staff ninyo sa Hong Kong, kaya masayang-masaya ang senior citizen. Kung puwede lang mag-book every month! Isa pa sa nagustuhan ko, kahit medyo rush, naitawid nang maayos ang travel. Good job, guys! Until our next travel. Discount po ha",
       user: "- Joven Caluag (Client for 4D3N Hong Kong Land Arrangement po with Disneyland)",
       image:
         "https://res.cloudinary.com/dmxvasob7/image/upload/v1744774304/testimonials3_zzxcmp.webp",
@@ -57,40 +58,29 @@ const Testimonials = () => {
       style={{
         backgroundImage: `url(${current.image})`,
         backgroundSize: "cover",
-        backgroundPosition: "bottom",
+        backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="flex w-full min-h-[484px] absolute py-[112px] px-[80px] bottom-0 bg-[linear-gradient(180deg,rgba(5,18,28,0)_44.33%,rgba(5,18,28,0.8)_74.87%)]">
-        <div className="absolute bottom-25">
+      <div className="flex w-full min-h-[484px] absolute py-[112px] px-[10px] bottom-0 bg-[linear-gradient(180deg,rgba(5,18,28,0)_44.33%,rgba(5,18,28,0.8)_74.87%)] lg:px-[80px]">
+        <div className="absolute max-w-screen bottom-25 sm: bottom-0 mx-0 mx-[10px]">
           <TextReveal>
-            <h2 className="font-bold text-[64px] text-white font-satoshi max-[490px]:text-[40px] max-[490px]:text-start">
+            <h2 className="font-bold text-3xl text-white font-satoshi lg:text-6xl text-[40px] font-semibold">
               {current.title}
             </h2>
 
-            <p className="italic font-medium text-[24px] text-white font-generalSans">
+            <p className="italic mx-[10px] font-medium text-base text-white font-generalSans lg:text-2xl text-base font-generalSans">
               {current.message}
             </p>
-
-            <p className="opacity-65 italic text-white font-generalSans">
+            <p className="opacity-65 italic text-base text-white font-generalSans">
               {current.user}
             </p>
           </TextReveal>
         </div>
 
-        <div className="absolute space-x-10 bottom-20 right-25">
-          <button
-            onClick={handlePrev}
-            className="opacity-65 hover:cursor-pointer hover:opacity-100 text-white"
-          >
-            Prev
-          </button>
-          <button
-            onClick={handleNext}
-            className="opacity-65 hover:cursor-pointer hover:opacity-100 text-white"
-          >
-            Next
-          </button>
+        <div className="absolute bottom-10 right-10 sm:right-10 md:right-16 lg:right-20 flex justify-end space-x-3 sm:space-x-5 mt-5">
+          <NavigationButton onClick={handlePrev}>Prev</NavigationButton>
+          <NavigationButton onClick={handleNext}>Next</NavigationButton>
         </div>
       </div>
     </div>

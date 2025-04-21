@@ -20,12 +20,12 @@ const page = () => {
         images={TravelStoriesHero}
         title="TRAVEL STORIES"
         description={
-          <div className="space-y-10">
-            <p className="font-medium text-[24px]">
+          <div className="lg:space-y-10 space-y-5">
+            <p className="font-normal lg:text-[24px] text-base">
               From dreamy getaways to epic adventures, we make travel dreams
               come true.
             </p>
-            <p className="font-medium text-[24px]">
+            <p className="font-normal lg:text-[24px] text-base">
               See why our clients can't stop raving about their unforgettable
               journeys with WalkThePlanet!
             </p>
