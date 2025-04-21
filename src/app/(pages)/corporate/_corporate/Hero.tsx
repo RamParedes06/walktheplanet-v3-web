@@ -13,21 +13,27 @@ interface HeroProps {
   images: string[];
   title: string;
   description?: JSX.Element;
+  gradient?: string;
 }
 //! How to use
 {
   /* <Hero
-						images={corpoHero} //! Pass an array of image URLs
-						title="CORPORATE AND BUSINESS" //! Kailangan ko pa ba to i explain ? HAHAHAH
-						description={ //! Pass a JSX element for the description , you can use a div, p, span, etc.
-							<p>
-								<span className="text-[#7EE7FC] ">Seamless travel experience</span> tailor-made for your corporate and business goals.
-							</p>
-						}
-					/> */
+		images={corpoHero} //! Pass an array of image URLs
+		title="CORPORATE AND BUSINESS" //! Kailangan ko pa ba to i explain ? HAHAHAH
+		description={ //! Pass a JSX element for the description , you can use a div, p, span, etc.
+		<p>
+		<span className="text-[#7EE7FC] ">Seamless travel experience</span> tailor-made for your corporate and business goals.
+		</p>
+		}
+	 /> */
 }
 
-const Hero = ({ images, title, description }: HeroProps) => {
+const Hero = ({
+  images,
+  title,
+  description,
+  gradient = "bg-gradient-to-r from-[#0A2472] via-[#00A9CE] to-[#FF7A00]",
+}: HeroProps) => {
   const corpImages = images;
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -199,7 +205,7 @@ const Hero = ({ images, title, description }: HeroProps) => {
             </TextReveal>
           </div>
 
-          <Marquee variant="corporateHero" />
+          <Marquee variant="corporateHero" gradient={gradient} />
         </div>
 
         {/* Mobile Menu  */}

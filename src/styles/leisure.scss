@@ -1,0 +1,27 @@
+.slideshow-rtl {
+    width: 266.66%; /* enough width for 8 slides (5 + 3 repeated) */
+    animation: slideshow-rtl 30s linear infinite;
+  }
+  
+  .slideshow-ltr {
+    width: 266.66%; /* enough width for 8 slides (5 + 3 repeated) */
+    animation: slideshow-ltr 30s linear infinite;
+  }
+  
+  @keyframes slideshow-rtl {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-62.5%); /* move by 5/8 of the total width */
+    }
+  }
+  
+  @keyframes slideshow-ltr {
+    0% {
+      transform: translateX(-62.5%); /* start with last 3 visible */
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
