@@ -144,7 +144,7 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
         highlighted: true,
         image: homeImage,
       },
-      { title: "LEISURE", href: "#", image: homeImage },
+      { title: "LEISURE", href: "/leisure", image: homeImage },
       { title: "B2C PORTAL", href: "#", image: homeImage },
       { title: "LIVE SELLING", href: "#", image: homeImage },
       { title: "TRAVELKADA", href: "#", image: homeImage },
