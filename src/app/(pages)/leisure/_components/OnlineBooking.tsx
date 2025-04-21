@@ -19,19 +19,23 @@ const OnlineBooking = () => {
   const [bottomImagesPosition, setBottomImagesPosition] = useState(-10000);
   
   // Refs for container widths and image sets
-  const topContainerRef = useRef(null);
-  const bottomContainerRef = useRef(null);
-  const topImagesRef = useRef(null);
-  const bottomImagesRef = useRef(null);
+  const topContainerRef = useRef<HTMLDivElement>(null);
+  const bottomContainerRef = useRef<HTMLDivElement>(null);
+  const topImagesRef = useRef<HTMLDivElement>(null);
+  const bottomImagesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Animation speed in pixels per frame
     const moveStep = 1;
     
     // Get the actual width of single image for calculations
-    const getImageSetWidth = (imagesRef : any, images: any) => {
+    const getImageSetWidth = (
+      imagesRef: React.RefObject<HTMLDivElement | null>, 
+      images: Array<string>
+    ) => {
       if (!imagesRef.current) return 0;
-      const singleItemWidth = imagesRef.current.children[0].offsetWidth;
+      const firstChild = imagesRef.current.children[0] as HTMLElement;
+      const singleItemWidth = firstChild.offsetWidth;
       const gap = 1; // Gap between images
       return (singleItemWidth + gap) * images.length;
     };
@@ -42,7 +46,7 @@ const OnlineBooking = () => {
       
       if (imageSetWidth === 0) return; // Skip if width calculation failed
       
-      setTopImagesPosition((prevPosition) => {
+      setTopImagesPosition((prevPosition: number): number => {
         // When reached the width of one set, reset to create seamless loop
         if (prevPosition >= imageSetWidth) {
           return prevPosition - imageSetWidth;
@@ -71,8 +75,8 @@ const OnlineBooking = () => {
     };
 
     // Set animation frames for smooth scrolling
-    let topAnimationFrame : any;
-    let bottomAnimationFrame : any;
+    let topAnimationFrame : number ;
+    let bottomAnimationFrame : number;
     
     const animateTop = () => {
       animateTopCarousel();
@@ -195,7 +199,7 @@ const OnlineBooking = () => {
       </div>
 
       {/* Mobile layout */}
-      <div className="flex flex-col w-full md:hidden bg-white">
+      <div className="flex flex-col justify-between py-10 md:py-0 w-full md:hidden bg-white h-screen">
         {/* Top image */}
         <div className="w-full h-64 relative z-10">
           <Image
@@ -208,7 +212,7 @@ const OnlineBooking = () => {
         </div>
 
         {/* Content - Middle section */}
-        <div className="px-6 py-8 bg-white relative">
+        <div className="px-6 py-20 bg-white relative ">
           {/* Background SVG */}
           <div className="absolute top-[-110px] right-[-160px] z-0 overflow-hidden rotate-40">
             <Image
