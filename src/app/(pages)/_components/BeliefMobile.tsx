@@ -40,12 +40,14 @@ function BeliefsMobile() {
 	return (
 		<div className="space-y-10 pb-40 min-[481px]:hidden" style={{ backgroundImage: `url(${bgbeliefs.src})` }}>
 			<ScrollVelocity texts={["OUR BELIEFS"]} className="custom-scroll-text pt-15" textColor="black" />
-			<p className="text-center text-2xl max-w-6xl mx-auto max-[480px]:hidden text-[#333333A6]">
+			<div className="text-center text-2xl max-w-6xl mx-auto max-[480px]:text-[15px] max-[480px]:text-start max-[480px]:flex max-[480px]:flex-col max-[480px]:gap-3 max-[480px]:px-3 text-[#333333A6] ">
 				Your love for travel inspires the way for our passion to create unforgettable journeys.
-				<br /> We craft tailor-made experiences in the Philippines and the world, immersing you in culture, diversity,
-				<br /> and sustainability. Be part of a meaningful community.
-				<br /> Let’s explore together. We walk the Planet!
-			</p>
+				<div>
+					<p> We craft tailor-made experiences in the Philippines and the world, immersing you in culture, diversity,</p>
+					<p>and sustainability. Be part of a meaningful community.</p>
+				</div>
+				<p>Let’s explore together. We walk the Planet!</p>
+			</div>
 
 			<div className="max-w-[1280px] mx-auto p-8 bg-[#F2F2F2] space-y-10 ">
 				{cards.map((card) => (

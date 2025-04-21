@@ -1,118 +1,265 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { IgOpportunities } from "@/library/IgOpportunities";
+import CarouselItem from "./CarouselItem";
 
-const bg = "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744089867/InstagramBg_ktopbj.png";
-const overlay = "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744089957/LetterBg_cbmiri.png";
+const bg =
+  "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744089867/InstagramBg_ktopbj.png";
+const overlay =
+  "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744089957/LetterBg_cbmiri.png";
 
 function InstagramCards() {
-	const [activeIndexes, setActiveIndexes] = useState([0, 0, 0]);
-	const [currentCardIndex, setCurrentCardIndex] = useState(0);
-	const [isComplete, setIsComplete] = useState(false);
+  // Desktop State
+  const [activeSetIndex, setActiveSetIndex] = useState(0);
+  const [completedSets, setCompletedSets] = useState(
+    IgOpportunities.map(() => false)
+  );
 
-	useEffect(() => {
-		if (isComplete) return;
+  // Mobile State
+  const [activeSetIndexMobile, setActiveSetIndexMobile] = useState(0);
+  const [completedSetsMobile, setCompletedSetsMobile] = useState(
+    IgOpportunities.map(() => false)
+  );
 
-		const interval = setInterval(() => {
-			setActiveIndexes((prev) => {
-				const newIndexes = [...prev];
-				const currentIndex = prev[currentCardIndex];
-				const itemLength = IgOpportunities[currentCardIndex].items.length;
+  // Force completion flags
+  const [forceCompleteMobile, setForceCompleteMobile] = useState(false);
+  const [showLastSlideMobile, setShowLastSlideMobile] = useState(false);
 
-				if (currentIndex < itemLength - 1) {
-					newIndexes[currentCardIndex] = currentIndex + 1;
-				} else {
-					if (currentCardIndex < IgOpportunities.length - 1) {
-						setCurrentCardIndex(currentCardIndex + 1);
-					} else {
-						setIsComplete(true);
-					}
-				}
+  // Desktop - Handle set activation
+  const handleSetActivation = (
+    index: number,
+    reason: string | null | undefined
+  ) => {
+    if (reason === "completed") {
+      // Auto-advance to the next set when current set completes
+      const nextSetIndex = (activeSetIndex + 1) % IgOpportunities.length;
 
-				return newIndexes;
-			});
-		}, 5000);
+      // Mark current set as completed
+      const newCompletedSets = [...completedSets];
+      newCompletedSets[activeSetIndex] = true;
+      setCompletedSets(newCompletedSets);
 
-		return () => clearInterval(interval);
-	}, [activeIndexes, currentCardIndex, isComplete]);
+      // Activate the next set
+      setActiveSetIndex(nextSetIndex);
+    } else if (index !== activeSetIndex) {
+      // Manual selection of a different set
+      const newCompletedSets = [...completedSets];
 
-	const handleCardClick = (index: number) => {
-		// Set the clicked card as active and do not reset the progress of other cards
-		setCurrentCardIndex(index);
-	};
+      // Key change: If jumping ahead, mark all cards in between as completed
+      if (index > activeSetIndex) {
+        // Mark all cards from current to selected (exclusive) as completed
+        for (let i = activeSetIndex; i < index; i++) {
+          newCompletedSets[i] = true;
+        }
+      }
 
-	return (
-		<div className="h-screen relative">
-			{/* Background */}
-			<div
-				className="absolute inset-0 z-0"
-				style={{
-					backgroundImage: `url(${bg})`,
-					backgroundSize: "cover",
-					backgroundPosition: "center",
-				}}
-			/>
+      setCompletedSets(newCompletedSets);
+      setActiveSetIndex(index);
+    }
+  };
 
-			{/* White overlay */}
-			<div className="absolute inset-0 bg-white opacity-40 z-10" />
+  // Check if all sets are completed and reset if needed
+  useEffect(() => {
+    const allCompleted = completedSets.every((isCompleted) => isCompleted);
+    if (allCompleted) {
+      // Reset the component to start over without user interaction
+      const timer = setTimeout(() => {
+        setCompletedSets(IgOpportunities.map(() => false));
+        setActiveSetIndex(0);
+      }, 1000); // 1 second delay before restarting
 
-			{/* Main content */}
-			<div
-				className="absolute inset-0 z-20"
-				style={{
-					backgroundImage: `url(${overlay})`,
-					backgroundSize: "cover",
-					backgroundPosition: "center",
-				}}
-			>
-				<div className="h-full flex flex-col justify-center items-center gap-10 px-8">
-					<p className="text-center italic text-2xl font-generalSans font-medium max-w-4xl">
-						We view each corporate occasion as a crucial opportunity for your organization to reach its goals.
-						<br />
-						From event management to travel arrangements, we craft unforgettable experiences that help you achieve your desired results
-					</p>
+      return () => clearTimeout(timer);
+    }
+  }, [completedSets]);
 
-					<div className="flex gap-8">
-						{IgOpportunities.map((card, i) => {
-							const currentItem = card.items[activeIndexes[i]];
+  // Mobile - Handle set activation
+  const handleSetActivationMobile = (
+    index: number,
+    reason: string | null | undefined
+  ) => {
+    console.log("Mobile activation called with:", index, reason);
 
-							return (
-								<div
-									key={card.id}
-									className={`w-[390px] h-[580px] rounded-xl shadow-lg relative overflow-hidden bg-center bg-cover  duration-700 border-6 border-white ${
-										currentCardIndex === i || isComplete ? "opacity-100" : "opacity-100"
-									}`}
-									style={{
-										backgroundImage: `url(${currentItem.image})`,
-									}}
-									onClick={() => handleCardClick(i)} // Click handler
-								>
-									{/* Progress bar */}
-									<div className="absolute top-4 left-4 right-4 flex gap-1 z-30">
-										{card.items.map((_, idx) => (
-											<div key={idx} className={`h-[4px] flex-1 rounded-full bg-white/30 relative overflow-hidden`}>
-												<div
-													className={`absolute left-0 top-0 h-full bg-white transition-all duration-5000 ease-linear ${
-														activeIndexes[i] === idx && currentCardIndex === i ? "w-full" : activeIndexes[i] > idx ? "w-full" : "w-0"
-													}`}
-												/>
-											</div>
-										))}
-									</div>
+    // Safety check
+    if (index < 0 || index >= IgOpportunities.length) {
+      console.error("Invalid index:", index);
+      return;
+    }
 
-									{/* Caption */}
-									<div className="absolute bottom-0 left-0 right-0 p-4 py-10 text-white">
-										<h3 className="text-lg font-semibold">{currentItem.title}</h3>
-										<p className="text-sm">{currentItem.desc}</p>
-									</div>
-								</div>
-							);
-						})}
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+    // Handle automatic completion from within the card
+    if (reason === "completed") {
+      // Mark the current card as completed
+      const newCompletedSetsMobile = [...completedSetsMobile];
+      newCompletedSetsMobile[activeSetIndexMobile] = true;
+      setCompletedSetsMobile(newCompletedSetsMobile);
+
+      // Reset the force complete flag
+      setForceCompleteMobile(false);
+
+      // Auto-advance to next card if available
+      const nextIndex = activeSetIndexMobile + 1;
+      if (nextIndex < IgOpportunities.length) {
+        setActiveSetIndexMobile(nextIndex);
+      }
+    }
+  };
+
+  // Mobile - Mark a card as completed
+  const markCardAsCompleted = (index: number) => {
+    if (index >= 0 && index < IgOpportunities.length) {
+      const newCompletedSetsMobile = [...completedSetsMobile];
+      newCompletedSetsMobile[index] = true;
+      setCompletedSetsMobile(newCompletedSetsMobile);
+    }
+  };
+
+  // Mobile - Next button handler
+  const handleNext = () => {
+    if (activeSetIndexMobile < IgOpportunities.length - 1) {
+      // First, force complete all slides in the current card
+      setForceCompleteMobile(true);
+
+      // Mark current card as fully completed
+      markCardAsCompleted(activeSetIndexMobile);
+
+      // Reset show last slide flag
+      setShowLastSlideMobile(false);
+
+      // Use setTimeout to ensure state updates before advancing
+      setTimeout(() => {
+        // Navigate to next card
+        setActiveSetIndexMobile(activeSetIndexMobile + 1);
+
+        // Reset force complete flag after navigation
+        setForceCompleteMobile(false);
+      }, 50);
+    }
+  };
+
+  // Mobile - Prev button handler
+  const handlePrev = () => {
+    if (activeSetIndexMobile > 0) {
+      // Navigate to previous card
+      const prevIndex = activeSetIndexMobile - 1;
+
+      // Mark previous card as completed
+      markCardAsCompleted(prevIndex);
+
+      // Set flag to show the last slide of the previous card
+      setShowLastSlideMobile(true);
+
+      // Navigate to previous card
+      setActiveSetIndexMobile(prevIndex);
+    }
+  };
+
+  return (
+    <div className="h-screen relative">
+      {/* Background elements */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${bg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+      <div className="absolute inset-0 bg-white opacity-40 z-10" />
+      <div
+        className="absolute inset-0 z-10"
+        style={{
+          backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 36.35%, rgba(51, 51, 51, 0.3) 68.16%, rgba(0, 0, 0, 1) 100%), 
+                            linear-gradient(180deg, #006FA9 0%, rgba(255, 175, 128, 0.5) 50%, rgba(0, 83, 127, 0) 100%)`,
+        }}
+      ></div>
+
+      {/* Main content */}
+      <div
+        className="absolute inset-0 z-20"
+        style={{
+          backgroundImage: `url(${overlay})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="h-full flex flex-col justify-center items-center gap-10">
+          <p className="flex flex-col gap-2 lg:gap-0 text-left lg:text-center italic text-base font-generalSans font-medium lg:text-2xl max-w-[1280px] lg:px-8 px-[20px]">
+            <span>
+              {" "}
+              We view each corporate occasion as a crucial opportunity for your
+              organization to reach its goals.
+            </span>
+
+            <span>
+              {" "}
+              From event management to travel arrangements, <br /> we craft
+              unforgettable experiences that help you achieve your desired
+              results
+            </span>
+          </p>
+
+          {/* Desktop View - Multiple Cards */}
+          <div className="lg:flex md:flex gap-8 lg:w-[80%] w-[100%] hidden px-[5%]">
+            {IgOpportunities.map((set, index) => (
+              <div className="w-full" key={set.id}>
+                <CarouselItem
+                  set={set}
+                  isActive={index === activeSetIndex}
+                  isCompleted={completedSets[index]}
+                  onActivate={(reason) => handleSetActivation(index, reason)}
+                  forceCompleteAll={false}
+                  showLastSlide={false}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile View - Single Card */}
+          <div className="relative w-[90%] mx-auto">
+            <div className="lg:hidden md:hidden">
+              {/* Important: Only render the active card for mobile */}
+              <div className="w-full">
+                <CarouselItem
+                  set={IgOpportunities[activeSetIndexMobile]}
+                  isActive={true} // Always active since we only show one
+                  isCompleted={completedSetsMobile[activeSetIndexMobile]}
+                  onActivate={(reason) =>
+                    handleSetActivationMobile(activeSetIndexMobile, reason)
+                  }
+                  forceCompleteAll={forceCompleteMobile}
+                  showLastSlide={showLastSlideMobile}
+                />
+              </div>
+
+              <div className="flex justify-end space-x-2 mt-5">
+                <button
+                  onClick={handlePrev}
+                  className={`text-white px-4 py-1 rounded-md ${
+                    activeSetIndexMobile === 0
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-white/50"
+                  }`}
+                  disabled={activeSetIndexMobile === 0}
+                >
+                  Prev
+                </button>
+                <button
+                  onClick={handleNext}
+                  className={`text-white px-4 py-1 rounded-md ${
+                    activeSetIndexMobile === IgOpportunities.length - 1
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-white/50"
+                  }`}
+                  disabled={activeSetIndexMobile === IgOpportunities.length - 1}
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default InstagramCards;

@@ -43,83 +43,97 @@ interface Tab {
 }
 
 const tabs: Tab[] = [
-	{
-		id: "edutourism",
-		title: "EDUTOURISM",
-		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744095169/Hero1Figma_xcgzrt.png",
-		// edutorism,
-		description: "Immersive tours for all levels of education to enrich your students’ knowledge.",
-		svg: LuGraduationCap,
-		buttonText1: "See where learning takes you",
-		buttonText2: "Contact Us",
-		link: "/edutourism",
-	},
-	{
-		id: "corporate",
-		title: "CORPORATE & BUSINESS",
-		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096416/Corporate_Business_1_4_dab6y2.png",
-		// corporate,
-		description: "Personalized services suited for all corporate and business travel needs.",
-		svg: PiBriefcaseMetal,
-		buttonText1: "See how we elevate your business",
-		buttonText2: "Contact Us",
-		link: "/corporate",
-	},
-	{
-		id: "mice",
-		title: "M.I.C.E",
-		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096418/MICE_1_2_c65uoh.png",
-		// mice,
-		description: "Meticulously planned events designed for your organization’s success.",
-		svg: HiOutlinePresentationChartLine,
-		buttonText1: "Explore Solutions",
-		buttonText2: "Contact Us",
-		link: "/mice",
-	},
-	{
-		id: "travelpackage",
-		title: "TRAVEL PACKAGE ESSENTIALS",
-		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096417/Travel_Essentials_Global_Data_Sim_1_1_ieqaf6.png",
-		// travel,
-		description: "One SIM, 190+ destinations connecting you anywhere in the world.",
-		svg: FaBusAlt,
-		buttonText1: "Find out what to pack",
-		buttonText2: "Contact Us",
-		link: "#",
-	},
-	{
-		id: "liveselling",
-		title: "LIVE SELLING",
-		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744095321/LiveSelling_t3jgmq.png",
-		// liveselling,
-		description: "Exclusive rates and awesome discounts right at your fingertips! Book now on our TikTok live selling hours.",
-		svg: TbMessage2Heart,
-		buttonText1: "Capture discounts and live updates",
-		buttonText2: "Contact Us",
-		link: "#",
-	},
-	{
-		id: "onlinestore",
-		title: "ONLINE STORE",
-		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744094662/Online_Store_t1xmy8.png",
-		// onlinestore,
-		description: "One-stop shop packed with an array of options for all travelers. Explore our selections at tours.walktheplanet.com",
-		svg: RiShoppingCart2Line,
-		buttonText1: "See what's new in store",
-		buttonText2: "Contact Us",
-		link: "#",
-	},
-	{
-		id: "aboutus",
-		title: "ABOUT US",
-		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744094662/About_Us_vaia05.png",
-		// aboutus,
-		description: "Exclusive Travel, Unique Experiences. Get to know who we are and where we play.",
-		svg: AiOutlineHeart,
-		buttonText1: "Find out what drives us",
-		buttonText2: "Contact Us",
-		link: "#",
-	},
+  {
+    id: "edutourism",
+    title: "EDUTOURISM",
+    image:
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744095169/Hero1Figma_xcgzrt.png",
+    // edutorism,
+    description:
+      "Immersive tours for all levels of education to enrich your students’ knowledge.",
+    svg: LuGraduationCap,
+    buttonText1: "See where learning takes you",
+    buttonText2: "Contact Us",
+    link: "/edutourism",
+  },
+  {
+    id: "corporate",
+    title: "CORPORATE & BUSINESS",
+    image:
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096416/Corporate_Business_1_4_dab6y2.png",
+    // corporate,
+    description:
+      "Personalized services suited for all corporate and business travel needs.",
+    svg: PiBriefcaseMetal,
+    buttonText1: "See how we elevate your business",
+    buttonText2: "Contact Us",
+    link: "/corporate",
+  },
+  {
+    id: "mice",
+    title: "M.I.C.E",
+    image:
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096418/MICE_1_2_c65uoh.png",
+    // mice,
+    description:
+      "Meticulously planned events designed for your organization’s success.",
+    svg: HiOutlinePresentationChartLine,
+    buttonText1: "Explore Solutions",
+    buttonText2: "Contact Us",
+    link: "/mice",
+  },
+  {
+    id: "travelpackage",
+    title: "TRAVEL PACKAGE ESSENTIALS",
+    image:
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096417/Travel_Essentials_Global_Data_Sim_1_1_ieqaf6.png",
+    // travel,
+    description:
+      "One SIM, 190+ destinations connecting you anywhere in the world.",
+    svg: FaBusAlt,
+    buttonText1: "Find out what to pack",
+    buttonText2: "Contact Us",
+    link: "#",
+  },
+  {
+    id: "liveselling",
+    title: "LIVE SELLING",
+    image:
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744095321/LiveSelling_t3jgmq.png",
+    // liveselling,
+    description:
+      "Exclusive rates and awesome discounts right at your fingertips! Book now on our TikTok live selling hours.",
+    svg: TbMessage2Heart,
+    buttonText1: "Capture discounts and live updates",
+    buttonText2: "Contact Us",
+    link: "#",
+  },
+  {
+    id: "onlinestore",
+    title: "ONLINE STORE",
+    image:
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744094662/Online_Store_t1xmy8.png",
+    // onlinestore,
+    description:
+      "One-stop shop packed with an array of options for all travelers. Explore our selections at tours.walktheplanet.com",
+    svg: RiShoppingCart2Line,
+    buttonText1: "See what's new in store",
+    buttonText2: "Contact Us",
+    link: "#",
+  },
+  {
+    id: "aboutus",
+    title: "ABOUT US",
+    image:
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744267728/hero-aboutus_rjysnm.png",
+    // aboutus,
+    description:
+      "Exclusive Travel, Unique Experiences. Get to know who we are and where we play.",
+    svg: AiOutlineHeart,
+    buttonText1: "Find out what drives us",
+    buttonText2: "Contact Us",
+    link: "#",
+  },
 ];
 
 export default function Hero() {
@@ -670,7 +684,7 @@ export default function Hero() {
       <GridMotionMobile />
       <Footer />
 
-      {/* Mobile Menu  */} 
+      {/* Mobile Menu  */}
       <div className=" w-full relative overflow-hidden rounded-xl max-[480px]:rounded-none max-w-full mx-auto flex justify-between">
         <div className="lg:hidden">
           {/* Logo Menu */}

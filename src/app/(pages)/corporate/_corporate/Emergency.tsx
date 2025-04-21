@@ -178,11 +178,14 @@ const Emergency = () => {
         <div
           className="absolute inset-0 md:hidden"
           style={{
-            background: `
-            linear-gradient(90deg, #FF7A00 0%, #599D6A 50%, #00A9CE 100%),
-            linear-gradient(360deg, rgba(5, 18, 28, 0) 3.33%, rgba(10, 36, 114, 0.498536) 51.52%, #05121C 100%)
-          `,
+            backgroundImage: `
+              linear-gradient(90deg, #FF7A00 0%, #599D6A 50%, #00A9CE 100%),
+              linear-gradient(360deg, rgba(5, 18, 28, 0) 3.33%, rgba(10, 36, 114, 0.498536) 51.52%, #05121C 100%),
+              url('https://res.cloudinary.com/dmxvasob7/image/upload/v1744594491/Noise_jbbzkn.webp')
+            `,
             backgroundBlendMode: "overlay",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         ></div>
 
@@ -191,7 +194,12 @@ const Emergency = () => {
 
         {/* Content container */}
         <div className="relative h-full ">
-          <div className="w-full h-full flex justify-center items-center bg-gradient-to-b from-black/60 via-black/20 to-transparent">
+          <div
+            className="w-full h-full flex justify-center items-center bg-gradient-to-b from-black/60 via-black/20 to-transparent "
+            style={{
+              backgroundImage: `url('https://res.cloudinary.com/dmxvasob7/image/upload/v1744594491/Noise_jbbzkn.webp')`,
+            }}
+          >
             <div className="md:py-8 lg:px-4 px-6 py-16 w-full max-w-2xl">
               {accordionData.map((item) => (
                 <Accordion

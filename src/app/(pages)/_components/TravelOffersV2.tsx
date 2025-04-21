@@ -33,7 +33,12 @@ const TravelOffersV2 = () => {
         {/* New parent container */}
         <div
           className="travel-offers-container bg-cover bg-center bg-fixed"
-          style={{ backgroundImage: `url(${travelOffers.src})` }}
+          style={{
+            backgroundImage: `url(${travelOffers.src})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            backgroundRepeat: "no-repeat",
+          }}
         >
           {/* Black overlay with low opacity */}
           <div className="absolute inset-0 bg-black opacity-30"></div>
@@ -104,11 +109,16 @@ const TravelOffersV2 = () => {
                     One SIM for every destination.
                     <br /> Roam your way anytime, anywhere.
                   </p>
-                  <a href="https://tours.walktheplanet.com/collections/global-data-sim">
-                    <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">
-                      Get Now
-                    </button>
-                  </a>
+
+                  <button
+                    className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px] cursor-pointer"
+                    onClick={() =>
+                      (window.location.href =
+                        "https://tours.walktheplanet.com/collections/global-data-sim")
+                    }
+                  >
+                    Get Now
+                  </button>
                 </div>
               </div>
             </div>
@@ -134,11 +144,16 @@ const TravelOffersV2 = () => {
                     The Philippines’ best-kept secrets.
                     <br /> Pack your bags and uncover your adventure.
                   </p>
-                  <a href="https://tours.walktheplanet.com/collections/local-destinations">
-                    <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">
-                      Get Now
-                    </button>
-                  </a>
+
+                  <button
+                    className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px] cursor-pointer"
+                    onClick={() =>
+                      (window.location.href =
+                        "https://tours.walktheplanet.com/collections/local-destinations")
+                    }
+                  >
+                    Get Now
+                  </button>
                 </div>
               </div>
             </div>
@@ -165,11 +180,16 @@ const TravelOffersV2 = () => {
                     <br />
                     Travel with us and see the world.
                   </p>
-                  <a href="https://tours.walktheplanet.com/collections/international-destinations">
-                    <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">
-                      Book Now
-                    </button>
-                  </a>
+
+                  <button
+                    className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px] cursor-pointer"
+                    onClick={() =>
+                      (window.location.href =
+                        "https://tours.walktheplanet.com/collections/international-destinations")
+                    }
+                  >
+                    Book Now
+                  </button>
                 </div>
               </div>
             </div>
@@ -195,11 +215,15 @@ const TravelOffersV2 = () => {
                     Visa processing and immigration requirements
                     <br /> handled with ease.
                   </p>
-                  <a href="https://tours.walktheplanet.com/pages/contact">
-                    <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">
-                      Book Now
-                    </button>
-                  </a>
+                  <button
+                    onClick={() =>
+                      (window.location.href =
+                        "https://tours.walktheplanet.com/pages/contact")
+                    }
+                    className="px-6 py-2 bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px] cursor-pointer"
+                  >
+                    Book Now
+                  </button>
                 </div>
               </div>
             </div>

@@ -1,14 +1,11 @@
-import ContactForm from "@/app/(pages)/contact-us/components/ContactForm";
-import ContactSection from "@/app/(pages)/contact-us/components/ContactSection";
-import FrequentlyAskedQuestion from "@/app/(pages)/contact-us/components/FrequentlyAskedQuestion";
-import HeroSection from "@/app/(pages)/contact-us/components/HeroSection";
-import LocationSection from "@/app/(pages)/contact-us/components/LocationSection";
-import TravelGallery from "@/app/(pages)/contact-us/components/TravelGallery";
-import TravelQuotation from "@/app/(pages)/contact-us/components/TravelQoutation";
-import { image1, image2, image3, image4, image5, image6 } from "@/library/CorpoCTA";
-
+import ContactForm from "@/app/components/ContactForm";
+import ContactSection from "@/app/components/ContactSection";
+import FrequentlyAskedQuestion from "@/app/components/FrequentlyAskedQuestion";
+import HeroSection from "@/app/components/HeroSection";
+import LocationSection from "@/app/components/LocationSection";
+import TravelGallery from "@/app/components/TravelGallery";
+import TravelQuotation from "@/app/components/TravelQoutation";
 import Footer from "../_components/Footer";
-import CallToAction from "../corporate/_corporate/CallToAction";
 
 const ContactPage = () => {
 	return (
