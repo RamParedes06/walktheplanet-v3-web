@@ -40,7 +40,10 @@ const page = () => {
         image4={image4}
         image5={image5}
         image6={image6}
-        title="Book with us. Your dream trip is just a click away!"
+        title={`Book with us.\nYour dream trip is just a click away!`}
+
+     
+
         buttonLabel="Start your next adventure with WalkThePlanet"
       />
       <Footer />
