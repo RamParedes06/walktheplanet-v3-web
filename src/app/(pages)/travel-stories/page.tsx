@@ -26,7 +26,7 @@ const page = () => {
               come true.
             </p>
             <p className="font-normal lg:text-[24px] text-base">
-              See why our clients can't stop raving about their unforgettable
+              See why our clients can&apos;t stop raving about their unforgettable
               journeys with WalkThePlanet!
             </p>
           </div>
@@ -40,7 +40,10 @@ const page = () => {
         image4={image4}
         image5={image5}
         image6={image6}
-        title="Book with us. Your dream trip is just a click away!"
+        title={`Book with us.\nYour dream trip is just a click away!`}
+
+     
+
         buttonLabel="Start your next adventure with WalkThePlanet"
       />
       <Footer />

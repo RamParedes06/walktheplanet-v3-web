@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useMemo } from "react";
 
 interface SlideItem {
   title: string;
@@ -30,9 +30,9 @@ const CarouselItem = ({
   forceCompleteAll = false,
   showLastSlide = false,
 }: CarouselItemProps) => {
-  const slides = set.items || [];
+  //  Fix lint warning
+  const slides = useMemo(() => set.items || [], [set.items]);
   const [activeIndex, setActiveIndex] = useState(0);
-  //   const [isPaused, setIsPaused] = useState(false);
   const progressInterval = useRef<number | null>(null);
   const [progress, setProgress] = useState(0);
   const [totalProgress, setTotalProgress] = useState(0);
@@ -40,16 +40,15 @@ const CarouselItem = ({
   const slideDuration = 5000; // 5 seconds per slide
   const progressUpdateFrequency = 50; // Update progress every 50ms
   const progressIncrement = (progressUpdateFrequency / slideDuration) * 100;
-  //   const totalDuration = slideDuration * slides.length;
 
-  // Safety check - ensure activeIndex is valid
+  // to ensure activeIndex is valid
   useEffect(() => {
     if (slides.length > 0 && activeIndex >= slides.length) {
       setActiveIndex(slides.length - 1);
     }
   }, [slides, activeIndex]);
 
-  // Callback to tell parent component this set is completed
+  // Callback to tell parent component the set is completed
   const onSetCompleted = useCallback(() => {
     if (!wasCompletedBefore) {
       setWasCompletedBefore(true);
@@ -65,13 +64,12 @@ const CarouselItem = ({
     }
   }, [wasCompletedBefore, onActivate]);
 
-  // Function declarations using useCallback to avoid unnecessary re-renders
+  // useCallback to avoid unnecessary re-renders
   const goToNextSlide = useCallback(() => {
     const nextIndex = activeIndex + 1;
 
-    // If we've reached the end of this set's slides
     if (nextIndex >= slides.length) {
-      // Mark this set as completed
+      // Mark this set as completed when reached end
       onSetCompleted();
       return;
     }
@@ -81,7 +79,12 @@ const CarouselItem = ({
 
   // Handle forceCompleteAll prop
   useEffect(() => {
-    if (forceCompleteAll && isActive && !wasCompletedBefore && slides.length > 0) {
+    if (
+      forceCompleteAll &&
+      isActive &&
+      !wasCompletedBefore &&
+      slides.length > 0
+    ) {
       if (progressInterval.current !== null) {
         clearInterval(progressInterval.current);
       }
@@ -91,7 +94,13 @@ const CarouselItem = ({
       setWasCompletedBefore(true);
       onActivate("completed");
     }
-  }, [forceCompleteAll, isActive, wasCompletedBefore, slides.length, onActivate]);
+  }, [
+    forceCompleteAll,
+    isActive,
+    wasCompletedBefore,
+    slides.length,
+    onActivate,
+  ]);
 
   // Handle showLastSlide prop
   useEffect(() => {
@@ -103,7 +112,7 @@ const CarouselItem = ({
   }, [showLastSlide, slides.length]);
 
   const startProgressTimer = useCallback(() => {
-    // Don't start timer if no slides
+    // Don't start timer if tjere are no slides
     if (slides.length === 0) return;
 
     // Clear any existing interval
@@ -111,10 +120,10 @@ const CarouselItem = ({
       clearInterval(progressInterval.current);
     }
 
-    // Reset individual slide progress
+    // Reset indiv slide prog.
     setProgress(0);
 
-    // Don't start timer if paused or not active
+    // Dont start timer if paused or not active
     if (!isActive) return;
 
     // Start new timer
@@ -122,14 +131,14 @@ const CarouselItem = ({
       setProgress((prevProgress) => {
         const newProgress = prevProgress + progressIncrement;
 
-        // Update total progress
+        // Update forda total progress
         setTotalProgress(() => {
-          // Calculate new total based on current slide and progress
+          // new total based on current slide and progress
           const slideProgress = activeIndex * 100 + newProgress;
           return slideProgress / slides.length;
         });
 
-        // If we've reached 100% for this slide, move to the next
+        // Move to next when reached 100% of curr slide
         if (newProgress >= 100) {
           if (progressInterval.current !== null) {
             clearInterval(progressInterval.current);
@@ -143,14 +152,12 @@ const CarouselItem = ({
   }, [
     activeIndex,
     isActive,
-    // isPaused,
     progressIncrement,
     progressUpdateFrequency,
     slides.length,
     goToNextSlide,
   ]);
 
-  // When a carousel becomes active, reset its progress if it wasn't completed
   useEffect(() => {
     if (isActive && !isCompleted && !wasCompletedBefore) {
       setProgress(0);
@@ -162,7 +169,7 @@ const CarouselItem = ({
   // Handle completion state changes, including resets
   useEffect(() => {
     if (isCompleted && !wasCompletedBefore && slides.length > 0) {
-      // First time being marked as completed
+      // mark as complete
       if (progressInterval.current !== null) {
         clearInterval(progressInterval.current);
       }
@@ -218,19 +225,16 @@ const CarouselItem = ({
   // Navigation within completed carousels
   const goToSlide = (index: number) => {
     if (slides.length === 0) return;
-    
-    // Safety check for valid index
     if (index < 0 || index >= slides.length) return;
-    
-    // Allow navigation within completed carousels without resetting completion status
+
+    //  navigation within completed carousels without resetting completion status
     if (wasCompletedBefore) {
       setActiveIndex(index);
       return;
     }
 
-    // For active, uncompleted carousels - normal behavior
     if (index > activeIndex) {
-      // User clicked a slide ahead of current - mark current as complete
+      // mark current as complete when user clicked a slide ahead of current
       setProgress(100);
     }
 
@@ -238,7 +242,7 @@ const CarouselItem = ({
     setTotalProgress((index * 100) / slides.length);
     setActiveIndex(index);
 
-    // Reset progress for the new slide
+    // Reset progress
     setProgress(0);
     if (progressInterval.current !== null) {
       clearInterval(progressInterval.current);
@@ -253,8 +257,11 @@ const CarouselItem = ({
     }
   };
   // Get current slide safely
-  const currentSlide = slides.length > 0 && activeIndex < slides.length ? slides[activeIndex] : null;
-  
+  const currentSlide =
+    slides.length > 0 && activeIndex < slides.length
+      ? slides[activeIndex]
+      : null;
+
   return (
     <div
       className="relative rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-300"
@@ -344,8 +351,12 @@ const CarouselItem = ({
           </div>
 
           <div className="absolute bottom-0 left-0 py-[64px] px-[32px] text-white z-10">
-            <h2 className="text-2xl font-bold pb-3">{currentSlide?.title || "Slide Title"}</h2>
-            <p className="text-base">{currentSlide?.desc || "Slide description"}</p>
+            <h2 className="text-2xl font-bold pb-3">
+              {currentSlide?.title || "Slide Title"}
+            </h2>
+            <p className="text-base">
+              {currentSlide?.desc || "Slide description"}
+            </p>
           </div>
           <div className="absolute inset-0 bg-black bg-opacity-20" />
         </div>

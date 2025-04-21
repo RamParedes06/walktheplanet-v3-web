@@ -171,8 +171,8 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
           "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fmenu%2Fmenu-corp.webp&version_id=null",
       },
       {
-        title: "SUCCESS STORIES",
-        href: "#",
+        title: "TRAVEL STORIES",
+        href: "/travel-stories",
         highlighted: true,
         image:
           "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fmenu%2Fmenu-success.webp&version_id=null",
@@ -256,7 +256,7 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
           <div className=" justify-between flex lg:hidden p-6">
             {/* Logo in expanded view */}
             <div className="flex">
-              <Image src={LogoSvg} alt="logo" width={100} height={46} />
+              <Image src={LogoSvg} onClick={() => window.location.replace("/")} className="cursor-pointer" alt="logo" width={100} height={46} />
             </div>
             {/* Close button */}
             <div className="cursor-pointer" onClick={toggleMenu}>
@@ -291,8 +291,8 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
               {/* Header of the menu */}
               <div className=" justify-between hidden lg:flex">
                 {/* Logo in expanded view */}
-                <div className="flex">
-                  <Image src={LogoSvg} alt="logo" width={206} height={96} />
+                <div className="flex cursor-pointer">
+                  <Image src={LogoSvg} onClick={() => window.location.replace("/")} alt="logo" width={206} height={96} />
                 </div>
                 {/* Close button */}
                 <div className="cursor-pointer" onClick={toggleMenu}>
@@ -362,10 +362,10 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
                               onMouseEnter={() =>
                                 setImageDisplay(item.image ? item.image : "")
                               }
-                              className={`text-base transition-all duration-200 hover:text-[#00537F] inline-flex items-center ${
+                              className={`  text-base transition-all duration-200 hover:text-[#00537F] inline-flex items-center ${
                                 item.highlighted
-                                  ? "text-[#00537F] font-medium"
-                                  : "text-gray-700 hover:text-[#333333] hover:font-medium"
+                                  ? "text-[#00537F] font-medium active:font-semibold"
+                                  : "text-gray-700 hover:text-[#333333] hover:font-medium active:font-medium"
                               } ${
                                 active
                                   ? "underline"
@@ -416,8 +416,8 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
                               key={`right-${index}`}
                               className={`text-base transition-all duration-200 hover:text-[#00537F] inline-flex items-center ${
                                 item.highlighted
-                                  ? "text-[#00537F] font-medium"
-                                  : "text-gray-700 hover:text-[#333333] hover:font-medium"
+                                  ? "text-[#00537F] font-medium active:font-semibold"
+                                  : "text-gray-700 hover:text-[#333333] hover:font-medium active:font-medium"
                               } ${
                                 active
                                   ? "underline"
@@ -460,7 +460,7 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
                             setImageDisplay(contactImage);
                           }}
                           onMouseLeave={() => setIsContactUsHovered(false)}
-                          className={`text-base cursor-pointer transition-all duration-200 text-[#00537F] font-medium hover:text-[#00537F] inline-flex items-center ${
+                          className={`active:font-semibold text-base cursor-pointer transition-all duration-200 text-[#00537F] font-medium hover:text-[#00537F] inline-flex items-center ${
                             pathname === "/contact-us"
                               ? "underline"
                               : "no-underline group-hover:translate-x-6"

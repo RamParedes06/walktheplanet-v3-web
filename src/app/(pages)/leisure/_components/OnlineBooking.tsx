@@ -13,9 +13,9 @@ const OnlineBooking = () => {
   // For mobile view
   const firstThreeImages = LeisureOBImages.slice(0, 5);
 
-  // State to track the position and animation status
+  // Track the position and animation status
   const [topImagesPosition, setTopImagesPosition] = useState(0);
-  // Start bottom carousel with negative position to ensure images are visible
+  // Start of bottom carousel
   const [bottomImagesPosition, setBottomImagesPosition] = useState(-10000);
   
   // Refs for container widths and image sets
@@ -25,10 +25,10 @@ const OnlineBooking = () => {
   const bottomImagesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Animation speed in pixels per frame
+    //  ANIMATION SPEED
     const moveStep = 1;
     
-    // Get the actual width of single image for calculations
+    // Get width of single image for calculations
     const getImageSetWidth = (
       imagesRef: React.RefObject<HTMLDivElement | null>, 
       images: Array<string>
@@ -36,18 +36,18 @@ const OnlineBooking = () => {
       if (!imagesRef.current) return 0;
       const firstChild = imagesRef.current.children[0] as HTMLElement;
       const singleItemWidth = firstChild.offsetWidth;
-      const gap = 1; // Gap between images
+      const gap = 1; // images gap
       return (singleItemWidth + gap) * images.length;
     };
 
-    // Animation function for the top carousel (right to left)
+    // Top Carousel animation
     const animateTopCarousel = () => {
       const imageSetWidth = getImageSetWidth(topImagesRef, firstFiveImages);
       
-      if (imageSetWidth === 0) return; // Skip if width calculation failed
+      if (imageSetWidth === 0) return; 
       
       setTopImagesPosition((prevPosition: number): number => {
-        // When reached the width of one set, reset to create seamless loop
+        // reset
         if (prevPosition >= imageSetWidth) {
           return prevPosition - imageSetWidth;
         }
@@ -59,13 +59,13 @@ const OnlineBooking = () => {
     const animateBottomCarousel = () => {
       const imageSetWidth = getImageSetWidth(bottomImagesRef, lastFiveImages);
       
-      if (imageSetWidth === 0) return; // Skip if width calculation failed
+      if (imageSetWidth === 0) return;
       
       setBottomImagesPosition((prevPosition) => {
-        // For left-to-right movement (opposite of top carousel)
+        //  left-to-right movement (opposite of top carousel)
         const newPosition = prevPosition + moveStep;
         
-        // If we've moved one full set to the right, reset
+        //  reset
         if (newPosition >= imageSetWidth) {
           return newPosition - imageSetWidth;
         }
@@ -74,7 +74,7 @@ const OnlineBooking = () => {
       });
     };
 
-    // Set animation frames for smooth scrolling
+    // animation frames
     let topAnimationFrame : number ;
     let bottomAnimationFrame : number;
     
@@ -92,17 +92,16 @@ const OnlineBooking = () => {
     topAnimationFrame = requestAnimationFrame(animateTop);
     bottomAnimationFrame = requestAnimationFrame(animateBottom);
 
-    // Cleanup animation frames on unmount
+    // Cleanup animation frames 
     return () => {
       cancelAnimationFrame(topAnimationFrame);
       cancelAnimationFrame(bottomAnimationFrame);
     };
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [firstFiveImages.length, lastFiveImages.length]);
 
   // Create duplicated sets of images for seamless infinite scrolling
-  // Using more copies ensures that there's always enough content visible
   const displayTopImages = [...firstFiveImages, ...firstFiveImages, ...firstFiveImages];
-  // Add more copies for the bottom carousel to prevent running out of images
   const displayBottomImages = [...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages];
 
   return (
@@ -120,7 +119,7 @@ const OnlineBooking = () => {
             style={{
               transform: `translateX(-${topImagesPosition}px)`,
               transition: "transform 0.01s linear",
-              width: "max-content", // Let content determine width
+              width: "max-content", 
             }}
           >
             {displayTopImages.map((image, index) => (
@@ -180,7 +179,7 @@ const OnlineBooking = () => {
             style={{
               transform: `translateX(${bottomImagesPosition}px)`,
               transition: "transform 0.01s linear",
-              width: "max-content", // Let content determine width
+              width: "max-content", 
             }}
           >
             {displayBottomImages.map((imageUrl, index) => (
