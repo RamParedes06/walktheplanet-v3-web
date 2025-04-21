@@ -1,8 +1,8 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import background from "@/assets/svg/BgIllustrationOnlineBooking.svg";
 import { LeisureOBImages } from "@/library/LeisureOnlineBooking";
 import Image from "next/image";
-import background from "@/assets/svg/BgIllustrationOnlineBooking.svg";
+import React, { useEffect, useRef, useState } from "react";
 import TextReveal from "../../_components/TextReveal";
 
 const OnlineBooking = () => {
@@ -69,7 +69,7 @@ const OnlineBooking = () => {
         if (newPosition >= imageSetWidth) {
           return newPosition - imageSetWidth;
         }
-        
+
         return newPosition;
       });
     };
@@ -82,12 +82,12 @@ const OnlineBooking = () => {
       animateTopCarousel();
       topAnimationFrame = requestAnimationFrame(animateTop);
     };
-    
+
     const animateBottom = () => {
       animateBottomCarousel();
       bottomAnimationFrame = requestAnimationFrame(animateBottom);
     };
-    
+
     // Start animations
     topAnimationFrame = requestAnimationFrame(animateTop);
     bottomAnimationFrame = requestAnimationFrame(animateBottom);

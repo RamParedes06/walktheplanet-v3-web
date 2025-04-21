@@ -199,13 +199,7 @@ const CarouselItem = ({
       // Set to the last slide for completed carousels
       setActiveIndex(slides.length - 1);
     }
-  }, [
-    isCompleted,
-    isActive,
-    slides.length,
-    wasCompletedBefore,
-    startProgressTimer,
-  ]);
+  }, [isCompleted, isActive, slides.length, wasCompletedBefore, startProgressTimer]);
 
   // Set up and clean up the interval
   useEffect(() => {
@@ -263,10 +257,7 @@ const CarouselItem = ({
       : null;
 
   return (
-    <div
-      className="relative rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-300"
-      onClick={handleClick}
-    >
+    <div className="relative rounded-3xl overflow-hidden shadow-xl cursor-pointer transition-all duration-300" onClick={handleClick}>
       {/* Outer container for progress border */}
       <div className="absolute inset-0 rounded-3xl z-30 pointer-events-none overflow-hidden">
         {/* Base border with shadows - always visible */}
@@ -274,8 +265,7 @@ const CarouselItem = ({
           className="absolute inset-0 rounded-3xl"
           style={{
             border: "10px solid rgba(255, 255, 255, 0.3)",
-            boxShadow:
-              "0px 2px 4px -2px rgba(0,0,0,0.08), 0px 4px 6px -1px rgba(0,0,0,0.1)",
+            boxShadow: "0px 2px 4px -2px rgba(0,0,0,0.08), 0px 4px 6px -1px rgba(0,0,0,0.1)",
           }}
         />
         {/* Progress border - shows the completion */}
@@ -293,11 +283,7 @@ const CarouselItem = ({
       </div>
 
       {/* Inner content with the ring */}
-      <div
-        className={`relative z-10 rounded-3xl overflow-hidden ${
-          isActive ? "ring-2 ring-blue-500 " : ""
-        }`}
-      >
+      <div className={`relative z-10 rounded-3xl overflow-hidden ${isActive ? "ring-2 ring-blue-500 " : ""}`}>
         {/* Current Slide */}
         <div className="relative">
           {/* In-Image Progress Bars (Instagram-style) */}
@@ -322,10 +308,7 @@ const CarouselItem = ({
                         : index < activeIndex
                         ? "100%"
                         : "0%",
-                    transition:
-                      index === activeIndex
-                        ? "width 0.1s linear"
-                        : "width 0.3s ease-out",
+                    transition: index === activeIndex ? "width 0.1s linear" : "width 0.3s ease-out",
                   }}
                 />
               </div>
@@ -334,14 +317,7 @@ const CarouselItem = ({
 
           <div className="relative z-10 w-full h-full  rounded-3xl">
             {currentSlide && currentSlide.image ? (
-              <Image
-                src={currentSlide.image}
-                alt={currentSlide.title || "Slide image"}
-                width={580}
-                height={390}
-                className="w-full h-full object-cover rounded-3xl "
-                priority={isActive}
-              />
+              <Image src={currentSlide.image} alt={currentSlide.title || "Slide image"} width={580} height={390} className="w-full h-full object-cover rounded-3xl " priority={isActive} />
             ) : (
               // Placeholder for when image is missing
               <div className="w-full h-96  rounded-3xl flex items-center justify-center">

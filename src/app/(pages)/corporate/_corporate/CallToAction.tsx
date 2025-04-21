@@ -43,10 +43,7 @@ function CallToAction({
     >
       <div className="overlay absolute top-0 left-0 right-0 bottom-0 ">
         <div className="relative h-full w-full flex flex-col gap-8  max-[490px]:gap-2 items-center justify-center z-2">
-          <p
-            className="text-base md:text-2xl text-[#FE6000] font-semibold font-generalSans  max-[490px]:p-5  max-[490px]:text-center whitespace-pre-line md:whitespace-normal" 
-           
-          >
+          <p className="text-base md:text-2xl text-[#FE6000] font-semibold font-generalSans  max-[490px]:p-5  max-[490px]:text-center whitespace-pre-line md:whitespace-normal">
             {title}
           </p>
           <a href="/contact-us">
