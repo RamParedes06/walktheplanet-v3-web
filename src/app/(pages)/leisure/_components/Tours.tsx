@@ -28,7 +28,7 @@ const Tours = () => {
   // continuous animation
   useEffect(() => {
     const animationSpeed = 0.03;
-    let animationId: any;
+    let animationId: number;
 
     const animate = () => {
       setPosition((prevPosition) => {
