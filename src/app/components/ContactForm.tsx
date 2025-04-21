@@ -96,7 +96,7 @@ export default function ContactForm() {
   const onBusinessSubmit: SubmitHandler<BusinessFormData> = async (data) => {
     try {
       await axios.post(
-        `${process.env.NEXT_PUBLIC_APP_API_BASE_URL}/v2/wtp-contact-us`,
+        `${process.env.NEXT_PUBLIC_APP_API_BASE_URL}/v2/wtp-contact-us1`,
         { ...data, countryCode: "+63" }
       );
 

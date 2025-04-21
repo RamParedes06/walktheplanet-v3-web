@@ -1,6 +1,6 @@
 import React from "react";
 import SmoothScroll from "../_components/SmoothScroll";
-import { corpoHero } from "@/library/CorpHero";
+import { aboutUsHero } from "@/library/CorpHero";
 import Hero from "../corporate/_corporate/Hero";
 import Footer from "../_components/Footer";
 import CallToAction from "../corporate/_corporate/CallToAction";
@@ -12,7 +12,11 @@ import {
   image5,
   image6,
 } from "@/library/CorpoCTA";
-import TravelAgencies from "../corporate/_corporate/TravelAgencies";
+
+import StorySection from "@/app/components/StorySection";
+import WhoWeAreSection from "@/app/components/WhoWeAre";
+import Travel from "@/app/components/Travel";
+import CoreValues from "@/app/components/CoreValues";
 
 const AboutUs = () => {
   return (
@@ -20,21 +24,33 @@ const AboutUs = () => {
       <SmoothScroll>
         <section id="hero" className="snap-start">
           <Hero
-            images={corpoHero}
-            title="CORPORATE AND BUSINESS"
+            images={aboutUsHero}
+            title="ABOUT US"
             description={
               <p>
                 <span className="text-[#7EE7FC] ">
-                  Seamless travel experience
+                  Bringing Every Juan Closer to Their Dream
                 </span>{" "}
-                tailor-made for your corporate and business goals.
+                Destinations.
               </p>
             }
           />
         </section>
-        <section id="travel-agencies" className="snap-start">
-          <TravelAgencies />
+        <section id="who-we-are" className="snap-start bg-white">
+          <WhoWeAreSection />
         </section>
+        <section id="story-section" className="snap-start bg-white">
+          <Travel />
+        </section>
+
+        <section id="story-section" className="snap-start bg-white">
+          <StorySection />
+        </section>
+
+        <section id="core-values" className="snap-start bg-white">
+          <CoreValues />
+        </section>
+
         <section id="call-to-action" className="snap-start">
           <CallToAction
             image1={image1}
@@ -43,8 +59,8 @@ const AboutUs = () => {
             image4={image4}
             image5={image5}
             image6={image6}
-            title="Book your next corporate and business travel with us!"
-            buttonLabel="Inquire to us today!"
+            title="Partner with us, and your success is our ultimate priority"
+            buttonLabel="Partner with WalkThePlanet today!"
           />
         </section>
         <section id="footer" className="snap-start">
