@@ -1,8 +1,8 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import background from "@/assets/svg/BgIllustrationOnlineBooking.svg";
 import { LeisureOBImages } from "@/library/LeisureOnlineBooking";
 import Image from "next/image";
-import background from "@/assets/svg/BgIllustrationOnlineBooking.svg";
+import React, { useEffect, useRef, useState } from "react";
 import TextReveal from "../../_components/TextReveal";
 
 const OnlineBooking = () => {
@@ -27,12 +27,9 @@ const OnlineBooking = () => {
   useEffect(() => {
     // Animation speed in pixels per frame
     const moveStep = 1;
-    
+
     // Get the actual width of single image for calculations
-    const getImageSetWidth = (
-      imagesRef: React.RefObject<HTMLDivElement | null>, 
-      images: Array<string>
-    ) => {
+    const getImageSetWidth = (imagesRef: React.RefObject<HTMLDivElement | null>, images: Array<string>) => {
       if (!imagesRef.current) return 0;
       const firstChild = imagesRef.current.children[0] as HTMLElement;
       const singleItemWidth = firstChild.offsetWidth;
@@ -43,9 +40,9 @@ const OnlineBooking = () => {
     // Animation function for the top carousel (right to left)
     const animateTopCarousel = () => {
       const imageSetWidth = getImageSetWidth(topImagesRef, firstFiveImages);
-      
+
       if (imageSetWidth === 0) return; // Skip if width calculation failed
-      
+
       setTopImagesPosition((prevPosition: number): number => {
         // When reached the width of one set, reset to create seamless loop
         if (prevPosition >= imageSetWidth) {
@@ -58,36 +55,36 @@ const OnlineBooking = () => {
     // Animation function for bottom carousel (left to right)
     const animateBottomCarousel = () => {
       const imageSetWidth = getImageSetWidth(bottomImagesRef, lastFiveImages);
-      
+
       if (imageSetWidth === 0) return; // Skip if width calculation failed
-      
+
       setBottomImagesPosition((prevPosition) => {
         // For left-to-right movement (opposite of top carousel)
         const newPosition = prevPosition + moveStep;
-        
+
         // If we've moved one full set to the right, reset
         if (newPosition >= imageSetWidth) {
           return newPosition - imageSetWidth;
         }
-        
+
         return newPosition;
       });
     };
 
     // Set animation frames for smooth scrolling
-    let topAnimationFrame : number ;
-    let bottomAnimationFrame : number;
-    
+    let topAnimationFrame: number;
+    let bottomAnimationFrame: number;
+
     const animateTop = () => {
       animateTopCarousel();
       topAnimationFrame = requestAnimationFrame(animateTop);
     };
-    
+
     const animateBottom = () => {
       animateBottomCarousel();
       bottomAnimationFrame = requestAnimationFrame(animateBottom);
     };
-    
+
     // Start animations
     topAnimationFrame = requestAnimationFrame(animateTop);
     bottomAnimationFrame = requestAnimationFrame(animateBottom);
@@ -97,6 +94,7 @@ const OnlineBooking = () => {
       cancelAnimationFrame(topAnimationFrame);
       cancelAnimationFrame(bottomAnimationFrame);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [firstFiveImages.length, lastFiveImages.length]);
 
   // Create duplicated sets of images for seamless infinite scrolling
