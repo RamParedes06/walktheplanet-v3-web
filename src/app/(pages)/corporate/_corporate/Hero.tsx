@@ -162,7 +162,7 @@ const Hero = ({
             isOpenDesktop ? "invisible" : "visible"
           }`}
         >
-          <Image src={Logo} alt="logo" width={70} height={50} />
+           <Image src={Logo} onClick={() => window.location.replace("/")} className="cursor-pointer"  alt="logo" width={70} height={50} />
           <div onClick={toggleMenu} className="cursor-pointer">
             <MenuSvg />
           </div>

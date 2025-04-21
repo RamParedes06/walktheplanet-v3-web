@@ -75,7 +75,7 @@ function Corporate() {
 						image4={image4}
 						image5={image5}
 						image6={image6}
-						title="Book your next corporate and business travel with us!"
+						title={`Book your next corporate\nand business travel with us!`}
 						buttonLabel="Inquire to us today!"
 					/>
 				</section>
