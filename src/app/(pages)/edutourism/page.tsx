@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import SmoothScroll from "../_components/SmoothScroll";
 import Footer from "../_components/Footer";
@@ -6,16 +7,13 @@ import Hero from "../corporate/_corporate/Hero";
 import NetflixCarousel from "./_components/NetflixCarousel";
 import Quotes from "./_components/Quotes";
 import CallToAction from "../corporate/_corporate/CallToAction";
-import {
-  image1,
-  image2,
-  image3,
-  image4,
-  image5,
-  image6,
-} from "@/library/eduCTA";
+import { image1, image2, image3, image4, image5, image6 } from "@/library/eduCTA";
 import { emergencyImages, accordionData } from "@/library/EmergencyEdutourism";
 import AccordionWithImageSlider from "../_components/AccordionWithImageSlider";
+import useIsMobile from "@/hooks/useIsMobile";
+
+function Edutourism() {
+	const isMobile = useIsMobile();
 
 function edutourism() {
   return (
@@ -81,12 +79,12 @@ function edutourism() {
           />
         </section>
 
-        <section id="footer" className="snap-start">
-          <Footer />
-        </section>
-      </SmoothScroll>
-    </div>
-  );
+				<section id="footer" className="snap-start">
+					<Footer />
+				</section>
+			</SmoothScroll>
+		</div>
+	);
 }
 
-export default edutourism;
+export default Edutourism;

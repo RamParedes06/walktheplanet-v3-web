@@ -119,7 +119,7 @@ function Footer() {
 											Contact us
 										</a>
 									</div>
-									<p className="min-[481px]:hidden max-[490]:text-[9px] mt-15 text-white">
+									<p className="min-[481px]:hidden max-[490]:text-[14px] mt-15 text-white ">
 										Unit 1803 PSE Tower 28th Street 5th Avenue Bonifacio Global City, Fort Bonifacio, City of Taguig
 									</p>
 								</div>
