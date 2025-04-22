@@ -5,19 +5,17 @@ interface NavigationButtonProps {
   className?: string;
   children: React.ReactNode;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
 const NavigationButton = ({
   className,
   children,
   onClick,
+  disabled,
 }: NavigationButtonProps) => {
-
   return (
-    <button
-      onClick={onClick}
-      className={`opacity-65 hover:cursor-pointer hover:opacity-100 text-white ${className}`}
-    >
+    <button onClick={onClick} className={` ${className}`} disabled={disabled}>
       {children}
     </button>
   );
