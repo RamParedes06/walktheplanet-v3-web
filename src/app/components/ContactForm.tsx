@@ -23,6 +23,7 @@ export default function ContactForm() {
 
   const leisureForm = useForm<LeisureFormData>({
     resolver: zodResolver(schemaLeisure),
+    mode: "onChange",
     defaultValues: {
       travelType: "Leisure Travel",
       email: "",
@@ -36,6 +37,7 @@ export default function ContactForm() {
 
   const businessForm = useForm<BusinessFormData>({
     resolver: zodResolver(schemaBusiness),
+    mode: "onChange",
     defaultValues: {
       travelType: "Business Travel",
       email: "",
@@ -96,7 +98,7 @@ export default function ContactForm() {
   const onBusinessSubmit: SubmitHandler<BusinessFormData> = async (data) => {
     try {
       await axios.post(
-        `${process.env.NEXT_PUBLIC_APP_API_BASE_URL}/v2/wtp-contact-us1`,
+        `${process.env.NEXT_PUBLIC_APP_API_BASE_URL}/v2/wtp-contact-us`,
         { ...data, countryCode: "+63" }
       );
 
@@ -177,7 +179,7 @@ export default function ContactForm() {
           {travelType === "Leisure Travel" ? (
             <form
               onSubmit={leisureForm.handleSubmit(onLeisureSubmit)}
-              className="space-y-4 lg:space-y-6  overflow-auto"
+              className="space-y-4 lg:space-y-6 h-150 overflow-auto"
             >
               {/* Hidden travel type field */}
               <input
@@ -193,7 +195,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Input first name here"
+                  placeholder="Input namehere"
                   {...leisureForm.register("firstName")}
                   className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -209,7 +211,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Input middle name here"
+                  placeholder="Input namehere"
                   {...leisureForm.register("middleName")}
                   className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -225,7 +227,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Input last name here"
+                  placeholder="Input namehere"
                   {...leisureForm.register("lastName")}
                   className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -288,7 +290,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Add your comment here"
+                  placeholder="input text here"
                   {...leisureForm.register("comment")}
                   className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -301,7 +303,11 @@ export default function ContactForm() {
 
               <button
                 type="submit"
-                className="w-full bg-[#CCCCCC] text-white font-medium py-3 rounded-full hover:bg-[#00537F] transition-colors"
+                className={`w-full text-white font-medium py-3 rounded-full ${
+                  !leisureForm.formState.isValid
+                    ? "bg-[#CCCCCC] opacity-50 pointer-events-none cursor-not-allowed"
+                    : "bg-[#00537F] cursor-pointer"
+                } transition-colors`}
               >
                 Send to us
               </button>
@@ -325,7 +331,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Input company name here"
+                  placeholder="Input namehere"
                   {...businessForm.register("companyName")}
                   className="w-full border-b border-[#14476F] text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -341,7 +347,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Input client name here"
+                  placeholder="Input namehere"
                   {...businessForm.register("clientName")}
                   className="w-full border-b border-[#14476F] text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -402,7 +408,7 @@ export default function ContactForm() {
                   Comment
                 </label>
                 <input
-                  placeholder="Add your comment here"
+                  placeholder="input text here"
                   {...businessForm.register("comment")}
                   className="w-full border-b border-[#14476F] text-black focus:outline-none focus:border-gray-600 pb-2"
                 />
@@ -416,7 +422,11 @@ export default function ContactForm() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-[#CCCCCC] text-white font-medium py-3 rounded-full hover:bg-[#00537F] transition-colors"
+                className={`w-full text-white font-medium py-3 rounded-full ${
+                  !businessForm.formState.isValid
+                    ? "bg-[#CCCCCC] opacity-50 pointer-events-none cursor-not-allowed"
+                    : "bg-[#00537F] cursor-pointer"
+                } transition-colors`}
               >
                 Send to us
               </button>

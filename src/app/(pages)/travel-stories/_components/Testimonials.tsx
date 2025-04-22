@@ -62,25 +62,26 @@ const Testimonials = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="flex w-full min-h-[484px] absolute py-[112px] px-[10px] bottom-0 bg-[linear-gradient(180deg,rgba(5,18,28,0)_44.33%,rgba(5,18,28,0.8)_74.87%)] lg:px-[80px]">
-        <div className="absolute max-w-screen bottom-25 sm: bottom-0 mx-0 mx-[10px]">
+      <div className="flex w-full h-full absolute  bottom-0 bg-[linear-gradient(180deg,rgba(5,18,28,0)_30.33%,rgba(5,18,28,0.8)_74.87%)] ">
+        <div className="absolute max-w-screen bottom-25">
           <TextReveal>
-            <h2 className="font-bold text-3xl text-white font-satoshi lg:text-6xl text-[40px] font-semibold">
-              {current.title}
-            </h2>
+            <div className="flex flex-col gap-[32px] w-screen py-[64px] px-[10px] lg:px-[80px]">
+              <h2 className="text-3xl text-white font-satoshi lg:text-6xl text-[40px] font-semibold">
+                {current.title}
+              </h2>
 
-            <p className="italic mx-[10px] font-medium text-base text-white font-generalSans lg:text-2xl text-base font-generalSans">
-              {current.message}
-            </p>
-            <p className="opacity-65 italic text-base text-white font-generalSans">
-              {current.user}
-            </p>
+              <p className="italic mx-[10px] font-medium  text-white font-generalSans lg:text-2xl text-base font-generalSans md:w-[35%] w-[95%]">
+                &quot;{current.message}&quot;
+              </p>
+              <p className="opacity-65 text-base text-white font-generalSans">
+                {current.user}
+              </p>
+            </div>
           </TextReveal>
-        </div>
-
-        <div className="absolute bottom-10 right-10 sm:right-10 md:right-16 lg:right-20 flex justify-end space-x-3 sm:space-x-5 mt-5">
-          <NavigationButton onClick={handlePrev}>Prev</NavigationButton>
-          <NavigationButton onClick={handleNext}>Next</NavigationButton>
+          <div className="px-[10px] lg:px-[80px] flex gap-[32px]">
+            <NavigationButton onClick={handlePrev} disabled={currentSlide === 0} className={`${currentSlide === 0 ? "opacity-50 cursor-not-allowed " : "cursor-pointer opacity-100 hover:text-[#7EE7FC]"}`}>Prev</NavigationButton>
+            <NavigationButton onClick={handleNext} disabled={currentSlide === userTestimonials.length - 1} className={`${currentSlide === userTestimonials.length - 1 ? "opacity-50 cursor-not-allowed" : "cursor-pointer  opacity-100 hover:text-[#7EE7FC]"}`}>Next</NavigationButton>
+          </div>
         </div>
       </div>
     </div>
