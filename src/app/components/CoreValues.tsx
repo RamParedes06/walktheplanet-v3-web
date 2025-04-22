@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import background from "@/assets/svg/about/Background.svg";
+import bgMobile from "@/assets/images/about/bgMobile.svg";
 import verctor from "@/assets/images/about/Vector 76.svg";
 
 export default function CoreValues() {
@@ -16,15 +18,56 @@ export default function CoreValues() {
 
   return (
     <section className="w-full">
-      {/* Header section with dark background */}
-      <div className="bg-[#0a1220] py-12 md:py-[112px] px-4 relative">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-white text-3xl py-15 md:text-5xl font-bold text-center">
-            OUR CORE VALUES
+      <div className="relative md:h-[310px] h-[332px] w-full overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[#0e192b]"></div>
+
+          <Image
+            src={background}
+            alt="Background pattern"
+            fill
+            className="hidden md:block object-right md:object-contain"
+            priority
+          />
+
+          {/* Mobile background */}
+          <Image
+            src={bgMobile}
+            alt="Background pattern"
+            fill
+            className="block md:hidden object-cover"
+            priority
+          />
+        </div>
+
+        <div className="flex flex-col items-center justify-center h-full relative z-10">
+          <h2 className="text-white text-3xl md:py-15 md:text-5xl font-bold text-center relative md:block hidden">
+            OUR CORE
+            <span className="relative inline-block">
+              <span className="ml-2">VALUES</span>
+              <Image
+                src={verctor}
+                alt="vector"
+                width={260}
+                height={134}
+                className="absolute left-1/2 -translate-x-1/2 mt-1 ml-4 top-full md:block hidden"
+              />
+            </span>
           </h2>
-          <div className="flex justify-center mt-2">
-            <Image height={134} width={234} alt="vector" src={verctor} />
-          </div>
+
+          <h2 className="text-white text-3xl md:py-15 md:text-5xl font-bold text-center relative md:hidden">
+            OUR <br /> CORE
+            <span className="relative inline-block">
+              <span className="ml-2">VALUES</span>
+            </span>
+            <Image
+              src={verctor}
+              alt="vector"
+              width={260}
+              height={134}
+              className="absolute left-1/2 -translate-x-1/2 mt-1 ml-3 top-full"
+            />
+          </h2>
         </div>
       </div>
 
