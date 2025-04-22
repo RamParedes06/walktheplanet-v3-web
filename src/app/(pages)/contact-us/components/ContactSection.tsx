@@ -138,7 +138,7 @@ export default function ContactSection() {
               <div className="flex flex-row md:flex-col gap-2">
                 <div className="text-[16px] md:text-[20px]">B2B Corporate</div>
                 <div className="text-[16px] md:text-[20px]">
-                  Inquiry and Support
+                  WalkThePlanet Sales
                 </div>
               </div>
             </div>
@@ -146,7 +146,7 @@ export default function ContactSection() {
               <div className="">
                 <div className="text-gray-400 text-[16px]">Email</div>
                 <div className="text-white text-[16px] md:text-[20px]">
-                  corp@walktheplanet.com
+                  corpsales@walktheplanet.com
                 </div>
               </div>
             </div>
