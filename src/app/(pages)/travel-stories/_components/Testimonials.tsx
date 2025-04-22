@@ -70,7 +70,7 @@ const Testimonials = () => {
                 {current.title}
               </h2>
 
-              <p className="italic mx-[10px] font-medium  text-white font-generalSans lg:text-2xl text-base font-generalSans md:w-[35%] w-[90%]">
+              <p className="italic mx-[10px] font-medium  text-white font-generalSans lg:text-2xl text-base font-generalSans md:w-[35%] w-[95%]">
                 "{current.message}"
               </p>
               <p className="opacity-65 text-base text-white font-generalSans">
