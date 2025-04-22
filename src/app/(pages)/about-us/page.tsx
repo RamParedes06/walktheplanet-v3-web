@@ -1,7 +1,7 @@
 import React from "react";
 import SmoothScroll from "../_components/SmoothScroll";
 import { aboutUsHero } from "@/library/CorpHero";
-import Hero from "../corporate/_corporate/Hero";
+
 import Footer from "../_components/Footer";
 import CallToAction from "../corporate/_corporate/CallToAction";
 import {
@@ -17,6 +17,7 @@ import StorySection from "@/app/components/StorySection";
 import WhoWeAreSection from "@/app/components/WhoWeAre";
 import Travel from "@/app/components/Travel";
 import CoreValues from "@/app/components/CoreValues";
+import Hero from "@/app/components/Hero";
 
 const AboutUs = () => {
   return (
@@ -28,7 +29,7 @@ const AboutUs = () => {
             title="ABOUT US"
             description={
               <p>
-                <span className="text-[#7EE7FC] ">
+                <span className="text-white">
                   Bringing Every Juan Closer to Their Dream
                 </span>{" "}
                 Destinations.
@@ -39,7 +40,7 @@ const AboutUs = () => {
         <section id="who-we-are" className="snap-start bg-white">
           <WhoWeAreSection />
         </section>
-        <section id="story-section" className="snap-start bg-white">
+        <section id="travel" className="snap-start bg-white">
           <Travel />
         </section>
 
