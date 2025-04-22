@@ -193,7 +193,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Input first name here"
+                  placeholder="Input namehere"
                   {...leisureForm.register("firstName")}
                   className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -209,7 +209,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Input middle name here"
+                  placeholder="Input namehere"
                   {...leisureForm.register("middleName")}
                   className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -225,7 +225,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Input last name here"
+                  placeholder="Input namehere"
                   {...leisureForm.register("lastName")}
                   className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -288,7 +288,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Add your comment here"
+                  placeholder="input text here"
                   {...leisureForm.register("comment")}
                   className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -325,7 +325,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Input company name here"
+                  placeholder="Input namehere"
                   {...businessForm.register("companyName")}
                   className="w-full border-b border-[#14476F] text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -341,7 +341,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Input client name here"
+                  placeholder="Input namehere"
                   {...businessForm.register("clientName")}
                   className="w-full border-b border-[#14476F] text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -402,7 +402,7 @@ export default function ContactForm() {
                   Comment
                 </label>
                 <input
-                  placeholder="Add your comment here"
+                  placeholder="input text here"
                   {...businessForm.register("comment")}
                   className="w-full border-b border-[#14476F] text-black focus:outline-none focus:border-gray-600 pb-2"
                 />
