@@ -179,7 +179,7 @@ export default function ContactForm() {
           {travelType === "Leisure Travel" ? (
             <form
               onSubmit={leisureForm.handleSubmit(onLeisureSubmit)}
-              className="space-y-4 lg:space-y-6  overflow-auto"
+              className="space-y-4 lg:space-y-6 h-150 overflow-auto"
             >
               {/* Hidden travel type field */}
               <input
