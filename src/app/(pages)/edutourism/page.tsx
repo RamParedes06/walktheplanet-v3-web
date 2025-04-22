@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import SmoothScroll from "../_components/SmoothScroll";
 import Footer from "../_components/Footer";
 import { EduImages } from "@/library/EduHero";
@@ -10,9 +10,10 @@ import CallToAction from "../corporate/_corporate/CallToAction";
 import { image1, image2, image3, image4, image5, image6 } from "@/library/eduCTA";
 import { emergencyImages, accordionData } from "@/library/EmergencyEdutourism";
 import AccordionWithImageSlider from "../_components/AccordionWithImageSlider";
+import useIsMobile from "@/hooks/useIsMobile";
 
 function Edutourism() {
-	const [isMobile] = useState(window.innerWidth < 490);
+	const isMobile = useIsMobile();
 
 	return (
 		<div className="snap-y snap-mandatory overflow-y-auto h-screen">
@@ -40,7 +41,7 @@ function Edutourism() {
 									<p className="font-medium">
 										Your students&apos;
 										<span className="font-bold">
-											safety, comfort, and <br /> confidentiality
+											safety, comfort, and <br /> confidentialit
 										</span>{" "}
 										are our priority <br />
 										to ensure each moment is unique and memorable
