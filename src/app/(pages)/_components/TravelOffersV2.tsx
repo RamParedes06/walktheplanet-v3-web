@@ -90,7 +90,7 @@ const TravelOffersV2 = () => {
           <div className="cardss ">
             <div
               className="card "
-              style={{ backgroundColor: "#E5F1F6B2", color: "black" }}
+              style={{ backgroundColor: "rgba(229, 241, 246, 0.7)", color: "black" }}
             >
               <p className="satoshi font-medium text-md lg:text-xl p-5 lg:p-[32px_40px]">
                 TRAVEL PACKAGE ESSENTIALS
@@ -124,7 +124,7 @@ const TravelOffersV2 = () => {
             </div>
             <div
               className="card"
-              style={{ backgroundColor: "#FE6000B2", zIndex: 2 }}
+              style={{ backgroundColor: "rgba(254, 96, 0, 0.7)", zIndex: 2 }}
             >
               <p className="satoshi font-medium text-md lg:text-xl p-5 lg:p-[32px_40px]">
                 LOCAL DESTINATIONS
@@ -159,7 +159,7 @@ const TravelOffersV2 = () => {
             </div>
             <div
               className="card"
-              style={{ backgroundColor: "#333333B2", zIndex: 3 }}
+              style={{ backgroundColor: "rgba(51, 51, 51, 0.7)", zIndex: 3 }}
             >
               <p className="satoshi font-medium text-md lg:text-xl p-5 lg:p-[32px_40px]">
                 {" "}
@@ -195,7 +195,7 @@ const TravelOffersV2 = () => {
             </div>
             <div
               className="card "
-              style={{ backgroundColor: "#00537FB2", zIndex: 4 }}
+              style={{ backgroundColor: "rgba(0, 83, 127, 0.7)", zIndex: 4 }}
             >
               <p className="satoshi font-medium text-md lg:text-xl p-5 lg:p-[32px_40px]">
                 {" "}
