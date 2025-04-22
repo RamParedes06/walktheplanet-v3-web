@@ -96,29 +96,29 @@ function Footer() {
 									</div>
 
 									<div className="space-y-10 flex flex-col">
-										<a href="/corporate" className="hover:underline">
+										<a href="/corporate" className={`hover:underline ${pathname === "/corporate" ? "font-medium" : ""}`}>
 											Business travel
 										</a>
-										<a href="#" className="hover:underline">
+										<a href="/travel-stories" className={`hover:underline ${pathname === "/travel-stories" ? "font-medium" : ""}`}>
 											Travel stories
 										</a>
-										<a href="#" className="hover:underline">
+										<a href="/leisure" className={`hover:underline ${pathname === "/leisure" ? "font-medium" : ""}`}>
 											Leisure travel offerings
 										</a>
 									</div>
 
 									<div className="space-y-10 flex flex-col">
-										<a href="#" className="hover:underline">
+										<a href="/all-in-services" className={`hover:underline ${pathname === "/all-in-services" ? "font-medium" : ""}`}>
 											All-in services
 										</a>
-										<a href="#" className="hover:underline">
+										<a href="/about-us" className={`hover:underline ${pathname === "/about-us" ? "font-medium" : ""}`}>
 											About us
 										</a>
-										<a href="/contact-us" className="hover:underline">
+										<a href="/contact-us" className={`hover:underline ${pathname === "/contact-us" ? "font-medium" : ""}`}>
 											Contact us
 										</a>
 									</div>
-									<p className="min-[481px]:hidden max-[490]:text-[9px] mt-15 text-white">
+									<p className="min-[481px]:hidden max-[490]:text-[14px] mt-15 text-white ">
 										Unit 1803 PSE Tower 28th Street 5th Avenue Bonifacio Global City, Fort Bonifacio, City of Taguig
 									</p>
 								</div>
