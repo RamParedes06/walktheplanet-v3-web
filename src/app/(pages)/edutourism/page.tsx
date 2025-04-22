@@ -7,15 +7,21 @@ import Hero from "../corporate/_corporate/Hero";
 import NetflixCarousel from "./_components/NetflixCarousel";
 import Quotes from "./_components/Quotes";
 import CallToAction from "../corporate/_corporate/CallToAction";
-import { image1, image2, image3, image4, image5, image6 } from "@/library/eduCTA";
+import {
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
+  image6,
+} from "@/library/eduCTA";
 import { emergencyImages, accordionData } from "@/library/EmergencyEdutourism";
 import AccordionWithImageSlider from "../_components/AccordionWithImageSlider";
 import useIsMobile from "@/hooks/useIsMobile";
 
 function Edutourism() {
-	const isMobile = useIsMobile();
+  const isMobile = useIsMobile();
 
-function edutourism() {
   return (
     <div className="snap-y snap-mandatory overflow-y-auto h-screen">
       <SmoothScroll>
@@ -45,15 +51,30 @@ function edutourism() {
         <section>
           <Quotes
             title={
-              <p className="font-medium text-2xl">
-                Your students&apos;&nbsp;
-                <span className="font-semibold">
-                  safety, comfort, and confidentiality
-                </span>{" "}
-                are our priority
-                <br />
-                to ensure each moment is unique and memorable
-              </p>
+              isMobile ? (
+                <div className="flex flex-col gap-3 text-[16px]">
+                  <p className="font-medium">
+                    Your students&apos;
+                    <span className="font-bold">
+                      safety, comfort, and <br /> confidentialit
+                    </span>{" "}
+                    are our priority <br />
+                    to ensure each moment is unique and memorable
+                  </p>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-3 text-2xl">
+                  <p className="font-medium">
+                    Your students’
+                    <span className="font-bold">
+                      {" "}
+                      safety, comfort, and confidentiality
+                    </span>{" "}
+                    are our priority <br />
+                    to ensure each moment is unique and memorable
+                  </p>
+                </div>
+              )
             }
           />
         </section>
@@ -79,12 +100,12 @@ function edutourism() {
           />
         </section>
 
-				<section id="footer" className="snap-start">
-					<Footer />
-				</section>
-			</SmoothScroll>
-		</div>
-	);
+        <section id="footer" className="snap-start">
+          <Footer />
+        </section>
+      </SmoothScroll>
+    </div>
+  );
 }
 
 export default Edutourism;
