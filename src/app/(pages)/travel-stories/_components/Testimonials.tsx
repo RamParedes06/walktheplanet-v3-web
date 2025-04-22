@@ -71,7 +71,7 @@ const Testimonials = () => {
               </h2>
 
               <p className="italic mx-[10px] font-medium  text-white font-generalSans lg:text-2xl text-base font-generalSans md:w-[35%] w-[95%]">
-                "{current.message}"
+                &quot;{current.message}&quot;
               </p>
               <p className="opacity-65 text-base text-white font-generalSans">
                 {current.user}
