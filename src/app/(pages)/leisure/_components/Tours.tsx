@@ -108,7 +108,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
             >
               {!productsVersion ? (
                 <>
-                  Don't miss out on a travel necessity to{" "}
+                  Don&apos;t miss out on a travel necessity to{" "}
                   <span className="font-semibold">
                     take your journey to the next level!
                   </span>
