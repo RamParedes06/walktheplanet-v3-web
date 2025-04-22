@@ -23,6 +23,7 @@ function edutourism() {
       <SmoothScroll>
         <section id="hero" className="snap-start">
           <Hero
+            gradient="bg-gradient-to-r from-[#FAAE19] via-[#198A6F] to-[#14476F]"
             images={EduImages}
             title="EDUTOURISM"
             description={
@@ -49,7 +50,7 @@ function edutourism() {
               <p className="font-medium text-2xl">
                 Your students&apos;&nbsp;
                 <span className="font-semibold">
-                   safety, comfort, and confidentiality
+                  safety, comfort, and confidentiality
                 </span>{" "}
                 are our priority
                 <br />

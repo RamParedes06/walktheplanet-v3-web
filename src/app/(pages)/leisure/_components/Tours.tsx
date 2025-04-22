@@ -5,7 +5,10 @@ import BackgroundSvg from "@/assets/svg/BGIllustrationManpower.svg";
 import Image from "next/image";
 import TextReveal from "../../_components/TextReveal";
 
-const Tours = () => {
+interface ToursProps {
+  productsVersion?: boolean;
+}
+const Tours = ({ productsVersion = false }: ToursProps) => {
   const [position, setPosition] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -97,34 +100,48 @@ const Tours = () => {
             <h1
               className={`text-[40px] md:text-[64px] font-semibold text-center text-[#14476F] mb-4`}
             >
-              TOURS ONLINE BOOKING
+              {productsVersion ? "TRAVEL ESSENTIALS" : "TOURS ONLINE BOOKING"}
             </h1>
 
             <p
               className={`text-base md:text-lg font-medium text-center text-black mb-1`}
             >
-              Start your endless adventures by visiting
+              {!productsVersion ? (
+                <>
+                  Don't miss out on a travel necessity to{" "}
+                  <span className="font-semibold">
+                    take your journey to the next level!
+                  </span>
+                </>
+              ) : (
+                "Start your endless adventures by visiting"
+              )}
             </p>
-            <p
-              className={`text-base md:text-lg font-medium text-center text-black mb-4`}
-            >
-              your one-stop-shop at{" "}
-              <a
-                href="https://tours.walktheplanet.com"
-                className="text-[#006FA9] hover:underline"
+            {!productsVersion ? (
+              <p
+                className={`text-base md:text-lg font-medium text-center text-black mb-4`}
               >
-                tours.walktheplanet.com
-              </a>
-            </p>
-
+                your one-stop-shop at{" "}
+                <a
+                  href="https://tours.walktheplanet.com"
+                  className="text-[#006FA9] hover:underline"
+                >
+                  tours.walktheplanet.com
+                </a>
+              </p>
+            ) : (
+              <></>
+            )}
             {/* Button */}
-            <button
-              className={`bg-[#00537F] hover:bg-[#00537F] text-white font-medium py-2 px-4 text-sm md:py-3 md:px-6 rounded-full mb-6 transition-colors duration-300 cursor-pointer`}
-            >
-              {isMobile
-                ? "Book it now and get your trip ready!"
-                : "Grab yours now, for limited offers!"}
-            </button>
+            {!productsVersion && (
+              <button
+                className={`bg-[#00537F] hover:bg-[#00537F] text-white font-medium py-2 px-4 text-sm md:py-3 md:px-6 rounded-full mb-6 transition-colors duration-300 cursor-pointer`}
+              >
+                {isMobile
+                  ? "Book it now and get your trip ready!"
+                  : "Grab yours now, for limited offers!"}
+              </button>
+            )}
           </div>
         </TextReveal>
 
