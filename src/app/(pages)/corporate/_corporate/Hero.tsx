@@ -15,18 +15,6 @@ interface HeroProps {
   description?: JSX.Element;
   gradient?: string;
 }
-//! How to use
-{
-  /* <Hero
-		images={corpoHero} //! Pass an array of image URLs
-		title="CORPORATE AND BUSINESS" //! Kailangan ko pa ba to i explain ? HAHAHAH
-		description={ //! Pass a JSX element for the description , you can use a div, p, span, etc.
-		<p>
-		<span className="text-[#7EE7FC] ">Seamless travel experience</span> tailor-made for your corporate and business goals.
-		</p>
-		}
-	 /> */
-}
 
 const Hero = ({
   images,
@@ -38,7 +26,7 @@ const Hero = ({
 
   const [currentImage, setCurrentImage] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [direction, setDirection] = useState("next"); // 'next' or 'prev'
+  const [direction, setDirection] = useState("next");
 
   // For fixing lint warning about useCallback
   const getNextIndex = useCallback(
@@ -137,7 +125,6 @@ const Hero = ({
     setIsOpenMobile(!isOpenMobile);
   };
 
-  // Prevent scrolling when menu is open
   useEffect(() => {
     if (isOpenDesktop || isOpenMobile) {
       document.body.style.overflow = "hidden";
@@ -152,8 +139,6 @@ const Hero = ({
 
   return (
     <>
-      {/* Logo Menu  */}
-      {/* Header - only visible when not animating */}
       <div className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block">
         {/* Header - only visible when menu is closed */}
         <div
@@ -162,7 +147,14 @@ const Hero = ({
             isOpenDesktop ? "invisible" : "visible"
           }`}
         >
-           <Image src={Logo} onClick={() => window.location.replace("/")} className="cursor-pointer"  alt="logo" width={70} height={50} />
+          <Image
+            src={Logo}
+            onClick={() => window.location.replace("/")}
+            className="cursor-pointer"
+            alt="logo"
+            width={70}
+            height={50}
+          />
           <div onClick={toggleMenu} className="cursor-pointer">
             <MenuSvg />
           </div>
@@ -175,8 +167,11 @@ const Hero = ({
         )}
       </AnimatePresence>
 
-      <div className="relative">
-        <div className="relative w-screen h-screen overflow-hidden">
+      <div className="relative w-screen h-[90vh] md:h-screen">
+        <div
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${corpImages})` }}
+        >
           {corpImages.map((image, index) => (
             <div
               key={index}
