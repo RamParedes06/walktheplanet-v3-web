@@ -106,7 +106,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
             <p
               className={`text-base md:text-lg font-medium text-center text-black mb-1`}
             >
-              {!productsVersion ? (
+              {productsVersion ? (
                 <>
                   Don&apos;t miss out on a travel necessity to{" "}
                   <span className="font-semibold">
