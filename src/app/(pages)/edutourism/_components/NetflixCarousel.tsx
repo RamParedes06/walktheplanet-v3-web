@@ -72,30 +72,31 @@ function NetflixCarousel() {
 				className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 opacity-0 animate-fadeIn z-0"
 				style={{ backgroundImage: `url(${current.image})` }}
 			/>
-			<div className="absolute inset-0 top-0 bg-gradient-to-b z-1" style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0.04%, rgba(0, 0, 0, 0.5) 66.87%)" }}>
-				<div className="title-container flex flex-col gap-3 items-start justify-end p-20 h-[60vh]">
-					<p className="title uppercase font-generalSans text-[64px] font-medium">{current.title}</p>
-					<p className="description font-generalSans text-[20px] max-w-3xl">{current.desc}</p>
+			<div className="absolute inset-0 top-0 max-[490px]:top-60  bg-gradient-to-b z-1" style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0.04%, rgba(0, 0, 0, 0.5) 66.87%)" }}>
+				<div className="title-container flex flex-col gap-3 items-start justify-end p-20 max-[490px]:p-10 h-[60vh]">
+					<p className="title uppercase font-generalSans text-[64px] font-medium max-[490px]:text-[40px]">{current.title}</p>
+					<p className="description font-generalSans text-[20px] max-w-3xl max-[490px]:text-[16px]">{current.desc}</p>
 				</div>
 
-				<div className="progressbar px-5">
-					<div className="text-white flex gap-10 justify-end px-20">
-						<span onClick={handlePrev} className="p-2.5 text-[16px] cursor-pointer ">
+				<div className="flex flex-col max-[490px]:flex-col-reverse px-5">
+					{/* Buttons */}
+					<div className="text-white flex gap-10 justify-end px-20 max-[490px]:px-3  max-[490px]:justify-end max-[490px]:mt-4">
+						<span onClick={handlePrev} className="p-2.5 text-[16px] cursor-pointer">
 							Prev
 						</span>
-						<span onClick={handleNext} className="p-2.5 text-[16px] cursor-pointer ">
+						<span onClick={handleNext} className="p-2.5 text-[16px] cursor-pointer">
 							Next
 						</span>
 					</div>
 
-					<div className="progress mt-4 mb-4 px-20">
+					<div className="progress mt-4 mb-4 px-20 max-[490px]:px-5  max-[490px]:mt-0 max-[490px]:mb-2">
 						<div className="h-1 bg-white/30 w-full relative overflow-hidden rounded-full">
 							<div className="absolute top-0 left-0 h-1 bg-white transition-all" style={{ width: `${progress}%` }} />
 						</div>
 					</div>
 				</div>
-
-				<div className="carousel h-[30vh] px-20  flex gap-5 items-center justify-center overflow-x-auto max-[490px]:hidden">
+				{/* carousel */}
+				<div className="carousel h-[30vh] px-20   flex gap-5 items-center justify-center overflow-x-auto max-[490px]:hidden">
 					{netflixCarousel.map((item, index) => (
 						<div key={index} className="relative w-[555px] h-[318px] max-[2120px]:w-[655px] max-[2120px]:h-[240px] rounded-xl p-[1px] backdrop-blur-sm border border-white/30">
 							<div
