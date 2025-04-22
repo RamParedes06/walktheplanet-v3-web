@@ -154,7 +154,7 @@ const Hero = ({
     <>
       {/* Logo Menu  */}
       {/* Header - only visible when not animating */}
-      <div className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block">
+      <div className="fixed right-[5%] bottom-[20%] z-[100] hidden sm:hidden md:hidden lg:block">
         {/* Header - only visible when menu is closed */}
         <div
           ref={headerRef}

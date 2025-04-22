@@ -17,6 +17,7 @@ const page = () => {
   return (
     <div className="h-screen overflow-y-auto snap-y snap-mandatory">
       <Hero
+        gradient="bg-gradient-to-r from-[#14476F] via-[#00A9CE] to-[#FFC000]"
         images={TravelStoriesHero}
         title="TRAVEL STORIES"
         description={
@@ -26,8 +27,8 @@ const page = () => {
               come true.
             </p>
             <p className="font-normal lg:text-[24px] text-base">
-              See why our clients can&apos;t stop raving about their unforgettable
-              journeys with WalkThePlanet!
+              See why our clients can&apos;t stop raving about their
+              unforgettable journeys with WalkThePlanet!
             </p>
           </div>
         }
@@ -41,9 +42,6 @@ const page = () => {
         image5={image5}
         image6={image6}
         title={`Book with us.\nYour dream trip is just a click away!`}
-
-     
-
         buttonLabel="Start your next adventure with WalkThePlanet"
       />
       <Footer />
