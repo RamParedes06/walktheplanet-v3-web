@@ -23,6 +23,7 @@ export default function ContactForm() {
 
   const leisureForm = useForm<LeisureFormData>({
     resolver: zodResolver(schemaLeisure),
+    mode: "onChange",
     defaultValues: {
       travelType: "Leisure Travel",
       email: "",
@@ -36,6 +37,7 @@ export default function ContactForm() {
 
   const businessForm = useForm<BusinessFormData>({
     resolver: zodResolver(schemaBusiness),
+    mode: "onChange",
     defaultValues: {
       travelType: "Business Travel",
       email: "",
@@ -96,7 +98,7 @@ export default function ContactForm() {
   const onBusinessSubmit: SubmitHandler<BusinessFormData> = async (data) => {
     try {
       await axios.post(
-        `${process.env.NEXT_PUBLIC_APP_API_BASE_URL}/v2/wtp-contact-us1`,
+        `${process.env.NEXT_PUBLIC_APP_API_BASE_URL}/v2/wtp-contact-us`,
         { ...data, countryCode: "+63" }
       );
 
@@ -301,7 +303,11 @@ export default function ContactForm() {
 
               <button
                 type="submit"
-                className="w-full bg-[#CCCCCC] text-white font-medium py-3 rounded-full hover:bg-[#00537F] transition-colors"
+                className={`w-full text-white font-medium py-3 rounded-full ${
+                  !leisureForm.formState.isValid
+                    ? "bg-[#CCCCCC] opacity-50 pointer-events-none cursor-not-allowed"
+                    : "bg-[#00537F] cursor-pointer"
+                } transition-colors`}
               >
                 Send to us
               </button>
@@ -416,7 +422,11 @@ export default function ContactForm() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-[#CCCCCC] text-white font-medium py-3 rounded-full hover:bg-[#00537F] transition-colors"
+                className={`w-full text-white font-medium py-3 rounded-full ${
+                  !businessForm.formState.isValid
+                    ? "bg-[#CCCCCC] opacity-50 pointer-events-none cursor-not-allowed"
+                    : "bg-[#00537F] cursor-pointer"
+                } transition-colors`}
               >
                 Send to us
               </button>
