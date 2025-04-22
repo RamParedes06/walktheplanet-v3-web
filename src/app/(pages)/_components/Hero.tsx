@@ -1,33 +1,36 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import Logo from "@/assets/images/Logo.png";
 import { AnimatePresence } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
-import Logo from "@/assets/images/Logo.png";
+import { useEffect, useRef, useState } from "react";
+
 import MenuSvg from "@/assets/svg/MenuSvg";
-import { TbMessage2Heart } from "react-icons/tb";
-import { PiBriefcaseMetal } from "react-icons/pi";
-import { HiOutlinePresentationChartLine } from "react-icons/hi";
-import { FaBusAlt } from "react-icons/fa";
-import { AiOutlineHeart } from "react-icons/ai";
-import { RiShoppingCart2Line } from "react-icons/ri";
-import { LuGraduationCap } from "react-icons/lu";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import { HomeOffers } from "@/library/HomePartner";
 import "@/styles/hero-horizontal-scroll.scss";
 import "@/styles/slider.scss";
-import { HomeOffers } from "@/library/HomePartner";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { AiOutlineHeart } from "react-icons/ai";
+import { FaBusAlt } from "react-icons/fa";
+import { HiOutlinePresentationChartLine } from "react-icons/hi";
+import { LuGraduationCap } from "react-icons/lu";
+import { PiBriefcaseMetal } from "react-icons/pi";
+import { RiShoppingCart2Line } from "react-icons/ri";
+import { TbMessage2Heart } from "react-icons/tb";
 
 //! Slides
 
-import Menu from "./Menu";
+import { partners } from "@/app/partners";
 import { IconType } from "react-icons";
+import BeliefsMobile from "./BeliefMobile";
 import Beliefs from "./beliefs";
 import InfiniteMenu from "./discVertShaderSource";
-import { partners } from "@/app/partners";
+import Footer from "./Footer";
 import GridMotion from "./GridMotion";
 import GridMotionMobile from "./GridMotionMobile";
-import Footer from "./Footer";
-import BeliefsMobile from "./BeliefMobile";
+import Menu from "./Menu";
+
 import Marquee from "./Marquee";
 import TravelOffersV2 from "./TravelOffersV2";
 
