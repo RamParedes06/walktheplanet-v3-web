@@ -11,26 +11,34 @@ const OnlineBooking = () => {
   const lastFiveImages = LeisureOBImages.slice(5, 10);
 
   // For mobile view
-  // const firstThreeImages = LeisureOBImages.slice(0, 5);
+  const firstThreeImages = LeisureOBImages.slice(0, 5);
 
-  // Track the position and animation status
+  // Track the position and animation status for desktop
   const [topImagesPosition, setTopImagesPosition] = useState(0);
-  // Start of bottom carousel
   const [bottomImagesPosition, setBottomImagesPosition] = useState(-10000);
-
-  // Refs for container widths and image sets
+  
+  // Track the position and animation status for mobile
+  const [mobileTopImagesPosition, setMobileTopImagesPosition] = useState(0);
+  // Start with negative value to ensure images are visible from the beginning
+  const [mobileBottomImagesPosition, setMobileBottomImagesPosition] = useState(-1000);
+  
+  // Refs for container widths and image sets - desktop
   const topContainerRef = useRef<HTMLDivElement>(null);
   const bottomContainerRef = useRef<HTMLDivElement>(null);
   const topImagesRef = useRef<HTMLDivElement>(null);
   const bottomImagesRef = useRef<HTMLDivElement>(null);
 
+  // Refs for mobile image containers
+  const mobileTopImagesRef = useRef<HTMLDivElement>(null);
+  const mobileBottomImagesRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     //  ANIMATION SPEED
     const moveStep = 1;
-
+    
     // Get width of single image for calculations
     const getImageSetWidth = (
-      imagesRef: React.RefObject<HTMLDivElement | null>,
+      imagesRef: React.RefObject<HTMLDivElement | null>, 
       images: Array<string>
     ) => {
       if (!imagesRef.current) return 0;
@@ -43,9 +51,9 @@ const OnlineBooking = () => {
     // Top Carousel animation
     const animateTopCarousel = () => {
       const imageSetWidth = getImageSetWidth(topImagesRef, firstFiveImages);
-
-      if (imageSetWidth === 0) return;
-
+      
+      if (imageSetWidth === 0) return; 
+      
       setTopImagesPosition((prevPosition: number): number => {
         // reset
         if (prevPosition >= imageSetWidth) {
@@ -58,13 +66,13 @@ const OnlineBooking = () => {
     // Animation function for bottom carousel (left to right)
     const animateBottomCarousel = () => {
       const imageSetWidth = getImageSetWidth(bottomImagesRef, lastFiveImages);
-
+      
       if (imageSetWidth === 0) return;
-
+      
       setBottomImagesPosition((prevPosition) => {
         //  left-to-right movement (opposite of top carousel)
         const newPosition = prevPosition + moveStep;
-
+        
         //  reset
         if (newPosition >= imageSetWidth) {
           return newPosition - imageSetWidth;
@@ -75,9 +83,9 @@ const OnlineBooking = () => {
     };
 
     // animation frames
-    let topAnimationFrame: number;
-    let bottomAnimationFrame: number;
-
+    let topAnimationFrame : number ;
+    let bottomAnimationFrame : number;
+    
     const animateTop = () => {
       animateTopCarousel();
       topAnimationFrame = requestAnimationFrame(animateTop);
@@ -92,7 +100,7 @@ const OnlineBooking = () => {
     topAnimationFrame = requestAnimationFrame(animateTop);
     bottomAnimationFrame = requestAnimationFrame(animateBottom);
 
-    // Cleanup animation frames
+    // Cleanup animation frames 
     return () => {
       cancelAnimationFrame(topAnimationFrame);
       cancelAnimationFrame(bottomAnimationFrame);
@@ -100,34 +108,109 @@ const OnlineBooking = () => {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [firstFiveImages.length, lastFiveImages.length]);
 
-  // Create duplicated sets of images for seamless infinite scrolling
-  const displayTopImages = [
-    ...firstFiveImages,
-    ...firstFiveImages,
-    ...firstFiveImages,
-  ];
-  const displayBottomImages = [
-    ...lastFiveImages,
-    ...lastFiveImages,
-    ...lastFiveImages,
-    ...lastFiveImages,
-    ...lastFiveImages,
-    ...lastFiveImages,
-  ];
+  // Mobile carousel animation - using different variables
+  useEffect(() => {
+    // Animation speed for mobile
+    const mobileMoveStep = 0.7;
+
+    // Get width of single image for calculations (mobile)
+    const getMobileImageWidth = (
+      imagesRef: React.RefObject<HTMLDivElement | null>,
+      images: Array<string>
+    ) => {
+      if (!imagesRef.current) return 0;
+      const firstChild = imagesRef.current.children[0] as HTMLElement;
+      const singleItemWidth = firstChild.offsetWidth;
+      const gap = 1; // images gap
+      return (singleItemWidth + gap) * images.length;
+    };
+
+    // Mobile top carousel animation (right to left)
+    const animateMobileTopCarousel = () => {
+      const imageSetWidth = getMobileImageWidth(mobileTopImagesRef, firstFiveImages);
+      
+      if (imageSetWidth === 0) return;
+      
+      setMobileTopImagesPosition((prevPosition: number): number => {
+        // reset
+        if (prevPosition >= imageSetWidth) {
+          return prevPosition - imageSetWidth;
+        }
+        return prevPosition + mobileMoveStep;
+      });
+    };
+
+    // Mobile bottom carousel animation (left to right)
+    const animateMobileBottomCarousel = () => {
+      const imageSetWidth = getMobileImageWidth(mobileBottomImagesRef, lastFiveImages);
+      
+      if (imageSetWidth === 0) return;
+      
+      setMobileBottomImagesPosition((prevPosition) => {
+        // left-to-right movement
+        const newPosition = prevPosition + mobileMoveStep;
+        
+        // Reset position when it reaches a threshold
+        // Using a larger multiple to ensure smooth transition
+        if (newPosition >= imageSetWidth * 2) {
+          return -imageSetWidth;
+        }
+
+        return newPosition;
+      });
+    };
+
+    // animation frames for mobile
+    let mobileTopAnimationFrame: number;
+    let mobileBottomAnimationFrame: number;
+    
+    const animateMobileTop = () => {
+      animateMobileTopCarousel();
+      mobileTopAnimationFrame = requestAnimationFrame(animateMobileTop);
+    };
+
+    const animateMobileBottom = () => {
+      animateMobileBottomCarousel();
+      mobileBottomAnimationFrame = requestAnimationFrame(animateMobileBottom);
+    };
+
+    // Start mobile animations
+    mobileTopAnimationFrame = requestAnimationFrame(animateMobileTop);
+    mobileBottomAnimationFrame = requestAnimationFrame(animateMobileBottom);
+
+    // Cleanup mobile animation frames
+    return () => {
+      cancelAnimationFrame(mobileTopAnimationFrame);
+      cancelAnimationFrame(mobileBottomAnimationFrame);
+    };
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [firstFiveImages.length, lastFiveImages.length]);
+
+  // Create duplicated sets of images for seamless infinite scrolling - desktop
+  const displayTopImages = [...firstFiveImages, ...firstFiveImages, ...firstFiveImages];
+  const displayBottomImages = [...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages];
+
+  // Create duplicated sets of images for mobile
+  const mobileTopImages = [...firstThreeImages, ...firstThreeImages, ...firstThreeImages];
+  // Add more duplicates for bottom images to ensure there are always images visible
+  const mobileBottomImages = [...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages];
 
   return (
     <>
       {/* Desktop layout */}
       <div className="bg-white h-screen flex-col overflow-hidden py-16 hidden md:flex">
         {/* Top Images - moving right to left */}
-        <div ref={topContainerRef} className="w-full overflow-hidden h-1/4">
+        <div 
+          ref={topContainerRef}
+          className="w-full overflow-hidden h-1/4"
+        >
           <div
             ref={topImagesRef}
             className="flex gap-1 h-full"
             style={{
               transform: `translateX(-${topImagesPosition}px)`,
               transition: "transform 0.01s linear",
-              width: "max-content",
+              width: "max-content", 
             }}
           >
             {displayTopImages.map((image, index) => (
@@ -177,14 +260,17 @@ const OnlineBooking = () => {
         </div>
 
         {/* Bottom Images - moving left to right */}
-        <div ref={bottomContainerRef} className="w-full overflow-hidden h-1/4">
+        <div 
+          ref={bottomContainerRef}
+          className="w-full overflow-hidden h-1/4"
+        >
           <div
             ref={bottomImagesRef}
             className="flex gap-1 h-full"
             style={{
               transform: `translateX(${bottomImagesPosition}px)`,
               transition: "transform 0.01s linear",
-              width: "max-content",
+              width: "max-content", 
             }}
           >
             {displayBottomImages.map((imageUrl, index) => (
@@ -204,25 +290,26 @@ const OnlineBooking = () => {
 
       {/* Mobile layout */}
       <div className="flex flex-col justify-between py-10 md:py-0 w-full md:hidden bg-white h-screen">
-        {/* Top Images - moving right to left */}
-        <div ref={topContainerRef} className="w-full overflow-hidden h-1/4 ">
+        {/* Top image carousel */}
+        <div className="w-full h-64 relative z-10 overflow-hidden">
           <div
-            ref={topImagesRef}
+            ref={mobileTopImagesRef}
             className="flex gap-1 h-full"
             style={{
-              transform: `translateX(-${topImagesPosition}px)`,
+              transform: `translateX(-${mobileTopImagesPosition}px)`,
               transition: "transform 0.01s linear",
               width: "max-content",
             }}
           >
-            {displayTopImages.map((image, index) => (
-              <div key={index} className="relative h-full ">
+            {mobileTopImages.map((image, index) => (
+              <div key={index} className="relative h-full">
                 <Image
-                  width={600}
-                  height={300}
+                  width={400}
+                  height={240}
                   src={image}
-                  alt={`Carousel image ${index}`}
+                  alt={`Mobile carousel image ${index}`}
                   className="object-cover h-full"
+                  priority={index < 2}
                 />
               </div>
             ))}
@@ -230,9 +317,9 @@ const OnlineBooking = () => {
         </div>
 
         {/* Content - Middle section */}
-        <div className="px-6 py-20 bg-white relative overflow-hidden  ">
+        <div className="px-6 py-20 bg-white relative ">
           {/* Background SVG */}
-          <div className="absolute top-[-110px] right-[-160px] z-0 rotate-40">
+          <div className="absolute top-[-110px] right-[-160px] z-0 overflow-hidden rotate-40">
             <Image
               src={background}
               alt="background"
@@ -263,25 +350,26 @@ const OnlineBooking = () => {
           </div>
         </div>
 
-        {/* Bottom Images - moving left to right */}
-        <div ref={bottomContainerRef} className="w-full overflow-hidden h-1/4">
+        {/* Bottom image carousel - moving left to right */}
+        <div className="w-full h-64 relative overflow-hidden">
           <div
-            ref={bottomImagesRef}
+            ref={mobileBottomImagesRef}
             className="flex gap-1 h-full"
             style={{
-              transform: `translateX(${bottomImagesPosition}px)`,
+              transform: `translateX(${mobileBottomImagesPosition}px)`,
               transition: "transform 0.01s linear",
               width: "max-content",
             }}
           >
-            {displayBottomImages.map((imageUrl, index) => (
-              <div key={index} className="relative">
+            {mobileBottomImages.map((image, index) => (
+              <div key={index} className="relative h-full">
                 <Image
-                  src={imageUrl}
-                  alt={`Leisure image ${index}`}
-                  width={600}
-                  height={300}
-                  className="object-cover object-center h-full"
+                  width={400}
+                  height={240}
+                  src={image}
+                  alt={`Mobile bottom carousel image ${index}`}
+                  className="object-cover h-full"
+                  priority={false}
                 />
               </div>
             ))}

@@ -106,7 +106,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
             <p
               className={`text-base md:text-lg font-medium text-center text-black mb-1`}
             >
-              {!productsVersion ? (
+              {productsVersion ? (
                 <>
                   Don&apos;t miss out on a travel necessity to{" "}
                   <span className="font-semibold">
@@ -182,7 +182,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
             {/* Marquee container */}
             <div className="w-full h-full overflow-hidden">
               <div
-                className="flex h-full md:gap-30 gap-0"
+                className="flex h-full md:gap-[30] gap-0"
                 style={{
                   transform: `translateX(-${position}%)`,
                   width: `${duplicatedImages.length * 33.33}%`, // each image ay ~33.33% of viewport width
