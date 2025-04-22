@@ -15,25 +15,13 @@ interface HeroProps {
 	description?: JSX.Element;
 	gradient?: string;
 }
-//! How to use
-{
-	/* <Hero
-		images={corpoHero} //! Pass an array of image URLs
-		title="CORPORATE AND BUSINESS" //! Kailangan ko pa ba to i explain ? HAHAHAH
-		description={ //! Pass a JSX element for the description , you can use a div, p, span, etc.
-		<p>
-		<span className="text-[#7EE7FC] ">Seamless travel experience</span> tailor-made for your corporate and business goals.
-		</p>
-		}
-	 /> */
-}
 
 const Hero = ({ images, title, description, gradient = "bg-gradient-to-r from-[#0A2472] via-[#00A9CE] to-[#FF7A00]" }: HeroProps) => {
 	const corpImages = images;
 
-	const [currentImage, setCurrentImage] = useState(0);
-	const [isAnimating, setIsAnimating] = useState(false);
-	const [direction, setDirection] = useState("next"); // 'next' or 'prev'
+  const [currentImage, setCurrentImage] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [direction, setDirection] = useState("next");
 
 	// For fixing lint warning about useCallback
 	const getNextIndex = useCallback((current: number) => (current === corpImages.length - 1 ? 0 : current + 1), [corpImages.length]);
@@ -128,44 +116,58 @@ const Hero = ({ images, title, description, gradient = "bg-gradient-to-r from-[#
 		setIsOpenMobile(!isOpenMobile);
 	};
 
-	// Prevent scrolling when menu is open
-	useEffect(() => {
-		if (isOpenDesktop || isOpenMobile) {
-			document.body.style.overflow = "hidden";
-		} else {
-			document.body.style.overflow = "unset";
-		}
+  useEffect(() => {
+    if (isOpenDesktop || isOpenMobile) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
 
 		return () => {
 			document.body.style.overflow = "unset";
 		};
 	}, [isOpenDesktop, isOpenMobile]);
 
-	return (
-		<>
-			{/* Logo Menu  */}
-			{/* Header - only visible when not animating */}
-			<div className="fixed right-[5%] bottom-[20%] z-[100] hidden sm:hidden md:hidden lg:block">
-				{/* Header - only visible when menu is closed */}
-				<div ref={headerRef} className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl  rounded-full w-[300px] lg:w-[436px]  ${isOpenDesktop ? "invisible" : "visible"}`}>
-					<Image src={Logo} onClick={() => window.location.replace("/")} className="cursor-pointer" alt="logo" width={70} height={50} />
-					<div onClick={toggleMenu} className="cursor-pointer">
-						<MenuSvg />
-					</div>
-				</div>
-			</div>
+  return (
+    <>
+      <div className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block">
+        {/* Header - only visible when menu is closed */}
+        <div
+          ref={headerRef}
+          className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl  rounded-full w-[300px] lg:w-[436px]  ${
+            isOpenDesktop ? "invisible" : "visible"
+          }`}
+        >
+          <Image
+            src={Logo}
+            onClick={() => window.location.replace("/")}
+            className="cursor-pointer"
+            alt="logo"
+            width={70}
+            height={50}
+          />
+          <div onClick={toggleMenu} className="cursor-pointer">
+            <MenuSvg />
+          </div>
+        </div>
+      </div>
 
 			<AnimatePresence>{isOpenDesktop && <Menu toggleMenu={toggleMenu} headerRect={headerRect} />}</AnimatePresence>
 
-			<div className="relative">
-				<div className="relative w-screen h-screen overflow-hidden">
-					{corpImages.map((image, index) => (
-						<div
-							key={index}
-							className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-500 ${getImageClasses(index)}`}
-							style={{ backgroundImage: `url(${image})` }}
-						></div>
-					))}
+      <div className="relative w-screen h-[90vh] md:h-screen">
+        <div
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${corpImages})` }}
+        >
+          {corpImages.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-500 ${getImageClasses(
+                index
+              )}`}
+              style={{ backgroundImage: `url(${image})` }}
+            ></div>
+          ))}
 
 					{/* Gradient overlay with responsive classes */}
 					<div
