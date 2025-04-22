@@ -145,107 +145,68 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
           </div>
         </TextReveal>
 
-        {/* Mobile Image Display */}
-        {isMobile ? (
-          <div className="flex-grow w-full overflow-hidden relative bg-white">
-            <div className="absolute inset-0 h-[80%]">
-              {/* First image (full width) */}
-              {LeisureToursImages.length > 0 && (
-                <div
-                  className="h-full w-full rounded-lg overflow-hidden"
-                  style={{
-                    backgroundImage: `url(${LeisureToursImages[0]})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                />
-              )}
+        <div className="flex-grow w-full overflow-hidden relative bg-white">
+          <div className="absolute inset-0 flex items-center justify-center">
+            {/* Left and right gradients */}
+            <div
+              className="invisible md:visible absolute left-0 top-0 bottom-0 w-1/12 z-20 pointer-events-none"
+              style={{
+                background: "linear-gradient(to right, white, transparent)",
+              }}
+            ></div>
+            <div
+              className="invisible md:visible absolute right-0 top-0 bottom-0 w-1/12 z-20 pointer-events-none"
+              style={{
+                background: "linear-gradient(to left, white, transparent)",
+              }}
+            ></div>
 
-              {/* Top curve for mobile */}
-              <div
-                className="absolute top-0 w-full h-[45px] z-50 bg-white"
-                style={{
-                  borderBottomLeftRadius: "50% 100%",
-                  borderBottomRightRadius: "50% 100%",
-                }}
-              ></div>
+            {/* Top curved white border */}
+            <div
+              className="absolute top-0 w-full h-[75px] z-50 bg-white"
+              style={{
+                borderBottomLeftRadius: "50% 100%",
+                borderBottomRightRadius: "50% 100%",
+              }}
+            ></div>
 
-              {/* Bottom curve for mobile */}
-              <div
-                className="absolute bottom-0 w-full h-[45px] z-50 bg-white"
-                style={{
-                  borderTopLeftRadius: "50% 100%",
-                  borderTopRightRadius: "50% 100%",
-                }}
-              ></div>
-            </div>
-          </div>
-        ) : (
-          /* Desktop Image Slideshow */
-          <div className="flex-grow w-full overflow-hidden relative bg-white">
-            <div className="absolute inset-0 flex items-center justify-center">
-              {/* Left and right gradients */}
-              <div
-                className="absolute left-0 top-0 bottom-0 w-1/12 z-20 pointer-events-none"
-                style={{
-                  background: "linear-gradient(to right, white, transparent)",
-                }}
-              ></div>
-              <div
-                className="absolute right-0 top-0 bottom-0 w-1/12 z-20 pointer-events-none"
-                style={{
-                  background: "linear-gradient(to left, white, transparent)",
-                }}
-              ></div>
+            {/* Bottom curved white border */}
+            <div
+              className="absolute bottom-0 w-full h-[75px] z-50 bg-white"
+              style={{
+                borderTopLeftRadius: "50% 100%",
+                borderTopRightRadius: "50% 100%",
+              }}
+            ></div>
 
-              {/* Top curved white border */}
+            {/* Marquee container */}
+            <div className="w-full h-full overflow-hidden">
               <div
-                className="absolute top-0 w-full h-[75px] z-50 bg-white"
+                className="flex h-full md:gap-30 gap-0"
                 style={{
-                  borderBottomLeftRadius: "50% 100%",
-                  borderBottomRightRadius: "50% 100%",
+                  transform: `translateX(-${position}%)`,
+                  width: `${duplicatedImages.length * 33.33}%`, // each image ay ~33.33% of viewport width
                 }}
-              ></div>
-
-              {/* Bottom curved white border */}
-              <div
-                className="absolute bottom-0 w-full h-[75px] z-50 bg-white"
-                style={{
-                  borderTopLeftRadius: "50% 100%",
-                  borderTopRightRadius: "50% 100%",
-                }}
-              ></div>
-
-              {/* Marquee container */}
-              <div className="w-full h-full overflow-hidden">
-                <div
-                  className="flex h-full"
-                  style={{
-                    transform: `translateX(-${position}%)`,
-                    width: `${duplicatedImages.length * 33.33}%`, // each image ay ~33.33% of viewport width
-                    gap: "30px",
-                  }}
-                >
-                  {duplicatedImages.map((image, index) => (
+              >
+                {duplicatedImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className="md:w-1/10 w-1/5 h-full flex-shrink-0 md:px-2 px-0"
+                  >
                     <div
-                      key={index}
-                      className="w-1/10 h-full flex-shrink-0 px-2"
-                    >
-                      <div
-                        className="h-full w-full rounded-lg overflow-hidden"
-                        style={{
-                          backgroundImage: `url(${image})`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                        }}
-                      />
-                    </div>
-                  ))}
-                </div>
+                      className="h-full w-full rounded-lg overflow-hidden"
+                      style={{
+                        backgroundImage: `url(${image})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

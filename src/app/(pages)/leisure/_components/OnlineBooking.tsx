@@ -11,13 +11,13 @@ const OnlineBooking = () => {
   const lastFiveImages = LeisureOBImages.slice(5, 10);
 
   // For mobile view
-  const firstThreeImages = LeisureOBImages.slice(0, 5);
+  // const firstThreeImages = LeisureOBImages.slice(0, 5);
 
   // Track the position and animation status
   const [topImagesPosition, setTopImagesPosition] = useState(0);
   // Start of bottom carousel
   const [bottomImagesPosition, setBottomImagesPosition] = useState(-10000);
-  
+
   // Refs for container widths and image sets
   const topContainerRef = useRef<HTMLDivElement>(null);
   const bottomContainerRef = useRef<HTMLDivElement>(null);
@@ -27,10 +27,10 @@ const OnlineBooking = () => {
   useEffect(() => {
     //  ANIMATION SPEED
     const moveStep = 1;
-    
+
     // Get width of single image for calculations
     const getImageSetWidth = (
-      imagesRef: React.RefObject<HTMLDivElement | null>, 
+      imagesRef: React.RefObject<HTMLDivElement | null>,
       images: Array<string>
     ) => {
       if (!imagesRef.current) return 0;
@@ -43,9 +43,9 @@ const OnlineBooking = () => {
     // Top Carousel animation
     const animateTopCarousel = () => {
       const imageSetWidth = getImageSetWidth(topImagesRef, firstFiveImages);
-      
-      if (imageSetWidth === 0) return; 
-      
+
+      if (imageSetWidth === 0) return;
+
       setTopImagesPosition((prevPosition: number): number => {
         // reset
         if (prevPosition >= imageSetWidth) {
@@ -58,13 +58,13 @@ const OnlineBooking = () => {
     // Animation function for bottom carousel (left to right)
     const animateBottomCarousel = () => {
       const imageSetWidth = getImageSetWidth(bottomImagesRef, lastFiveImages);
-      
+
       if (imageSetWidth === 0) return;
-      
+
       setBottomImagesPosition((prevPosition) => {
         //  left-to-right movement (opposite of top carousel)
         const newPosition = prevPosition + moveStep;
-        
+
         //  reset
         if (newPosition >= imageSetWidth) {
           return newPosition - imageSetWidth;
@@ -75,9 +75,9 @@ const OnlineBooking = () => {
     };
 
     // animation frames
-    let topAnimationFrame : number ;
-    let bottomAnimationFrame : number;
-    
+    let topAnimationFrame: number;
+    let bottomAnimationFrame: number;
+
     const animateTop = () => {
       animateTopCarousel();
       topAnimationFrame = requestAnimationFrame(animateTop);
@@ -92,7 +92,7 @@ const OnlineBooking = () => {
     topAnimationFrame = requestAnimationFrame(animateTop);
     bottomAnimationFrame = requestAnimationFrame(animateBottom);
 
-    // Cleanup animation frames 
+    // Cleanup animation frames
     return () => {
       cancelAnimationFrame(topAnimationFrame);
       cancelAnimationFrame(bottomAnimationFrame);
@@ -101,25 +101,33 @@ const OnlineBooking = () => {
   }, [firstFiveImages.length, lastFiveImages.length]);
 
   // Create duplicated sets of images for seamless infinite scrolling
-  const displayTopImages = [...firstFiveImages, ...firstFiveImages, ...firstFiveImages];
-  const displayBottomImages = [...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages];
+  const displayTopImages = [
+    ...firstFiveImages,
+    ...firstFiveImages,
+    ...firstFiveImages,
+  ];
+  const displayBottomImages = [
+    ...lastFiveImages,
+    ...lastFiveImages,
+    ...lastFiveImages,
+    ...lastFiveImages,
+    ...lastFiveImages,
+    ...lastFiveImages,
+  ];
 
   return (
     <>
       {/* Desktop layout */}
       <div className="bg-white h-screen flex-col overflow-hidden py-16 hidden md:flex">
         {/* Top Images - moving right to left */}
-        <div 
-          ref={topContainerRef}
-          className="w-full overflow-hidden h-1/4"
-        >
+        <div ref={topContainerRef} className="w-full overflow-hidden h-1/4">
           <div
             ref={topImagesRef}
             className="flex gap-1 h-full"
             style={{
               transform: `translateX(-${topImagesPosition}px)`,
               transition: "transform 0.01s linear",
-              width: "max-content", 
+              width: "max-content",
             }}
           >
             {displayTopImages.map((image, index) => (
@@ -169,17 +177,14 @@ const OnlineBooking = () => {
         </div>
 
         {/* Bottom Images - moving left to right */}
-        <div 
-          ref={bottomContainerRef}
-          className="w-full overflow-hidden h-1/4"
-        >
+        <div ref={bottomContainerRef} className="w-full overflow-hidden h-1/4">
           <div
             ref={bottomImagesRef}
             className="flex gap-1 h-full"
             style={{
               transform: `translateX(${bottomImagesPosition}px)`,
               transition: "transform 0.01s linear",
-              width: "max-content", 
+              width: "max-content",
             }}
           >
             {displayBottomImages.map((imageUrl, index) => (
@@ -199,21 +204,35 @@ const OnlineBooking = () => {
 
       {/* Mobile layout */}
       <div className="flex flex-col justify-between py-10 md:py-0 w-full md:hidden bg-white h-screen">
-        {/* Top image */}
-        <div className="w-full h-64 relative z-10">
-          <Image
-            src={firstThreeImages[0]}
-            alt="Person booking travel"
-            fill
-            className="object-cover"
-            priority={true}
-          />
+        {/* Top Images - moving right to left */}
+        <div ref={topContainerRef} className="w-full overflow-hidden h-1/4 ">
+          <div
+            ref={topImagesRef}
+            className="flex gap-1 h-full"
+            style={{
+              transform: `translateX(-${topImagesPosition}px)`,
+              transition: "transform 0.01s linear",
+              width: "max-content",
+            }}
+          >
+            {displayTopImages.map((image, index) => (
+              <div key={index} className="relative h-full ">
+                <Image
+                  width={600}
+                  height={300}
+                  src={image}
+                  alt={`Carousel image ${index}`}
+                  className="object-cover h-full"
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Content - Middle section */}
-        <div className="px-6 py-20 bg-white relative ">
+        <div className="px-6 py-20 bg-white relative overflow-hidden  ">
           {/* Background SVG */}
-          <div className="absolute top-[-110px] right-[-160px] z-0 overflow-hidden rotate-40">
+          <div className="absolute top-[-110px] right-[-160px] z-0 rotate-40">
             <Image
               src={background}
               alt="background"
@@ -244,15 +263,29 @@ const OnlineBooking = () => {
           </div>
         </div>
 
-        {/* Bottom image */}
-        <div className="w-full h-64 relative">
-          <Image
-            src={lastFiveImages[0]}
-            alt="Person at travel destination"
-            fill
-            className="object-cover"
-            priority={false}
-          />
+        {/* Bottom Images - moving left to right */}
+        <div ref={bottomContainerRef} className="w-full overflow-hidden h-1/4">
+          <div
+            ref={bottomImagesRef}
+            className="flex gap-1 h-full"
+            style={{
+              transform: `translateX(${bottomImagesPosition}px)`,
+              transition: "transform 0.01s linear",
+              width: "max-content",
+            }}
+          >
+            {displayBottomImages.map((imageUrl, index) => (
+              <div key={index} className="relative">
+                <Image
+                  src={imageUrl}
+                  alt={`Leisure image ${index}`}
+                  width={600}
+                  height={300}
+                  className="object-cover object-center h-full"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>
