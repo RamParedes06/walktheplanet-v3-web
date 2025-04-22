@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import SmoothScroll from "../_components/SmoothScroll";
 import Footer from "../_components/Footer";
@@ -16,13 +17,17 @@ import {
 } from "@/library/eduCTA";
 import { emergencyImages, accordionData } from "@/library/EmergencyEdutourism";
 import AccordionWithImageSlider from "../_components/AccordionWithImageSlider";
+import useIsMobile from "@/hooks/useIsMobile";
 
-function edutourism() {
+function Edutourism() {
+  const isMobile = useIsMobile();
+
   return (
     <div className="snap-y snap-mandatory overflow-y-auto h-screen">
       <SmoothScroll>
         <section id="hero" className="snap-start">
           <Hero
+            gradient="bg-gradient-to-r from-[#FAAE19] via-[#198A6F] to-[#14476F]"
             images={EduImages}
             title="EDUTOURISM"
             description={
@@ -46,15 +51,30 @@ function edutourism() {
         <section>
           <Quotes
             title={
-              <p className="font-medium text-2xl">
-                Your students&apos;&nbsp;
-                <span className="font-semibold">
-                   safety, comfort, and confidentiality
-                </span>{" "}
-                are our priority
-                <br />
-                to ensure each moment is unique and memorable
-              </p>
+              isMobile ? (
+                <div className="flex flex-col gap-3 text-[16px]">
+                  <p className="font-medium">
+                    Your students&apos;
+                    <span className="font-bold">
+                      safety, comfort, and <br /> confidentialit
+                    </span>{" "}
+                    are our priority <br />
+                    to ensure each moment is unique and memorable
+                  </p>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-3 text-2xl">
+                  <p className="font-medium">
+                    Your students’
+                    <span className="font-bold">
+                      {" "}
+                      safety, comfort, and confidentiality
+                    </span>{" "}
+                    are our priority <br />
+                    to ensure each moment is unique and memorable
+                  </p>
+                </div>
+              )
             }
           />
         </section>
@@ -88,4 +108,4 @@ function edutourism() {
   );
 }
 
-export default edutourism;
+export default Edutourism;
