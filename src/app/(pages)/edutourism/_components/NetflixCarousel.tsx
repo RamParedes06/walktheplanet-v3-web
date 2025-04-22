@@ -95,7 +95,7 @@ function NetflixCarousel() {
 						</div>
 					</div>
 				</div>
-
+				{/* carousel */}
 				<div className="carousel h-[30vh] px-20   flex gap-5 items-center justify-center overflow-x-auto max-[490px]:hidden">
 					{netflixCarousel.map((item, index) => (
 						<div key={index} className="relative w-[555px] h-[318px] max-[2120px]:w-[655px] max-[2120px]:h-[240px] rounded-xl p-[1px] backdrop-blur-sm border border-white/30">
