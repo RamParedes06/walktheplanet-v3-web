@@ -145,7 +145,7 @@ const Hero = ({ images, title, description, gradient = "bg-gradient-to-r from-[#
 		<>
 			{/* Logo Menu  */}
 			{/* Header - only visible when not animating */}
-			<div className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block">
+			<div className="fixed right-[5%] bottom-[20%] z-[100] hidden sm:hidden md:hidden lg:block">
 				{/* Header - only visible when menu is closed */}
 				<div ref={headerRef} className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl  rounded-full w-[300px] lg:w-[436px]  ${isOpenDesktop ? "invisible" : "visible"}`}>
 					<Image src={Logo} onClick={() => window.location.replace("/")} className="cursor-pointer" alt="logo" width={70} height={50} />

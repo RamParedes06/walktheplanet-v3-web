@@ -1125,9 +1125,9 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
           h-[60px]
           grid
           place-items-center
-          bg-[#00ffff]
-          border-[5px]
-          border-black
+          bg-[#7EE7FC]
+          border-[6px]
+          border-[#333333]
           rounded-full
           cursor-pointer
           transition-all
