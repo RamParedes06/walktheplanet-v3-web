@@ -11,18 +11,16 @@ const TravelOffersV2 = () => {
   const [isMobileView, setIsMobileView] = useState(false);
 
   useEffect(() => {
-    // Function to update state based on window width
+    // update state based on window width
     const handleResize = () => {
-      setIsMobileView(window.innerWidth < 768); // Adjust breakpoint as needed
+      setIsMobileView(window.innerWidth < 768);
     };
 
-    // Call once to set initial state
+    // Call once (initial state)
     handleResize();
-
-    // Add event listener
     window.addEventListener("resize", handleResize);
 
-    // Cleanup event listener on unmount
+    // Cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -30,7 +28,9 @@ const TravelOffersV2 = () => {
     <div>
       <div className="travel-section">
         {" "}
-        {/* New parent container */}
+        {/*  parent container */}
+        {/* Black overlay with low opacity */}
+        <div className="absolute inset-0 bg-black opacity-30"></div>
         <div
           className="travel-offers-container bg-cover bg-center bg-fixed"
           style={{
@@ -40,8 +40,6 @@ const TravelOffersV2 = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          {/* Black overlay with low opacity */}
-          <div className="absolute inset-0 bg-black opacity-30"></div>
           <div className="cards-parent h-[275px] lg:h-[230px] bg-cover bg-center flex justify-center items-center relative z-10 ">
             <div className="wrap marquee-container  mt-20 lg:mt-0 w-full overflow-hidden">
               <div className="marquee text-[32px] lg:text-8xl font-semibold text-white opacity-90">
@@ -90,7 +88,11 @@ const TravelOffersV2 = () => {
           <div className="cardss ">
             <div
               className="card "
-              style={{ backgroundColor: "rgba(229, 241, 246, 0.7)", color: "black" }}
+              style={{
+                backgroundColor: "rgba(229, 241, 246, 0.9)",
+                color: "black",
+                zIndex: 1,
+              }}
             >
               <p className="satoshi font-medium text-md lg:text-xl p-5 lg:p-[32px_40px]">
                 TRAVEL PACKAGE ESSENTIALS
@@ -124,7 +126,7 @@ const TravelOffersV2 = () => {
             </div>
             <div
               className="card"
-              style={{ backgroundColor: "rgba(254, 96, 0, 0.7)", zIndex: 2 }}
+              style={{ backgroundColor: "rgba(254, 96, 0, 0.9)", zIndex: 2 }}
             >
               <p className="satoshi font-medium text-md lg:text-xl p-5 lg:p-[32px_40px]">
                 LOCAL DESTINATIONS
@@ -159,7 +161,7 @@ const TravelOffersV2 = () => {
             </div>
             <div
               className="card"
-              style={{ backgroundColor: "rgba(51, 51, 51, 0.7)", zIndex: 3 }}
+              style={{ backgroundColor: "rgba(51, 51, 51, 0.9)", zIndex: 3 }}
             >
               <p className="satoshi font-medium text-md lg:text-xl p-5 lg:p-[32px_40px]">
                 {" "}
@@ -195,7 +197,7 @@ const TravelOffersV2 = () => {
             </div>
             <div
               className="card "
-              style={{ backgroundColor: "rgba(0, 83, 127, 0.7)", zIndex: 4 }}
+              style={{ backgroundColor: "rgba(0, 83, 127, 0.9)", zIndex: 4 }}
             >
               <p className="satoshi font-medium text-md lg:text-xl p-5 lg:p-[32px_40px]">
                 {" "}
