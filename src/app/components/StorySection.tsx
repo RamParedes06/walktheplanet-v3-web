@@ -18,7 +18,7 @@ const StorySection = () => {
         </p>
       </div>
       {/* OUR MISSION */}
-      <div className="border-b-2 border-t-2 border-[#E0E0E0] transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#00537F] hover:to-[#297A55] hover:text-white bg-white text-gray-800 py-8 px-6 text-center md:text-left md:py-[112px] md:px-[80px]">
+      <div className=" transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#00537F] hover:to-[#297A55] hover:text-white bg-white text-gray-800 py-8 px-6 text-center md:text-left md:py-[112px] md:px-[80px]">
         <div className="flex flex-col items-center md:items-start md:flex-row gap-2 md:gap-6">
           <div className="text-xl md:text-3xl font-semibold mb-2 md:mb-0 md:w-3/6">
             01
@@ -33,7 +33,7 @@ const StorySection = () => {
         </div>
       </div>
       {/* OUR VISION */}
-      <div className="border-b-2 border-[#E0E0E0] transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#00537F] hover:to-[#297A55] hover:text-white bg-white text-gray-800 py-8 px-6 text-center md:text-left md:py-[112px] md:px-[80px]">
+      <div className=" transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#00537F] hover:to-[#297A55] hover:text-white bg-white text-gray-800 py-8 px-6 text-center md:text-left md:py-[112px] md:px-[80px]">
         <div className="flex flex-col items-center md:items-start md:flex-row gap-2 md:gap-6">
           <div className="text-xl md:text-3xl font-semibold mb-2 md:mb-0 md:w-3/6">
             02
