@@ -184,13 +184,13 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
       },
       {
         title: "ALL-IN PRODUCTS",
-        href: "/all-in-products ",
+        href: "/all-in-products",
         highlighted: true,
         image: productsImage,
       },
       {
         title: "ABOUT US",
-        href: "/about-us ",
+        href: "/about-us",
         highlighted: true,
         image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1745204032/about1_ircbzf.webp",
       },
