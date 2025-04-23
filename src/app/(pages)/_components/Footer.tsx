@@ -29,38 +29,38 @@ function Footer() {
 								<div className="flex flex-col md:flex-row md:justify-between gap-10">
 									<div className="space-y-10">
 										<div>
-											<p className="font-medium">For partnership</p>
-											<p>partners@walktheplanet.com</p>
+											<p className="">For partnership</p>
+											<p className="underline">partners@walktheplanet.com</p>
 										</div>
 										<div>
-											<p className="font-medium">For airline partnership</p>
-											<p>airline.partners@walktheplanet.com</p>
+											<p className="">For airline partnership</p>
+											<p className="underline">airline.partners@walktheplanet.com</p>
 										</div>
 										<div>
-											<p className="font-medium">For M.I.C.E</p>
-											<p>M.I.C.E@walktheplanet.com</p>
+											<p className="">For M.I.C.E</p>
+											<p className="underline">M.I.C.E@walktheplanet.com</p>
 										</div>
 										<div>
-											<p className="font-medium">For international business</p>
-											<p>intl@walktheplanet.com</p>
+											<p className="">For EduTourism</p>
+											<p className="underline">edutourism@walktheplanet.com</p>
 										</div>
 									</div>
 
 									<div className="space-y-10">
 										<div>
-											<p className="font-medium">For corporate</p>
-											<p>corporate.support@walktheplanet.com</p>
+											<p className="">For Sales</p>
+											<p className="underline">corpsales@walktheplanet.com</p>
 										</div>
 										<div>
-											<p className="font-medium">For marketing</p>
-											<p>marketing@walktheplanet.com</p>
+											<p className="">For marketing</p>
+											<p className="underline">marketing@walktheplanet.com</p>
 										</div>
 										<div>
-											<p className="font-medium">For operations</p>
-											<p>customersupport@walktheplanet.com</p>
+											<p className="">For operations</p>
+											<p className="underline">customersupport@walktheplanet.com</p>
 										</div>
 										<div>
-											<p className="font-medium mb-1">Connect with us</p>
+											<p className=" mb-1">Connect with us</p>
 											<div className="flex gap-4 max-[490px]:justify-center max-[490px]:mt-4">
 												<a href="https://www.facebook.com/walktheplanetinc">
 													<FacebookSvg width={24} height={24} />
@@ -84,41 +84,42 @@ function Footer() {
 
 								<div className="flex flex-col md:flex-row md:justify-between gap-6 md:gap-12">
 									<div className="space-y-10 flex flex-col">
-										<Link href="/" className={`hover:underline ${pathname === "/" ? "font-bold" : ""}`}>
+										<Link href="/" className={`hover:underline ${pathname === "/" ? "font-medium" : "font-light text-[#FFFFFFA6]"}`}>
 											Home
 										</Link>
-										<a href="/edutourism" className={`hover:underline ${pathname === "/edutourism" ? "font-bold" : ""}`}>
+										<a href="/edutourism" className={`hover:underline ${pathname === "/edutourism" ? "font-medium" : "font-light text-[#FFFFFFA6]"}`}>
 											EduTourism
 										</a>
-										<a href="/mice" className={`hover:underline ${pathname === "/mice" ? "font-bold" : ""}`}>
+										<a href="/mice" className={`hover:underline ${pathname === "/mice" ? "font-medium" : "font-light text-[#FFFFFFA6]"}`}>
 											M.I.C.E
 										</a>
 									</div>
 
 									<div className="space-y-10 flex flex-col">
-										<a href="/corporate" className="hover:underline">
-											Business travel
+										
+										<a href="/corporate" className={`hover:underline ${pathname === "/corporate" ? "font-medium" : "font-light text-[#FFFFFFA6]"}`}>
+											Corporate and Business
 										</a>
-										<a href="#" className="hover:underline">
-											Travel stories
+										<a href="/travel-stories" className={`hover:underline ${pathname === "/travel-stories" ? "font-medium" : "font-light text-[#FFFFFFA6]"}`}>
+											Travel Stories
 										</a>
-										<a href="#" className="hover:underline">
+										<a href="/leisure" className={`hover:underline ${pathname === "/leisure" ? "font-medium" : "font-light text-[#FFFFFFA6]"}`}>
 											Leisure travel offerings
 										</a>
 									</div>
 
 									<div className="space-y-10 flex flex-col">
-										<a href="#" className="hover:underline">
+										<a href="/all-in-products" className={`hover:underline ${pathname === "/all-in-products" ? "font-medium" : "font-light text-[#FFFFFFA6]"}`}>
 											All-in services
 										</a>
-										<a href="#" className="hover:underline">
+										<a href="/about-us" className={`hover:underline ${pathname === "/about-us" ? "font-medium" : "font-light text-[#FFFFFFA6]"}`}>
 											About us
 										</a>
-										<a href="/contact-us" className="hover:underline">
+										<a href="/contact-us" className={`hover:underline ${pathname === "/contact-us" ? "font-medium" : "font-light text-[#FFFFFFA6]"}`}>
 											Contact us
 										</a>
 									</div>
-									<p className="min-[481px]:hidden max-[490]:text-[9px] mt-15 text-white">
+									<p className="min-[481px]:hidden max-[490px]:text-[14px] mt-15 text-white max-[490px]:px-7">
 										Unit 1803 PSE Tower 28th Street 5th Avenue Bonifacio Global City, Fort Bonifacio, City of Taguig
 									</p>
 								</div>

@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { schemaBusiness, schemaLeisure } from "@/schema";
 import bg from "@/assets/svg/contact/bgIllustration.svg";
+import Modal from "./Modal";
 
 type LeisureFormData = z.infer<typeof schemaLeisure>;
 type BusinessFormData = z.infer<typeof schemaBusiness>;
@@ -17,8 +18,12 @@ export default function ContactForm() {
     "Leisure Travel" | "Business Travel"
   >("Business Travel");
 
+  const [successModal, setSuccessModal] = useState(false);
+  const [failedModal, setFailedModal] = useState(false);
+
   const leisureForm = useForm<LeisureFormData>({
     resolver: zodResolver(schemaLeisure),
+    mode: "onChange",
     defaultValues: {
       travelType: "Leisure Travel",
       email: "",
@@ -32,6 +37,7 @@ export default function ContactForm() {
 
   const businessForm = useForm<BusinessFormData>({
     resolver: zodResolver(schemaBusiness),
+    mode: "onChange",
     defaultValues: {
       travelType: "Business Travel",
       email: "",
@@ -66,29 +72,41 @@ export default function ContactForm() {
     }
   };
 
+  const onCloseFailedModal = () => {
+    setFailedModal(false);
+  };
+
+  const onCloseSucessModal = () => {
+    setSuccessModal(false);
+  };
+
   const onLeisureSubmit: SubmitHandler<LeisureFormData> = async (data) => {
     try {
-      const response = await axios.post(
+      await axios.post(
         `${process.env.NEXT_PUBLIC_APP_API_BASE_URL}/v2/wtp-contact-us`,
         { ...data, countryCode: "+63" }
       );
-      console.log("Form submitted successfully:", response);
+
       leisureForm.reset();
+      setSuccessModal(true);
     } catch (error) {
       console.log("Error submitting form:", error);
+      setFailedModal(true);
     }
   };
 
   const onBusinessSubmit: SubmitHandler<BusinessFormData> = async (data) => {
     try {
-      const response = await axios.post(
+      await axios.post(
         `${process.env.NEXT_PUBLIC_APP_API_BASE_URL}/v2/wtp-contact-us`,
         { ...data, countryCode: "+63" }
       );
-      console.log("Form submitted successfully:", response);
+
       businessForm.reset();
+      setSuccessModal(true);
     } catch (error) {
       console.log("Error submitting form:", error);
+      setFailedModal(true);
     }
   };
 
@@ -161,7 +179,7 @@ export default function ContactForm() {
           {travelType === "Leisure Travel" ? (
             <form
               onSubmit={leisureForm.handleSubmit(onLeisureSubmit)}
-              className="space-y-4 lg:space-y-6  overflow-auto"
+              className="space-y-4 lg:space-y-6 h-150 overflow-auto"
             >
               {/* Hidden travel type field */}
               <input
@@ -177,7 +195,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Input first name here"
+                  placeholder="Input namehere"
                   {...leisureForm.register("firstName")}
                   className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -193,7 +211,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Input middle name here"
+                  placeholder="Input namehere"
                   {...leisureForm.register("middleName")}
                   className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -209,7 +227,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Input last name here"
+                  placeholder="Input namehere"
                   {...leisureForm.register("lastName")}
                   className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -272,7 +290,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Add your comment here"
+                  placeholder="input text here"
                   {...leisureForm.register("comment")}
                   className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -285,7 +303,11 @@ export default function ContactForm() {
 
               <button
                 type="submit"
-                className="w-full bg-[#CCCCCC] text-white font-medium py-3 rounded-full hover:bg-[#00537F] transition-colors"
+                className={`w-full text-white font-medium py-3 rounded-full ${
+                  !leisureForm.formState.isValid
+                    ? "bg-[#CCCCCC] opacity-50 pointer-events-none cursor-not-allowed"
+                    : "bg-[#00537F] cursor-pointer"
+                } transition-colors`}
               >
                 Send to us
               </button>
@@ -309,7 +331,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Input company name here"
+                  placeholder="Input namehere"
                   {...businessForm.register("companyName")}
                   className="w-full border-b border-[#14476F] text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -325,7 +347,7 @@ export default function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Input client name here"
+                  placeholder="Input namehere"
                   {...businessForm.register("clientName")}
                   className="w-full border-b border-[#14476F] text-black pb-2 focus:outline-none focus:border-gray-600"
                 />
@@ -386,7 +408,7 @@ export default function ContactForm() {
                   Comment
                 </label>
                 <input
-                  placeholder="Add your comment here"
+                  placeholder="input text here"
                   {...businessForm.register("comment")}
                   className="w-full border-b border-[#14476F] text-black focus:outline-none focus:border-gray-600 pb-2"
                 />
@@ -400,7 +422,11 @@ export default function ContactForm() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-[#CCCCCC] text-white font-medium py-3 rounded-full hover:bg-[#00537F] transition-colors"
+                className={`w-full text-white font-medium py-3 rounded-full ${
+                  !businessForm.formState.isValid
+                    ? "bg-[#CCCCCC] opacity-50 pointer-events-none cursor-not-allowed"
+                    : "bg-[#00537F] cursor-pointer"
+                } transition-colors`}
               >
                 Send to us
               </button>
@@ -408,6 +434,73 @@ export default function ContactForm() {
           )}
         </div>
       </section>
+
+      {successModal && (
+        <Modal
+          iconSvg={
+            <svg
+              width="35"
+              height="35"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M26.6663 8L11.9997 22.6667L5.33301 16"
+                stroke="#8CC152"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          }
+          iconBorder="#D8EACC"
+          title="Thanks for reaching out!"
+          description1="We've received your message."
+          description2="We will get back to you as soon as possible"
+          showModal={successModal}
+          handleCloseModal={onCloseSucessModal}
+        />
+      )}
+
+      {failedModal && (
+        <Modal
+          iconSvg={
+            <svg
+              width="35"
+              height="35"
+              viewBox="0 0 50 50"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="12"
+                y1="12"
+                x2="38"
+                y2="38"
+                stroke="#F27474"
+                strokeWidth="6"
+                strokeLinecap="round"
+              />
+              <line
+                x1="38"
+                y1="12"
+                x2="12"
+                y2="38"
+                stroke="#F27474"
+                strokeWidth="6"
+                strokeLinecap="round"
+              />
+            </svg>
+          }
+          iconBorder="#F27474"
+          title="Something went wrong!"
+          description1="We couldn’t send your message."
+          description2="Please try again in a moment or try refreshing the page"
+          showModal={failedModal}
+          handleCloseModal={onCloseFailedModal}
+        />
+      )}
     </div>
   );
 }

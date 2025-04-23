@@ -12,17 +12,13 @@ export default function FrequentlyAskedQuestion() {
         <div
           className="absolute"
           style={{
-            width: "1024px",
-            height: "1024px",
+            width: "1190px",
+            height: "1190px",
             top: "-300px",
             right: "-350px",
           }}
         >
-          <Image
-            src={bg}
-            alt="Background Illustration"
-            className="opacity-30"
-          />
+          <Image src={bg} alt="Background Illustration" />
         </div>
 
         {/* Content */}
