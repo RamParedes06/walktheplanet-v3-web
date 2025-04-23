@@ -124,7 +124,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
                 your one-stop-shop at{" "}
                 <a
                   href="https://tours.walktheplanet.com"
-                  className="text-[#006FA9] hover:underline"
+                  className="text-[#006FA9] hover:underline italic"
                 >
                   tours.walktheplanet.com
                 </a>
@@ -135,7 +135,13 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
             {/* Button */}
             {!productsVersion && (
               <button
-                className={`bg-[#00537F] hover:bg-[#00537F] text-white font-medium py-2 px-4 text-sm md:py-3 md:px-6 rounded-full mb-6 transition-colors duration-300 cursor-pointer`}
+                onClick={() =>
+                  window.open(
+                    "https://tours.walktheplanet.com/pages/contact",
+                    "_blank"
+                  )
+                }
+                className={`bg-[#00537F] hover:bg-[#00537F] text-white font-medium py-2 px-4 text-sm md:text-xl md:py-3 md:px-6 rounded-[24px]  mb-6 transition-colors duration-300 cursor-pointer`}
               >
                 {isMobile
                   ? "Book it now and get your trip ready!"
