@@ -12,11 +12,11 @@ const OnlineBooking = () => {
 
   // Desktop initial position
   const [topImagesPosition, setTopImagesPosition] = useState(0);
-  const [bottomImagesPosition, setBottomImagesPosition] = useState(-10000);
+  const [bottomImagesPosition, setBottomImagesPosition] = useState(-1); // Will be calculated on first render
   
   // Mobile initial position
   const [mobileTopImagesPosition, setMobileTopImagesPosition] = useState(0);
-  const [mobileBottomImagesPosition, setMobileBottomImagesPosition] = useState(-10000);
+  const [mobileBottomImagesPosition, setMobileBottomImagesPosition] = useState(-1); // Will be calculated on first render
   
   // Refs desktop
   const topContainerRef = useRef<HTMLDivElement>(null);
@@ -44,6 +44,12 @@ const OnlineBooking = () => {
       return (singleItemWidth + gap) * images.length;
     };
 
+    // Calculate and set the proper initial position for bottom carousel
+    if (bottomImagesPosition === -1 && bottomImagesRef.current) {
+      const imageSetWidth = getImageSetWidth(bottomImagesRef, lastFiveImages);
+      setBottomImagesPosition(-imageSetWidth);
+    }
+
     // Top Carousel animation
     const animateTopCarousel = () => {
       const imageSetWidth = getImageSetWidth(topImagesRef, firstFiveImages);
@@ -69,9 +75,9 @@ const OnlineBooking = () => {
         //  left-to-right movement (opposite of top carousel)
         const newPosition = prevPosition + moveStep;
         
-        //  reset
-        if (newPosition >= imageSetWidth) {
-          return newPosition - imageSetWidth;
+        //  reset when it gets too far to the right
+        if (newPosition > 0) {
+          return -imageSetWidth;
         }
 
         return newPosition;
@@ -102,7 +108,7 @@ const OnlineBooking = () => {
       cancelAnimationFrame(bottomAnimationFrame);
     };
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [firstFiveImages.length, lastFiveImages.length]);
+  }, [firstFiveImages.length, lastFiveImages.length, bottomImagesPosition]);
 
   // Mobile carousel animation - using different variables
   useEffect(() => {
@@ -120,6 +126,12 @@ const OnlineBooking = () => {
       const gap = 1; // images gap
       return (singleItemWidth + gap) * images.length;
     };
+
+    // Calculate and set the proper initial position for mobile bottom carousel
+    if (mobileBottomImagesPosition === -1 && mobileBottomImagesRef.current) {
+      const imageSetWidth = getMobileImageWidth(mobileBottomImagesRef, lastFiveImages);
+      setMobileBottomImagesPosition(-imageSetWidth);
+    }
 
     // Mobile top carousel animation (right to left)
     const animateMobileTopCarousel = () => {
@@ -147,9 +159,8 @@ const OnlineBooking = () => {
         const newPosition = prevPosition + mobileMoveStep;
         
         // Reset position when it moves too far to the right
-        if (newPosition > imageSetWidth) {
-          // Jump back much further to the left to ensure images are always visible
-          return -2 * imageSetWidth;
+        if (newPosition > 0) {
+          return -imageSetWidth;
         }
 
         return newPosition;
@@ -180,15 +191,15 @@ const OnlineBooking = () => {
       cancelAnimationFrame(mobileBottomAnimationFrame);
     };
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [firstFiveImages.length, lastFiveImages.length]);
+  }, [firstFiveImages.length, lastFiveImages.length, mobileBottomImagesPosition]);
 
   // Duplicated sets of images for desktop
   const displayTopImages = [...firstFiveImages, ...firstFiveImages, ...firstFiveImages];
-  const displayBottomImages = [...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages];
+  const displayBottomImages = [...lastFiveImages, ...lastFiveImages, ...lastFiveImages];
 
   // Images for mobile
   const mobileTopImages = [...firstFiveImages, ...firstFiveImages, ...firstFiveImages];
-  const mobileBottomImages = [...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages];
+  const mobileBottomImages = [...lastFiveImages, ...lastFiveImages, ...lastFiveImages];
 
   return (
     <>

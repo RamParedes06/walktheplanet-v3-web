@@ -169,7 +169,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
 
             {/* Top curved white border */}
             <div
-              className="absolute top-0 w-full h-[75px] z-50 bg-white"
+              className="absolute top-0 w-full h-[75px] z-20 bg-white"
               style={{
                 borderBottomLeftRadius: "50% 100%",
                 borderBottomRightRadius: "50% 100%",
@@ -178,7 +178,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
 
             {/* Bottom curved white border */}
             <div
-              className="absolute bottom-0 w-full h-[75px] z-50 bg-white"
+              className="absolute bottom-0 w-full h-[75px] z-20 bg-white"
               style={{
                 borderTopLeftRadius: "50% 100%",
                 borderTopRightRadius: "50% 100%",
