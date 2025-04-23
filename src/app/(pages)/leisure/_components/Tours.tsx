@@ -143,9 +143,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
                 }
                 className={`bg-[#00537F] hover:bg-[#00537F] text-white font-medium py-2 px-4 text-sm md:text-xl md:py-3 md:px-6 rounded-[24px]  mb-6 transition-colors duration-300 cursor-pointer`}
               >
-                {isMobile
-                  ? "Book it now and get your trip ready!"
-                  : "Grab yours now, for limited offers!"}
+                Start exploring for your next getaway!
               </button>
             )}
           </div>
