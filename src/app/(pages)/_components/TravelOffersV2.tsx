@@ -11,6 +11,7 @@ const TravelOffersV2 = () => {
   const [isMobileView, setIsMobileView] = useState(false);
 
   useEffect(() => {
+    if (window == undefined) return;
     // update state based on window width
     const handleResize = () => {
       setIsMobileView(window.innerWidth < 768);
@@ -18,7 +19,8 @@ const TravelOffersV2 = () => {
 
     // Call once (initial state)
     handleResize();
-    window.addEventListener("resize", handleResize);
+     window.addEventListener("resize", handleResize);
+
 
     // Cleanup
     return () => window.removeEventListener("resize", handleResize);
