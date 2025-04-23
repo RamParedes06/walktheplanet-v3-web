@@ -10,19 +10,15 @@ const OnlineBooking = () => {
   const firstFiveImages = LeisureOBImages.slice(0, 5);
   const lastFiveImages = LeisureOBImages.slice(5, 10);
 
-  // For mobile view
-  const firstThreeImages = LeisureOBImages.slice(0, 5);
-
-  // Track the position and animation status for desktop
+  // Desktop initial position
   const [topImagesPosition, setTopImagesPosition] = useState(0);
   const [bottomImagesPosition, setBottomImagesPosition] = useState(-10000);
   
-  // Track the position and animation status for mobile
+  // Mobile initial position
   const [mobileTopImagesPosition, setMobileTopImagesPosition] = useState(0);
-  // Start with negative value to ensure images are visible from the beginning
-  const [mobileBottomImagesPosition, setMobileBottomImagesPosition] = useState(-1000);
+  const [mobileBottomImagesPosition, setMobileBottomImagesPosition] = useState(-10000);
   
-  // Refs for container widths and image sets - desktop
+  // Refs desktop
   const topContainerRef = useRef<HTMLDivElement>(null);
   const bottomContainerRef = useRef<HTMLDivElement>(null);
   const topImagesRef = useRef<HTMLDivElement>(null);
@@ -147,13 +143,13 @@ const OnlineBooking = () => {
       if (imageSetWidth === 0) return;
       
       setMobileBottomImagesPosition((prevPosition) => {
-        // left-to-right movement
+        // left-to-right
         const newPosition = prevPosition + mobileMoveStep;
         
-        // Reset position when it reaches a threshold
-        // Using a larger multiple to ensure smooth transition
-        if (newPosition >= imageSetWidth * 2) {
-          return -imageSetWidth;
+        // Reset position when it moves too far to the right
+        if (newPosition > imageSetWidth) {
+          // Jump back much further to the left to ensure images are always visible
+          return -2 * imageSetWidth;
         }
 
         return newPosition;
@@ -178,7 +174,7 @@ const OnlineBooking = () => {
     mobileTopAnimationFrame = requestAnimationFrame(animateMobileTop);
     mobileBottomAnimationFrame = requestAnimationFrame(animateMobileBottom);
 
-    // Cleanup mobile animation frames
+    // Cleanup
     return () => {
       cancelAnimationFrame(mobileTopAnimationFrame);
       cancelAnimationFrame(mobileBottomAnimationFrame);
@@ -186,13 +182,12 @@ const OnlineBooking = () => {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [firstFiveImages.length, lastFiveImages.length]);
 
-  // Create duplicated sets of images for seamless infinite scrolling - desktop
+  // Duplicated sets of images for desktop
   const displayTopImages = [...firstFiveImages, ...firstFiveImages, ...firstFiveImages];
   const displayBottomImages = [...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages];
 
-  // Create duplicated sets of images for mobile
-  const mobileTopImages = [...firstThreeImages, ...firstThreeImages, ...firstThreeImages];
-  // Add more duplicates for bottom images to ensure there are always images visible
+  // Images for mobile
+  const mobileTopImages = [...firstFiveImages, ...firstFiveImages, ...firstFiveImages];
   const mobileBottomImages = [...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages, ...lastFiveImages];
 
   return (
@@ -241,7 +236,7 @@ const OnlineBooking = () => {
                 Easy travels just got easier! Book today, travel tomorrow.
               </p>
 
-              <button className="w-max bg-[#00537F] text-white px-8 py-4 rounded-[24px] text-lg font-medium hover:bg-[#00537F] cursor-pointer transition-colors">
+              <button onClick={() => window.open("https://galago.com.ph/", "_blank")} className="w-max bg-[#00537F] text-white px-[32px] py-[14px] rounded-[14px] text-lg font-medium hover:bg-[#00537F] cursor-pointer transition-colors">
                 Book it now and get your trip ready!
               </button>
             </TextReveal>
@@ -344,7 +339,7 @@ const OnlineBooking = () => {
               Book today, travel tomorrow.
             </p>
 
-            <button className="bg-[#00537F] text-white px-6 py-3 rounded-[24px] text-base font-medium hover:bg-opacity-90 cursor-pointer transition-colors w-full">
+            <button onClick={() => window.open("https://galago.com.ph/", "_blank")} className="bg-[#00537F] text-white px-6 py-3 rounded-[24px] text-base font-medium hover:bg-opacity-90 cursor-pointer transition-colors w-full">
               Book it now and get your trip ready!
             </button>
           </div>
