@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
@@ -9,6 +9,7 @@ import axios from "axios";
 import { schemaBusiness, schemaLeisure } from "@/schema";
 import bg from "@/assets/svg/contact/bgIllustration.svg";
 import Modal from "./Modal";
+import { BsChevronDown } from "react-icons/bs";
 
 type LeisureFormData = z.infer<typeof schemaLeisure>;
 type BusinessFormData = z.infer<typeof schemaBusiness>;
@@ -21,6 +22,24 @@ export default function ContactForm() {
   const [successModal, setSuccessModal] = useState(false);
   const [failedModal, setFailedModal] = useState(false);
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState("+63");
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const dropdownRef = useRef(null);
+
   const leisureForm = useForm<LeisureFormData>({
     resolver: zodResolver(schemaLeisure),
     mode: "onChange",
@@ -32,6 +51,7 @@ export default function ContactForm() {
       firstName: "",
       middleName: "",
       lastName: "",
+      countryCode: "",
     },
   });
 
@@ -45,6 +65,7 @@ export default function ContactForm() {
       comment: "",
       companyName: "",
       clientName: "",
+      countryCode: "",
     },
   });
 
@@ -386,16 +407,125 @@ export default function ContactForm() {
                 )}
               </div>
 
+              {/* <div>
+                <label className="block text-sm font-medium text-[#14476F] mb-2">
+                  Phone Number <span className="text-red-500">*</span>
+                </label>
+                <div className="flex">
+                  <input
+                    type="tel"
+                    placeholder="country code"
+                    {...businessForm.register("phoneNumber")}
+                    className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
+                  />
+                  <input
+                    type="number"
+                    placeholder="0000 -0000 -000"
+                    {...businessForm.register("phoneNumber")}
+                    className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
+                  />
+                </div>
+                {businessForm.formState.errors.phoneNumber && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {businessForm.formState.errors.phoneNumber?.message}
+                  </p>
+                )}
+              </div> */}
+
               <div>
                 <label className="block text-sm font-medium text-[#14476F] mb-2">
                   Phone Number <span className="text-red-500">*</span>
                 </label>
-                <input
-                  type="tel"
-                  placeholder="Input phone number here"
-                  {...businessForm.register("phoneNumber")}
-                  className="w-full border-b text-black pb-2 focus:outline-none focus:border-gray-600"
-                />
+                <div className="flex w-full border-b border-[#14476F]">
+                  {/* Custom dropdown */}
+                  <div className="relative flex items-center min-w-[150px] mr-2">
+                    {/* Hidden input for form handling */}
+                    <input
+                      type="hidden"
+                      {...businessForm.register("countryCode")}
+                      value={selectedCountry || "+63"}
+                    />
+
+                    {/* Custom dropdown trigger */}
+                    <div
+                      className="flex items-center justify-between w-full cursor-pointer py-2 text-gray-500"
+                      onClick={() => setIsOpen(!isOpen)}
+                    >
+                      <span>{isOpen ? "" : "country code"}</span>
+                      <BsChevronDown
+                        className={`ml-2 text-[#14476F] transition-transform ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </div>
+
+                    {/* Custom dropdown menu */}
+                    {isOpen && (
+                      <div className="absolute top-full left-0 z-10 mt-1 w-64 bg-white border border-gray-200 shadow-lg rounded-sm">
+                        <div className="py-1 max-h-60 overflow-y-auto">
+                          <button
+                            type="button"
+                            className="w-full px-4 py-2 text-left hover:bg-gray-100"
+                            onClick={() => {
+                              setSelectedCountry("+63");
+                              setIsOpen(false);
+                            }}
+                          >
+                            Philippines (+63)
+                          </button>
+                          <button
+                            type="button"
+                            className="w-full px-4 py-2 text-left hover:bg-gray-100"
+                            onClick={() => {
+                              setSelectedCountry("+93");
+                              setIsOpen(false);
+                            }}
+                          >
+                            Afghanistan (+93)
+                          </button>
+                          <button
+                            type="button"
+                            className="w-full px-4 py-2 text-left hover:bg-gray-100"
+                            onClick={() => {
+                              setSelectedCountry("+355");
+                              setIsOpen(false);
+                            }}
+                          >
+                            Albania (+355)
+                          </button>
+                          <button
+                            type="button"
+                            className="w-full px-4 py-2 text-left hover:bg-gray-100"
+                            onClick={() => {
+                              setSelectedCountry("+213");
+                              setIsOpen(false);
+                            }}
+                          >
+                            Algeria (+213)
+                          </button>
+                          <button
+                            type="button"
+                            className="w-full px-4 py-2 text-left hover:bg-gray-100"
+                            onClick={() => {
+                              setSelectedCountry("+244");
+                              setIsOpen(false);
+                            }}
+                          >
+                            Andorra (+244)
+                          </button>
+                          {/* Add more country options as needed */}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  <input
+                    type="tel"
+                    placeholder="0000-0000-000"
+                    {...businessForm.register("phoneNumber")}
+                    className="flex-1 py-2 bg-transparent text-black focus:outline-none"
+                  />
+                </div>
                 {businessForm.formState.errors.phoneNumber && (
                   <p className="text-red-500 text-xs mt-1">
                     {businessForm.formState.errors.phoneNumber?.message}
