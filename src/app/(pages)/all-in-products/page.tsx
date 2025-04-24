@@ -5,6 +5,7 @@ import { ProductsImages } from "@/library/ProductsHero";
 import FlightCarousel from "./_components/FlightCarousel";
 import CarouselTitle from "../_components/CarouselWithTitle/CarouselTitle";
 import { TranspoImages } from "@/library/TransportationImages";
+import { GroupImages } from "@/library/GroupInclusive";
 import Cruise from "./_components/Cruise";
 import Accomodations from "./_components/Accomodations";
 
@@ -28,6 +29,11 @@ function AllInProducts() {
 				<CarouselTitle title="TRANSPORTATION" description={<p>Water, air, and land - move smoothly and hassle-free for an incredible journey</p>} images={TranspoImages} />
 				<Cruise />
 				<Accomodations />
+				<CarouselTitle
+					title="GROUP INCLUSIVE TOURS"
+					description={<p>Unforgettable group adventures - top destinations, expert guides, and custom itineraries all for you!</p>}
+					images={GroupImages}
+				/>
 			</SmoothScroll>
 		</div>
 	);
