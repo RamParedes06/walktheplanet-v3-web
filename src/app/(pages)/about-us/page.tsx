@@ -3,7 +3,7 @@ import SmoothScroll from "../_components/SmoothScroll";
 import { aboutUsHero } from "@/library/CorpHero";
 import Hero from "../corporate/_corporate/Hero";
 import Footer from "../_components/Footer";
-import CallToAction from "../corporate/_corporate/CallToAction";
+
 import {
   image1,
   image2,
@@ -11,12 +11,13 @@ import {
   image4,
   image5,
   image6,
-} from "@/library/CorpoCTA";
+} from "@/app/components/CorpoCTA";
 
 import StorySection from "@/app/components/StorySection";
 import WhoWeAreSection from "@/app/components/WhoWeAre";
 import Travel from "@/app/components/Travel";
 import CoreValues from "@/app/components/CoreValues";
+import CallToAction from "@/app/components/CallToAction";
 
 const AboutUs = () => {
   return (
