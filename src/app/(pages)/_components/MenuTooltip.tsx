@@ -12,7 +12,7 @@ const MenuTooltip = ({ copyLink }: MenuTooltipProps) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(copyLink || "yawa");
+    navigator.clipboard.writeText(copyLink || "");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
