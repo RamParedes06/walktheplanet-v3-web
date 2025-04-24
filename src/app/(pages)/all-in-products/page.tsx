@@ -6,6 +6,7 @@ import FlightCarousel from "./_components/FlightCarousel";
 import CarouselTitle from "../_components/CarouselWithTitle/CarouselTitle";
 import { TranspoImages } from "@/library/TransportationImages";
 import Cruise from "./_components/Cruise";
+import Accomodations from "./_components/Accomodations";
 
 function AllInProducts() {
 	return (
@@ -24,6 +25,7 @@ function AllInProducts() {
 					}
 				/>
 				<FlightCarousel />
+				<Accomodations />
 				<CarouselTitle title="TRANSPORTATION" description={<p>Water, air, and land - move smoothly and hassle-free for an incredible journey</p>} images={TranspoImages} />
 				<Cruise />
 			</SmoothScroll>

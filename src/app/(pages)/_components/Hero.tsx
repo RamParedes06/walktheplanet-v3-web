@@ -90,7 +90,7 @@ const tabs: Tab[] = [
 	{
 		id: "liveselling",
 		title: "LIVE SELLING",
-		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744095321/LiveSelling_t3jgmq.png",
+		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096026/Live_Selling_Tiktok_zjfzai.png",
 		// liveselling,
 		description: "Exclusive rates and awesome discounts right at your fingertips! Book now on our TikTok live selling hours.",
 		svg: TbMessage2Heart,
