@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { LeisureToursImages } from "@/library/LeisureTours";
+import { TravelEssentialsImages } from "@/library/AllInProductsTravelEssentials";
 import BackgroundSvg from "@/assets/svg/BGIllustrationManpower.svg";
 import Image from "next/image";
 import TextReveal from "../../_components/TextReveal";
@@ -14,7 +15,10 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
 
   // Create a duplicate array for looping
   const duplicatedImages = [...LeisureToursImages, ...LeisureToursImages];
-
+  const duplicatedProductsImages = [
+    ...TravelEssentialsImages,
+    ...TravelEssentialsImages,
+  ];
   // Check for mobile viewport
   useEffect(() => {
     const checkMobile = () => {
@@ -109,7 +113,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
               {productsVersion ? (
                 <>
                   Don&apos;t miss out on a travel necessity to{" "}
-                  <span className="font-semibold">
+                  <span className="font-semibold italic">
                     take your journey to the next level!
                   </span>
                 </>
@@ -189,10 +193,10 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
                 className="flex h-full md:gap-[30] gap-0"
                 style={{
                   transform: `translateX(-${position}%)`,
-                  width: `${duplicatedImages.length * 33.33}%`, // each image ay ~33.33% of viewport width
+                  width: `${productsVersion ? duplicatedImages.length * 33.33 : duplicatedProductsImages.length * 33.33}%`, // each image ay ~33.33% of viewport width
                 }}
               >
-                {duplicatedImages.map((image, index) => (
+                {(!productsVersion ? duplicatedImages : duplicatedProductsImages).map((image, index) => (
                   <div
                     key={index}
                     className="md:w-1/10 w-1/5 h-full flex-shrink-0 md:px-2 px-0"
