@@ -19,6 +19,7 @@ import {
   image6,
 } from "@/library/AllInProductsCTA";
 import Footer from "../_components/Footer";
+import Merchandise from "./_components/Merchandise";
 
 function AllInProducts() {
   return (
@@ -67,7 +68,7 @@ function AllInProducts() {
         {/* Section 9 - Travel Essentials  */}
         <Tours productsVersion />
 
-        {/* Section 10 - Merchandise  */}
+        <Merchandise />
 
         {/* Section 11 - Call to Action  */}
         <CallToAction
@@ -81,7 +82,7 @@ function AllInProducts() {
           buttonLabel="Shop your travel needs here!"
         />
 
-		<Footer />
+        <Footer />
       </SmoothScroll>
     </div>
   );
