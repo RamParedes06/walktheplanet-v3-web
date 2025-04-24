@@ -1,5 +1,6 @@
 import Image from "next/image";
-import qoutation from "@/assets/images/contact/qoutation.webp";
+import qoutationMobile from "@/assets/images/contact/qoutation.webp";
+import qoutation from "@/assets/images/contact/Qoutation Section.png";
 
 export default function TravelQuotation() {
   return (
@@ -10,7 +11,15 @@ export default function TravelQuotation() {
           src={qoutation}
           alt="Tropical beach scene with cocktails"
           fill
-          className="object-cover"
+          className="md:block hidden"
+          priority
+        />
+
+        <Image
+          src={qoutationMobile}
+          alt="Tropical beach scene with cocktails"
+          fill
+          className="md:hidden"
           priority
         />
 
