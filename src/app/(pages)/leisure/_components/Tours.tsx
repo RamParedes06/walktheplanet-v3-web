@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { LeisureToursImages } from "@/library/LeisureTours";
+import { TravelEssentialsImages } from "@/library/AllInProductsTravelEssentials";
 import BackgroundSvg from "@/assets/svg/BGIllustrationManpower.svg";
 import Image from "next/image";
 import TextReveal from "../../_components/TextReveal";
@@ -14,7 +15,10 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
 
   // Create a duplicate array for looping
   const duplicatedImages = [...LeisureToursImages, ...LeisureToursImages];
-
+  const duplicatedProductsImages = [
+    ...TravelEssentialsImages,
+    ...TravelEssentialsImages,
+  ];
   // Check for mobile viewport
   useEffect(() => {
     const checkMobile = () => {
@@ -106,10 +110,10 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
             <p
               className={`text-base md:text-lg font-medium text-center text-black mb-1`}
             >
-              {!productsVersion ? (
+              {productsVersion ? (
                 <>
                   Don&apos;t miss out on a travel necessity to{" "}
-                  <span className="font-semibold">
+                  <span className="font-semibold italic">
                     take your journey to the next level!
                   </span>
                 </>
@@ -124,7 +128,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
                 your one-stop-shop at{" "}
                 <a
                   href="https://tours.walktheplanet.com"
-                  className="text-[#006FA9] hover:underline"
+                  className="text-[#006FA9] hover:underline italic"
                 >
                   tours.walktheplanet.com
                 </a>
@@ -135,117 +139,82 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
             {/* Button */}
             {!productsVersion && (
               <button
-                className={`bg-[#00537F] hover:bg-[#00537F] text-white font-medium py-2 px-4 text-sm md:py-3 md:px-6 rounded-full mb-6 transition-colors duration-300 cursor-pointer`}
+                onClick={() =>
+                  window.open(
+                    "https://tours.walktheplanet.com/pages/contact",
+                    "_blank"
+                  )
+                }
+                className={`bg-[#00537F] hover:bg-[#00537F] text-white font-medium py-2 px-4 text-sm md:text-xl md:py-3 md:px-6 rounded-[24px]  mb-6 transition-colors duration-300 cursor-pointer`}
               >
-                {isMobile
-                  ? "Book it now and get your trip ready!"
-                  : "Grab yours now, for limited offers!"}
+                Start exploring for your next getaway!
               </button>
             )}
           </div>
         </TextReveal>
 
-        {/* Mobile Image Display */}
-        {isMobile ? (
-          <div className="flex-grow w-full overflow-hidden relative bg-white">
-            <div className="absolute inset-0 h-[80%]">
-              {/* First image (full width) */}
-              {LeisureToursImages.length > 0 && (
-                <div
-                  className="h-full w-full rounded-lg overflow-hidden"
-                  style={{
-                    backgroundImage: `url(${LeisureToursImages[0]})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                />
-              )}
+        <div className="flex-grow w-full overflow-hidden relative bg-white">
+          <div className="absolute inset-0 flex items-center justify-center">
+            {/* Left and right gradients */}
+            <div
+              className="invisible md:visible absolute left-0 top-0 bottom-0 w-1/12 z-20 pointer-events-none"
+              style={{
+                background: "linear-gradient(to right, white, transparent)",
+              }}
+            ></div>
+            <div
+              className="invisible md:visible absolute right-0 top-0 bottom-0 w-1/12 z-20 pointer-events-none"
+              style={{
+                background: "linear-gradient(to left, white, transparent)",
+              }}
+            ></div>
 
-              {/* Top curve for mobile */}
-              <div
-                className="absolute top-0 w-full h-[45px] z-50 bg-white"
-                style={{
-                  borderBottomLeftRadius: "50% 100%",
-                  borderBottomRightRadius: "50% 100%",
-                }}
-              ></div>
+            {/* Top curved white border */}
+            <div
+              className="absolute top-0 w-full h-[75px] z-20 bg-white"
+              style={{
+                borderBottomLeftRadius: "50% 100%",
+                borderBottomRightRadius: "50% 100%",
+              }}
+            ></div>
 
-              {/* Bottom curve for mobile */}
-              <div
-                className="absolute bottom-0 w-full h-[45px] z-50 bg-white"
-                style={{
-                  borderTopLeftRadius: "50% 100%",
-                  borderTopRightRadius: "50% 100%",
-                }}
-              ></div>
-            </div>
-          </div>
-        ) : (
-          /* Desktop Image Slideshow */
-          <div className="flex-grow w-full overflow-hidden relative bg-white">
-            <div className="absolute inset-0 flex items-center justify-center">
-              {/* Left and right gradients */}
-              <div
-                className="absolute left-0 top-0 bottom-0 w-1/12 z-20 pointer-events-none"
-                style={{
-                  background: "linear-gradient(to right, white, transparent)",
-                }}
-              ></div>
-              <div
-                className="absolute right-0 top-0 bottom-0 w-1/12 z-20 pointer-events-none"
-                style={{
-                  background: "linear-gradient(to left, white, transparent)",
-                }}
-              ></div>
+            {/* Bottom curved white border */}
+            <div
+              className="absolute bottom-0 w-full h-[75px] z-20 bg-white"
+              style={{
+                borderTopLeftRadius: "50% 100%",
+                borderTopRightRadius: "50% 100%",
+              }}
+            ></div>
 
-              {/* Top curved white border */}
+            {/* Marquee container */}
+            <div className="w-full h-full overflow-hidden">
               <div
-                className="absolute top-0 w-full h-[75px] z-50 bg-white"
+                className="flex h-full md:gap-[30] gap-0"
                 style={{
-                  borderBottomLeftRadius: "50% 100%",
-                  borderBottomRightRadius: "50% 100%",
+                  transform: `translateX(-${position}%)`,
+                  width: `${productsVersion ? duplicatedImages.length * 33.33 : duplicatedProductsImages.length * 33.33}%`, // each image ay ~33.33% of viewport width
                 }}
-              ></div>
-
-              {/* Bottom curved white border */}
-              <div
-                className="absolute bottom-0 w-full h-[75px] z-50 bg-white"
-                style={{
-                  borderTopLeftRadius: "50% 100%",
-                  borderTopRightRadius: "50% 100%",
-                }}
-              ></div>
-
-              {/* Marquee container */}
-              <div className="w-full h-full overflow-hidden">
-                <div
-                  className="flex h-full"
-                  style={{
-                    transform: `translateX(-${position}%)`,
-                    width: `${duplicatedImages.length * 33.33}%`, // each image ay ~33.33% of viewport width
-                    gap: "30px",
-                  }}
-                >
-                  {duplicatedImages.map((image, index) => (
+              >
+                {(!productsVersion ? duplicatedImages : duplicatedProductsImages).map((image, index) => (
+                  <div
+                    key={index}
+                    className="md:w-1/10 w-1/5 h-full flex-shrink-0 md:px-2 px-0"
+                  >
                     <div
-                      key={index}
-                      className="w-1/10 h-full flex-shrink-0 px-2"
-                    >
-                      <div
-                        className="h-full w-full rounded-lg overflow-hidden"
-                        style={{
-                          backgroundImage: `url(${image})`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                        }}
-                      />
-                    </div>
-                  ))}
-                </div>
+                      className="h-full w-full rounded-lg overflow-hidden"
+                      style={{
+                        backgroundImage: `url(${image})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

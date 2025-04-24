@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import TextReveal from "../../_components/TextReveal";
 
@@ -24,7 +25,12 @@ const LiveSelling = () => {
               travel details
             </p>
           </div>
-          <button className="bg-white text-[#00537F] text-base p-4 rounded-[14px] font-semibold cursor-pointer">
+          <button
+            onClick={() =>
+              window.open("https://www.tiktok.com/@walktheplanetinc", "_blank")
+            }
+            className="md:self-center w-max bg-white text-[#00537F] md:text-base text-[14px] p-4 mt-5 rounded-[24px] md:rounded-[14px] font-semibold cursor-pointer"
+          >
             Grab yours now, for limited time offers
           </button>
         </TextReveal>

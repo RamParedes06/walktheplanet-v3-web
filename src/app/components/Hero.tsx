@@ -4,10 +4,11 @@ import Image from "next/image";
 import React, { JSX, useCallback, useEffect, useRef, useState } from "react";
 import Logo from "@/assets/images/Logo.png";
 import { AnimatePresence } from "framer-motion";
-import "../../../../styles/hero-horizontal-scroll.scss";
-import Marquee from "../../_components/Marquee";
-import TextReveal from "../../_components/TextReveal";
-import Menu from "../../_components/Menu";
+import "@/styles/hero-horizontal-scroll.scss";
+
+import Menu from "@/app/(pages)/_components/Menu";
+import TextReveal from "../(pages)/_components/TextReveal";
+import Marquee from "../(pages)/_components/Marquee";
 
 interface HeroProps {
   images: string[];
@@ -185,8 +186,8 @@ const Hero = ({
           {/* Gradient overlay with responsive classes */}
           <div
             className="absolute inset-0 w-full h-full 
-               bg-gradient-to-l from-transparent to-[rgba(18,60,140,0.4)] 
-               lg:bg-gradient-to-l lg:from-transparent lg:from-[52.21%] lg:to-[rgba(18,60,140,0.4)] lg:to-[60.75%]"
+               bg-gradient-to-l from-transparent to-[rgba(109,122,145,0.4)] 
+               lg:bg-gradient-to-l lg:from-transparent lg:from-[52.21%] lg:to-[rgba(55,62,77,0.4)] lg:to-[60.75%]"
           ></div>
 
           <div className="max-w-[600px] absolute bottom-[15%] left-[5%]">
