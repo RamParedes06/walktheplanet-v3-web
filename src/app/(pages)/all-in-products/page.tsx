@@ -5,6 +5,7 @@ import { ProductsImages } from "@/library/ProductsHero";
 import FlightCarousel from "./_components/FlightCarousel";
 import CarouselTitle from "../_components/CarouselWithTitle/CarouselTitle";
 import { TranspoImages } from "@/library/TransportationImages";
+import { GroupImages } from "@/library/GroupInclusive";
 import Cruise from "./_components/Cruise";
 import Accomodations from "./_components/Accomodations";
 import Tours from "../leisure/_components/Tours";
@@ -52,11 +53,21 @@ function AllInProducts() {
         />
         <Cruise />
         <Accomodations />
+        <CarouselTitle
+          title="GROUP INCLUSIVE TOURS"
+          description={
+            <p>
+              Unforgettable group adventures - top destinations, expert guides,
+              and custom itineraries all for you!
+            </p>
+          }
+          images={GroupImages}
+        />
 
         {/* Section 9 - Travel Essentials  */}
         <Tours productsVersion />
 
-		{/* Section 10 - Merchandise  */}
+        {/* Section 10 - Merchandise  */}
 
         {/* Section 11 - Call to Action  */}
         <CallToAction
@@ -69,9 +80,6 @@ function AllInProducts() {
           title="Got any travel plans in mind? We’re just one click away!"
           buttonLabel="Shop your travel needs here!"
         />
-
-        {/* Footer  */}
-        <Footer />
       </SmoothScroll>
     </div>
   );
