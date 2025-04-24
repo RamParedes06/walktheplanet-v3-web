@@ -14,7 +14,7 @@ interface CarouselProps {
 
 function CarouselTitle({ title, description, images }: CarouselProps) {
 	return (
-		<div className="h-screen bg-white">
+		<div className="h-screen bg-white overflow-hidden">
 			<div className="h-[50%] max-[490px]:h-[30%] relative overflow-hidden flex items-center" style={{ backgroundImage: `url(${illustration})` }}>
 				<div className="p-20 w-full max-[490px]:p-0 ">
 					<Image src={illustration} alt="" width={1200} className="absolute -top-145 -right-110 " />
