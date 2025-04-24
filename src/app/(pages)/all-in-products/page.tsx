@@ -35,6 +35,7 @@ function AllInProducts() {
 					description={<p>Unforgettable group adventures - top destinations, expert guides, and custom itineraries all for you!</p>}
 					images={GroupImages}
 				/>
+				<Tours productsVersion />
 			</SmoothScroll>
 		</div>
 	);
