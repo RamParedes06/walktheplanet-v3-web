@@ -25,7 +25,7 @@ const StorySection = () => {
           </div>
           <div className="md:w-5/6">
             <h3 className="text-2xl md:text-3xl font-bold mb-5">OUR MISSION</h3>
-            <p className="text-base md:text-lg leading-relaxed">
+            <p className="text-base md:text-[24px] leading-relaxed">
               Accelerating digital innovation through unparalleled experiences,
               <br />
               leaving positive travel footprints globally.
@@ -42,7 +42,7 @@ const StorySection = () => {
           </div>
           <div className="md:w-5/6">
             <h3 className="text-2xl md:text-3xl font-bold mb-5">OUR VISION</h3>
-            <p className="text-base md:text-lg leading-relaxed">
+            <p className="text-base md:text-[24px] leading-relaxed">
               To revolutionize socially responsible travel through technology
               <br />
               that elevates the tourism world by connecting people and cultures.
