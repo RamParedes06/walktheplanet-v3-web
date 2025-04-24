@@ -18,6 +18,7 @@ import WhoWeAreSection from "@/app/components/WhoWeAre";
 import Travel from "@/app/components/Travel";
 import CoreValues from "@/app/components/CoreValues";
 import CallToAction from "@/app/components/CallToAction";
+import Hero from "@/app/components/Hero";
 
 const AboutUs = () => {
   return (
