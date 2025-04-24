@@ -3,8 +3,13 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 
+interface ImageItem {
+	url: string | StaticImageData;
+	title: string;
+}
+
 interface CarouselProps {
-	images: (string | StaticImageData)[];
+	images: ImageItem[];
 }
 
 const Carousel: React.FC<CarouselProps> = ({ images = [] }) => {
@@ -14,9 +19,10 @@ const Carousel: React.FC<CarouselProps> = ({ images = [] }) => {
 		<div className="relative w-full overflow-hidden group">
 			<div className="flex animate-marquee group-hover:[animation-play-state:paused]" style={{ animationDuration: "30s" }}>
 				{[...images, ...images].map((image, index) => (
-					<div key={index} className="flex-shrink-0 w-1/3 h-[500px]">
+					<div key={index} className="flex-shrink-0 w-1/6 h-[500px]">
 						<div className="relative w-full h-full">
-							<Image src={image} alt={`carousel-image-${index}`} fill className="object-cover" loading="lazy" />
+							<Image src={image.url} alt={`carousel-image-${index}`} fill className="object-cover" loading="lazy" />
+							<div className="absolute bottom-4 left-4  text-white text-3xl px-2 py-1 rounded-md">{image.title}</div>
 						</div>
 					</div>
 				))}
