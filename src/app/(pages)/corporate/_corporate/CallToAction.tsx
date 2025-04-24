@@ -57,14 +57,14 @@ function CallToAction({
             alt="image1"
             width={250}
             height={250}
-            className="border-9 border-white shadow-xl absolute -top-35 right-30 rotate-15 z-3 transition-all ease-in-out hover:translate-y-40 hover:-translate-x-20 hover:scale-110 hover:z-5 max-[490px]:hidden"
+            className="border-9 border-white shadow-xl absolute -top-40 right-30 rotate-15 z-3 transition-all ease-in-out hover:translate-y-40 hover:-translate-x-20 hover:scale-110 hover:z-5 max-[490px]:hidden"
           />
           <Image
             src={image5}
             alt="image2"
             width={250}
             height={250}
-            className="border-9 overflow-hidden border-white shadow-xl absolute -top-15 right-10 rotate-30 z-2 transition-all ease-in-out hover:translate-y-40 hover:-translate-x-20 hover:scale-110 hover:z-5  max-[490px]:hidden"
+            className="border-9 overflow-hidden border-white shadow-xl absolute -top-20 right-10 rotate-30 z-2 transition-all ease-in-out hover:translate-y-40 hover:-translate-x-20 hover:scale-110 hover:z-5  max-[490px]:hidden"
           />
           <Image
             src={image6}
@@ -78,21 +78,21 @@ function CallToAction({
             alt="image3"
             width={250}
             height={350}
-            className="border-9 border-white shadow-xl absolute bottom-0 -left-20 rotate-15 z-3 transition-all ease-in-out hover:-translate-y-20 hover:translate-x-20 hover:scale-110 hover:z-5  max-[490px]:hidden"
+            className="border-9 border-white shadow-xl absolute -bottom-10 -left-20 rotate-15 z-3 transition-all ease-in-out hover:-translate-y-20 hover:translate-x-20 hover:scale-110 hover:z-5  max-[490px]:hidden"
           />
           <Image
             src={image2}
             alt="image3"
             width={250}
             height={350}
-            className="border-9 border-white shadow-xl absolute -bottom-20 left-15 rotate-17 z-2 transition-all ease-in-out hover:-translate-y-20 hover:translate-x-20 hover:scale-110 hover:z-5  max-[490px]:hidden"
+            className="border-9 border-white shadow-xl absolute -bottom-30 left-15 rotate-17 z-2 transition-all ease-in-out hover:-translate-y-20 hover:translate-x-20 hover:scale-110 hover:z-5  max-[490px]:hidden"
           />
           <Image
             src={image3}
             alt="image3"
             width={250}
             height={350}
-            className="border-9 border-white shadow-xl absolute -bottom-20 left-60 rotate-17 z-1 transition-all ease-in-out hover:-translate-y-20 hover:translate-x-20 hover:scale-110 hover:z-5  max-[490px]:hidden"
+            className="border-9 border-white shadow-xl absolute -bottom-30 left-60 rotate-17 z-1 transition-all ease-in-out hover:-translate-y-20 hover:translate-x-20 hover:scale-110 hover:z-5  max-[490px]:hidden"
           />
         </div>
       </div>
