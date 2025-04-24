@@ -3,6 +3,7 @@ import SmoothScroll from "../_components/SmoothScroll";
 import Hero from "../corporate/_corporate/Hero";
 import { ProductsImages } from "@/library/ProductsHero";
 import FlightCarousel from "./_components/FlightCarousel";
+import Accomodations from "./_components/Accomodations";
 
 function AllInProducts() {
 	return (
@@ -21,6 +22,7 @@ function AllInProducts() {
 					}
 				/>
 				<FlightCarousel />
+        <Accomodations />
 			</SmoothScroll>
 		</div>
 	);
