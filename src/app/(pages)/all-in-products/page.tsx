@@ -80,6 +80,8 @@ function AllInProducts() {
           title="Got any travel plans in mind? We’re just one click away!"
           buttonLabel="Shop your travel needs here!"
         />
+
+		<Footer />
       </SmoothScroll>
     </div>
   );
