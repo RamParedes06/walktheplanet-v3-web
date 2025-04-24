@@ -8,6 +8,7 @@ import { TranspoImages } from "@/library/TransportationImages";
 import { GroupImages } from "@/library/GroupInclusive";
 import Cruise from "./_components/Cruise";
 import Accomodations from "./_components/Accomodations";
+import Tours from "../leisure/_components/Tours";
 
 function AllInProducts() {
 	return (
