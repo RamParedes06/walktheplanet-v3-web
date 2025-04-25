@@ -64,12 +64,12 @@ function FlightCarousel() {
 			{flightImages.map((item, index) => (
 				<div
 					key={index}
-					className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${index === activeIndex ? "opacity-100" : "opacity-0"}`}
+					className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${index === activeIndex ? "opacity-70" : "opacity-0"}`}
 					style={{ backgroundImage: `url(${item.image})`, zIndex: 0 }}
 				/>
 			))}
 
-			<div className="absolute inset-0 bg-[linear-gradient(180deg,_rgba(5,18,28,0)_44.33%,_rgba(5,18,28,0.8)_74.87%),_linear-gradient(180deg,_rgba(0,0,0,0)_66.26%,_rgba(16,62,28,0.2)_100%)] z-10" />
+			<div className="absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(16,62,28,0.2)] opacity-70" />
 
 			<div className="relative z-20 p-10 rounded-xl flex flex-col gap-50 items-center w-full max-w-[1000px]">
 				<div className="text-center flex flex-col gap-2">
@@ -106,7 +106,7 @@ function FlightCarousel() {
 							International Flights
 						</span>
 					</div>
-					<div className="relative flex items-end justify-center gap-6 w-full p-1">
+					<div className="relative flex items-end justify-center gap-6 w-full">
 						{[-2, -1].map((offset) => {
 							const { image, title } = getImage(offset);
 							const index = (activeIndex + offset + TOTAL_IMAGES) % TOTAL_IMAGES;
