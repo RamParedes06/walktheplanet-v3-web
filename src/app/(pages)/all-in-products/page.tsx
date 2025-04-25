@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import SmoothScroll from "../_components/SmoothScroll";
 import Hero from "../corporate/_corporate/Hero";
@@ -13,8 +14,10 @@ import CallToAction from "../corporate/_corporate/CallToAction";
 import { image1, image2, image3, image4, image5, image6 } from "@/library/AllInProductsCTA";
 import Footer from "../_components/Footer";
 import ToursPackages from "./_components/ToursPackages";
+import useIsMobile from "@/hooks/useIsMobile";
 
 function AllInProducts() {
+	const isMobile = useIsMobile();
 	return (
 		<div className=" h-screen all-in-products">
 			<SmoothScroll>
@@ -31,11 +34,19 @@ function AllInProducts() {
 					}
 				/>
 				<FlightCarousel />
-				<CarouselTitle title="TRANSPORTATION" description={<p>Water, air, and land - move smoothly and hassle-free for an incredible journey</p>} images={TranspoImages} />
+				<CarouselTitle title={<p>TRANSPORTATION</p>} description={<p>Water, air, and land - move smoothly and hassle-free for an incredible journey</p>} images={TranspoImages} />
 				<Cruise />
 				<Accomodations />
 				<CarouselTitle
-					title="GROUP INCLUSIVE TOURS"
+					title={
+						isMobile ? (
+							<p>
+								GROUP <br /> INCLUSIVE TOURS
+							</p>
+						) : (
+							<p>GROUP INCLUSIVE TOURS</p>
+						)
+					}
 					description={<p>Unforgettable group adventures - top destinations, expert guides, and custom itineraries all for you!</p>}
 					images={GroupImages}
 				/>
