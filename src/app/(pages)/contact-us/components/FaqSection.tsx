@@ -13,7 +13,7 @@ export default function FAQSection() {
 
   return (
     <section className="flex items-center justify-center w-full h-full bg-gradient-to-b from-blue-900 via-teal-800 to-yellow-500 text-white px-4 md:px-20">
-      <div className="max-w-4xl mx-auto py-10 space-y-6">
+      <div className="py-10 space-y-6 w-full max-w-screen-md">
         {/* FAQ Item 1 */}
         <div className="border-b border-white/20 py-4">
           <div
@@ -38,13 +38,13 @@ export default function FAQSection() {
           </div>
 
           <div
-            className={`transition-opacity duration-300 ${
+            className={`transition-all duration-300 ${
               openItem === "faq-1"
-                ? "opacity-100 mt-4"
+                ? "opacity-100 mt-4 max-h-[500px]"
                 : "opacity-0 h-0 overflow-hidden"
             }`}
           >
-            <div className="pl-12 pr-4 text-white/90 space-y-3">
+            <div className="pl-6 sm:pl-12 pr-4 text-white/90 space-y-3 text-sm sm:text-base">
               <p>WalkThePlanet is an accredited member of the followings:</p>
               <ul className="list-disc list-inside space-y-1 text-white/80">
                 <li>Department of Tourism (DOT)</li>
@@ -431,7 +431,7 @@ export default function FAQSection() {
 
               <div className="space-y-1">
                 <p>
-                  You may also join our WalkThePlanet Facebook Community  for
+                  You may also join our WalkThePlanet Facebook Community for
                   travel opportunities.
                 </p>
               </div>
@@ -533,8 +533,6 @@ export default function FAQSection() {
             </div>
           </div>
         </div>
-
-        {/* Additional FAQ items would follow the same pattern */}
       </div>
     </section>
   );

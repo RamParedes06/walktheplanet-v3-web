@@ -1,19 +1,20 @@
 "use client";
-import React from "react";
-import SmoothScroll from "../_components/SmoothScroll";
-import Hero from "../corporate/_corporate/Hero";
-import { ProductsImages } from "@/library/ProductsHero";
-import FlightCarousel from "./_components/FlightCarousel";
-import CarouselTitle from "../_components/CarouselWithTitle/CarouselTitle";
-import { TranspoImages } from "@/library/TransportationImages";
-import { GroupImages } from "@/library/GroupInclusive";
-import Cruise from "./_components/Cruise";
-import Accomodations from "./_components/Accomodations";
-import Tours from "../leisure/_components/Tours";
-import CallToAction from "../corporate/_corporate/CallToAction";
 import { image1, image2, image3, image4, image5, image6 } from "@/library/AllInProductsCTA";
+import { GroupImages } from "@/library/GroupInclusive";
+import { ProductsImages } from "@/library/ProductsHero";
+import { TranspoImages } from "@/library/TransportationImages";
+import CarouselTitle from "../_components/CarouselWithTitle/CarouselTitle";
 import Footer from "../_components/Footer";
+import SmoothScroll from "../_components/SmoothScroll";
+import CallToAction from "../corporate/_corporate/CallToAction";
+import Hero from "../corporate/_corporate/Hero";
+import Tours from "../leisure/_components/Tours";
+import Accomodations from "./_components/Accomodations";
+import Cruise from "./_components/Cruise";
+import FlightCarousel from "./_components/FlightCarousel";
+import Merchandise from "./_components/Merchandise";
 import ToursPackages from "./_components/ToursPackages";
+import Documentation from "./_components/Documentation";
 import useIsMobile from "@/hooks/useIsMobile";
 
 function AllInProducts() {
@@ -55,6 +56,7 @@ function AllInProducts() {
 				{/* Section 9 - Travel Essentials  */}
 				<Tours productsVersion />
 
+				<Merchandise />
 				{/* Section 10 - Merchandise  */}
 
 				{/* Section 11 - Call to Action  */}
