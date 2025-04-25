@@ -13,6 +13,7 @@ import Cruise from "./_components/Cruise";
 import FlightCarousel from "./_components/FlightCarousel";
 import Merchandise from "./_components/Merchandise";
 import ToursPackages from "./_components/ToursPackages";
+import Documentation from "./_components/Documentation";
 
 function AllInProducts() {
   return (
@@ -33,6 +34,7 @@ function AllInProducts() {
         <CarouselTitle title="TRANSPORTATION" description={<p>Water, air, and land - move smoothly and hassle-free for an incredible journey</p>} images={TranspoImages} />
         <Cruise />
         <Accomodations />
+        <Documentation />
         <CarouselTitle title="GROUP INCLUSIVE TOURS" description={<p>Unforgettable group adventures - top destinations, expert guides, and custom itineraries all for you!</p>} images={GroupImages} />
         <ToursPackages />
 
