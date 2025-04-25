@@ -22,9 +22,10 @@ const Documentation = () => {
           <h2 className="font-satoshi font-black sm:text-5xl ml-5 lg:text-5xl xl:text-[64px] text-[30px] ">
             DOCUMENTATION
           </h2>
-          <p className="font-generalSans font-normal flex flex-col sm:flex-row sm:not-italic italic ml-5 xl:text-2xl text-base 2xl:max-w-full">
+          <p className="md:italic md:text-[24px] font-generalSans font-normal flex flex-col sm:flex-row sm:not-italic italic ml-5 xl:text-2xl text-base 2xl:max-w-full">
             <span>
-              Worry-free planning <b>starts here! </b>
+              Worry-free planning{" "}
+              <span className="font-semibold">starts here!</span>
             </span>
             &nbsp;
             <span>
