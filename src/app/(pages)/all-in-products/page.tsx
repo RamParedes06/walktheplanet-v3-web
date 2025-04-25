@@ -37,6 +37,7 @@ function AllInProducts() {
 				<FlightCarousel />
 				<CarouselTitle title={<p>TRANSPORTATION</p>} description={<p>Water, air, and land - move smoothly and hassle-free for an incredible journey</p>} images={TranspoImages} />
 				<Cruise />
+				<Documentation />
 				<Accomodations />
 				<CarouselTitle
 					title={
