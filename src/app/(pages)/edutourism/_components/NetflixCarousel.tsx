@@ -73,7 +73,7 @@ function NetflixCarousel() {
 				style={{ backgroundImage: `url(${current.image})` }}
 			/>
 			<div className="absolute inset-0 top-0 max-[490px]:top-60  bg-gradient-to-b z-1" style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0.04%, rgba(0, 0, 0, 0.5) 66.87%)" }}>
-				<div className="title-container flex flex-col gap-3 items-start justify-end p-20 max-[490px]:p-10 h-[60vh]">
+				<div className="title-container flex flex-col gap-3 items-start justify-end p-20 max-[490px]:p-10 h-[60vh] max-[490px]:h-[55vh]">
 					<p className="title uppercase font-generalSans text-[64px] font-medium max-[490px]:text-[40px]">{current.title}</p>
 					<p className="description font-generalSans text-[20px] max-w-3xl max-[490px]:text-[16px]">{current.desc}</p>
 				</div>
@@ -98,7 +98,7 @@ function NetflixCarousel() {
 				{/* carousel */}
 				<div className="carousel h-[30vh] px-20   flex gap-5 items-center justify-center overflow-x-auto max-[490px]:hidden">
 					{netflixCarousel.map((item, index) => (
-						<div key={index} className="relative w-[555px] h-[318px] max-[2120px]:w-[655px] max-[2120px]:h-[240px] rounded-xl p-[1px] backdrop-blur-sm border border-white/30">
+						<div key={index} className="relative w-[555px] h-[318px] max-[2120px]:w-[655px] max-[2120px]:h-[240px] rounded-xl p-[1px] backdrop-blur-sm border border-white/30 max-[490px]:">
 							<div
 								onClick={() => handleImageClick(index)} // Handle click to jump to the selected slide
 								className={`w-full h-full bg-cover bg-center bg-no-repeat rounded-xl p-5 cursor-pointer flex items-end transition-all duration-500 ${

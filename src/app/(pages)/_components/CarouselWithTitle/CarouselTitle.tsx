@@ -4,6 +4,7 @@ import Image from "next/image";
 import illustration from "@/assets/svg/BGIllustration.svg";
 import TextReveal from "@/app/(pages)/_components/TextReveal";
 import Carousel from "./Carousel";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 // ✅ Update this type
 interface CarouselImage {
@@ -12,9 +13,10 @@ interface CarouselImage {
 }
 
 interface CarouselProps {
-	title: string | JSX.Element;
+	title: JSX.Element | string;
 	description: JSX.Element;
 	images: CarouselImage[]; // updated type here
+	backgroundImage?: string | StaticImport;
 }
 
 function CarouselTitle({ title, description, images }: CarouselProps) {
