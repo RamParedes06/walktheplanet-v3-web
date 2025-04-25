@@ -8,7 +8,7 @@ const Accomodations = () => {
   const background = AccomodationImages[activeIndex].image;
   return (
     <div
-      className="relative h-screen w-full flex justify-center"
+      className="relative h-screen w-full flex justify-center transition-all ease-in-out"
       style={{
         backgroundImage: `url(${background})`,
         backgroundSize: "cover",
