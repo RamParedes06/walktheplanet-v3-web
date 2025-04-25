@@ -13,11 +13,12 @@ const OnlineBooking = () => {
   // Desktop initial position
   const [topImagesPosition, setTopImagesPosition] = useState(0);
   const [bottomImagesPosition, setBottomImagesPosition] = useState(-1); // Will be calculated on first render
-  
+
   // Mobile initial position
   const [mobileTopImagesPosition, setMobileTopImagesPosition] = useState(0);
-  const [mobileBottomImagesPosition, setMobileBottomImagesPosition] = useState(-1); // Will be calculated on first render
-  
+  const [mobileBottomImagesPosition, setMobileBottomImagesPosition] =
+    useState(-1); // Will be calculated on first render
+
   // Refs desktop
   const topContainerRef = useRef<HTMLDivElement>(null);
   const bottomContainerRef = useRef<HTMLDivElement>(null);
@@ -31,10 +32,10 @@ const OnlineBooking = () => {
   useEffect(() => {
     //  ANIMATION SPEED
     const moveStep = 1;
-    
+
     // Get width of single image for calculations
     const getImageSetWidth = (
-      imagesRef: React.RefObject<HTMLDivElement | null>, 
+      imagesRef: React.RefObject<HTMLDivElement | null>,
       images: Array<string>
     ) => {
       if (!imagesRef.current) return 0;
@@ -53,9 +54,9 @@ const OnlineBooking = () => {
     // Top Carousel animation
     const animateTopCarousel = () => {
       const imageSetWidth = getImageSetWidth(topImagesRef, firstFiveImages);
-      
-      if (imageSetWidth === 0) return; 
-      
+
+      if (imageSetWidth === 0) return;
+
       setTopImagesPosition((prevPosition: number): number => {
         // reset
         if (prevPosition >= imageSetWidth) {
@@ -68,13 +69,13 @@ const OnlineBooking = () => {
     // Animation function for bottom carousel (left to right)
     const animateBottomCarousel = () => {
       const imageSetWidth = getImageSetWidth(bottomImagesRef, lastFiveImages);
-      
+
       if (imageSetWidth === 0) return;
-      
+
       setBottomImagesPosition((prevPosition) => {
         //  left-to-right movement (opposite of top carousel)
         const newPosition = prevPosition + moveStep;
-        
+
         //  reset when it gets too far to the right
         if (newPosition > 0) {
           return -imageSetWidth;
@@ -85,9 +86,9 @@ const OnlineBooking = () => {
     };
 
     // animation frames
-    let topAnimationFrame : number ;
-    let bottomAnimationFrame : number;
-    
+    let topAnimationFrame: number;
+    let bottomAnimationFrame: number;
+
     const animateTop = () => {
       animateTopCarousel();
       topAnimationFrame = requestAnimationFrame(animateTop);
@@ -102,7 +103,7 @@ const OnlineBooking = () => {
     topAnimationFrame = requestAnimationFrame(animateTop);
     bottomAnimationFrame = requestAnimationFrame(animateBottom);
 
-    // Cleanup animation frames 
+    // Cleanup animation frames
     return () => {
       cancelAnimationFrame(topAnimationFrame);
       cancelAnimationFrame(bottomAnimationFrame);
@@ -129,16 +130,22 @@ const OnlineBooking = () => {
 
     // Calculate and set the proper initial position for mobile bottom carousel
     if (mobileBottomImagesPosition === -1 && mobileBottomImagesRef.current) {
-      const imageSetWidth = getMobileImageWidth(mobileBottomImagesRef, lastFiveImages);
+      const imageSetWidth = getMobileImageWidth(
+        mobileBottomImagesRef,
+        lastFiveImages
+      );
       setMobileBottomImagesPosition(-imageSetWidth);
     }
 
     // Mobile top carousel animation (right to left)
     const animateMobileTopCarousel = () => {
-      const imageSetWidth = getMobileImageWidth(mobileTopImagesRef, firstFiveImages);
-      
+      const imageSetWidth = getMobileImageWidth(
+        mobileTopImagesRef,
+        firstFiveImages
+      );
+
       if (imageSetWidth === 0) return;
-      
+
       setMobileTopImagesPosition((prevPosition: number): number => {
         // reset
         if (prevPosition >= imageSetWidth) {
@@ -150,14 +157,17 @@ const OnlineBooking = () => {
 
     // Mobile bottom carousel animation (left to right)
     const animateMobileBottomCarousel = () => {
-      const imageSetWidth = getMobileImageWidth(mobileBottomImagesRef, lastFiveImages);
-      
+      const imageSetWidth = getMobileImageWidth(
+        mobileBottomImagesRef,
+        lastFiveImages
+      );
+
       if (imageSetWidth === 0) return;
-      
+
       setMobileBottomImagesPosition((prevPosition) => {
         // left-to-right
         const newPosition = prevPosition + mobileMoveStep;
-        
+
         // Reset position when it moves too far to the right
         if (newPosition > 0) {
           return -imageSetWidth;
@@ -170,7 +180,7 @@ const OnlineBooking = () => {
     // animation frames for mobile
     let mobileTopAnimationFrame: number;
     let mobileBottomAnimationFrame: number;
-    
+
     const animateMobileTop = () => {
       animateMobileTopCarousel();
       mobileTopAnimationFrame = requestAnimationFrame(animateMobileTop);
@@ -191,32 +201,49 @@ const OnlineBooking = () => {
       cancelAnimationFrame(mobileBottomAnimationFrame);
     };
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [firstFiveImages.length, lastFiveImages.length, mobileBottomImagesPosition]);
+  }, [
+    firstFiveImages.length,
+    lastFiveImages.length,
+    mobileBottomImagesPosition,
+  ]);
 
   // Duplicated sets of images for desktop
-  const displayTopImages = [...firstFiveImages, ...firstFiveImages, ...firstFiveImages];
-  const displayBottomImages = [...lastFiveImages, ...lastFiveImages, ...lastFiveImages];
+  const displayTopImages = [
+    ...firstFiveImages,
+    ...firstFiveImages,
+    ...firstFiveImages,
+  ];
+  const displayBottomImages = [
+    ...lastFiveImages,
+    ...lastFiveImages,
+    ...lastFiveImages,
+  ];
 
   // Images for mobile
-  const mobileTopImages = [...firstFiveImages, ...firstFiveImages, ...firstFiveImages];
-  const mobileBottomImages = [...lastFiveImages, ...lastFiveImages, ...lastFiveImages];
+  const mobileTopImages = [
+    ...firstFiveImages,
+    ...firstFiveImages,
+    ...firstFiveImages,
+  ];
+  const mobileBottomImages = [
+    ...lastFiveImages,
+    ...lastFiveImages,
+    ...lastFiveImages,
+  ];
 
   return (
     <>
       {/* Desktop layout */}
       <div className="bg-white h-screen flex-col overflow-hidden py-16 hidden md:flex">
         {/* Top Images - moving right to left */}
-        <div 
-          ref={topContainerRef}
-          className="w-full overflow-hidden h-1/4"
-        >
+        <div ref={topContainerRef} className="w-full overflow-hidden h-1/4">
           <div
             ref={topImagesRef}
             className="flex gap-1 h-full"
             style={{
               transform: `translateX(-${topImagesPosition}px)`,
               transition: "transform 0.01s linear",
-              width: "max-content", 
+              width: "max-content",
             }}
           >
             {displayTopImages.map((image, index) => (
@@ -247,7 +274,12 @@ const OnlineBooking = () => {
                 Easy travels just got easier! Book today, travel tomorrow.
               </p>
 
-              <button onClick={() => window.open("https://galago.com.ph/", "_blank")} className="w-max bg-[#00537F] text-white px-[32px] py-[14px] rounded-[14px] text-lg font-medium hover:bg-[#00537F] cursor-pointer transition-colors">
+              <button
+                onClick={() =>
+                  window.open("https://tours.walktheplanet.com/", "_blank")
+                }
+                className="w-max bg-[#00537F] text-white px-[32px] py-[14px] rounded-[14px] text-lg font-medium hover:bg-[#00537F] cursor-pointer transition-colors"
+              >
                 Book it now and get your trip ready!
               </button>
             </TextReveal>
@@ -266,17 +298,14 @@ const OnlineBooking = () => {
         </div>
 
         {/* Bottom Images - moving left to right */}
-        <div 
-          ref={bottomContainerRef}
-          className="w-full overflow-hidden h-1/4"
-        >
+        <div ref={bottomContainerRef} className="w-full overflow-hidden h-1/4">
           <div
             ref={bottomImagesRef}
             className="flex gap-1 h-full"
             style={{
               transform: `translateX(${bottomImagesPosition}px)`,
               transition: "transform 0.01s linear",
-              width: "max-content", 
+              width: "max-content",
             }}
           >
             {displayBottomImages.map((imageUrl, index) => (
@@ -350,7 +379,10 @@ const OnlineBooking = () => {
               Book today, travel tomorrow.
             </p>
 
-            <button onClick={() => window.open("https://galago.com.ph/", "_blank")} className="bg-[#00537F] text-white px-6 py-3 rounded-[24px] text-base font-medium hover:bg-opacity-90 cursor-pointer transition-colors w-full">
+            <button
+              onClick={() => window.open("https://galago.com.ph/", "_blank")}
+              className="bg-[#00537F] text-white px-6 py-3 rounded-[24px] text-base font-medium hover:bg-opacity-90 cursor-pointer transition-colors w-full"
+            >
               Book it now and get your trip ready!
             </button>
           </div>
