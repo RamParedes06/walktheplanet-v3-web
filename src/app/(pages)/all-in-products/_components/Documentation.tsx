@@ -9,7 +9,7 @@ const Documentation = () => {
 
   return (
     <div
-      className="relative h-screen w-full transition-all ease-in-out"
+      className="relative h-screen w-full transition-opacity duration-800 ease-in-out"
       style={{
         backgroundImage: `url(${background})`,
         backgroundPosition: "center",

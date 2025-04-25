@@ -49,7 +49,15 @@ function AllInProducts() {
 				<Cruise />
 				<Documentation />
 				<CarouselTitle
-					title="GROUP INCLUSIVE TOURS"
+					title={
+						isMobile ? (
+							<span>
+								Group <br /> Inclusive Tours
+							</span>
+						) : (
+							<span> Group Inclusive Tours</span>
+						)
+					}
 					description={<p>Unforgettable group adventures - top destinations, expert guides, and custom itineraries all for you!</p>}
 					images={GroupImages}
 				/>
