@@ -24,6 +24,7 @@ interface CallToActionProps {
   image6: string;
   title: string;
   buttonLabel: string;
+  url: string;
 }
 
 function CallToAction({
@@ -35,6 +36,7 @@ function CallToAction({
   image6,
   title,
   buttonLabel,
+  url,
 }: CallToActionProps) {
   return (
     <div
@@ -46,7 +48,7 @@ function CallToAction({
           <p className="text-base md:text-2xl text-[#FE6000] font-semibold font-generalSans  max-[490px]:p-5  max-[490px]:text-center whitespace-pre-line md:whitespace-normal">
             {title}
           </p>
-          <a href="/contact-us">
+          <a href={url}>
             <span className="cta-button px-4 py-3.5 bg-[#FE6000] rounded-full text-white font-semibold md:text-xl text-base">
               {buttonLabel}
             </span>

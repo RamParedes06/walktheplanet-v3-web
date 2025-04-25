@@ -67,6 +67,7 @@ function page() {
         </section>
         <section>
           <CallToAction
+            url="/contact-us"
             image1={image1}
             image2={image2}
             image3={image3}

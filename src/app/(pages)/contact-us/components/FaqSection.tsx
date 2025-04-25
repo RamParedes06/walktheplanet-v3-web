@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
@@ -159,7 +160,7 @@ export default function FAQSection() {
                 <p>
                   For flights and hotels:{" "}
                   <a
-                    href="https://www.galago.com.ph/"
+                    href="https://tours.walktheplanet.com/"
                     className="text-cyan-300 underline"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -170,7 +171,7 @@ export default function FAQSection() {
                 <p>
                   For tours and more:{" "}
                   <a
-                    href="https://www.tours.walktheplanet.com/"
+                    href="https://tours.walktheplanet.com/"
                     className="text-cyan-300 underline"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -182,23 +183,37 @@ export default function FAQSection() {
 
               <div className="space-y-1">
                 <p className="text-white/70 font-medium">Via Email</p>
+
                 <p>
                   Leisure travel:{" "}
                   <a
-                    href="mailto:customersupport@walktheplanet.com"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=customersupport@walktheplanet.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-cyan-300 underline"
                   >
                     customersupport@walktheplanet.com
                   </a>
                 </p>
+
                 <p>
                   Corporate and business travel:{" "}
-                  <span className="text-cyan-300 underline">walktheplanet</span>
+                  <a
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=corpsales@walktheplanet.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-300 underline"
+                  >
+                    corpsales@walktheplanet.com
+                  </a>
                 </p>
+
                 <p>
                   Travel agent and partner:{" "}
                   <a
-                    href="mailto:partners@walktheplanet.com"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=partners@walktheplanet.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-cyan-300 underline"
                   >
                     partners@walktheplanet.com
@@ -210,47 +225,47 @@ export default function FAQSection() {
                 <p className="text-white/70 font-medium">Via Social Media</p>
                 <p>
                   Facebook:{" "}
-                  <a
+                  <Link
                     href="https://www.facebook.com/walktheplanetinc"
                     className="text-cyan-300 underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     https://www.facebook.com/walktheplanetinc
-                  </a>
+                  </Link>
                 </p>
                 <p>
                   Instagram:{" "}
-                  <a
-                    href="https://www.instagram.com/walktheplanetinc"
+                  <Link
+                    href="https://www.instLinkgram.com/walktheplanetinc"
                     className="text-cyan-300 underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     https://www.instagram.com/walktheplanetinc
-                  </a>
+                  </Link>
                 </p>
                 <p>
                   TikTok:{" "}
-                  <a
+                  <Link
                     href="https://www.tiktok.com/@walktheplanetinc?lang=en"
                     className="text-cyan-300 underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     https://www.tiktok.com/@walktheplanetinc?lang=en
-                  </a>
+                  </Link>
                 </p>
                 <p>
                   LinkedIn:{" "}
-                  <a
+                  <Link
                     href="https://www.linkedin.com/company/walktheplanet/"
                     className="text-cyan-300 underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     https://www.linkedin.com/company/walktheplanet/
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>
@@ -419,13 +434,39 @@ export default function FAQSection() {
               <p>
                 To keep yourself updated with our latest travel packages and
                 exclusive promos, you may catch us on our official{" "}
-                <span className="underline text-[#7EE7FC]">Facebook, </span>
                 <span className="underline text-[#7EE7FC]">
-                  {" "}
-                  Instagram{" "}
+                  <Link
+                    href="https://www.facebook.com/walktheplanetinc"
+                    className="text-cyan-300 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Facebook,{" "}
+                  </Link>{" "}
+                </span>
+                <span className="underline text-[#7EE7FC]">
+                  <Link
+                    href="https://www.instagram.com/walktheplanetinc/"
+                    className="text-cyan-300 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {" "}
+                    Instagram{" "}
+                  </Link>{" "}
                 </span>{" "}
                 and
-                <span className="underline text-[#7EE7FC]"> TikTok </span>
+                <span className="underline text-[#7EE7FC]">
+                  <Link
+                    href="https://www.tiktok.com/@walktheplanetinc"
+                    className="text-cyan-300 underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {" "}
+                    TikTok{" "}
+                  </Link>
+                </span>
                 accounts.
               </p>
 
