@@ -18,7 +18,7 @@ const Accomodations = () => {
     >
       <div className="absolute space-y-5 flex flex-col justify-center align-center my-[112px] sm:text-center text-left md:text-center lg:text-center xl:text-center 2xl:text-center">
         <h2 className="font-satoshi font-black sm:text-5xl ml-5 lg:text-5xl xl:text-[64px] text-[30px] ">
-          ACCOMODATIONS
+          ACCOMMODATIONS
         </h2>
         <p className="font-generalSans font-medium sm:not-italic italic ml-5 xl:text-2xl text-base 2xl:max-w-full">
           Your dream getaway deserves the best - choose from our various lodging
