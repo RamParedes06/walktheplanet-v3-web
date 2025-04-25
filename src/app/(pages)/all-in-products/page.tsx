@@ -17,11 +17,10 @@ import Hero from "../corporate/_corporate/Hero";
 import Tours from "../leisure/_components/Tours";
 import Accomodations from "./_components/Accomodations";
 import Cruise from "./_components/Cruise";
+import Documentation from "./_components/Documentation";
 import FlightCarousel from "./_components/FlightCarousel";
 import Merchandise from "./_components/Merchandise";
 import ToursPackages from "./_components/ToursPackages";
-import Documentation from "./_components/Documentation";
-import useIsMobile from "@/hooks/useIsMobile";
 
 function AllInProducts() {
   return (
@@ -69,11 +68,11 @@ function AllInProducts() {
         />
         <ToursPackages />
 
-				{/* Section 9 - Travel Essentials  */}
-				<Tours productsVersion />
+        {/* Section 9 - Travel Essentials  */}
+        <Tours productsVersion />
 
-				<Merchandise />
-				{/* Section 10 - Merchandise  */}
+        <Merchandise />
+        {/* Section 10 - Merchandise  */}
 
         {/* Section 11 - Call to Action  */}
         <CallToAction
@@ -88,10 +87,10 @@ function AllInProducts() {
           buttonLabel="Shop your travel needs here!"
         />
 
-				<Footer />
-			</SmoothScroll>
-		</div>
-	);
+        <Footer />
+      </SmoothScroll>
+    </div>
+  );
 }
 
 export default AllInProducts;
