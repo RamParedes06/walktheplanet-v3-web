@@ -9,7 +9,7 @@ const Merchandise = () => {
   const background = MerchandiseImages[activeIndex]?.image;
   return (
     <div
-      className="relative h-screen w-full flex justify-center transition-all ease-in-out"
+      className="relative h-screen w-full flex justify-center"
       style={{
         backgroundImage: `url(${background})`,
         backgroundSize: "cover",
