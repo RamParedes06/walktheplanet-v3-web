@@ -1,4 +1,5 @@
 import Image from "next/image";
+import mobileBg from "@/assets/svg/contact/BGImage_Section2.png";
 import img0 from "@/assets/svg/contact/bgIllustration.svg";
 import img1 from "@/assets/images/contact/one.webp";
 import img2 from "@/assets/images/contact/seven.webp";
@@ -44,8 +45,13 @@ export default function TravelGallery() {
 
       <div className="h-[400px] flex flex-col items-center justify-center px-4 text-center relative">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
+          className="md:block hidden absolute inset-0 bg-cover bg-center opacity-30"
           style={{ backgroundImage: `url(${img0.src})` }}
+        ></div>
+
+        <div
+          className="md:hidden block absolute inset-0 bg-cover bg-center opacity-90"
+          style={{ backgroundImage: `url(${mobileBg.src})` }}
         ></div>
 
         <div className="relative z-10">
