@@ -60,7 +60,7 @@ export default function WhoWeAreSection() {
 
       {/* Description Section */}
       <div className="relative py-[64px] md:py-[112px] px-4 md:px-8 bg-white">
-        <div className="max-w-4xl mx-auto text-start md:text-center">
+        <div className="max-w-4xl mx-auto text-start md:text-center italic">
           <p className="text-[16px] md:text-[24px] text-gray-800 leading-relaxed mb-4">
             We&apos;re a Filipino-founded startup that{" "}
             <span className="font-semibold">
