@@ -1,4 +1,5 @@
 "use client";
+import useIsMobile from "@/hooks/useIsMobile";
 import React, { useState } from "react";
 
 const bgDomestic = "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1745472642/Tilted_Container_iq7eje.png";
@@ -6,6 +7,7 @@ const bgInternational = "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1745
 
 function ToursPackages() {
 	const [isDomestic, setIsDomestic] = useState(true);
+	const isMobile = useIsMobile();
 
 	const backgroundImage = isDomestic ? bgDomestic : bgInternational;
 
@@ -18,10 +20,16 @@ function ToursPackages() {
 							TOURS AND
 							<br /> TRAVEL PACKAGES
 						</p>
-						<p className="text-center max-[490px]:text-[16px]">
-							<i>
-								Get the keys to a complete and <span className="font-semibold">hassle-free experience</span> <br /> - unlock your dream escape with our all-in packages!
-							</i>
+						<p className="text-center max-[490px]:text-[16px] px-1">
+							{isMobile ? (
+								<i>
+									Get the keys to a complete and <span className="font-semibold">hassle-free experience</span> - unlock your dream escape <br /> with our all-in packages!
+								</i>
+							) : (
+								<i>
+									Get the keys to a complete and <span className="font-semibold">hassle-free experience</span> <br /> - unlock your dream escape with our all-in packages!
+								</i>
+							)}
 						</p>
 					</div>
 					<div className="buttons flex gap-10 max-[490px]:flex-col max-[490px]:gap-5">

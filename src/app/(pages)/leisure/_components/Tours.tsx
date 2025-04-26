@@ -128,19 +128,33 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
 
 						{/* Top curved white border */}
 						<div
-							className="absolute top-0 w-full h-[75px] z-20 bg-white"
+							className="absolute top-0 w-full h-[75px] z-20 bg-white max-[490px]:hidden"
 							style={{
 								borderBottomLeftRadius: "50% 100%",
 								borderBottomRightRadius: "50% 100%",
 							}}
 						></div>
+						<div
+							className="absolute top-0 w-full h-[75px] z-20 bg-white min-[491px]:hidden"
+							style={{
+								borderBottomLeftRadius: "99% 100%",
+								borderBottomRightRadius: "99% 100%",
+							}}
+						></div>
 
 						{/* Bottom curved white border */}
 						<div
-							className="absolute bottom-0 w-full h-[75px] z-20 bg-white"
+							className="absolute bottom-0 w-full h-[75px] z-20 bg-white max-[490px]:hidden"
 							style={{
 								borderTopLeftRadius: "50% 100%",
 								borderTopRightRadius: "50% 100%",
+							}}
+						></div>
+						<div
+							className="absolute bottom-0 w-full h-[75px] z-20 bg-white min-[491px]:hidden"
+							style={{
+								borderTopLeftRadius: "99% 100%",
+								borderTopRightRadius: "99% 100%",
 							}}
 						></div>
 
