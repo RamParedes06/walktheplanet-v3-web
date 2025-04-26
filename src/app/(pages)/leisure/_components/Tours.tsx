@@ -137,8 +137,8 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
 						<div
 							className="absolute top-0 w-full h-[75px] z-20 bg-white min-[491px]:hidden"
 							style={{
-								borderBottomLeftRadius: "99% 100%",
-								borderBottomRightRadius: "99% 100%",
+								borderBottomLeftRadius: "100% 60%",
+								borderBottomRightRadius: "100% 60%",
 							}}
 						></div>
 
@@ -153,8 +153,8 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
 						<div
 							className="absolute bottom-0 w-full h-[75px] z-20 bg-white min-[491px]:hidden"
 							style={{
-								borderTopLeftRadius: "99% 100%",
-								borderTopRightRadius: "99% 100%",
+								borderTopLeftRadius: "100% 60%",
+								borderTopRightRadius: "100% 60%",
 							}}
 						></div>
 
