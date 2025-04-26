@@ -125,7 +125,7 @@ const Manpower = () => {
         {/* Gradient Overlay with Content */}
         <div className="absolute top-0 left-0 right-0 h-full z-10 flex ">
           {/* Content Container */}
-          <div className="lg:max-w-[55%] py-[30px] px-[24px] lg:py-[112px] lg:px-[80px] h-fullflex flex-col lg:justify-end justify-start">
+          <div className="lg:max-w-[55%] py-[30px] px-[24px] lg:py-[112px] lg:px-[80px] h-full flex flex-col lg:justify-end justify-start">
             <TextReveal>
               <div>
                 <p className="font-[900] lg:text-[64px] text-[30px] text-[#14476F] font-satoshi uppercase">

@@ -38,24 +38,26 @@ const cards = [
 
 function BeliefsMobile() {
 	return (
-		<div className="space-y-10 pb-40 min-[481px]:hidden" style={{ backgroundImage: `url(${bgbeliefs.src})` }}>
+		<div className="space-y-10 pb-40 min-[481px]:hidden bg-white" style={{ backgroundImage: `url(${bgbeliefs.src})` }}>
 			<ScrollVelocity texts={["OUR BELIEFS"]} className="custom-scroll-text pt-15" textColor="black" />
-			<p className="text-center text-2xl max-w-6xl mx-auto max-[480px]:hidden text-[#333333A6]">
+			<div className="text-center text-2xl max-w-6xl mx-auto max-[480px]:text-base max-[480px]:text-start max-[480px]:flex max-[480px]:flex-col max-[480px]:gap-3 max-[480px]:px-5 text-[#333333A6] ">
 				Your love for travel inspires the way for our passion to create unforgettable journeys.
-				<br /> We craft tailor-made experiences in the Philippines and the world, immersing you in culture, diversity,
-				<br /> and sustainability. Be part of a meaningful community.
-				<br /> Let’s explore together. We walk the Planet!
-			</p>
+				<div>
+					<p> We craft tailor-made experiences in the Philippines and the world, immersing you in culture, diversity,</p>
+					<p>and sustainability. Be part of a meaningful community.</p>
+				</div>
+				<p>Let’s explore together. We walk the Planet!</p>
+			</div>
 
-			<div className="max-w-[1280px] mx-auto p-8 bg-[#F2F2F2] space-y-10 ">
+			<div className="max-w-[1280px] mx-auto p-6 bg-[#F2F2F2] space-y-5 ">
 				{cards.map((card) => (
 					<React.Fragment key={card.id}>
-						<div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+						<div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
 							{/* Text section appears first on mobile */}
 							<ScrollReveal rotateOnHover>
-								<div className=" p-11 flex flex-col gap-8 h-full px-8" style={{ backgroundColor: card.bgColor }}>
-									<h3 className="text-[28px] font-bold text-white">{card.title}</h3>
-									<h6 className="font-medium text-[24px] text-white">{card.description}</h6>
+								<div className=" p-8 flex flex-col gap-5 h-full px-8 text-center" style={{ backgroundColor: card.bgColor }}>
+									<h3 className="text-[20px] font-semibold text-white place-self-center max-w-[50%]">{card.title}</h3>
+									<h6 className=" text-[16px] text-white">{card.description}</h6>
 								</div>
 							</ScrollReveal>
 

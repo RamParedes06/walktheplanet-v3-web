@@ -2,8 +2,9 @@ import React from "react";
 import "../../../styles/marquee.scss";
 type MarqueeProps = {
   variant?: "homeHero" | "corporateHero";
+  gradient?: string;
 };
-const Marquee = ({ variant }: MarqueeProps) => {
+const Marquee = ({ variant, gradient = "bg-gradient-to-r from-[#0A2472] via-[#00A9CE] to-[#FF7A00]" }: MarqueeProps) => {
   return (
     <>
       {/* scroll animation!!  */}
@@ -43,7 +44,7 @@ const Marquee = ({ variant }: MarqueeProps) => {
       ) : (
         <>
           {/* scroll animation for corporate hero page */}
-          <div className="wrapper bottom-wrapper overflow-hidden bg-gradient-to-r from-[#0A2472] via-[#00A9CE] to-[#FF7A00] !text-white font-semibold">
+          <div className={`wrapper bottom-wrapper overflow-hidden ${gradient} !text-white font-semibold`}>
             <div className="marquee">
               <p>
                 {

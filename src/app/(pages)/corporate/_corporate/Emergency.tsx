@@ -139,9 +139,9 @@ const Emergency = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row w-full h-screen">
+    <div className="flex flex-col md:flex-row w-full md:h-screen">
       {/* Left side - Image with text overlay */}
-      <div className="w-full md:w-1/2 relative h-screen overflow-hidden bg-black">
+      <div className="w-full  md:w-1/2 relative h-[400px] md:h-screen overflow-hidden bg-black">
         {/* Render all slides */}
         {slides.map((slide, index) => (
           <div
@@ -163,7 +163,7 @@ const Emergency = () => {
         {/* Text overlay with high z-index to  stay on top */}
         <div className="absolute bottom-0 left-0 p-6 md:p-12 lg:p-[112px_64px] w-full bg-gradient-to-t from-black/80 via-black/40 to-transparent z-50 pointer-events-none">
           <TextReveal>
-            <p className="text-white leading-relaxed md:text-2xl text-xl italic max-w-[590px]">
+            <p className="text-white text-[20px] leading-relaxed md:text-2xl text-xl italic max-w-[590px] pb-10">
               We prioritize your safety, comfort, and confidentiality in every
               corporate and business travel arrangement to make your journeys
               smooth and worry-free
@@ -178,11 +178,14 @@ const Emergency = () => {
         <div
           className="absolute inset-0 md:hidden"
           style={{
-            background: `
-            linear-gradient(90deg, #FF7A00 0%, #599D6A 50%, #00A9CE 100%),
-            linear-gradient(360deg, rgba(5, 18, 28, 0) 3.33%, rgba(10, 36, 114, 0.498536) 51.52%, #05121C 100%)
-          `,
+            backgroundImage: `
+              linear-gradient(90deg, #FF7A00 0%, #599D6A 50%, #00A9CE 100%),
+              linear-gradient(360deg, rgba(5, 18, 28, 0) 3.33%, rgba(10, 36, 114, 0.498536) 51.52%, #05121C 100%),
+              url('https://res.cloudinary.com/dmxvasob7/image/upload/v1744594491/Noise_jbbzkn.webp')
+            `,
             backgroundBlendMode: "overlay",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         ></div>
 
@@ -191,7 +194,12 @@ const Emergency = () => {
 
         {/* Content container */}
         <div className="relative h-full ">
-          <div className="w-full h-full flex justify-center items-center bg-gradient-to-b from-black/60 via-black/20 to-transparent">
+          <div
+            className="w-full h-full flex justify-center items-center bg-gradient-to-b from-black/60 via-black/20 to-transparent "
+            style={{
+              backgroundImage: `url('https://res.cloudinary.com/dmxvasob7/image/upload/v1744594491/Noise_jbbzkn.webp')`,
+            }}
+          >
             <div className="md:py-8 lg:px-4 px-6 py-16 w-full max-w-2xl">
               {accordionData.map((item) => (
                 <Accordion

@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 
 import MenuSvg from "@/assets/svg/MenuSvg";
 
-import travelOffers from "@/assets/images/travel_offers.webp";
 import { HomeOffers } from "@/library/HomePartner";
 import "@/styles/hero-horizontal-scroll.scss";
 import "@/styles/slider.scss";
@@ -32,12 +31,8 @@ import GridMotion from "./GridMotion";
 import GridMotionMobile from "./GridMotionMobile";
 import Menu from "./Menu";
 
-import { DocumentSlides } from "@/library/DocumentSlides";
-import { InternationalSlides } from "@/library/InternationalSlides";
-import { LocalSlides } from "@/library/LocalSlides";
-import { TravelSlides } from "@/library/TravelSlides";
 import Marquee from "./Marquee";
-import TravelCarousel from "./TravelOffersCarousel";
+import TravelOffersV2 from "./TravelOffersV2";
 
 interface Tab {
   id: string;
@@ -54,20 +49,22 @@ const tabs: Tab[] = [
   {
     id: "edutourism",
     title: "EDUTOURISM",
-    image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FEduTourism.webp&version_id=null",
-    // edutorism,
-    description: "Immersive tours for all levels of education to enrich your students’ knowledge.",
+    image:
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744095169/Hero1Figma_xcgzrt.png",
+    description:
+      "Immersive tours for all levels of education to enrich your students’ knowledge.",
     svg: LuGraduationCap,
     buttonText1: "See where learning takes you",
     buttonText2: "Contact Us",
-    link: "#",
+    link: "/edutourism",
   },
   {
     id: "corporate",
     title: "CORPORATE & BUSINESS",
-    image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FCorporate%20and%20Business.webp&version_id=null",
-    // corporate,
-    description: "Personalized services suited for all corporate and business travel needs.",
+    image:
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096416/Corporate_Business_1_4_dab6y2.png",
+    description:
+      "Personalized services suited for all corporate and business travel needs.",
     svg: PiBriefcaseMetal,
     buttonText1: "See how we elevate your business",
     buttonText2: "Contact Us",
@@ -76,57 +73,62 @@ const tabs: Tab[] = [
   {
     id: "mice",
     title: "M.I.C.E",
-    image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FMICE.webp&version_id=null",
-    // mice,
-    description: "Meticulously planned events designed for your organization’s success.",
+    image:
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096418/MICE_1_2_c65uoh.png",
+    description:
+      "Meticulously planned events designed for your organization’s success.",
     svg: HiOutlinePresentationChartLine,
     buttonText1: "Explore Solutions",
     buttonText2: "Contact Us",
-    link: "#",
+    link: "/mice",
   },
   {
     id: "travelpackage",
     title: "TRAVEL PACKAGE ESSENTIALS",
-    image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FTravel%20Package%20Essentials.webp&version_id=null",
-    // travel,
-    description: "One SIM, 190+ destinations connecting you anywhere in the world.",
+    image:
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096417/Travel_Essentials_Global_Data_Sim_1_1_ieqaf6.png",
+    description:
+      "One SIM, 190+ destinations connecting you anywhere in the world.",
     svg: FaBusAlt,
     buttonText1: "Find out what to pack",
     buttonText2: "Contact Us",
-    link: "#",
+    link: "/leisure",
   },
   {
     id: "liveselling",
     title: "LIVE SELLING",
-    image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FLive%20Selling.webp&version_id=null",
-    // liveselling,
-    description: "Exclusive rates and awesome discounts right at your fingertips! Book now on our TikTok live selling hours.",
+    image:
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096026/Live_Selling_Tiktok_zjfzai.png",
+    description:
+      "Exclusive rates and awesome discounts right at your fingertips! Book now on our TikTok live selling hours.",
     svg: TbMessage2Heart,
     buttonText1: "Capture discounts and live updates",
     buttonText2: "Contact Us",
-    link: "#",
+    link: "https://www.tiktok.com/@walktheplanetinc",
   },
   {
     id: "onlinestore",
     title: "ONLINE STORE",
-    image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FOnline%20Store.webp&version_id=null",
-    // onlinestore,
-    description: "One-stop shop packed with an array of options for all travelers. Explore our selections at tours.walktheplanet.com",
+    image:
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744094662/Online_Store_t1xmy8.png",
+    description:
+      "One-stop shop packed with an array of options for all travelers. Explore our selections at tours.walktheplanet.com",
     svg: RiShoppingCart2Line,
     buttonText1: "See what's new in store",
     buttonText2: "Contact Us",
-    link: "#",
+    link: "/all-in-products",
   },
   {
     id: "aboutus",
     title: "ABOUT US",
-    image: "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FAbout%20Us.webp&version_id=null",
-    // aboutus,
-    description: "Exclusive Travel, Unique Experiences. Get to know who we are and where we play.",
+    image:
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744267728/hero-aboutus_rjysnm.png",
+    description:
+      "Exclusive Travel, Unique Experiences. Get to know who we are and where we play.",
     svg: AiOutlineHeart,
     buttonText1: "Find out what drives us",
     buttonText2: "Contact Us",
-    link: "#",
+    link: "/about-us",
   },
 ];
 
@@ -135,7 +137,6 @@ export default function Hero() {
   //! For the full screen menu animation
   const [isOpenDesktop, setIsOpenDesktop] = useState(false);
   const [isOpenMobile, setIsOpenMobile] = useState(false);
-  const [isMobileView, setIsMobileView] = useState(false);
 
   //! Slide Section
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -145,22 +146,6 @@ export default function Hero() {
 
   const totalScrollRequired = 1000;
   const scrollProgressRef = useRef(0);
-
-  useEffect(() => {
-    // Function to update state based on window width
-    const handleResize = () => {
-      setIsMobileView(window.innerWidth < 768); // Adjust breakpoint as needed
-    };
-
-    // Call once to set initial state
-    handleResize();
-
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup event listener on unmount
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   useEffect(() => {
     const target = sectionRef.current;
@@ -198,7 +183,10 @@ export default function Hero() {
       const currentProgress = scrollProgressRef.current;
 
       // Prevent scrolling if section is fully collapsed or fully expanded
-      if ((currentProgress <= 0 && e.deltaY < 0) || (currentProgress >= 1 && e.deltaY > 0)) {
+      if (
+        (currentProgress <= 0 && e.deltaY < 0) ||
+        (currentProgress >= 1 && e.deltaY > 0)
+      ) {
         document.body.style.overflow = "";
         return;
       }
@@ -207,7 +195,10 @@ export default function Hero() {
       document.body.style.overflow = "hidden";
 
       scrollDelta.current += e.deltaY;
-      scrollDelta.current = Math.max(0, Math.min(scrollDelta.current, totalScrollRequired));
+      scrollDelta.current = Math.max(
+        0,
+        Math.min(scrollDelta.current, totalScrollRequired)
+      );
 
       const progress = scrollDelta.current / totalScrollRequired;
       scrollProgressRef.current = progress;
@@ -306,7 +297,8 @@ export default function Hero() {
     const st = ScrollTrigger.getById("main-scroll");
 
     if (st) {
-      const targetPosition = st.start + (st.end - st.start) * (index / (tabs.length - 1));
+      const targetPosition =
+        st.start + (st.end - st.start) * (index / (tabs.length - 1));
       window.scrollTo({
         top: targetPosition,
         behavior: "smooth",
@@ -360,7 +352,9 @@ export default function Hero() {
             }
             // Find the closest snap point
             const closest = snapPoints.reduce((prev, curr) => {
-              return Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev;
+              return Math.abs(curr - value) < Math.abs(prev - value)
+                ? curr
+                : prev;
             });
             return closest;
           },
@@ -469,7 +463,9 @@ export default function Hero() {
           stagger: 0.5,
           backgroundColor: (index, element) => {
             // Get the original background color from inline style or computed style
-            const bgColor = element.style.backgroundColor || window.getComputedStyle(element).backgroundColor;
+            const bgColor =
+              element.style.backgroundColor ||
+              window.getComputedStyle(element).backgroundColor;
             return bgColor; // Keep original background color initially
           },
         },
@@ -478,13 +474,18 @@ export default function Hero() {
           width: "100%", // Ending width - same as starting to maintain consistency
           backgroundColor: (index, element) => {
             // Get the original background color
-            const bgColor = element.style.backgroundColor || window.getComputedStyle(element).backgroundColor;
+            const bgColor =
+              element.style.backgroundColor ||
+              window.getComputedStyle(element).backgroundColor;
 
             // Create a more opaque version by adding alpha channel
             // This preserves the color but makes it more solid
             if (bgColor.includes("rgba")) {
               // If already has transparency, modify it
-              return bgColor.replace(/rgba\((\d+,\s*\d+,\s*\d+),\s*[\d.]+\)/, "rgba($1, 0.9)");
+              return bgColor.replace(
+                /rgba\((\d+,\s*\d+,\s*\d+),\s*[\d.]+\)/,
+                "rgba($1, 0.9)"
+              );
             } else if (bgColor.includes("rgb")) {
               // Convert rgb to rgba
               return bgColor.replace(/rgb/, "rgba").replace(/\)/, ", 0.9)");
@@ -532,8 +533,20 @@ export default function Hero() {
       {/* Header - only visible when not animating */}
       <div className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block ">
         {/* Header - only visible when menu is closed */}
-        <div ref={headerRef} className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl rounded-full w-[300px] lg:w-[436px]  ${isOpenDesktop ? "invisible" : "visible"}`}>
-          <Image src={Logo} alt="logo" width={70} height={50} />
+        <div
+          ref={headerRef}
+          className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl rounded-full w-[300px] lg:w-[436px]  ${
+            isOpenDesktop ? "invisible" : "visible"
+          }`}
+        >
+          <Image
+            src={Logo}
+            onClick={() => window.location.replace("/")}
+            className="cursor-pointer"
+            alt="logo"
+            width={70}
+            height={50}
+          />
           <div onClick={toggleMenu} className="cursor-pointer">
             <MenuSvg />
           </div>
@@ -544,12 +557,23 @@ export default function Hero() {
       <div className="hero-container  bg-white" ref={heroContainerRef}>
         {/* tabs and logos  */}
         <div className="fixed lg:left-[5%] lg:bottom-[20%] bottom-[10%] w-full lg:w-max z-50 flex flex-col lg:flex-row justify-between items-center gap-4 mt-1">
-          <div className="flex flex-wrap justify-center lg:justify-start gap-2.5 lg:gap-4 lg:max-w-[850px] max-w-[350px] relative" ref={tabsContainerRef}>
-            <div ref={slideRef} className={`absolute bg-white rounded-full z-10 pointer-events-none ${initialRender ? "" : "transition-all duration-300 ease-in-out"}`} style={{ top: "2px" }} />
+          <div
+            className="flex flex-wrap justify-center lg:justify-start gap-2.5 lg:gap-4 lg:max-w-[850px] max-w-[350px] relative"
+            ref={tabsContainerRef}
+          >
+            <div
+              ref={slideRef}
+              className={`absolute bg-white rounded-full z-10 pointer-events-none ${
+                initialRender ? "" : "transition-all duration-300 ease-in-out"
+              }`}
+              style={{ top: "2px" }}
+            />
             {tabs.map((tab, index) => (
               <button
                 key={index}
-                className={`cursor-pointer lg:px-4 lg:py-2 px-2.5 py-1 rounded-full flex items-center gap-2 sm:gap-3 text-sm transition whitespace-nowrap hover:text-black hover:bg-white  ${activeIndex === index ? "text-black bg-white" : "text-white"}`}
+                className={`cursor-pointer lg:px-4 lg:py-2 px-2.5 py-1 rounded-full flex items-center gap-2 sm:gap-3 text-sm transition whitespace-nowrap hover:text-black hover:bg-white  ${
+                  activeIndex === index ? "text-black bg-white" : "text-white"
+                }`}
                 onMouseEnter={() => {
                   setHoveredTab(index);
                 }}
@@ -560,14 +584,24 @@ export default function Hero() {
                   goToSlide(index);
                 }}
               >
-                <tab.svg color={activeIndex === index || hoveredTab === index ? "black" : "white"} className="lg:block hidden" />
+                <tab.svg
+                  color={
+                    activeIndex === index || hoveredTab === index
+                      ? "black"
+                      : "white"
+                  }
+                  className="lg:block hidden"
+                />
                 <p>{tab.title}</p>
               </button>
             ))}
           </div>
         </div>
 
-        <div className="racesWrapper  w-full lg:overflow-hidden  max-w-full mx-auto flex justify-between relative" ref={wrapperRef}>
+        <div
+          className="racesWrapper  w-full lg:overflow-hidden  max-w-full mx-auto flex justify-between relative"
+          ref={wrapperRef}
+        >
           {/* scroll animation!!  */}
           <Marquee variant="homeHero" />
           {/* End of infinite scroll animation  */}
@@ -593,17 +627,40 @@ export default function Hero() {
         linear-gradient(0deg, rgba(0, 0, 0, 0) 81.66%, rgba(0, 0, 0, 0.4) 110.95%)`,
                   }}
                 >
-                  <div className="lg:h-[55%] h-[90%] description flex flex-col gap-5   justify-center items-center lg:items-start lg:pl-[6%] w-full " data-index={index}>
+                  <div
+                    className="lg:h-[55%] h-[90%] description flex flex-col gap-5   justify-center items-center lg:items-start lg:pl-[6%] w-full "
+                    data-index={index}
+                  >
                     <div className="max-w-[90%] lg:max-w-[100%]">
-                      <p className="text-white text-4xl sm:text-5xl lg:text-6xl font-semibold text-center lg:text-left satoshi">{tabs[index].title}</p>
-                      <p className={`text-white lg:text-xl sm:text-lg ${index <= 3 ? "max-w-3xl" : index == 6 ? "max-w-[24rem]" : "max-w-xl"} text-center sm:text-left mx-auto sm:mx-0 mt-5`}>{tabs[index].description}</p>
+                      <p className="text-white text-4xl sm:text-5xl lg:text-6xl font-semibold text-center lg:text-left satoshi">
+                        {tabs[index].title}
+                      </p>
+                      <p
+                        className={`text-white lg:text-xl sm:text-lg ${
+                          index <= 3
+                            ? "max-w-3xl"
+                            : index == 6
+                            ? "max-w-[24rem]"
+                            : "max-w-xl"
+                        } text-center sm:text-left mx-auto sm:mx-0 mt-5`}
+                      >
+                        {tabs[index].description}
+                      </p>
                     </div>
 
                     <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 mt-8 justify-center sm:justify-start w-full max-w-[350px] lg:max-w-[500px]">
-                      <button onClick={() => (window.location.href = tabs[index].link)} className="px-6 py-4 bg-[#D0F6FF] text-[#00537F] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min">
+                      <button
+                        onClick={() =>
+                          (window.location.href = tabs[index].link)
+                        }
+                        className="px-6 py-4 bg-[#D0F6FF] text-[#00537F] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min"
+                      >
                         {tab.buttonText1}
                       </button>
-                      <button onClick={() => (window.location.href = "/contact-us")} className="px-6 py-4 bg-white text-[#333] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min">
+                      <button
+                        onClick={() => (window.location.href = "/contact-us")}
+                        className="px-6 py-4 bg-white text-[#333] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min"
+                      >
                         {tab.buttonText2}
                       </button>
                     </div>
@@ -614,116 +671,22 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <AnimatePresence>{isOpenDesktop && <Menu toggleMenu={toggleMenu} headerRect={headerRect} />}</AnimatePresence>
+      <AnimatePresence>
+        {isOpenDesktop && (
+          <Menu toggleMenu={toggleMenu} headerRect={headerRect} />
+        )}
+      </AnimatePresence>
+
       {/* For smooth introduction of the vertical scroll  */}
-      <div>
-        <div className="travel-section">
-          {" "}
-          {/* New parent container */}
-          <div className="travel-offers-container bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${travelOffers.src})` }}>
-            {/* Black overlay with low opacity */}
-            <div className="absolute inset-0 bg-black opacity-30"></div>
-            <div className="cards-parent h-[275px] lg:h-[230px] bg-cover bg-center flex justify-center items-center relative z-10 ">
-              <div className="wrap marquee-container  mt-20 lg:mt-0 w-full overflow-hidden">
-                <div className="marquee text-[32px] lg:text-8xl font-semibold text-white opacity-90">
-                  <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
-                  <span className="inline-block" style={{ width: "100px" }}></span>
-                  <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
-                  <span className="inline-block" style={{ width: "100px" }}></span>
-                  <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
-                  <span className="inline-block" style={{ width: "100px" }}></span>
-                  <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
-                  <span className="inline-block  " style={{ width: "100px" }}></span>
-                  <p className="drop-shadow-xl inline-bloc text-[32px] lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
-                  <span className="inline-block" style={{ width: "100px" }}></span>
-                  <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{" OUR TRAVEL OFFERS "}</p>
-                </div>
-              </div>
-            </div>
 
-            <div className="cardss ">
-              <div className="card " style={{ backgroundColor: "#E5F1F6B2", color: "black" }}>
-                <p className="satoshi font-medium text-xl p-5 lg:p-[32px_40px]">TRAVEL PACKAGE ESSENTIALS</p>
-                <div className="slider-container relative mt-4 ">
-                  <TravelCarousel images={TravelSlides} height={isMobileView ? 160 : 300} />
-
-                  <div className="absolute top-0 left-20 max-[490px]:left-5 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
-                    <p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">GLOBAL DATA SIM</p>
-                    <p className="text-black text-2xl -[16px] satoshi max-[490px]:text-[14px]">
-                      One SIM for every destination.
-                      <br /> Roam your way anytime, anywhere.
-                    </p>
-                    <a href="https://tours.walktheplanet.com/collections/global-data-sim">
-                      <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">Get Now</button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="card" style={{ backgroundColor: "#FE6000B2", zIndex: 2 }}>
-                <p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]">LOCAL DESTINATIONS</p>
-
-                <div className="slider-container relative ">
-                  <TravelCarousel images={LocalSlides} height={isMobileView ? 179 : 300} />
-
-                  <div className="absolute top-0 min-[1440px]:left-155 max-[490px]:left-5 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
-                    <p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">PALAWAN TOUR</p>
-                    <p className="text-black text-2xl -[16px] w-full satoshi max-[490px]:text-[14px]">
-                      The Philippines’ best-kept secrets.
-                      <br /> Pack your bags and uncover your adventure.
-                    </p>
-                    <a href="https://tours.walktheplanet.com/collections/local-destinations">
-                      <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">Get Now</button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="card" style={{ backgroundColor: "#333333B2", zIndex: 3 }}>
-                <p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]"> INTERNATIONAL DESTINATIONS</p>
-
-                <div className="slider-container relative ">
-                  <TravelCarousel images={InternationalSlides} height={isMobileView ? 160 : 300} />
-                  <div className="absolute top-0 left-20 max-[490px]:left-5 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
-                    <p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">PARIS TOUR</p>
-                    <p className="text-black text-2xl -[16px] satoshi max-[490px]:text-[14px]">
-                      Sought-after global attractions.
-                      <br />
-                      Travel with us and see the world.
-                    </p>
-                    <a href="https://tours.walktheplanet.com/collections/international-destinations">
-                      <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">Book Now</button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="card " style={{ backgroundColor: "#00537FB2", zIndex: 4 }}>
-                <p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]"> TRAVEL DOCUMENTATION </p>
-                <div className="slider-container relative ">
-                  <TravelCarousel images={DocumentSlides} height={isMobileView ? 180 : 300} />
-
-                  <div className="absolute top-0 min-[1440px]:left-155 max-[490px]:left-5 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
-                    <p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">VISA PROCESSING</p>
-                    <p className="text-black text-2xl -[16px] satoshi max-[490px]:text-[14px]">
-                      Visa processing and immigration requirements
-                      <br /> handled with ease.
-                    </p>
-                    <a href="https://tours.walktheplanet.com/pages/contact">
-                      <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px] max-[490px]:max-w-[130px]">Book Now</button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="scroll-spacer lg:h-[200px] !h-[150px]"></div>
-          </div>
-          {/* <div className="spacer"></div> */}
-        </div>
-      </div>
+      <TravelOffersV2 />
       <Beliefs />
       <BeliefsMobile />
       <InfiniteMenu items={partners} />
       <GridMotion items={HomeOffers} />
       <GridMotionMobile />
       <Footer />
+
       {/* Mobile Menu  */}
       <div className=" w-full relative overflow-hidden rounded-xl max-[480px]:rounded-none max-w-full mx-auto flex justify-between">
         <div className="lg:hidden">
@@ -731,7 +694,12 @@ export default function Hero() {
           {/* Header - only visible when not animating */}
           <div className="fixed z-10 top-[70px]  w-full flex items-center justify-center ">
             {/* Header - only visible when menu is closed */}
-            <div ref={headerRefMobile} className={` flex items-center justify-between px-4  py-3 rounded-full w-[300px] lg:w-[436px] bg-white ${isOpenMobile ? "invisible" : "visible"}`}>
+            <div
+              ref={headerRefMobile}
+              className={` flex items-center justify-between px-4  py-3 rounded-full w-[300px] lg:w-[436px] bg-white ${
+                isOpenMobile ? "invisible" : "visible"
+              }`}
+            >
               <Image src={Logo} alt="logo" width={70} height={50} />
               <div onClick={toggleMenuMobile} className="cursor-pointer">
                 <MenuSvg />
@@ -740,7 +708,14 @@ export default function Hero() {
             </div>
           </div>
           {/* Menu Mobile View*/}
-          <AnimatePresence>{isOpenMobile && <Menu toggleMenu={toggleMenuMobile} headerRect={headerRectMobile} />}</AnimatePresence>
+          <AnimatePresence>
+            {isOpenMobile && (
+              <Menu
+                toggleMenu={toggleMenuMobile}
+                headerRect={headerRectMobile}
+              />
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </>
