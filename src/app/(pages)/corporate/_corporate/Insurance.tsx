@@ -19,7 +19,7 @@ function Insurance() {
   return (
     <div className="h-screen bg-white">
       <div
-        className="h-[332px] md:h-[40%]  max-[490px] relative overflow-hidden flex items-center"
+        className="h-[40%]  max-[490px]:h-[30%] relative overflow-hidden flex items-center"
         style={{ backgroundImage: `url(${illustration})` }}
       >
         <div className="p-20 w-full max-[490px]:p-5">
