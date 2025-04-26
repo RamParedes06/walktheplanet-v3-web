@@ -23,7 +23,7 @@ const Pharmaceutical = () => {
 			<div className="absolute bottom-0 max-w-full min-h-[412px] bg-[linear-gradient(180deg,rgba(5,18,28,0)_44.33%,rgba(5,18,28,0.8)_74.87%)] w-full">
 				<div className="flex flex-col relative bottom-0 mt-50 max-[490px]:p-5 max-[490px]:py-15">
 					<TextReveal>
-						<h2 className="font-bold text-[64px] text-white font-satoshi text-center  max-[490px]:text-[40px]  max-[490px]:text-start">PHARMACEUTICAL</h2>
+						<h2 className="font-bold text-[64px] text-white font-satoshi text-center  max-[490px]:text-[30px]  max-[490px]:text-start">PHARMACEUTICAL</h2>
 						<p className="font-generalSans italic text-center max-[490px]:text-start max-[490px]:text-[16px]  text-white text-base sm:text-base md:text-base lg:text-lg xl:text-2xl">
 							Science thrives on discovery, and we honor your dedication to progress. <br /> Conduct trials, connect globally, and share insights<b>— safe, exclusive travel is on us!</b>
 						</p>

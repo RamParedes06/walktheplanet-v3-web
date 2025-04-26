@@ -16,7 +16,7 @@ function Manufacturing() {
 					<div className="self-end  w-full">
 						<div className=" px-[80px] max-[490px]:px-5 max-[490px]:py-10 py-[112px] z-10 ">
 							<TextReveal>
-								<p className="font-[900] text-[64px] text-[#14476F] font-satoshi text-center  max-[490px]:text-[40px]  max-[490px]:text-start uppercase">Manufacturing</p>
+								<p className="font-[900] text-[64px] text-[#14476F] font-satoshi text-center  max-[490px]:text-[30px]  max-[490px]:text-start uppercase">Manufacturing</p>
 								<div className="text-[#333]  text-2xl max-[490px]:text-[16px] font-generalSans">
 									Stay competitive globally while we handle your travel logistics—complex schedules,
 									<br /> frequent trips, and evolving needs.
