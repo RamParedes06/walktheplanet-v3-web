@@ -1,51 +1,38 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import Logo from "@/assets/images/Logo.png";
 import { AnimatePresence } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
-import Logo from "@/assets/images/Logo.png";
+import { useEffect, useRef, useState } from "react";
 
 import MenuSvg from "@/assets/svg/MenuSvg";
 
-import { TbMessage2Heart } from "react-icons/tb";
-import { PiBriefcaseMetal } from "react-icons/pi";
-import { HiOutlinePresentationChartLine } from "react-icons/hi";
-import { FaBusAlt } from "react-icons/fa";
-import { AiOutlineHeart } from "react-icons/ai";
-import { RiShoppingCart2Line } from "react-icons/ri";
-import { LuGraduationCap } from "react-icons/lu";
+import { HomeOffers } from "@/library/HomePartner";
+import "@/styles/hero-horizontal-scroll.scss";
+import "@/styles/slider.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "@/styles/hero-horizontal-scroll.scss";
-import travelOffers from "@/assets/images/travel_offers.webp";
-import "@/styles/slider.scss";
-import { HomeOffers } from "@/library/HomePartner";
+import { AiOutlineHeart } from "react-icons/ai";
+import { FaBusAlt } from "react-icons/fa";
+import { HiOutlinePresentationChartLine } from "react-icons/hi";
+import { LuGraduationCap } from "react-icons/lu";
+import { PiBriefcaseMetal } from "react-icons/pi";
+import { RiShoppingCart2Line } from "react-icons/ri";
+import { TbMessage2Heart } from "react-icons/tb";
 
 //! Slides
 
-import Menu from "./Menu";
+import { partners } from "@/app/partners";
 import { IconType } from "react-icons";
+import BeliefsMobile from "./BeliefMobile";
 import Beliefs from "./beliefs";
 import InfiniteMenu from "./discVertShaderSource";
-import { partners } from "@/app/partners";
+import Footer from "./Footer";
 import GridMotion from "./GridMotion";
 import GridMotionMobile from "./GridMotionMobile";
-import Footer from "./Footer";
-import BeliefsMobile from "./BeliefMobile";
+import Menu from "./Menu";
 
-import travelSlide1 from "@/assets/images/travel-package-slide.png";
-import travelSlide2 from "@/assets/images/travel-package-slide2.png";
-import travelSlide3 from "@/assets/images/travel-package-slide3.png";
-import local1 from "@/assets/images/local-destination1.png";
-import local2 from "@/assets/images/local-destination2.png";
-import local3 from "@/assets/images/local-destination3.png";
-import international1 from "@/assets/images/international1.png";
-import international2 from "@/assets/images/international2.png";
-import international3 from "@/assets/images/international3.png";
-import travel1 from "@/assets/images/travel1.png";
-import travel2 from "@/assets/images/travel2.png";
-import travel3 from "@/assets/images/travel3.png";
 import Marquee from "./Marquee";
-
+import TravelOffersV2 from "./TravelOffersV2";
 
 interface Tab {
   id: string;
@@ -63,21 +50,19 @@ const tabs: Tab[] = [
     id: "edutourism",
     title: "EDUTOURISM",
     image:
-      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FEduTourism.webp&version_id=null",
-    // edutorism,
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744095169/Hero1Figma_xcgzrt.png",
     description:
       "Immersive tours for all levels of education to enrich your students’ knowledge.",
     svg: LuGraduationCap,
     buttonText1: "See where learning takes you",
     buttonText2: "Contact Us",
-    link: "#",
+    link: "/edutourism",
   },
   {
     id: "corporate",
     title: "CORPORATE & BUSINESS",
     image:
-      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FCorporate%20and%20Business.webp&version_id=null",
-    // corporate,
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096416/Corporate_Business_1_4_dab6y2.png",
     description:
       "Personalized services suited for all corporate and business travel needs.",
     svg: PiBriefcaseMetal,
@@ -89,66 +74,61 @@ const tabs: Tab[] = [
     id: "mice",
     title: "M.I.C.E",
     image:
-      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FMICE.webp&version_id=null",
-    // mice,
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096418/MICE_1_2_c65uoh.png",
     description:
       "Meticulously planned events designed for your organization’s success.",
     svg: HiOutlinePresentationChartLine,
     buttonText1: "Explore Solutions",
     buttonText2: "Contact Us",
-    link: "#",
+    link: "/mice",
   },
   {
     id: "travelpackage",
     title: "TRAVEL PACKAGE ESSENTIALS",
     image:
-      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FTravel%20Package%20Essentials.webp&version_id=null",
-    // travel,
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096417/Travel_Essentials_Global_Data_Sim_1_1_ieqaf6.png",
     description:
       "One SIM, 190+ destinations connecting you anywhere in the world.",
     svg: FaBusAlt,
     buttonText1: "Find out what to pack",
     buttonText2: "Contact Us",
-    link: "#",
+    link: "/leisure",
   },
   {
     id: "liveselling",
     title: "LIVE SELLING",
     image:
-      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FLive%20Selling.webp&version_id=null",
-    // liveselling,
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096026/Live_Selling_Tiktok_zjfzai.png",
     description:
       "Exclusive rates and awesome discounts right at your fingertips! Book now on our TikTok live selling hours.",
     svg: TbMessage2Heart,
     buttonText1: "Capture discounts and live updates",
     buttonText2: "Contact Us",
-    link: "#",
+    link: "https://www.tiktok.com/@walktheplanetinc",
   },
   {
     id: "onlinestore",
     title: "ONLINE STORE",
     image:
-      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FOnline%20Store.webp&version_id=null",
-    // onlinestore,
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744094662/Online_Store_t1xmy8.png",
     description:
       "One-stop shop packed with an array of options for all travelers. Explore our selections at tours.walktheplanet.com",
     svg: RiShoppingCart2Line,
     buttonText1: "See what's new in store",
     buttonText2: "Contact Us",
-    link: "#",
+    link: "/all-in-products",
   },
   {
     id: "aboutus",
     title: "ABOUT US",
     image:
-      "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fhomepage%2Fhero-original%2FAbout%20Us.webp&version_id=null",
-    // aboutus,
+      "https://res.cloudinary.com/dmxvasob7/image/upload/v1744267728/hero-aboutus_rjysnm.png",
     description:
       "Exclusive Travel, Unique Experiences. Get to know who we are and where we play.",
     svg: AiOutlineHeart,
     buttonText1: "Find out what drives us",
     buttonText2: "Contact Us",
-    link: "#",
+    link: "/about-us",
   },
 ];
 
@@ -559,7 +539,14 @@ export default function Hero() {
             isOpenDesktop ? "invisible" : "visible"
           }`}
         >
-          <Image src={Logo} alt="logo" width={70} height={50} />
+          <Image
+            src={Logo}
+            onClick={() => window.location.replace("/")}
+            className="cursor-pointer"
+            alt="logo"
+            width={70}
+            height={50}
+          />
           <div onClick={toggleMenu} className="cursor-pointer">
             <MenuSvg />
           </div>
@@ -567,11 +554,11 @@ export default function Hero() {
       </div>
 
       {/* Menu Desktop View */}
-      <div className="hero-container lg:p-8 bg-white" ref={heroContainerRef}>
+      <div className="hero-container  bg-white" ref={heroContainerRef}>
         {/* tabs and logos  */}
-        <div className="fixed lg:left-[6%] lg:bottom-[20%] bottom-[10%] w-full lg:w-max z-50 flex flex-col lg:flex-row justify-between items-center gap-4 mt-1">
+        <div className="fixed lg:left-[5%] lg:bottom-[20%] bottom-[10%] w-full lg:w-max z-50 flex flex-col lg:flex-row justify-between items-center gap-4 mt-1">
           <div
-            className="flex flex-wrap justify-center lg:justify-start gap-3 lg:gap-4 lg:max-w-[850px] relative "
+            className="flex flex-wrap justify-center lg:justify-start gap-2.5 lg:gap-4 lg:max-w-[850px] max-w-[350px] relative"
             ref={tabsContainerRef}
           >
             <div
@@ -584,7 +571,7 @@ export default function Hero() {
             {tabs.map((tab, index) => (
               <button
                 key={index}
-                className={`cursor-pointer px-4 py-2 rounded-full flex items-center gap-2 sm:gap-3 text-sm transition whitespace-nowrap hover:text-black hover:bg-white  ${
+                className={`cursor-pointer lg:px-4 lg:py-2 px-2.5 py-1 rounded-full flex items-center gap-2 sm:gap-3 text-sm transition whitespace-nowrap hover:text-black hover:bg-white  ${
                   activeIndex === index ? "text-black bg-white" : "text-white"
                 }`}
                 onMouseEnter={() => {
@@ -603,6 +590,7 @@ export default function Hero() {
                       ? "black"
                       : "white"
                   }
+                  className="lg:block hidden"
                 />
                 <p>{tab.title}</p>
               </button>
@@ -611,27 +599,14 @@ export default function Hero() {
         </div>
 
         <div
-          className="racesWrapper  w-full lg:overflow-hidden lg:rounded-xl max-w-full mx-auto flex justify-between relative"
+          className="racesWrapper  w-full lg:overflow-hidden  max-w-full mx-auto flex justify-between relative"
           ref={wrapperRef}
         >
-          <div
-            className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40 z-10 pointer-events-none"
-            style={{
-              backgroundImage: `
-        linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.201792) 50.45%, rgba(0, 0, 0, 0.4) 100%),
-        linear-gradient(180deg, rgba(0, 0, 0, 0) 67.7%, rgba(0, 0, 0, 0.399908) 86.53%, rgba(0, 0, 0, 0.8) 105.36%),
-        linear-gradient(0deg, rgba(0, 0, 0, 0) 81.66%, rgba(0, 0, 0, 0.4) 110.95%)
-      `,
-            }}
-          />
           {/* scroll animation!!  */}
           <Marquee variant="homeHero" />
           {/* End of infinite scroll animation  */}
 
-          <div
-            className="races !max-h-[100vh] lg:!max-h-[92vh] w-full"
-            ref={racesRef}
-          >
+          <div className="races !max-h-[100vh]  w-full" ref={racesRef}>
             {tabs.map((tab, index: number) => (
               <div key={index} className="racesDiv">
                 <Image
@@ -640,36 +615,51 @@ export default function Hero() {
                   alt={`Images ${index}`}
                   width={1920}
                   height={150}
-                  className="relative object-center object-cover"
+                  // className="relative object-center object-cover"
                   style={{ zIndex: 0 }}
                 />
 
-                <div className="description-container  w-full !z-50  ">
+                <div
+                  className="description-container  w-full  "
+                  style={{
+                    backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.201792) 50.45%, rgba(0, 0, 0, 0.4) 100%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 67.7%, rgba(0, 0, 0, 0.399908) 86.53%, rgba(0, 0, 0, 0.8) 105.36%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0) 81.66%, rgba(0, 0, 0, 0.4) 110.95%)`,
+                  }}
+                >
                   <div
-                    className="description flex flex-col gap-5 my-[20%] lg:my-0 justify-center items-center lg:items-start lg:pl-[100px] w-full "
+                    className="lg:h-[55%] h-[90%] description flex flex-col gap-5   justify-center items-center lg:items-start lg:pl-[6%] w-full "
                     data-index={index}
                   >
                     <div className="max-w-[90%] lg:max-w-[100%]">
-                      <p className="!text-white text-4xl sm:text-5xl lg:text-6xl font-semibold text-center lg:text-left satoshi">
+                      <p className="text-white text-4xl sm:text-5xl lg:text-6xl font-semibold text-center lg:text-left satoshi">
                         {tabs[index].title}
                       </p>
-                      <p className="!text-white text-base sm:text-lg max-w-2xl text-center sm:text-left mx-auto sm:mx-0">
+                      <p
+                        className={`text-white lg:text-xl sm:text-lg ${
+                          index <= 3
+                            ? "max-w-3xl"
+                            : index == 6
+                            ? "max-w-[24rem]"
+                            : "max-w-xl"
+                        } text-center sm:text-left mx-auto sm:mx-0 mt-5`}
+                      >
                         {tabs[index].description}
                       </p>
                     </div>
 
-                    <div className="!z-50 flex flex-col lg:flex-row gap-4 sm:gap-6 justify-center sm:justify-start w-full max-w-[350px] lg:max-w-[500px]">
+                    <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 mt-8 justify-center sm:justify-start w-full max-w-[350px] lg:max-w-[500px]">
                       <button
                         onClick={() =>
                           (window.location.href = tabs[index].link)
                         }
-                        className="px-6 py-2 bg-[#D0F6FF] text-[#00537F] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min"
+                        className="px-6 py-4 bg-[#D0F6FF] text-[#00537F] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min"
                       >
                         {tab.buttonText1}
                       </button>
                       <button
                         onClick={() => (window.location.href = "/contact-us")}
-                        className="px-6 py-2 bg-white text-[#333] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min"
+                        className="px-6 py-4 bg-white text-[#333] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min"
                       >
                         {tab.buttonText2}
                       </button>
@@ -686,220 +676,17 @@ export default function Hero() {
           <Menu toggleMenu={toggleMenu} headerRect={headerRect} />
         )}
       </AnimatePresence>
+
       {/* For smooth introduction of the vertical scroll  */}
-      <div>
-        <div className="travel-section">
-          {" "}
-          {/* New parent container */}
-          <div
-            className="travel-offers-container bg-cover bg-center bg-fixed"
-            style={{ backgroundImage: `url(${travelOffers.src})` }}
-          >
-            {/* Black overlay with low opacity */}
-            <div className="absolute inset-0 bg-black opacity-30"></div>
-            <div className="cards-parent h-[275px] lg:h-[230px] bg-cover bg-center flex justify-center items-center relative z-10 ">
-              <div className="wrap marquee-container  mt-20 lg:mt-0 w-full overflow-hidden">
-                <div className="marquee text-[64px] lg:text-8xl font-semibold text-white opacity-90">
-                  <p className="drop-shadow-xl inline-block !text-[64px] ">
-                    {" OUR TRAVEL OFFERS "}
-                  </p>
-                  <span
-                    className="inline-block"
-                    style={{ width: "100px" }}
-                  ></span>
-                  <p className="drop-shadow-xl inline-block !text-[64px] ">
-                    {" OUR TRAVEL OFFERS "}
-                  </p>
-                  <span
-                    className="inline-block"
-                    style={{ width: "100px" }}
-                  ></span>
-                  <p className="drop-shadow-xl inline-block !text-[64px] ">
-                    {" OUR TRAVEL OFFERS "}
-                  </p>
-                  <span
-                    className="inline-block"
-                    style={{ width: "100px" }}
-                  ></span>
-                  <p className="drop-shadow-xl inline-block !text-[64px] ">
-                    {" OUR TRAVEL OFFERS "}
-                  </p>
-                  <span
-                    className="inline-block !text-[64px] "
-                    style={{ width: "100px" }}
-                  ></span>
-                  <p className="drop-shadow-xl inline-bloc !text-[64px] k">
-                    {" OUR TRAVEL OFFERS "}
-                  </p>
-                  <span
-                    className="inline-block"
-                    style={{ width: "100px" }}
-                  ></span>
-                  <p className="drop-shadow-xl inline-block !text-[64px] ">
-                    {" OUR TRAVEL OFFERS "}
-                  </p>
-                </div>
-              </div>
-            </div>
 
-            <div className="cardss ">
-              <div
-                className="card "
-                style={{ backgroundColor: "#E5F1F6B2", color: "black" }}
-              >
-                <p className="satoshi font-medium text-xl p-5 lg:p-[32px_40px]">
-                  TRAVEL PACKAGE ESSENTIALS
-                </p>
-                <div className="slider-container relative mt-4 ">
-                  <div className="image-slider">
-                    <div className="carousel-container">
-                      <div className="wrap">
-                        <Image src={travelSlide1} alt="" loading="lazy" />
-                        <Image src={travelSlide2} alt="" loading="lazy" />
-                        <Image src={travelSlide3} alt="" loading="lazy" />
-                        <Image src={travelSlide1} alt="" loading="lazy" />
-                        <Image src={travelSlide2} alt="" loading="lazy" />
-                        <Image src={travelSlide3} alt="" loading="lazy" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="absolute top-0 left-20 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] w-full  flex flex-col gap-4">
-                    <p className="text-black text-3xl  satoshi font-bold">
-                      GLOBAL DATA SIM
-                    </p>
-                    <p className="text-black text-2xl -[16px] satoshi">
-                      One SIM for every destination.
-                      <br /> Roam your way anytime, anywhere.
-                    </p>
-                    <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px]">
-                      Get Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="card"
-                style={{ backgroundColor: "#FE6000B2", zIndex: 2 }}
-              >
-                <p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]">
-                  LOCAL DESTINATIONS
-                </p>
-
-                <div className="slider-container relative ">
-                  <div className="image-slider">
-                    <div className="carousel-container">
-                      <div className="wrap">
-                        <Image src={local1} alt="" loading="lazy" />
-                        <Image src={local2} alt="" loading="lazy" />
-                        <Image src={local3} alt="" loading="lazy" />
-                        <Image src={local1} alt="" loading="lazy" />
-                        <Image src={local2} alt="" loading="lazy" />
-                        <Image src={local3} alt="" loading="lazy" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="absolute top-0 min-[1440px]:left-155 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] ] w-full  flex flex-col gap-4">
-                    <p className="text-black text-3xl  satoshi font-bold">
-                      PALAWAN TOUR
-                    </p>
-                    <p className="text-black text-2xl -[16px] satoshi">
-                      The Philippines’ best-kept secrets.
-                      <br /> Pack your bags and uncover your adventure.
-                    </p>
-                    <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px]">
-                      Get Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="card"
-                style={{ backgroundColor: "#333333B2", zIndex: 3 }}
-              >
-                <p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]">
-                  {" "}
-                  INTERNATIONAL DESTINATIONS
-                </p>
-
-                <div className="slider-container relative ">
-                  <div className="image-slider">
-                    <div className="carousel-container">
-                      <div className="wrap">
-                        <Image src={international1} alt="" loading="lazy" />
-                        <Image src={international2} alt="" loading="lazy" />
-                        <Image src={international3} alt="" loading="lazy" />
-                        <Image src={international1} alt="" loading="lazy" />
-                        <Image src={international2} alt="" loading="lazy" />
-                        <Image src={international3} alt="" loading="lazy" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="absolute top-0 left-20 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] w-full  flex flex-col gap-4">
-                    <p className="text-black text-3xl  satoshi font-bold">
-                      PARIS TOUR
-                    </p>
-                    <p className="text-black text-2xl -[16px] satoshi">
-                      Sought-after global attractions.
-                      <br />
-                      Travel with us and see the world.
-                    </p>
-                    <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px]">
-                      Book Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="card"
-                style={{ backgroundColor: "#00537FB2", zIndex: 4 }}
-              >
-                <p className="satoshi font-medium  text-xl p-5 lg:p-[32px_40px]">
-                  {" "}
-                  TRAVEL DOCUMENTATION{" "}
-                </p>
-                <div className="slider-container relative ">
-                  <div className="image-slider">
-                    <div className="carousel-container">
-                      <div className="wrap">
-                        <Image src={travel1} alt="" loading="lazy" />
-                        <Image src={travel2} alt="" loading="lazy" />
-                        <Image src={travel3} alt="" loading="lazy" />
-                        <Image src={travel1} alt="" loading="lazy" />
-                        <Image src={travel2} alt="" loading="lazy" />
-                        <Image src={travel3} alt="" loading="lazy" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="absolute top-0 min-[1440px]:left-155 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] w-full  flex flex-col gap-4">
-                    <p className="text-black text-3xl  satoshi font-bold">
-                      VISA PROCESSING
-                    </p>
-                    <p className="text-black text-2xl -[16px] satoshi">
-                      Visa processing and immigration requirements
-                      <br /> handled with ease.
-                    </p>
-                    <button className="px-6 py-2   bg-[#006FA9] text-white rounded-full max-w-[228px]">
-                      Book Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="scroll-spacer lg:h-[200px] !h-[150px]"></div>
-          </div>
-          {/* <div className="spacer"></div> */}
-        </div>
-      </div>
+      <TravelOffersV2 />
       <Beliefs />
       <BeliefsMobile />
       <InfiniteMenu items={partners} />
       <GridMotion items={HomeOffers} />
       <GridMotionMobile />
       <Footer />
+
       {/* Mobile Menu  */}
       <div className=" w-full relative overflow-hidden rounded-xl max-[480px]:rounded-none max-w-full mx-auto flex justify-between">
         <div className="lg:hidden">

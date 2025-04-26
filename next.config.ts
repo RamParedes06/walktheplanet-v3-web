@@ -25,6 +25,11 @@ const nextConfig: NextConfig = {
         hostname: "images.kiwi.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "res-console.cloudinary.com",
+        pathname: "/**",
+      },
     ],
     // domains: ['47.245.126.170', 'images.kiwi.com'],
   },

@@ -1,16 +1,14 @@
 @import "tailwindcss";
-@import url('https://fonts.cdnfonts.com/css/satoshi');
-@import url('https://fonts.cdnfonts.com/css/general-sans');
-
+@import url("https://fonts.cdnfonts.com/css/satoshi");
+@import url("https://fonts.cdnfonts.com/css/general-sans");
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 
-  --font-geist-sans: 'General Sans', sans-serif;
-  --font-geist-mono: 'Satoshi', sans-serif;
+  --font-geist-sans: "General Sans", sans-serif;
+  --font-geist-mono: "Satoshi", sans-serif;
 }
-
 
 .font-generalSans {
   font-family: var(--font-general-sans), system-ui, sans-serif;
@@ -25,7 +23,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+  --animate-scroll: scroll var(--animation-duration, 40s)
+    var(--animation-direction, forwards) linear infinite;
 
   @keyframes scroll {
     to {
@@ -34,12 +33,13 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Removed dark mode to fix inconsistency in text colors  */
+/* @media (prefers-color-scheme: dark) { */
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
+/* } */
 
 body {
   background: var(--background);
@@ -47,16 +47,31 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   display: none;
 }
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
   display: flex;
   animation: marquee 10s linear infinite;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.1s ease-in-out forwards;
 }

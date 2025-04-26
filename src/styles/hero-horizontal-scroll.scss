@@ -1,7 +1,6 @@
 // TRAVEL OFFERS
 .spacer-lg {
   height: 210px;
-  // opacity: 0.2
 }
 
 .spacer-sm {
@@ -12,6 +11,7 @@
   position: relative;
   width: 100vw;
   height: 50vh;
+  perspective: 1000px;
 }
 .card {
   position: absolute;
@@ -20,71 +20,12 @@
   width: 100%;
   height: 100%;
   backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.3); 
+  transform-style: preserve-3d;
+  opacity: 1;
 }
 
 .travel-offers-container {
-  background-color: #e10600;
-}
-
-// MARQUEE INFINITE TEXT SCROLL
-
-.wrapper {
-  background-color: #ffc000 !important;
-  width: 100%;
-  z-index: 10;
-  position: absolute;
-  height: auto;
-  color: black;
-}
-
-.top-wrapper {
-  top: 0;
-}
-
-.bottom-wrapper {
-  bottom: 0;
-}
-
-.marquee {
-  white-space: nowrap;
-  overflow: hidden;
-  display: inline-block;
-  animation: marquee 10s linear infinite;
-}
-
-.marquee p {
-  display: inline-block;
-  margin: 8px 0;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(-100%, 0);
-  }
-}
-
-/* For mobile responsiveness */
-@media (max-width: 768px) {
-  .marquee {
-    animation: marquee 15s linear infinite;
-  }
-
-  .marquee p {
-    font-size: 14px;
-  }
-}
-
-@keyframes marquee {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
+  background: transparent;
 }
 
 // HORIZONTAL SCROLL HERO
@@ -113,19 +54,15 @@ body {
   height: 100vh;
   object-fit: cover;
   object-position: center center;
-  border-radius: 20px;
 }
 
 .description-container {
   position: absolute;
-  top: 20%;
+  top: 0%;
   padding: 20px;
   z-index: 20;
   width: 100%;
-}
-
-.description {
-  height: max-content;
+  height: 100vh;
 }
 
 .races h2 {
@@ -133,7 +70,6 @@ body {
   flex-shrink: 0;
   padding-right: 0.3em;
   padding-left: 0.3em;
-  color: #e10600;
   margin: 0;
 }
 
