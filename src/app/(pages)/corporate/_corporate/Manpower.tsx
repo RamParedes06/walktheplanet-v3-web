@@ -54,11 +54,11 @@ const Manpower = () => {
   }, [images.length]);
 
   return (
-    <div className="relative w-screen h-[400px] md:h-screen">
+    <div className="relative w-screen h-screen">
       {/* Background Images Container */}
       <div className="absolute top-0 left-0 w-full h-full flex flex-col sm:flex-row bg-white  overflow-hidden">
         {/* First Background Image */}
-        <div className="w-full h-[400px] sm:h-full lg:translate-x-90 translate-x-50">
+        <div className="w-full sm:w-[50%] h-auto sm:h-full lg:translate-x-90 translate-x-50">
           <Image
             src={background}
             alt="background"
@@ -125,13 +125,13 @@ const Manpower = () => {
         {/* Gradient Overlay with Content */}
         <div className="absolute top-0 left-0 right-0 h-full z-10 flex ">
           {/* Content Container */}
-          <div className="pt-15 lg:max-w-[55%] py-[30px] px-[24px] lg:py-[112px] lg:px-[80px] h-full flex flex-col lg:justify-end justify-start">
+          <div className="lg:max-w-[55%] py-[30px] px-[24px] lg:py-[112px] lg:px-[80px] h-full flex flex-col lg:justify-end justify-start">
             <TextReveal>
               <div>
-                <p className="font-[900] text-[35px] lg:text-[64px] text-[#14476F] font-satoshi uppercase">
+                <p className="font-[900] lg:text-[64px] text-[30px] text-[#14476F] font-satoshi uppercase">
                   Manpower agencies & OFW Deployment
                 </p>
-                <div className="pt-5 text-black lg:text-2xl text-base font-generalSans lg:flex lg:flex-col lg:gap-5">
+                <div className="text-black lg:text-2xl text-base font-generalSans lg:flex lg:flex-col lg:gap-5">
                   <p>
                     Discover top talent and connect them with the best
                     opportunities, locally and globally.{" "}

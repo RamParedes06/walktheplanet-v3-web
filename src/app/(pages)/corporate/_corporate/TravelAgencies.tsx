@@ -18,7 +18,7 @@ function TravelAgencies() {
   return (
     <div className="h-screen bg-white">
       <div
-        className="h-[288px] max-[490px] relative overflow-hidden flex items-center"
+        className="max-[490px] relative overflow-hidden flex items-center"
         style={{ backgroundImage: `url(${illustration})` }}
       >
         <div className="p-20 w-full max-[490px]:p-0">
