@@ -35,7 +35,7 @@ function ToursPackages() {
 					<div className="buttons flex gap-10 max-[490px]:flex-col max-[490px]:gap-5">
 						<button
 							onClick={() => setIsDomestic(true)}
-							className={`px-[24px] py-4 rounded-2xl max-[490px]:rounded-full flex items-center text-[16px] font-semibold cursor-pointer ${
+							className={`px-[24px] py-4 rounded-2xl max-[490px]:rounded-full flex items-center justify-center text-[16px] font-semibold cursor-pointer ${
 								isDomestic ? "bg-white text-[#00537F]" : "bg-[#FFFFFF33] border-2 backdrop-blur-sm border-white text-white"
 							}`}
 						>

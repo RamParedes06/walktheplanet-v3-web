@@ -19,7 +19,7 @@ const Carousel: React.FC<CarouselProps> = ({ images = [] }) => {
 		<div className="relative w-full overflow-hidden group">
 			<div className="flex animate-marquee group-hover:[animation-play-state:paused] min-w-max" style={{ animationDuration: "30s" }}>
 				{[...images, ...images].map((image, index) => (
-					<div key={index} className="flex-shrink-0 w-[600px] sm:w-[400px] h-[400px]">
+					<div key={index} className="flex-shrink-0 w-[600px] sm:w-[400px] h-[480px] max-[490px]:h-[400px]">
 						<div className="relative w-full h-full">
 							<Image src={image.url} alt={`carousel-image-${index}`} fill className="object-cover" loading="lazy" />
 							<div className="absolute bottom-4 left-4  text-white text-3xl px-2 py-1 rounded-md">{image.title}</div>
