@@ -139,9 +139,9 @@ const Emergency = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row w-full h-screen">
+    <div className="flex flex-col md:flex-row w-full md:h-screen">
       {/* Left side - Image with text overlay */}
-      <div className="w-full md:w-1/2 relative h-screen overflow-hidden bg-black">
+      <div className="w-full  md:w-1/2 relative h-[400px] md:h-screen overflow-hidden bg-black">
         {/* Render all slides */}
         {slides.map((slide, index) => (
           <div
@@ -163,7 +163,7 @@ const Emergency = () => {
         {/* Text overlay with high z-index to  stay on top */}
         <div className="absolute bottom-0 left-0 p-6 md:p-12 lg:p-[112px_64px] w-full bg-gradient-to-t from-black/80 via-black/40 to-transparent z-50 pointer-events-none">
           <TextReveal>
-            <p className="text-white leading-relaxed md:text-2xl text-xl italic max-w-[590px]">
+            <p className="text-white text-[20px] leading-relaxed md:text-2xl text-xl italic max-w-[590px] pb-10">
               We prioritize your safety, comfort, and confidentiality in every
               corporate and business travel arrangement to make your journeys
               smooth and worry-free
