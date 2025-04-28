@@ -130,7 +130,65 @@ const tabs: Tab[] = [
 ];
 
 export default function Hero() {
-  // const [activeIndex, setActiveIndex] = useState(0);
+  //! For sticky navbar exclude visibility on footer
+  const footerRef = useRef<HTMLDivElement>(null);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+
+  useEffect(() => {
+    const isFooterVisible = () => {
+      if (!footerRef.current) return false;
+      
+      const footerRect = footerRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const viewportWidth = window.innerWidth;
+      
+      // vary thresholds on screen size
+      let threshold;
+      if (viewportWidth <= 768) {
+        // 20% of viewport
+        threshold = viewportHeight * 0.2;
+      } else {
+        // when viewport is entered
+        threshold = viewportHeight;
+      }
+      
+      return footerRect.top < threshold && footerRect.bottom > 0;
+    };
+    
+    const handleScroll = () => {
+      const footerVisibleNow = isFooterVisible();
+      if (isHeaderVisible === footerVisibleNow) {
+        setIsHeaderVisible(!footerVisibleNow);
+      }
+    };
+    
+    // Add throttling for better performance
+    let ticking = false;
+    const scrollListener = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    
+    // Add event listeners
+    window.addEventListener('scroll', scrollListener);
+    window.addEventListener('resize', scrollListener);
+    
+    // Initial check
+    handleScroll();
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('scroll', scrollListener);
+      window.removeEventListener('resize', scrollListener);
+    };
+  }, [isHeaderVisible]);
+
+
   //! For the full screen menu animation
   const [isOpenDesktop, setIsOpenDesktop] = useState(false);
   const [isOpenMobile, setIsOpenMobile] = useState(false);
@@ -138,7 +196,6 @@ export default function Hero() {
   //! Slide Section
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollDelta = useRef(0);
-  // const [scrollProgress, setScrollProgress] = useState(0);
   const [isActive, setIsActive] = useState(false);
 
   const totalScrollRequired = 1000;
@@ -155,11 +212,10 @@ export default function Hero() {
           setIsActive(false);
           document.body.style.overflow = "";
 
-          // Only reset if user scrolls upwards to the top
+          //  reset if user scrolls upwards to the top
           if (scrollProgressRef.current < 0) {
             scrollDelta.current = 0;
             scrollProgressRef.current = 0;
-            // setScrollProgress(0);
           }
         }
       },
@@ -179,7 +235,7 @@ export default function Hero() {
 
       const currentProgress = scrollProgressRef.current;
 
-      // Prevent scrolling if section is fully collapsed or fully expanded
+      // prevent scrolling if section is fully expanded
       if (
         (currentProgress <= 0 && e.deltaY < 0) ||
         (currentProgress >= 1 && e.deltaY > 0)
@@ -199,13 +255,11 @@ export default function Hero() {
 
       const progress = scrollDelta.current / totalScrollRequired;
       scrollProgressRef.current = progress;
-      // setScrollProgress(progress);
-
-      //  a delay before enabling scrolling
+      //  add delay before enabling scrolling
       if (progress >= 1) {
         setTimeout(() => {
           document.body.style.overflow = "";
-        }, 2000); // Delay to prevent skipping
+        }, 2000); 
       }
     };
 
@@ -526,9 +580,13 @@ export default function Hero() {
 
   return (
     <>
-      {/* Logo Menu  */}
+      {/*  Menu  */}
       {/* Header - only visible when not animating */}
-      <div className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block ">
+      <div
+        className={`fixed right-[5%] bottom-[20%] z-50 hidden lg:block transition-opacity duration-100 ${
+          isHeaderVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
         {/* Header - only visible when menu is closed */}
         <div
           ref={headerRef}
@@ -549,6 +607,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      {/* )} */}
 
       {/* Menu Desktop View */}
       <div className="hero-container  bg-white" ref={heroContainerRef}>
@@ -682,14 +741,17 @@ export default function Hero() {
       <InfiniteMenu items={partners} />
       <GridMotion items={HomeOffers} />
       <GridMotionMobile />
-      <Footer />
 
       {/* Mobile Menu  */}
       <div className=" w-full relative overflow-hidden rounded-xl max-[480px]:rounded-none max-w-full mx-auto flex justify-between">
         <div className="lg:hidden">
           {/* Logo Menu */}
           {/* Header - only visible when not animating */}
-          <div className="fixed z-10 top-[70px]  w-full flex items-center justify-center ">
+          <div
+            className={`fixed z-10 top-[70px]  w-full flex items-center justify-center transition-opacity duration-100  ${
+              isHeaderVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          >
             {/* Header - only visible when menu is closed */}
             <div
               ref={headerRefMobile}
@@ -714,6 +776,9 @@ export default function Hero() {
             )}
           </AnimatePresence>
         </div>
+      </div>
+      <div ref={footerRef}>
+        <Footer />
       </div>
     </>
   );
