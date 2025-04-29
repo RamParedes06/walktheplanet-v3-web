@@ -62,42 +62,43 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
       <div
         className={`relative h-screen flex flex-col items-center px-0 py-4 md:p-8 pb-0 bg-white`}
       >
-        {/* SVG First Overlay - Hidden on mobile */}
-
-        {!isMobile ? (
-          <div></div>
-        ) : (
-          <div className="absolute left-0 w-max -top-60 -rotate-35">
-            <Image
-              src={BackgroundSvg}
-              alt="background"
-              width={900}
-              height={500}
-            />
-          </div>
-        )}
-
         {/* Description */}
         <div className="relative h-[40%] w-full">
-          <div className="absolute left-0 -top-80 w-max">
-            <Image
-              src={BackgroundSvg}
-              alt="background"
-              width={900}
-              height={500}
-              className="-rotate-35 w-full"
-            />
-          </div>
+          {/* SVG First Overlay - Hidden on mobile */}
 
-          <div className="absolute -right-110 -top-80 w-max">
-            <Image
-              src={BackgroundSvg}
-              alt="background"
-              width={900}
-              height={500}
-              className="-rotate-25 w-full"
-            />
-          </div>
+          {!isMobile ? (
+            <div>
+              {" "}
+              <div className="absolute left-0 -top-80 w-max">
+                <Image
+                  src={BackgroundSvg}
+                  alt="background"
+                  width={900}
+                  height={500}
+                  className="-rotate-35 w-full"
+                />
+              </div>
+              <div className="absolute -right-110 -top-80 w-max">
+                <Image
+                  src={BackgroundSvg}
+                  alt="background"
+                  width={900}
+                  height={500}
+                  className="-rotate-25 w-full"
+                />
+              </div>
+            </div>
+          ) : (
+            <div className="absolute left-0 w-max -top-60 -rotate-35">
+              <Image
+                src={BackgroundSvg}
+                alt="background"
+                width={900}
+                height={500}
+              />
+            </div>
+          )}
+
           <TextReveal>
             <div
               className={`pt-[64px] md:pt-[54px] z-10 flex flex-col items-center`}
