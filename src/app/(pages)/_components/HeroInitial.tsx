@@ -1,9 +1,9 @@
 "use client";
-import { useEffect, useRef, useState, useCallback } from "react";
 import { AnimatePresence } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
+import Logo from "@/assets/images/Logo.png";
 import MenuSvg from "@/assets/svg/MenuSvg";
 
 import "@/styles/hero-horizontal-scroll.scss";
@@ -197,60 +197,61 @@ export default function Hero() {
 
   const startAutoPlay = useCallback(() => {
     clearAutoPlayInterval();
-    
+
     autoPlayIntervalRef.current = setInterval(() => {
       if (!isAnimating) {
         const nextIndex = (activeIndex + 1) % tabs.length;
         goToSlide(nextIndex);
       }
-    }, 3000); 
-          //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, 3000);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIndex, isAnimating, clearAutoPlayInterval]);
 
+  const goToSlide = useCallback(
+    (index: number) => {
+      // Prevent clicking during animation or going to the same slide
+      if (isAnimating || activeIndex === index) return;
+      setIsAnimating(true);
+      setActiveIndex(index);
 
-  const goToSlide = useCallback((index: number) => {
-    // Prevent clicking during animation or going to the same slide
-    if (isAnimating || activeIndex === index) return;
-    setIsAnimating(true);
-    setActiveIndex(index);
-
-    const races = racesRef.current;
-    if (!races) {
-      setIsAnimating(false);
-      return;
-    }
-
-    // Calculate the slide position - each slide is 100vw
-    const slideWidth = window.innerWidth;
-    const targetPosition = -(index * slideWidth);
-
-    gsap.to(races, {
-      x: targetPosition,
-      duration: 0.8,
-      ease: "power2.out",
-      onComplete: () => {
+      const races = racesRef.current;
+      if (!races) {
         setIsAnimating(false);
-      },
-    });
+        return;
+      }
 
-    const descriptions = document.querySelectorAll(".description");
+      // Calculate the slide position - each slide is 100vw
+      const slideWidth = window.innerWidth;
+      const targetPosition = -(index * slideWidth);
 
-    // hide all descriptions
-    gsap.set(descriptions, {
-      opacity: 0,
-      y: 150,
-    });
+      gsap.to(races, {
+        x: targetPosition,
+        duration: 0.8,
+        ease: "power2.out",
+        onComplete: () => {
+          setIsAnimating(false);
+        },
+      });
 
-    // reveal the current description
-    gsap.to(descriptions[index], {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      ease: "circ.out",
-      delay: 0.1, 
-    });
+      const descriptions = document.querySelectorAll(".description");
 
-  }, [isAnimating, activeIndex]);
+      // hide all descriptions
+      gsap.set(descriptions, {
+        opacity: 0,
+        y: 150,
+      });
+
+      // reveal the current description
+      gsap.to(descriptions[index], {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "circ.out",
+        delay: 0.1,
+      });
+    },
+    [isAnimating, activeIndex]
+  );
 
   useEffect(() => {
     setMounted(true);
@@ -283,7 +284,7 @@ export default function Hero() {
       // Set initial positioning for slides
       const slideWidth = window.innerWidth;
       const targetPosition = -(activeIndex * slideWidth);
-      
+
       gsap.set(races, { x: targetPosition });
 
       // Set initial state for all description elements
@@ -322,7 +323,7 @@ export default function Hero() {
     if (mounted && initialSetupDone && !isOpenDesktop && !isOpenMobile) {
       startAutoPlay();
     }
-    
+
     return () => {
       clearAutoPlayInterval();
     };
@@ -333,7 +334,7 @@ export default function Hero() {
 
     const races = racesRef.current;
     if (!races) return;
-    
+
     const handleResize = () => {
       // Update each slide width
       const racesDivs = document.querySelectorAll(".racesDiv");
@@ -405,23 +406,12 @@ export default function Hero() {
       <div className="hero-container bg-white relative" ref={heroContainerRef}>
         {/* tabs and logos  */}
         <div className="absolute lg:left-[5%] lg:bottom-[20%] bottom-[10%] z-10 w-full lg:w-max flex flex-col lg:flex-row justify-between items-center gap-4 mt-1 ">
-          <div
-            className="flex flex-wrap justify-center lg:justify-start gap-2.5 lg:gap-4 lg:max-w-[850px] max-w-[350px] relative"
-            ref={tabsContainerRef}
-          >
-            <div
-              ref={slideRef}
-              className={`absolute bg-white rounded-full z-10 pointer-events-none ${
-                initialRender ? "" : "transition-all duration-300 ease-in-out"
-              }`}
-              style={{ top: "2px" }}
-            />
+          <div className="flex flex-wrap justify-center lg:justify-start gap-2.5 lg:gap-4 lg:max-w-[850px] max-w-[350px] relative" ref={tabsContainerRef}>
+            <div ref={slideRef} className={`absolute bg-white rounded-full z-10 pointer-events-none ${initialRender ? "" : "transition-all duration-300 ease-in-out"}`} style={{ top: "2px" }} />
             {tabs.map((tab, index) => (
               <button
                 key={index}
-                className={`cursor-pointer lg:px-4 lg:py-2 px-2.5 py-1 rounded-full flex items-center gap-2 sm:gap-3 text-sm transition whitespace-nowrap hover:text-black hover:bg-white  ${
-                  activeIndex === index ? "text-black bg-white" : "text-white"
-                }`}
+                className={`cursor-pointer lg:px-4 lg:py-2 px-2.5 py-1 rounded-full flex items-center gap-2 sm:gap-3 text-sm transition whitespace-nowrap hover:text-black hover:bg-white  ${activeIndex === index ? "text-black bg-white" : "text-white"}`}
                 onMouseEnter={() => setHoveredTab(index)}
                 onMouseLeave={() => setHoveredTab(-1)}
                 onClick={() => {
@@ -457,10 +447,7 @@ export default function Hero() {
                       linear-gradient(0deg, rgba(0, 0, 0, 0) 81.66%, rgba(0, 0, 0, 0.4) 110.95%)`,
                   }}
                 >
-                  <div
-                    className="lg:h-[55%] h-[90%] description flex flex-col gap-5 justify-center items-center lg:items-start lg:pl-[6%] w-full"
-                    data-index={index}
-                  >
+                  <div className="lg:h-[55%] h-[90%] description flex flex-col gap-5 justify-center items-center lg:items-start lg:pl-[6%] w-full" data-index={index}>
                     <div className="w-full max-w-[90%] lg:max-w-[100%]">
                       <h2 className="text-white text-[32px] sm:text-[32px] lg:text-6xl font-semibold text-center lg:text-left satoshi">{tabs[index].title}</h2>
                       <p className="text-white text-base sm:text-lg lg:text-xl mx-auto lg:mx-0 max-w-[80%] lg:max-w-full mt-5 text-center lg:text-left">{tabs[index].description}</p>
