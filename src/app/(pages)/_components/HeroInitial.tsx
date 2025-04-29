@@ -1,5 +1,5 @@
 "use client";
-import Logo from "@/assets/images/Logo.png";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { AnimatePresence } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -179,21 +179,39 @@ export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [hoveredTab, setHoveredTab] = useState<number>(-1);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [initialSetupDone, setInitialSetupDone] = useState(false); // Add this state to track initial setup
+  const [initialSetupDone, setInitialSetupDone] = useState(false);
+  const autoPlayIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   //! Sliding animation for the tabs
   const tabsContainerRef = useRef<HTMLDivElement>(null);
   const slideRef = useRef<HTMLDivElement>(null);
   const [initialRender, setInitialRender] = useState(true);
 
-  // Modified goToSlide function to handle animation state
-  const goToSlide = (index: number) => {
-    // Prevent clicking during animation
+  // Clear any existing autoplay interval
+  const clearAutoPlayInterval = useCallback(() => {
+    if (autoPlayIntervalRef.current) {
+      clearInterval(autoPlayIntervalRef.current);
+      autoPlayIntervalRef.current = null;
+    }
+  }, []);
+
+  const startAutoPlay = useCallback(() => {
+    clearAutoPlayInterval();
+    
+    autoPlayIntervalRef.current = setInterval(() => {
+      if (!isAnimating) {
+        const nextIndex = (activeIndex + 1) % tabs.length;
+        goToSlide(nextIndex);
+      }
+    }, 3000); 
+          //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeIndex, isAnimating, clearAutoPlayInterval]);
+
+
+  const goToSlide = useCallback((index: number) => {
+    // Prevent clicking during animation or going to the same slide
     if (isAnimating || activeIndex === index) return;
-
     setIsAnimating(true);
-
-    // Set the active index
     setActiveIndex(index);
 
     const races = racesRef.current;
@@ -202,11 +220,10 @@ export default function Hero() {
       return;
     }
 
-    // Calculate the slide position manually - each slide is 100vw
+    // Calculate the slide position - each slide is 100vw
     const slideWidth = window.innerWidth;
     const targetPosition = -(index * slideWidth);
 
-    // Animate the slide transition
     gsap.to(races, {
       x: targetPosition,
       duration: 0.8,
@@ -216,24 +233,24 @@ export default function Hero() {
       },
     });
 
-    // Animate description elements
     const descriptions = document.querySelectorAll(".description");
 
-    // First hide all descriptions
+    // hide all descriptions
     gsap.set(descriptions, {
       opacity: 0,
       y: 150,
     });
 
-    // Then reveal the current description
+    // reveal the current description
     gsap.to(descriptions[index], {
       opacity: 1,
       y: 0,
       duration: 0.8,
       ease: "circ.out",
-      delay: 0.1, // Small delay to sync with slide transition
+      delay: 0.1, 
     });
-  };
+
+  }, [isAnimating, activeIndex]);
 
   useEffect(() => {
     setMounted(true);
@@ -242,13 +259,20 @@ export default function Hero() {
     // Register GSAP plugins
     gsap.registerPlugin(ScrollTrigger);
 
+    return () => {
+      // Cleanup on unmount
+      clearAutoPlayInterval();
+    };
+  }, [clearAutoPlayInterval]);
+
+  // Setup after mounting
+  useEffect(() => {
     // Only run the setup after the component is mounted and only once
     if (mounted && !initialSetupDone) {
       const races = racesRef.current;
       if (!races) return;
 
-      // Important: Instead of using ScrollTrigger to pin, use CSS
-      // This avoids issues with click handling
+      // Setup container styles
       if (heroContainerRef.current) {
         heroContainerRef.current.style.height = "100vh";
         heroContainerRef.current.style.width = "100%";
@@ -256,12 +280,11 @@ export default function Hero() {
         heroContainerRef.current.style.overflow = "hidden";
       }
 
-      // Set initial positioning for slides (only on first run)
-      const currentIndex = activeIndex;
+      // Set initial positioning for slides
       const slideWidth = window.innerWidth;
-      const targetPosition = -(currentIndex * slideWidth);
-
-      gsap.set(races, { x: targetPosition }); // Position at current active index
+      const targetPosition = -(activeIndex * slideWidth);
+      
+      gsap.set(races, { x: targetPosition });
 
       // Set initial state for all description elements
       const descriptions = document.querySelectorAll(".description");
@@ -290,20 +313,27 @@ export default function Hero() {
 
       // Make races container have the correct width
       races.style.width = `${window.innerWidth * tabs.length}px`;
-
-      // Mark initial setup as done
       setInitialSetupDone(true);
     }
   }, [mounted, activeIndex, initialSetupDone]);
 
-  // Separate useEffect for window resize handling
+  // Start autoplay after setup is complete
+  useEffect(() => {
+    if (mounted && initialSetupDone && !isOpenDesktop && !isOpenMobile) {
+      startAutoPlay();
+    }
+    
+    return () => {
+      clearAutoPlayInterval();
+    };
+  }, [mounted, initialSetupDone, isOpenDesktop, isOpenMobile, startAutoPlay, clearAutoPlayInterval]);
+
   useEffect(() => {
     if (!mounted) return;
 
     const races = racesRef.current;
     if (!races) return;
-
-    // Update slide widths on window resize
+    
     const handleResize = () => {
       // Update each slide width
       const racesDivs = document.querySelectorAll(".racesDiv");
@@ -315,9 +345,8 @@ export default function Hero() {
       races.style.width = `${window.innerWidth * tabs.length}px`;
 
       // Update the current slide position
-      const currentIndex = activeIndex;
       const slideWidth = window.innerWidth;
-      const targetPosition = -(currentIndex * slideWidth);
+      const targetPosition = -(activeIndex * slideWidth);
 
       gsap.set(races, {
         x: targetPosition,
@@ -331,6 +360,7 @@ export default function Hero() {
     };
   }, [mounted, activeIndex]);
 
+  // Update tab slider position
   useEffect(() => {
     if (!tabsContainerRef.current || !slideRef.current) return;
 
@@ -348,6 +378,15 @@ export default function Hero() {
       setInitialRender(false);
     }
   }, [activeIndex, initialRender]);
+
+  // Pause/restart autoplay on menu open/close
+  useEffect(() => {
+    if (isOpenDesktop || isOpenMobile) {
+      clearAutoPlayInterval();
+    } else if (mounted && initialSetupDone) {
+      startAutoPlay();
+    }
+  }, [isOpenDesktop, isOpenMobile, mounted, initialSetupDone, clearAutoPlayInterval, startAutoPlay]);
 
   return (
     <>
@@ -380,15 +419,17 @@ export default function Hero() {
             {tabs.map((tab, index) => (
               <button
                 key={index}
-                className={`cursor-pointer lg:px-4 lg:py-2 px-2.5 py-1 rounded-full flex items-center gap-2 sm:gap-3 text-sm transition whitespace-nowrap hover:text-black hover:bg-white  ${activeIndex === index ? "text-black bg-white" : "text-white"}`}
-                onMouseEnter={() => {
-                  setHoveredTab(index);
-                }}
-                onMouseLeave={() => {
-                  setHoveredTab(-1);
-                }}
+                className={`cursor-pointer lg:px-4 lg:py-2 px-2.5 py-1 rounded-full flex items-center gap-2 sm:gap-3 text-sm transition whitespace-nowrap hover:text-black hover:bg-white  ${
+                  activeIndex === index ? "text-black bg-white" : "text-white"
+                }`}
+                onMouseEnter={() => setHoveredTab(index)}
+                onMouseLeave={() => setHoveredTab(-1)}
                 onClick={() => {
+                  // Clear the current interval before changing slide
+                  clearAutoPlayInterval();
                   goToSlide(index);
+                  // Restart autoplay after manual navigation
+                  startAutoPlay();
                 }}
               >
                 <tab.svg color={activeIndex === index || hoveredTab === index ? "black" : "white"} className="lg:block hidden" />
@@ -416,7 +457,10 @@ export default function Hero() {
                       linear-gradient(0deg, rgba(0, 0, 0, 0) 81.66%, rgba(0, 0, 0, 0.4) 110.95%)`,
                   }}
                 >
-                  <div className="lg:h-[55%] h-[90%] description flex flex-col gap-5   justify-center items-center lg:items-start lg:pl-[6%] w-full " data-index={index}>
+                  <div
+                    className="lg:h-[55%] h-[90%] description flex flex-col gap-5 justify-center items-center lg:items-start lg:pl-[6%] w-full"
+                    data-index={index}
+                  >
                     <div className="w-full max-w-[90%] lg:max-w-[100%]">
                       <h2 className="text-white text-[32px] sm:text-[32px] lg:text-6xl font-semibold text-center lg:text-left satoshi">{tabs[index].title}</h2>
                       <p className="text-white text-base sm:text-lg lg:text-xl mx-auto lg:mx-0 max-w-[80%] lg:max-w-full mt-5 text-center lg:text-left">{tabs[index].description}</p>
