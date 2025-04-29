@@ -43,7 +43,7 @@ function Edutourism() {
 								<p className="font-medium">
 									Your students&apos;
 									<span className="font-bold">
-										safety, comfort, and <br /> confidentialit
+										safety, comfort, and <br /> confidentiality
 									</span>{" "}
 									are our priority <br />
 									to ensure each moment is unique and memorable
@@ -53,7 +53,7 @@ function Edutourism() {
 							<div className="flex flex-col gap-3 text-2xl">
 								<p className="font-medium">
 									Your students’
-									<span className="font-bold"> safety, comfort, and confidentiality</span> are our priority <br />
+									<span className="font-bold"> safety, comfort, and confidentiality </span> are our priority <br />
 									to ensure each moment is unique and memorable
 								</p>
 							</div>
