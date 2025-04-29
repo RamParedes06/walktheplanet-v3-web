@@ -19,8 +19,6 @@ import AccordionWithImageSlider from "../_components/AccordionWithImageSlider";
 function page() {
   return (
     <>
-      {/* <div className="snap-y snap-mandatory overflow-y-auto h-screen"> */}
-      {/* <SmoothScroll> */}
       <section id="hero" className="snap-start">
         <Hero
           images={MiceImages}
@@ -81,8 +79,6 @@ function page() {
       <section id="footer" className="snap-start">
         <Footer />
       </section>
-      {/* </SmoothScroll> */}
-      {/* </div> */}
     </>
   );
 }
