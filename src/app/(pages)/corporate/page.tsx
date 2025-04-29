@@ -22,7 +22,7 @@ import {
 } from "@/library/CorpoCTA";
 import Emergency from "./_corporate/Emergency";
 import Footer from "../_components/Footer";
-import SmoothScroll from "../_components/SmoothScroll";
+// import SmoothScroll from "../_components/SmoothScroll";
 import { corpoHero } from "@/library/CorpHero";
 
 function Corporate() {

@@ -1,7 +1,7 @@
 import { MiceImages } from "@/library/MiceHero";
 import React from "react";
 import Footer from "../_components/Footer";
-import SmoothScroll from "../_components/SmoothScroll";
+// import SmoothScroll from "../_components/SmoothScroll";
 import Hero from "../corporate/_corporate/Hero";
 import {
   image1,

@@ -12,7 +12,7 @@ import { ProductsImages } from "@/library/ProductsHero";
 import { TranspoImages } from "@/library/TransportationImages";
 import CarouselTitle from "../_components/CarouselWithTitle/CarouselTitle";
 import Footer from "../_components/Footer";
-import SmoothScroll from "../_components/SmoothScroll";
+// import SmoothScroll from "../_components/SmoothScroll";
 import CallToAction from "../corporate/_corporate/CallToAction";
 import Hero from "../corporate/_corporate/Hero";
 import Tours from "../leisure/_components/Tours";

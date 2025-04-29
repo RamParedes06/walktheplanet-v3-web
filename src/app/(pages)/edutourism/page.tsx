@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import SmoothScroll from "../_components/SmoothScroll";
+// import SmoothScroll from "../_components/SmoothScroll";
 import Footer from "../_components/Footer";
 import { EduImages } from "@/library/EduHero";
 import Hero from "../corporate/_corporate/Hero";

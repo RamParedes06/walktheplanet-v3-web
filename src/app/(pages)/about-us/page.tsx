@@ -1,5 +1,5 @@
 import React from "react";
-import SmoothScroll from "../_components/SmoothScroll";
+// import SmoothScroll from "../_components/SmoothScroll";
 import { aboutUsHero } from "@/library/CorpHero";
 
 import Footer from "../_components/Footer";
