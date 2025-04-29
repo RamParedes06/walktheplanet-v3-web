@@ -462,7 +462,7 @@ export default function Hero() {
                     data-index={index}
                   >
                     <div className="w-full max-w-[90%] lg:max-w-[100%]">
-                      <h2 className="text-white text-3xl sm:text-4xl lg:text-6xl font-semibold text-center lg:text-left satoshi">
+                      <h2 className="text-white text-[32px] sm:text-[32px] lg:text-6xl font-semibold text-center lg:text-left satoshi">
                         {tabs[index].title}
                       </h2>
                       <p className="text-white text-base sm:text-lg lg:text-xl mx-auto lg:mx-0 max-w-[80%] lg:max-w-full mt-5 text-center lg:text-left">
