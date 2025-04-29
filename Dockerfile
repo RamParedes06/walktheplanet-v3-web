@@ -2,12 +2,15 @@ FROM node:23.9.0-alpine
 
 WORKDIR /app
 
+# copy folders
 COPY ./node_modules /app/node_modules
 COPY ./.next /app/.next
+COPY ./public /app/public
+# copy files
 COPY ./.env /app
 COPY ./package-lock.json /app
 COPY ./package.json /app
-COPY ./public /app/public
+COPY ./next.config.ts /app
 
 RUN ls -la /app
 
