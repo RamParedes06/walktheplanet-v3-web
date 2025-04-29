@@ -22,7 +22,7 @@ const LiveSelling = () => {
             </h1>
             <p className="text-base md:text-2xl font-medium md:text-center italic md:not-italic">
               Premium offers just for you! <br /> Catch our stream for greater
-              travel details
+              travel deals
             </p>
           </div>
           <button
