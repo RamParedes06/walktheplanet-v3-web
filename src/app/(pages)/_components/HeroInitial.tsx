@@ -461,16 +461,16 @@ export default function Hero() {
                     className="lg:h-[55%] h-[90%] description flex flex-col gap-5   justify-center items-center lg:items-start lg:pl-[6%] w-full "
                     data-index={index}
                   >
-                    <div className="w-full max-w-[85%] lg:max-w-[100%]">
+                    <div className="w-full max-w-[80%] lg:max-w-[100%]">
                       <h2 className="text-white text-3xl sm:text-4xl lg:text-6xl font-semibold text-center lg:text-left satoshi">
                         {tabs[index].title}
                       </h2>
-                      <p className="text-white text-base sm:text-lg lg:text-xl mx-auto sm:mx-0 mt-5 text-center lg:text-left">
+                      <p className="text-white text-base sm:text-lg lg:text-xl  mt-5 text-center lg:text-left">
                         {tabs[index].description}
                       </p>
                     </div>
 
-                    <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 mt-8 justify-center lg:justify-start w-full max-w-[310px] sm:max-w-[360px] lg:max-w-[500px]">
+                    <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 mt-8 justify-center lg:justify-start w-full max-w-[330px] sm:max-w-[360px] lg:max-w-[500px]">
                       <button
                         onClick={() => (window.location.href = tabs[index].link)}
                         className="px-6 py-4 bg-[#D0F6FF] text-[#00537F] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min w-full lg:w-auto"
