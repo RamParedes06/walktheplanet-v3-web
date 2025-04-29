@@ -56,7 +56,7 @@ function BeliefsMobile() {
 							{/* Text section appears first on mobile */}
 							<ScrollReveal rotateOnHover>
 								<div className=" p-8 flex flex-col gap-5 h-full px-8 text-center" style={{ backgroundColor: card.bgColor }}>
-									<h3 className="text-[20px] font-semibold text-white place-self-center max-w-[50%]">{card.title}</h3>
+									<h3 className="text-[20px] font-semibold text-white self-center max-w-[80%]">{card.title}</h3>
 									<h6 className=" text-[16px] text-white">{card.description}</h6>
 								</div>
 							</ScrollReveal>

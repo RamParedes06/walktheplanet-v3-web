@@ -365,9 +365,18 @@ export default function Hero() {
       {/* Menu Desktop View */}
       <div className="hero-container bg-white relative" ref={heroContainerRef}>
         {/* tabs and logos  */}
-        <div className="absolute lg:left-[5%] lg:bottom-[20%] bottom-[10%] w-full lg:w-max z-50 flex flex-col lg:flex-row justify-between items-center gap-4 mt-1 ">
-          <div className="flex flex-wrap justify-center lg:justify-start gap-2.5 lg:gap-4 lg:max-w-[850px] max-w-[350px] relative" ref={tabsContainerRef}>
-            <div ref={slideRef} className={`absolute bg-white rounded-full z-10 pointer-events-none ${initialRender ? "" : "transition-all duration-300 ease-in-out"}`} style={{ top: "2px" }} />
+        <div className="absolute lg:left-[5%] lg:bottom-[20%] bottom-[10%] z-10 w-full lg:w-max flex flex-col lg:flex-row justify-between items-center gap-4 mt-1 ">
+          <div
+            className="flex flex-wrap justify-center lg:justify-start gap-2.5 lg:gap-4 lg:max-w-[850px] max-w-[350px] relative"
+            ref={tabsContainerRef}
+          >
+            <div
+              ref={slideRef}
+              className={`absolute bg-white rounded-full z-10 pointer-events-none ${
+                initialRender ? "" : "transition-all duration-300 ease-in-out"
+              }`}
+              style={{ top: "2px" }}
+            />
             {tabs.map((tab, index) => (
               <button
                 key={index}
