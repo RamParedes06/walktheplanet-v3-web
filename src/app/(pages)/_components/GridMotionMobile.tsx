@@ -21,7 +21,7 @@ function GridMotionMobile() {
 			<div className="grid grid-cols-3 gap-4 scale-170 -rotate-6">
 				{images.map((src, index) => (
 					<div key={index} className="aspect-square overflow-hidden rounded-lg shadow-md">
-						<Image src={src} alt={`Image ${index + 1}`} className="w-full h-full object-cover" width={500} height={500} />
+						<Image src={src} alt={`Image ${index + 1}`} className="w-full h-full object-cover" width={1000} height={1000} />
 					</div>
 				))}
 			</div>
