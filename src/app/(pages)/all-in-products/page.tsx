@@ -16,6 +16,8 @@ import FlightCarousel from "./_components/FlightCarousel";
 import Merchandise from "./_components/Merchandise";
 import ToursPackages from "./_components/ToursPackages";
 import useIsMobile from "@/hooks/useIsMobile";
+import GroupBG from "@/assets/images/BGIllustrationManpower.png";
+import TranspoBG from "@/assets/images/BGIllustration.png";
 
 function AllInProducts() {
 	const isMobile = useIsMobile();
@@ -45,7 +47,12 @@ function AllInProducts() {
 				}
 			/>
 			<FlightCarousel />
-			<CarouselTitle title="TRANSPORTATION" description={<p>Water, air, and land - move smoothly and hassle-free for an incredible journey</p>} images={TranspoImages} />
+			<CarouselTitle
+				title="TRANSPORTATION"
+				description={<p>Water, air, and land - move smoothly and hassle-free for an incredible journey</p>}
+				images={TranspoImages}
+				backgroundImage={TranspoBG}
+			/>
 			<Accomodations />
 			<Cruise />
 			<Documentation />
@@ -61,6 +68,8 @@ function AllInProducts() {
 				}
 				description={<p>Unforgettable group adventures - top destinations, expert guides, and custom itineraries all for you!</p>}
 				images={GroupImages}
+				backgroundImage={GroupBG}
+				version
 			/>
 			<ToursPackages />
 

@@ -17,14 +17,15 @@ interface CarouselProps {
 	description: JSX.Element;
 	images: CarouselImage[]; // updated type here
 	backgroundImage?: string | StaticImport;
+	version?: boolean;
 }
 
-function CarouselTitle({ title, description, images }: CarouselProps) {
+function CarouselTitle({ title, description, images, backgroundImage, version }: CarouselProps) {
 	return (
 		<div className="h-screen bg-white overflow-hidden">
 			<div className="h-[40%] max-[490px]:h-[45%] relative overflow-hidden flex items-center max-[490px]:bg-center" style={{ backgroundImage: `url(${illustration})` }}>
 				<div className="p-20 w-full max-[490px]:p-0 ">
-					<Image src={illustration} alt="" width={1200} className="absolute -top-145 -right-110 " />
+					{backgroundImage && <Image src={backgroundImage} alt="" width={1200} className={`${version ? "absolute -top-50 -right-30 rotate-110" : "absolute -top-135 -right-110"}`} />}
 					<div className="flex flex-col gap-2 max-[490px]:px-5 max-[490px]:gap-5">
 						<TextReveal>
 							<div className="text-[64px] max-[490px]:text-[35px] font-extrabold text-[#14476F] font-satoshi uppercase">{title}</div>
