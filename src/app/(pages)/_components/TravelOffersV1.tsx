@@ -6,8 +6,7 @@ import { TravelSlides } from "@/library/TravelSlides";
 import { LocalSlides } from "@/library/LocalSlides";
 import { InternationalSlides } from "@/library/InternationalSlides";
 import { DocumentSlides } from "@/library/DocumentSlides";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 const TravelOffersV2 = () => {
 	const [isMobileView, setIsMobileView] = useState(false);
 
@@ -25,108 +24,6 @@ const TravelOffersV2 = () => {
 		return () => window.removeEventListener("resize", handleResize);
 	}, []);
 
-	//! Travel Offers Animation GSAP
-	const [mounted, setMounted] = useState(false)
-	  useEffect(() => {
-		setMounted(true);
-		window.scrollTo(0, 0);
-		// Register GSAP plugins
-		gsap.registerPlugin(ScrollTrigger);
-	
-		// Only run the animation after the component is mounted
-		if (mounted) {
-		
-	
-		  //! Cards travel offers
-		  const calculateSpacer = () => {
-			// For larger screens, use larger spacing
-			if (window.innerWidth >= 1200) {
-			  return 80; // 15% of viewport height on large screens
-			}
-			// For medium screens
-			else if (window.innerWidth > 768) {
-			  return 50; // 12% of viewport height on medium screens
-			}
-			// For smaller screens and mobile devices
-			else {
-			  return 50; // 8% of viewport height on small screens
-			}
-		  };
-	
-		  // Set the dynamic spacer
-		  const spacer = calculateSpacer();
-	
-		  // const spacer = 50;
-		  const cards = gsap.utils.toArray<HTMLElement>(".card");
-	
-		  // Position other cards off-screen initially
-		  gsap.set(cards.slice(1), {
-			y: (index) => window.innerHeight / 2 + spacer * index,
-		  });
-	
-		  const tl = gsap.timeline({
-			scrollTrigger: {
-			  trigger: ".travel-section",
-			  pin: true,
-			  scrub: true,
-			  start: "top top",
-			  end: "+=300%",
-			  markers: false,
-			},
-		  });
-	
-		  // Animate width AND position
-		  tl.fromTo(
-			".card:not(:first-child)",
-			{
-			  y: (index) => window.innerHeight / 2 + spacer * index,
-			  width: "100%", // Starting width for non-first cards
-			  stagger: 0.5,
-			  backgroundColor: (index, element) => {
-				// Get the original background color from inline style or computed style
-				const bgColor =
-				  element.style.backgroundColor ||
-				  window.getComputedStyle(element).backgroundColor;
-				return bgColor; // Keep original background color initially
-			  },
-			},
-			{
-			  y: (index) => spacer * (index + 1),
-			  width: "100%", // Ending width - same as starting to maintain consistency
-			  backgroundColor: (index, element) => {
-				// Get the original background color
-				const bgColor =
-				  element.style.backgroundColor ||
-				  window.getComputedStyle(element).backgroundColor;
-	
-				// Create a more opaque version by adding alpha channel
-				// This preserves the color but makes it more solid
-				if (bgColor.includes("rgba")) {
-				  // If already has transparency, modify it
-				  return bgColor.replace(
-					/rgba\((\d+,\s*\d+,\s*\d+),\s*[\d.]+\)/,
-					"rgba($1, 0.9)"
-				  );
-				} else if (bgColor.includes("rgb")) {
-				  // Convert rgb to rgba
-				  return bgColor.replace(/rgb/, "rgba").replace(/\)/, ", 0.9)");
-				}
-				return bgColor;
-			  },
-			  stagger: 0.5,
-			}
-		  );
-	
-		  // Clean up
-		//   return () => {
-		// 	ScrollTrigger.getAll().forEach((trigger) => {
-		// 	  if (trigger.vars.id && trigger.vars.id.startsWith("desc-")) {
-		// 		trigger.kill();
-		// 	  }
-		// 	});
-		//   };
-		}
-	  }, [mounted]); 
 	return (
 		<div>
 			<div className="travel-section">
