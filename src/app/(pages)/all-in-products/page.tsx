@@ -17,7 +17,7 @@ import Merchandise from "./_components/Merchandise";
 import ToursPackages from "./_components/ToursPackages";
 import useIsMobile from "@/hooks/useIsMobile";
 import GroupBG from "@/assets/images/BGIllustrationManpower.png";
-import TranspoBG from "@/assets/images/BGIllustration.png";
+import TranspoBG from "@/assets/images/OrangeIllustration.png";
 
 function AllInProducts() {
 	const isMobile = useIsMobile();
