@@ -14,7 +14,7 @@ build-dev:
     - cp .env.development .env
     - npm clean-install
     - npm run build
-    - rm -rf .next/cache
+    # - rm -rf .next/cache
   script:
     - docker compose -f docker-compose.yml build --no-cache app-dev-service
     - docker compose -f docker-compose.yml up -d app-dev-service
