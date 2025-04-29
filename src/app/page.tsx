@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import HomePage from "./(pages)/Homepage/page";
+// import HomePage from "./(pages)/Homepage/page";
 import Hero from "./(pages)/_components/HeroInitial";
 import TravelOffersV2 from "./(pages)/_components/TravelOffersV2";
 import Beliefs from "./(pages)/_components/beliefs";
@@ -21,7 +21,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2000); // Adjust timing as needed
+    const timer = setTimeout(() => setIsLoading(false), 2000); 
     return () => clearTimeout(timer);
   }, []);
 
