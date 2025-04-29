@@ -9,7 +9,7 @@ export const FlightImagesDomestic = [
 	},
 	{
 		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1745476870/Metro_Manila_r1dbzg.webp",
-		title: "Manila",
+		title: "Metro Manila",
 	},
 	{
 		image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1745476867/Bicol_fqtqbm.webp",

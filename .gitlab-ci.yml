@@ -12,6 +12,9 @@ build-dev:
   before_script:
     - rm -f -- .env
     - cp .env.development .env
+    - npm clean-install
+    - npm run build
+    - rm -rf .next/cache
   script:
     - docker compose -f docker-compose.yml build --no-cache app-dev-service
     - docker compose -f docker-compose.yml up -d app-dev-service
@@ -25,6 +28,9 @@ build-test:
   before_script:
     - rm -f -- .env
     - cp .env.staging .env
+    - npm clean-install
+    - npm run build
+    - rm -rf .next/cache
   script:
     - docker compose -f docker-compose.yml build --no-cache app-test-service
     - docker compose -f docker-compose.yml up -d app-test-service
@@ -38,6 +44,9 @@ build-uat:
   before_script:
     - rm -f -- .env
     - cp .env.uat .env
+    - npm clean-install
+    - npm run build
+    - rm -rf .next/cache
   script:
     - docker compose -f docker-compose.yml build --no-cache app-uat-service
     - docker compose -f docker-compose.yml up -d app-uat-service

@@ -109,7 +109,7 @@ export default function FAQSection() {
               </p>
               <p>
                 <a
-                  href="https://www.google.com/maps/place/Philippine+Stock+Exchange+Tower"
+                  href="https://maps.google.com/?q=Philippine+Stock+Exchange+Tower+Bonifacio+Global+City"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-cyan-300 underline"
