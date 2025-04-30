@@ -4,11 +4,12 @@ const StorySection = () => {
   return (
     <div className="w-full py-[80px] md:h-[1346px] bg-white text-gray-800">
       {/* OUR STORY */}
-      <div className="flex flex-col items-center text-center md:text-left md:items-start  md:justify-center md:flex-row md:gap-12 px-6 py-8 md:py-[170px] md:px-[80px]">
+      <div className="flex flex-col items-center text-center md:text-left md:items-start  md:justify-center md:flex-row md:gap-12 px-6 py-8 md:py-[150px] md:px-[80px]">
         <h2 className="text-[40px] md:text-4xl font-semibold md:font-extrabold text-[#00537F] mb-4 md:mb-0 md:w-1/3 ">
           OUR STORY
         </h2>
-        <p className="text-base md:text-[32px] md:font-medium leading-relaxed md:w-4/6 md:px-10">
+
+        <p className="text-base md:text-[32px] md:font-medium leading-relaxed md:w-4/6 md:px-12">
           Since 2022, we&apos;ve{" "}
           <span className="text-orange-500 font-semibold">
             thoughtfully crafted unique journeys
@@ -17,7 +18,8 @@ const StorySection = () => {
           experiences in the Philippines and worldwide.
         </p>
       </div>
-      <div className="md:hidden border-[0.5px] border-[#E0E0E0] mx-5"></div>
+
+      <div className="md:w-1/2 border-[0.5px] border-[#E0E0E0] mx-5 md:ml-auto md:mr-50"></div>
       {/* OUR MISSION */}
       <div className="transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#00537F] hover:to-[#297A55] hover:text-white bg-white text-gray-800 py-8 px-6 text-center md:text-left md:py-[112px] md:px-[80px]">
         <div className="flex flex-col items-center md:items-start md:flex-row gap-2 md:gap-6">
@@ -35,7 +37,7 @@ const StorySection = () => {
         </div>
       </div>
       {/* OUR VISION */}
-      <div className="md:hidden border-[0.5px] border-[#E0E0E0] mx-5"></div>
+      <div className="md:w-1/2 border-[0.5px] border-[#E0E0E0] mx-5 md:ml-auto md:mr-50"></div>
       <div className=" transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#00537F] hover:to-[#297A55] hover:text-white bg-white text-gray-800 py-8 px-6 text-center md:text-left md:py-[112px] md:px-[80px]">
         <div className="flex flex-col items-center md:items-start md:flex-row gap-2 md:gap-6">
           <div className="text-xl md:text-3xl font-semibold mb-2 md:mb-0 md:w-3/6">
@@ -51,7 +53,7 @@ const StorySection = () => {
           </div>
         </div>
       </div>
-      <div className="md:hidden border-[0.5px] border-[#E0E0E0] mx-5"></div>
+      <div className="md:w-1/2 border-[0.5px] border-[#E0E0E0] mx-5 md:ml-auto md:mr-50"></div>
       <div className="bg-white full"></div>
     </div>
   );
