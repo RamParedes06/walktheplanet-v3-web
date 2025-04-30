@@ -62,7 +62,7 @@ export default function LocationSection() {
           <Link
             href="https://maps.google.com/?q=Philippine+Stock+Exchange+Tower+Bonifacio+Global+City"
             target="_blank"
-            className="inline-block border-2 bg-white text-[#006FA9] font-medium px-8 py-3 rounded-full transition-colors duration-200 hover:bg-white/10 w-fit "
+            className="inline-block border-2 bg-white text-[#006FA9] font-medium px-8 py-3 rounded-full transition-colors duration-200  w-fit "
           >
             View us in Google Map!
           </Link>

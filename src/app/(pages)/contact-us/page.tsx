@@ -16,7 +16,6 @@ const ContactPage = () => {
       <TravelQuotation />
       <FrequentlyAskedQuestion />
       <ContactSection />
-
       <LocationSection />
       <Footer />
     </>
