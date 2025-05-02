@@ -327,7 +327,14 @@ export default function Hero() {
     return () => {
       clearAutoPlayInterval();
     };
-  }, [mounted, initialSetupDone, isOpenDesktop, isOpenMobile, startAutoPlay, clearAutoPlayInterval]);
+  }, [
+    mounted,
+    initialSetupDone,
+    isOpenDesktop,
+    isOpenMobile,
+    startAutoPlay,
+    clearAutoPlayInterval,
+  ]);
 
   useEffect(() => {
     if (!mounted) return;
@@ -387,7 +394,14 @@ export default function Hero() {
     } else if (mounted && initialSetupDone) {
       startAutoPlay();
     }
-  }, [isOpenDesktop, isOpenMobile, mounted, initialSetupDone, clearAutoPlayInterval, startAutoPlay]);
+  }, [
+    isOpenDesktop,
+    isOpenMobile,
+    mounted,
+    initialSetupDone,
+    clearAutoPlayInterval,
+    startAutoPlay,
+  ]);
 
   return (
     <>

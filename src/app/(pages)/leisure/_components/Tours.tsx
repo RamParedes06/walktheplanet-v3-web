@@ -1,9 +1,8 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { LeisureToursImages } from "@/library/LeisureTours";
+import { IllustrationManpowerSvg } from "@/assets/svg/IllustrationManpowerSvg";
 import { TravelEssentialsImages } from "@/library/AllInProductsTravelEssentials";
-import BackgroundSvg from "@/assets/svg/BGIllustrationManpower.svg";
-import Image from "next/image";
+import { LeisureToursImages } from "@/library/LeisureTours";
+import { useEffect, useState } from "react";
 import TextReveal from "../../_components/TextReveal";
 
 interface ToursProps {
@@ -15,10 +14,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
 
   // Create a duplicate array for looping
   const duplicatedImages = [...LeisureToursImages, ...LeisureToursImages];
-  const duplicatedProductsImages = [
-    ...TravelEssentialsImages,
-    ...TravelEssentialsImages,
-  ];
+  const duplicatedProductsImages = [...TravelEssentialsImages, ...TravelEssentialsImages];
   // Check for mobile viewport
   useEffect(() => {
     const checkMobile = () => {
@@ -59,79 +55,46 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
 
   return (
     <div className="w-full h-screen mx-auto rounded-lg shadow-lg overflow-hidden">
-      <div
-        className={`relative h-screen flex flex-col items-center px-0 py-4 md:p-8 pb-0 bg-white`}
-      >
+      <div className={`relative h-screen flex flex-col items-center px-0 py-4 md:p-8 pb-0 bg-white`}>
         {/* Description */}
         <div className="relative h-[40%] w-full">
           {/* SVG First Overlay - Hidden on mobile */}
 
           {!isMobile ? (
-            <div>
-              {" "}
-              <div className="absolute left-0 -top-80 w-max">
-                <Image
-                  src={BackgroundSvg}
-                  alt="background"
-                  width={900}
-                  height={500}
-                  className="-rotate-35 w-full"
-                />
+            <div className="w-full">
+              <div className="absolute left-[40%] top-[-300px] -rotate-12 w-full ">
+                {/* <Image src={BackgroundSvg} alt="background" width={900} height={500} className="-rotate-35 w-full" /> */}
+                <IllustrationManpowerSvg />
               </div>
-              <div className="absolute -right-110 -top-80 w-max">
-                <Image
-                  src={BackgroundSvg}
-                  alt="background"
-                  width={900}
-                  height={500}
-                  className="-rotate-25 w-full"
-                />
+              <div className="absolute left-[-20%] top-[-300px] -rotate-12 w-full ">
+                {/* <Image src={BackgroundSvg} alt="background" width={900} height={500} className="-rotate-25 w-full" /> */}
+                <IllustrationManpowerSvg />
               </div>
             </div>
           ) : (
-            <div className="absolute left-0 w-max -top-60 -rotate-35">
-              <Image
-                src={BackgroundSvg}
-                alt="background"
-                width={900}
-                height={500}
-              />
+            <div className="absolute left-[-25%] w-max top-[-380px] -rotate-35">
+              {/* <Image src={BackgroundSvg} alt="background" width={900} height={500} /> */}
+              <IllustrationManpowerSvg />
             </div>
           )}
 
           <TextReveal>
-            <div
-              className={`pt-[64px] md:pt-[54px] z-10 flex flex-col items-center`}
-            >
-              <h1
-                className={`text-[40px] md:text-[64px] font-semibold text-center text-[#14476F] mb-4`}
-              >
-                {productsVersion ? "TRAVEL ESSENTIALS" : "TOURS ONLINE BOOKING"}
-              </h1>
+            <div className={`pt-[80px] md:pt-[54px] z-10 flex flex-col items-center`}>
+              <h1 className={`text-[40px] md:text-[64px] font-semibold text-center text-[#14476F] mb-4`}>{productsVersion ? "TRAVEL ESSENTIALS" : "TOURS ONLINE BOOKING"}</h1>
 
-              <p
-                className={`text-base md:text-lg font-medium text-center text-black mb-1`}
-              >
+              <p className={`text-base md:text-lg font-medium text-center text-black mb-1`}>
                 {productsVersion ? (
                   <>
-                    Don&apos;t miss out on a travel necessity to{" "}
-                    <span className="font-semibold italic">
-                      take your journey to the next level!
-                    </span>
+                    Don&apos;t miss out on a travel necessity to <span className="font-semibold italic">take your journey to the next level!</span>
                   </>
                 ) : (
                   "Start your endless adventures by visiting"
                 )}
               </p>
               {!productsVersion ? (
-                <p
-                  className={`text-base md:text-lg font-medium text-center text-black mb-4`}
-                >
+                <p className={`text-base md:text-lg font-medium text-center text-black mb-4`}>
                   your one-stop-shop at{" "}
-                  <a
-                    href="https://tours.walktheplanet.com"
-                    className="text-[#006FA9] hover:underline italic"
-                  >
+                  <a href="https://tours.walktheplanet.com" className="text-[#006FA9] hover:underline italic">
                     tours.walktheplanet.com
                   </a>
                 </p>
@@ -140,15 +103,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
               )}
               {/* Button */}
               {!productsVersion && (
-                <button
-                  onClick={() =>
-                    window.open(
-                      "https://tours.walktheplanet.com/pages/contact",
-                      "_blank"
-                    )
-                  }
-                  className={`bg-[#00537F] hover:bg-[#00537F] text-white font-medium py-2 px-4 text-sm md:text-xl md:py-3 md:px-6 rounded-[24px]  mb-6 transition-colors duration-300 cursor-pointer`}
-                >
+                <button onClick={() => window.open("https://tours.walktheplanet.com/pages/contact", "_blank")} className={`bg-[#00537F] hover:bg-[#00537F] text-white font-medium py-2 px-4 text-sm md:text-xl md:py-3 md:px-6 rounded-[24px]  mb-6 transition-colors duration-300 cursor-pointer`}>
                   Start exploring for your next getaway!
                 </button>
               )}
@@ -210,21 +165,11 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
                 className="flex h-full md:gap-[30] gap-0"
                 style={{
                   transform: `translateX(-${position}%)`,
-                  width: `${
-                    productsVersion
-                      ? duplicatedImages.length * 33.33
-                      : duplicatedProductsImages.length * 33.33
-                  }%`, // each image ay ~33.33% of viewport width
+                  width: `${productsVersion ? duplicatedImages.length * 33.33 : duplicatedProductsImages.length * 33.33}%`, // each image ay ~33.33% of viewport width
                 }}
               >
-                {(!productsVersion
-                  ? duplicatedImages
-                  : duplicatedProductsImages
-                ).map((image, index) => (
-                  <div
-                    key={index}
-                    className="md:w-1/10 w-1/5 h-full flex-shrink-0 md:px-2 px-0"
-                  >
+                {(!productsVersion ? duplicatedImages : duplicatedProductsImages).map((image, index) => (
+                  <div key={index} className="md:w-1/10 w-1/5 h-full flex-shrink-0 md:px-2 px-0">
                     <div
                       className="h-full w-full rounded-lg overflow-hidden"
                       style={{
