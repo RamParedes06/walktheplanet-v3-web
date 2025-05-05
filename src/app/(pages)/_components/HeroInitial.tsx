@@ -409,12 +409,13 @@ export default function Hero() {
                     className="lg:h-[55%] h-[90%] description flex flex-col gap-5 justify-center items-center lg:items-start lg:pl-[6%] w-full"
                     data-index={index}
                   >
-                    <div className="w-full max-w-[90%] lg:max-w-[100%]">
+                    <div className="w-full  lg:max-w-[100%]">
                       <h2 className="text-white text-[32px] sm:text-[32px] lg:text-6xl font-semibold text-center lg:text-left satoshi">
                         {tabs[index].title}
                       </h2>
-                      <p className="text-white text-base sm:text-lg lg:text-xl mx-auto lg:mx-0 max-w-[80%] lg:max-w-full mt-5 text-center lg:text-left">
-                        {tabs[index].description}{" "}
+                      <p className="text-white text-sm lg:text-xl mx-auto lg:mx-0 max-w-[80%] lg:max-w-full mt-5 text-center lg:text-left">
+                        {tabs[index].description} <br />
+                        {tabs[index].description1}{" "}
                         <a
                           href="https://tours.walktheplanet.com/"
                           target="_blank"
