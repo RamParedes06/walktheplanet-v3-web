@@ -13,6 +13,7 @@ export interface Tab {
   title: string;
   image: StaticImageData | string;
   description: string;
+  description1?: string;
   customLink: string;
   svg: IconType;
   buttonText1: string;
@@ -65,8 +66,8 @@ export const tabs: Tab[] = [
     title: "TRAVEL PACKAGE ESSENTIALS",
     image:
       "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096417/Travel_Essentials_Global_Data_Sim_1_1_ieqaf6.png",
-    description:
-      "One SIM, 190+ destinations connecting you anywhere in the world.",
+    description: "One SIM, 190+ destinations",
+    description1: "connecting you anywhere in the world.",
     customLink: "",
     svg: FaBusAlt,
     buttonText1: "Find out what to pack",
@@ -79,7 +80,8 @@ export const tabs: Tab[] = [
     image:
       "https://res.cloudinary.com/dmxvasob7/image/upload/v1744096026/Live_Selling_Tiktok_zjfzai.png",
     description:
-      "Exclusive rates and awesome discounts right at your fingertips! Book now on our TikTok live selling hours.",
+      "Exclusive rates and awesome discounts right at your fingertips!",
+    description1: "Book now on our TikTok live selling hours.",
     customLink: "",
     svg: TbMessage2Heart,
 
@@ -93,7 +95,8 @@ export const tabs: Tab[] = [
     image:
       "https://res.cloudinary.com/dmxvasob7/image/upload/v1744094662/Online_Store_t1xmy8.png",
     description:
-      "One-stop shop packed with an array of options for all travelers. Explore our selections at",
+      "One-stop shop packed with an array of options for all travelers.",
+    description1: "Explore our selections at",
     customLink: "tours.walktheplanet.com",
     svg: RiShoppingCart2Line,
     buttonText1: "See what's new in store",
@@ -105,8 +108,8 @@ export const tabs: Tab[] = [
     title: "ABOUT US",
     image:
       "https://res.cloudinary.com/dmxvasob7/image/upload/v1744267728/hero-aboutus_rjysnm.png",
-    description:
-      "Exclusive Travel, Unique Experiences. Get to know who we are and where we play.",
+    description: "Exclusive Travel, Unique Experiences.",
+    description1: "Get to know who we are and where we play.",
     customLink: "",
     svg: AiOutlineHeart,
     buttonText1: "Find out what drives us",
