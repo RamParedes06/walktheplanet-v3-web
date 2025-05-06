@@ -8,6 +8,7 @@ interface TestimonialProps {
   message: string;
   user: string;
   image: string;
+  imageMobile: string;
   title: string;
 }
 
@@ -21,6 +22,8 @@ const Testimonials = () => {
       user: "- International School’s Review",
       image:
         "https://res.cloudinary.com/dmxvasob7/image/upload/v1744774301/testimonials1_mzspfo.webp",
+      imageMobile:
+        "https://res.cloudinary.com/dmxvasob7/image/upload/v1746509436/Testimony_01_b9n02y.png",
     },
     {
       id: 2,
@@ -30,6 +33,8 @@ const Testimonials = () => {
       user: "- Claudio Rugay (Client for Coron Package)",
       image:
         "https://res.cloudinary.com/dmxvasob7/image/upload/v1744774300/testimonials2_wkzfcp.webp",
+      imageMobile:
+        "https://res.cloudinary.com/dmxvasob7/image/upload/v1746509437/Testimony_02_kxrcmk.png",
     },
     {
       id: 3,
@@ -39,6 +44,8 @@ const Testimonials = () => {
       user: "- Joven Caluag (Client for 4D3N Hong Kong Land Arrangement po with Disneyland)",
       image:
         "https://res.cloudinary.com/dmxvasob7/image/upload/v1744774304/testimonials3_zzxcmp.webp",
+      imageMobile:
+        "https://res.cloudinary.com/dmxvasob7/image/upload/v1746509437/Testimony_03_e79o1u.png",
     },
   ];
 
@@ -53,58 +60,115 @@ const Testimonials = () => {
     );
 
   return (
-    <div
-      className="h-screen w-full relative bg-cover bg-center transition-all duration-500 bg-[linear-gradient(180deg,rgba(5,18,28,0)_44.33%,rgba(5,18,28,0.8)_74.87%)]"
-      style={{
-        backgroundImage: `url(${current.image})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div className="flex w-full h-full absolute  bottom-0 bg-[linear-gradient(180deg,rgba(5,18,28,0)_30.33%,rgba(5,18,28,0.8)_74.87%)] ">
-        <div className="absolute max-w-screen bottom-25 px-4">
-          <TextReveal>
-            <div className="flex flex-col gap-[32px] w-screen py-[64px] px-[10px] lg:px-[80px]">
-              <h2 className="text-3xl text-white font-satoshi lg:text-6xl text-[40px] font-semibold pl-4">
-                {current.title}
-              </h2>
+    <>
+      {/* Desktop view */}
+      <div
+        className="hidden md:block h-screen w-full relative bg-cover bg-center transition-all duration-500 bg-[linear-gradient(180deg,rgba(5,18,28,0)_44.33%,rgba(5,18,28,0.8)_74.87%)]"
+        style={{
+          backgroundImage: `url(${current.image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="flex w-full h-full absolute  bottom-0 bg-[linear-gradient(180deg,rgba(5,18,28,0)_30.33%,rgba(5,18,28,0.8)_74.87%)] ">
+          <div className="absolute max-w-screen bottom-25 px-4">
+            <TextReveal>
+              <div className="flex flex-col gap-[32px] w-screen py-[64px] px-[10px] lg:px-[80px]">
+                <h2 className="text-3xl text-white font-satoshi lg:text-6xl text-[40px] font-semibold pl-4">
+                  {current.title}
+                </h2>
 
-              <p className="italic mx-[10px] text-[20px] md:font-medium text-white font-generalSans lg:text-2xl text-base font-generalSans pr-8  md:w-[95%]">
-                &quot;{current.message}&quot;
-              </p>
-              <p className="opacity-65 text-base text-white font-generalSans">
-                {current.user}
-              </p>
+                <p className="italic mx-[10px] text-[20px] md:font-medium text-white font-generalSans lg:text-2xl text-base font-generalSans pr-8  md:w-[95%]">
+                  &quot;{current.message}&quot;
+                </p>
+                <p className="opacity-65 text-base text-white font-generalSans">
+                  {current.user}
+                </p>
+              </div>
+            </TextReveal>
+            <div className="px-[10px] lg:px-[80px] flex gap-[32px] justify-end md:justify-start">
+              <NavigationButton
+                onClick={handlePrev}
+                disabled={currentSlide === 0}
+                className={`${
+                  currentSlide === 0
+                    ? "opacity-50 cursor-not-allowed "
+                    : "cursor-pointer opacity-100 hover:text-[#7EE7FC]"
+                }`}
+              >
+                Prev
+              </NavigationButton>
+              <NavigationButton
+                onClick={handleNext}
+                disabled={currentSlide === userTestimonials.length - 1}
+                className={`${
+                  currentSlide === userTestimonials.length - 1
+                    ? "opacity-50 cursor-not-allowed"
+                    : "cursor-pointer  opacity-100 hover:text-[#7EE7FC]"
+                }`}
+              >
+                Next
+              </NavigationButton>
             </div>
-          </TextReveal>
-          <div className="px-[10px] lg:px-[80px] flex gap-[32px] justify-end md:justify-start">
-            <NavigationButton
-              onClick={handlePrev}
-              disabled={currentSlide === 0}
-              className={`${
-                currentSlide === 0
-                  ? "opacity-50 cursor-not-allowed "
-                  : "cursor-pointer opacity-100 hover:text-[#7EE7FC]"
-              }`}
-            >
-              Prev
-            </NavigationButton>
-            <NavigationButton
-              onClick={handleNext}
-              disabled={currentSlide === userTestimonials.length - 1}
-              className={`${
-                currentSlide === userTestimonials.length - 1
-                  ? "opacity-50 cursor-not-allowed"
-                  : "cursor-pointer  opacity-100 hover:text-[#7EE7FC]"
-              }`}
-            >
-              Next
-            </NavigationButton>
           </div>
         </div>
       </div>
-    </div>
+      {/* 
+       Mobile view */}
+      <div
+        className="md:hidden block h-screen w-full relative bg-cover bg-center transition-all duration-500 bg-[linear-gradient(180deg,rgba(5,18,28,0)_44.33%,rgba(5,18,28,0.8)_74.87%)]"
+        style={{
+          backgroundImage: `url(${current.imageMobile})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="flex w-full h-full absolute  bottom-0 bg-[linear-gradient(180deg,rgba(5,18,28,0)_30.33%,rgba(5,18,28,0.8)_74.87%)] ">
+          <div className="absolute max-w-screen bottom-25 px-4">
+            <TextReveal>
+              <div className="flex flex-col gap-[32px] w-screen py-[64px] px-[10px] lg:px-[80px]">
+                <h2 className="text-3xl text-white font-satoshi lg:text-6xl text-[40px] font-semibold pl-4">
+                  {current.title}
+                </h2>
+
+                <p className="italic mx-[10px] text-[20px] md:font-medium text-white font-generalSans lg:text-2xl text-base font-generalSans pr-8  md:w-[95%]">
+                  &quot;{current.message}&quot;
+                </p>
+                <p className="opacity-65 text-base text-white font-generalSans">
+                  {current.user}
+                </p>
+              </div>
+            </TextReveal>
+            <div className="px-[10px] lg:px-[80px] flex gap-[32px] justify-end md:justify-start">
+              <NavigationButton
+                onClick={handlePrev}
+                disabled={currentSlide === 0}
+                className={`${
+                  currentSlide === 0
+                    ? "opacity-50 cursor-not-allowed "
+                    : "cursor-pointer opacity-100 hover:text-[#7EE7FC]"
+                }`}
+              >
+                Prev
+              </NavigationButton>
+              <NavigationButton
+                onClick={handleNext}
+                disabled={currentSlide === userTestimonials.length - 1}
+                className={`${
+                  currentSlide === userTestimonials.length - 1
+                    ? "opacity-50 cursor-not-allowed"
+                    : "cursor-pointer  opacity-100 hover:text-[#7EE7FC]"
+                }`}
+              >
+                Next
+              </NavigationButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
