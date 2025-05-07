@@ -69,8 +69,8 @@ const AboutUs = () => {
       <section id="core-values" className="snap-start bg-white">
         <CoreValues />
       </section>
-
-      <section id="call-to-action" className="snap-start">
+      {/* Desktop */}
+      <section id="call-to-action" className="hidden md:block snap-start">
         <CallToAction
           image1={image1}
           image2={image2}
@@ -79,6 +79,20 @@ const AboutUs = () => {
           image5={image5}
           image6={image6}
           title="Partner with us, and your success is our ultimate priority"
+          buttonLabel="Partner with WalkThePlanet today!"
+        />
+      </section>
+      {/* Mobile */}
+      <section id="call-to-action" className="md:hidden block snap-start">
+        <CallToAction
+          image1={image1}
+          image2={image2}
+          image3={image3}
+          image4={image4}
+          image5={image5}
+          image6={image6}
+          title="Partner with us,"
+          title1="and your success is our ultimate priority"
           buttonLabel="Partner with WalkThePlanet today!"
         />
       </section>
