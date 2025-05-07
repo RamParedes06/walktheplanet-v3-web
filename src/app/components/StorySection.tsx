@@ -28,8 +28,18 @@ const StorySection = () => {
           </div>
           <div className="md:w-5/6">
             <h3 className="text-2xl md:text-3xl font-bold mb-5">OUR MISSION</h3>
-            <p className="text-base md:text-[24px] leading-relaxed">
+            {/* Desktop */}
+            <p className="hidden md:block text-base md:text-[24px] leading-relaxed">
               Accelerating digital innovation through unparalleled experiences,
+              <br />
+              leaving positive travel footprints globally.
+            </p>
+
+            {/* Mobile */}
+            <p className="md:hidden block font-medium text-[16px] md:text-[24px] leading-relaxed">
+              Accelerating digital innovation
+              <br />
+              through unparalleled experiences,
               <br />
               leaving positive travel footprints globally.
             </p>
@@ -38,17 +48,28 @@ const StorySection = () => {
       </div>
       {/* OUR VISION */}
       <div className="md:w-1/2 border-[0.5px] border-[#E0E0E0] mx-5 md:ml-auto md:mr-50"></div>
-      <div className=" transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#00537F] hover:to-[#297A55] hover:text-white bg-white text-gray-800 py-8 px-6 text-center md:text-left md:py-[112px] md:px-[80px]">
+      <div className=" transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-[#00537F] hover:to-[#297A55] hover:text-white bg-white text-gray-800 py-8 px-2  text-center md:text-left md:py-[112px] md:px-[80px]">
         <div className="flex flex-col items-center md:items-start md:flex-row gap-2 md:gap-6">
           <div className="text-xl md:text-3xl font-semibold mb-2 md:mb-0 md:w-3/6">
             02
           </div>
           <div className="md:w-5/6">
             <h3 className="text-2xl md:text-3xl font-bold mb-5">OUR VISION</h3>
-            <p className="text-base md:text-[24px] leading-relaxed">
+
+            {/* Desktop */}
+            <p className="hidden md:block text-base md:text-[24px] leading-relaxed">
               To revolutionize socially responsible travel through technology
               <br />
               that elevates the tourism world by connecting people and cultures.
+            </p>
+
+            {/* Mobile */}
+            <p className="md:hidden block font-medium text-[16px] md:text-[24px] leading-relaxed">
+              To revolutionize socially responsible travel through
+              <br />
+              technology that elevates the tourism world by
+              <br />
+              connecting people and cultures.
             </p>
           </div>
         </div>
