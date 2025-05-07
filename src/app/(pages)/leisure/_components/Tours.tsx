@@ -140,7 +140,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
           </TextReveal>
         </div>
 
-        <div className="flex-grow w-full overflow-hidden relative bg-white h-[60%]">
+        <div className="flex-grow w-full overflow-hidden relative bg-white h-[90%]">
           <div className="absolute inset-0 flex items-center justify-center">
             {/* Left and right gradients */}
             <div
@@ -158,7 +158,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
 
             {/* Top curved white border */}
             <div
-              className="absolute top-0 w-full h-[75px] z-20 bg-white max-[490px]:hidden"
+              className="absolute top-0 w-full h-[99px] z-10 bg-white max-[460px]:hidden"
               style={{
                 borderBottomLeftRadius: "50% 100%",
                 borderBottomRightRadius: "50% 100%",
@@ -174,7 +174,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
 
             {/* Bottom curved white border */}
             <div
-              className="absolute bottom-0 w-full h-[75px] z-20 bg-white max-[490px]:hidden"
+              className="absolute bottom-0 w-full h-[50px] z-20 bg-white max-[490px]:hidden"
               style={{
                 borderTopLeftRadius: "50% 100%",
                 borderTopRightRadius: "50% 100%",
@@ -183,8 +183,8 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
             <div
               className="absolute bottom-0 w-full h-[75px] z-20 bg-white min-[491px]:hidden"
               style={{
-                borderTopLeftRadius: "100% 60%",
-                borderTopRightRadius: "100% 60%",
+                borderTopLeftRadius: "90% 60%",
+                borderTopRightRadius: "50% 60%",
               }}
             ></div>
 
@@ -196,8 +196,8 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
                   transform: `translateX(-${position}%)`,
                   width: `${
                     productsVersion
-                      ? duplicatedImages.length * 33.33
-                      : duplicatedProductsImages.length * 33.33
+                      ? duplicatedImages.length * 23.33
+                      : duplicatedProductsImages.length * 23.33
                   }%`, // each image ay ~33.33% of viewport width
                 }}
               >
