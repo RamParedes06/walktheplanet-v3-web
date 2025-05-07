@@ -1,6 +1,6 @@
 import React from "react";
 // import SmoothScroll from "../_components/SmoothScroll";
-import { aboutUsHero } from "@/library/CorpHero";
+import { aboutUsHero, aboutUsHeroMobile } from "@/library/CorpHero";
 
 import Footer from "../_components/Footer";
 
@@ -25,9 +25,25 @@ const AboutUs = () => {
     <>
       {/* <div className="snap-y snap-mandatory overflow-y-auto h-screen">
       <SmoothScroll> */}
-      <section id="hero" className="snap-start">
+      {/* Desktop */}
+      <section id="hero" className="hidden md:block snap-start">
         <Hero
           images={aboutUsHero}
+          title="ABOUT US"
+          description={
+            <p>
+              <span className="text-white">
+                Bringing Every Juan Closer to Their Dream
+              </span>{" "}
+              Destinations.
+            </p>
+          }
+        />
+      </section>
+      {/* Mobile */}
+      <section id="hero" className="md:hidden block snap-start">
+        <Hero
+          images={aboutUsHeroMobile}
           title="ABOUT US"
           description={
             <p>
