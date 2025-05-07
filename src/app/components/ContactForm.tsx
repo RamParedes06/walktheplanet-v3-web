@@ -10,7 +10,6 @@ import { schemaBusiness, schemaLeisure } from "@/schema";
 import bg from "@/assets/svg/contact/bgIllustration.svg";
 import Modal from "./Modal";
 
-const desktopBG = "";
 const mobileBG =
   "https://res.cloudinary.com/dmxvasob7/image/upload/v1746606365/Frame_48098208_2_u6hdi6.png";
 
