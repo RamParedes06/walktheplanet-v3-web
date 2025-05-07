@@ -10,6 +10,10 @@ import { schemaBusiness, schemaLeisure } from "@/schema";
 import bg from "@/assets/svg/contact/bgIllustration.svg";
 import Modal from "./Modal";
 
+const desktopBG = "";
+const mobileBG =
+  "https://res.cloudinary.com/dmxvasob7/image/upload/v1746606365/Frame_48098208_2_u6hdi6.png";
+
 type LeisureFormData = z.infer<typeof schemaLeisure>;
 type BusinessFormData = z.infer<typeof schemaBusiness>;
 
@@ -112,9 +116,9 @@ export default function ContactForm() {
 
   return (
     <div className="flex flex-col lg:flex-row w-full h-auto lg:h-screen">
-      <section className="w-full lg:w-1/2 bg-[rgb(208,246,255)] flex flex-col justify-end relative overflow-hidden h-auto lg:h-full">
+      <section className="w-full lg:w-1/2 bg-[rgb(208,246,255)] flex flex-col justif-start md:justify-end relative overflow-hidden h-[366px] lg:h-full">
         <div
-          className="absolute"
+          className="absolute hidden md:block"
           style={{
             width: "1024px",
             height: "1024px",
@@ -127,18 +131,27 @@ export default function ContactForm() {
             width={1024}
             height={1024}
             alt="Background Illustration"
-            className="opacity-70"
+            className="bg-contain"
+          />
+        </div>
+        <div className="absolute md:hidden block">
+          <Image
+            src={mobileBG}
+            width={1024}
+            height={1024}
+            alt="Background Illustration"
+            className="bg-contain"
           />
         </div>
 
-        <div className="relative z-10 px-6 py-15 lg:px-20 ml-4 lg:ml-8 mb-6">
-          <h1 className="text-3xl lg:text-[64px] text-[#333] font-normal leading-none">
+        <div className="relative z-10 pr-6 py-15 mt-6 lg:px-20 ml-4 lg:ml-8 mb-6">
+          <h1 className="text-[40px] lg:text-[64px] text-[#333] font-normal leading-none">
             LET&apos;S TALK
           </h1>
-          <h1 className="text-3xl lg:text-[64px] text-[#333] font-semibold leading-none mt-2">
+          <h1 className="text-[40px] lg:text-[64px] text-[#333] font-semibold leading-none mt-2">
             ABOUT TRAVEL
           </h1>
-          <p className="text-base lg:text-[24px] mt-4 lg:mt-8 text-[#333]">
+          <p className="text-base lg:text-[24px] mt-8 lg:mt-8 text-[#333]">
             Let us handle the details while you focus on enjoying the journey.
             We look forward to crafting your travel experience!
           </p>
