@@ -14,7 +14,10 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
 
   // Create a duplicate array for looping
   const duplicatedImages = [...LeisureToursImages, ...LeisureToursImages];
-  const duplicatedProductsImages = [...TravelEssentialsImages, ...TravelEssentialsImages];
+  const duplicatedProductsImages = [
+    ...TravelEssentialsImages,
+    ...TravelEssentialsImages,
+  ];
   // Check for mobile viewport
   useEffect(() => {
     const checkMobile = () => {
@@ -55,7 +58,9 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
 
   return (
     <div className="w-full h-screen mx-auto rounded-lg shadow-lg overflow-hidden">
-      <div className={`relative h-screen flex flex-col items-center px-0 py-4 md:p-8 pb-0 bg-white`}>
+      <div
+        className={`relative h-screen flex flex-col items-center px-0 py-4 md:p-8 pb-0 bg-white`}
+      >
         {/* Description */}
         <div className="relative h-[40%] w-full">
           {/* SVG First Overlay - Hidden on mobile */}
@@ -79,22 +84,38 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
           )}
 
           <TextReveal>
-            <div className={`pt-[80px] md:pt-[54px] z-10 flex flex-col items-center`}>
-              <h1 className={`text-[40px] md:text-[64px] font-semibold text-center text-[#14476F] mb-4`}>{productsVersion ? "TRAVEL ESSENTIALS" : "TOURS ONLINE BOOKING"}</h1>
+            <div
+              className={`pt-[80px] md:pt-[54px] z-10 flex flex-col items-center`}
+            >
+              <h1
+                className={`text-[40px] md:text-[64px] font-semibold text-center text-[#14476F] mb-4`}
+              >
+                {productsVersion ? "TRAVEL ESSENTIALS" : "TOURS ONLINE BOOKING"}
+              </h1>
 
-              <p className={`text-base md:text-lg font-medium text-center text-black mb-1`}>
+              <p
+                className={`text-base md:text-lg font-medium text-center text-black mb-1`}
+              >
                 {productsVersion ? (
-                  <>
-                    Don&apos;t miss out on a travel necessity to <span className="font-semibold italic">take your journey to the next level!</span>
-                  </>
+                  <span className="md:text-[25px]">
+                    Don&apos;t miss out on a travel necessity to{" "}
+                    <span className="font-semibold italic">
+                      take your journey to the next level!
+                    </span>
+                  </span>
                 ) : (
                   "Start your endless adventures by visiting"
                 )}
               </p>
               {!productsVersion ? (
-                <p className={`text-base md:text-lg font-medium text-center text-black mb-4`}>
+                <p
+                  className={`text-base md:text-lg font-medium text-center text-black mb-4`}
+                >
                   your one-stop-shop at{" "}
-                  <a href="https://tours.walktheplanet.com" className="text-[#006FA9] hover:underline italic">
+                  <a
+                    href="https://tours.walktheplanet.com"
+                    className="text-[#006FA9] hover:underline italic"
+                  >
                     tours.walktheplanet.com
                   </a>
                 </p>
@@ -103,7 +124,15 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
               )}
               {/* Button */}
               {!productsVersion && (
-                <button onClick={() => window.open("https://tours.walktheplanet.com/pages/contact", "_blank")} className={`bg-[#00537F] hover:bg-[#00537F] text-white font-medium py-2 px-4 text-sm md:text-xl md:py-3 md:px-6 rounded-[24px]  mb-6 transition-colors duration-300 cursor-pointer`}>
+                <button
+                  onClick={() =>
+                    window.open(
+                      "https://tours.walktheplanet.com/pages/contact",
+                      "_blank"
+                    )
+                  }
+                  className={`bg-[#00537F] hover:bg-[#00537F] text-white font-medium py-2 px-4 text-sm md:text-xl md:py-3 md:px-6 rounded-[24px]  mb-6 transition-colors duration-300 cursor-pointer`}
+                >
                   Start exploring for your next getaway!
                 </button>
               )}
@@ -165,11 +194,21 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
                 className="flex h-full md:gap-[30] gap-0"
                 style={{
                   transform: `translateX(-${position}%)`,
-                  width: `${productsVersion ? duplicatedImages.length * 33.33 : duplicatedProductsImages.length * 33.33}%`, // each image ay ~33.33% of viewport width
+                  width: `${
+                    productsVersion
+                      ? duplicatedImages.length * 33.33
+                      : duplicatedProductsImages.length * 33.33
+                  }%`, // each image ay ~33.33% of viewport width
                 }}
               >
-                {(!productsVersion ? duplicatedImages : duplicatedProductsImages).map((image, index) => (
-                  <div key={index} className="md:w-1/10 w-1/5 h-full flex-shrink-0 md:px-2 px-0">
+                {(!productsVersion
+                  ? duplicatedImages
+                  : duplicatedProductsImages
+                ).map((image, index) => (
+                  <div
+                    key={index}
+                    className="md:w-1/10 w-1/5 h-full flex-shrink-0 md:px-2 px-0"
+                  >
                     <div
                       className="h-full w-full rounded-lg overflow-hidden"
                       style={{
