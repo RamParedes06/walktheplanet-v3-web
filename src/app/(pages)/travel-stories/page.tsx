@@ -15,7 +15,7 @@ import { TravelStoriesHero } from "@/library/TravelStoriesHero";
 
 const page = () => {
   return (
-    <div className="h-screen overflow-y-auto snap-y snap-mandatory">
+    <>
       <Hero
         gradient="bg-gradient-to-r from-[#14476F] via-[#00A9CE] to-[#FFC000]"
         images={TravelStoriesHero}
@@ -46,7 +46,7 @@ const page = () => {
         buttonLabel="Start your next adventure with WalkThePlanet"
       />
       <Footer />
-    </div>
+    </>
   );
 };
 

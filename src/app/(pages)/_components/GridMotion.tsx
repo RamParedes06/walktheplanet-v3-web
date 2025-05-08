@@ -55,7 +55,7 @@ const HomeGrid: FC<HomeGridProps> = ({ items = [] }) => {
 	}, []);
 
 	return (
-		<div ref={gridRef} className="h-full w-full overflow-hidden  relative max-[490px]:hidden">
+		<div ref={gridRef} className="h-full w-full overflow-hidden  relative max-[769px]:hidden">
 			<div className="absolute top-0 left-0 z-10 bg-gradient-to-t from-transparent via-[rgba(0,0,0,0)] via-[70%] to-[rgba(0,0,0,0.6)] h-full w-full"></div>
 			<div className="absolute top-0 left-0 z-10 bg-gradient-to-b from-transparent via-[rgba(0,0,0,0)] via-[70%] to-[rgba(0,0,0,0.6)] h-full w-full"></div>
 			<section
