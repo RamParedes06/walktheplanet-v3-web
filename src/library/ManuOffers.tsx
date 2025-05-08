@@ -1,23 +1,23 @@
 export const ManuOffers = [
-	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573974/Corporate_Business_Manufacturing_1_wkdfma.webp",
+  "https://res.cloudinary.com/dmxvasob7/image/upload/v1746519035/Corporate_Business_Manufacturing_1_rf0u45.webp",
 
-	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573974/Corporate_Business_Manufacturing_3_vyzc74.webp", // 1
+  "https://res.cloudinary.com/dmxvasob7/image/upload/v1746519039/Corporate_Business_Manufacturing_3_lewsgz.webp", // 1
 
-	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573974/Corporate_Business_Manufacturing_10_oudnsw.webp", //2
+  "https://res.cloudinary.com/dmxvasob7/image/upload/v1746519056/Corporate_Business_Manufacturing_10_bpeawi.webp", //2
 
-	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573974/Corporate_Business_Manufacturing_2_tm8jbw.webp", //3
+  "https://res.cloudinary.com/dmxvasob7/image/upload/v1746519036/Corporate_Business_Manufacturing_2_jrabfq.webp", //3
 
-	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573974/Corporate_Business_Manufacturing_4_zmcwqz.webp",
+  "https://res.cloudinary.com/dmxvasob7/image/upload/v1746519041/Corporate_Business_Manufacturing_4_cghcwc.webp",
 
-	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573975/Corporate_Business_Manufacturing_7_dflfkd.webp",
+  "https://res.cloudinary.com/dmxvasob7/image/upload/v1746519048/Corporate_Business_Manufacturing_7_dmtxpn.webp",
 
-	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573975/Corporate_Business_Manufacturing_6_nxlvob.webp",
+  "https://res.cloudinary.com/dmxvasob7/image/upload/v1746519046/Corporate_Business_Manufacturing_6_xsqi05.webp",
 
-	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573975/Corporate_Business_Manufacturing_5_deyea9.webp",
+  "https://res.cloudinary.com/dmxvasob7/image/upload/v1746519043/Corporate_Business_Manufacturing_5_avquha.webp",
 
-	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573975/Corporate_Business_Manufacturing_9_onvpwa.webp",
+  "https://res.cloudinary.com/dmxvasob7/image/upload/v1746519053/Corporate_Business_Manufacturing_9_vkvnhy.webp",
 
-	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573976/Corporate_Business_Manufacturing_8_iu7sau.webp",
+  "https://res.cloudinary.com/dmxvasob7/image/upload/v1746519050/Corporate_Business_Manufacturing_8_y6lhmc.webp",
 
-	"https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573974/Corporate_Business_Manufacturing_2_tm8jbw.webp",
+  "https://res.cloudinary.com/dmxvasob7/image/upload/v1746519036/Corporate_Business_Manufacturing_2_jrabfq.webp",
 ];
