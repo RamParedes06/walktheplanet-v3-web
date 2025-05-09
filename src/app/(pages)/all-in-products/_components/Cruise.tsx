@@ -5,13 +5,22 @@ import TextReveal from "@/app/(pages)/_components/TextReveal";
 const bg =
   "https://res.cloudinary.com/dmxvasob7/image/upload/v1745461999/cc46bdcce0720f77fcd7ca98f2890137ddd0abbf_uhujak.webp";
 
+const bgMobile =
+  "https://res.cloudinary.com/dmxvasob7/image/upload/v1746760744/Cruises_unjdkp.png";
+
 function Cruise() {
   return (
     <div className="h-screen relative overflow-hidden">
       {/* Reversed background image */}
+      {/* Desktop */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-x-[-1] z-0"
+        className="hidden md:block absolute inset-0 bg-cover bg-center bg-no-repeat scale-x-[-1] z-0"
         style={{ backgroundImage: `url(${bg})` }}
+      />
+      {/* Mobile */}
+      <div
+        className="md:hidden block absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+        style={{ backgroundImage: `url(${bgMobile})` }}
       />
 
       {/* Overlay and content on top */}
