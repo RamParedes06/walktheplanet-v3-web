@@ -9,9 +9,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { tabs } from "@/library/Tab";
 import Marquee from "./Marquee";
 import Menu from "./Menu";
-import { tabs } from "@/library/Tab";
 
 export default function Hero() {
   //! For the full screen menu animation
@@ -230,14 +230,7 @@ export default function Hero() {
     return () => {
       clearAutoPlayInterval();
     };
-  }, [
-    mounted,
-    initialSetupDone,
-    isOpenDesktop,
-    isOpenMobile,
-    startAutoPlay,
-    clearAutoPlayInterval,
-  ]);
+  }, [mounted, initialSetupDone, isOpenDesktop, isOpenMobile, startAutoPlay, clearAutoPlayInterval]);
 
   useEffect(() => {
     if (!mounted) return;
@@ -297,34 +290,15 @@ export default function Hero() {
     } else if (mounted && initialSetupDone) {
       startAutoPlay();
     }
-  }, [
-    isOpenDesktop,
-    isOpenMobile,
-    mounted,
-    initialSetupDone,
-    clearAutoPlayInterval,
-    startAutoPlay,
-  ]);
+  }, [isOpenDesktop, isOpenMobile, mounted, initialSetupDone, clearAutoPlayInterval, startAutoPlay]);
 
   return (
     <>
       {/* Logo Menu  */}
       <div className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block ">
         {/* Header - only visible when menu is closed */}
-        <div
-          ref={headerRef}
-          className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl rounded-full w-[300px] lg:w-[436px]  ${
-            isOpenDesktop ? "invisible" : "visible"
-          }`}
-        >
-          <Image
-            src={Logo}
-            onClick={() => window.location.replace("/")}
-            className="cursor-pointer"
-            alt="logo"
-            width={70}
-            height={50}
-          />
+        <div ref={headerRef} className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl rounded-full w-[300px] lg:w-[436px]  ${isOpenDesktop ? "invisible" : "visible"}`}>
+          <Image src={Logo} onClick={() => window.location.replace("/")} className="cursor-pointer" alt="logo" width={70} height={50} />
           <div onClick={toggleMenu} className="cursor-pointer">
             <MenuSvg />
           </div>
@@ -335,23 +309,12 @@ export default function Hero() {
       <div className="hero-container bg-white relative" ref={heroContainerRef}>
         {/* tabs and logos  */}
         <div className="absolute lg:left-[5%] lg:bottom-[20%] bottom-[10%] z-10 w-full lg:w-max flex flex-col lg:flex-row justify-between items-center gap-4 mt-1 ">
-          <div
-            className="flex flex-wrap justify-center lg:justify-start gap-2.5 lg:gap-4 lg:max-w-[850px] max-w-[350px] relative"
-            ref={tabsContainerRef}
-          >
-            <div
-              ref={slideRef}
-              className={`absolute bg-white rounded-full z-10 pointer-events-none ${
-                initialRender ? "" : "transition-all duration-300 ease-in-out"
-              }`}
-              style={{ top: "2px" }}
-            />
+          <div className="flex flex-wrap justify-center lg:justify-start gap-2.5 lg:gap-4 lg:max-w-[850px] max-w-[350px] relative" ref={tabsContainerRef}>
+            <div ref={slideRef} className={`absolute bg-white rounded-full z-10 pointer-events-none ${initialRender ? "" : "transition-all duration-300 ease-in-out"}`} style={{ top: "2px" }} />
             {tabs.map((tab, index) => (
               <button
                 key={index}
-                className={`cursor-pointer lg:px-4 lg:py-2 px-2.5 py-1 rounded-full flex items-center gap-2 sm:gap-3 text-sm transition whitespace-nowrap hover:text-black hover:bg-white  ${
-                  activeIndex === index ? "text-black bg-white" : "text-white"
-                }`}
+                className={`cursor-pointer lg:px-4 lg:py-2 px-2.5 py-1 rounded-full flex items-center gap-2 sm:gap-3 text-sm transition whitespace-nowrap hover:text-black hover:bg-white  ${activeIndex === index ? "text-black bg-white" : "text-white"}`}
                 onMouseEnter={() => setHoveredTab(index)}
                 onMouseLeave={() => setHoveredTab(-1)}
                 onClick={() => {
@@ -362,24 +325,14 @@ export default function Hero() {
                   startAutoPlay();
                 }}
               >
-                <tab.svg
-                  color={
-                    activeIndex === index || hoveredTab === index
-                      ? "black"
-                      : "white"
-                  }
-                  className="lg:block hidden"
-                />
+                <tab.svg color={activeIndex === index || hoveredTab === index ? "black" : "white"} className="lg:block hidden" />
                 <p>{tab.title}</p>
               </button>
             ))}
           </div>
         </div>
 
-        <div
-          className="racesWrapper w-full max-w-full mx-auto flex justify-between relative"
-          ref={wrapperRef}
-        >
+        <div className="racesWrapper w-full max-w-full mx-auto flex justify-between relative" ref={wrapperRef}>
           {/* Marquee animation  */}
           <Marquee variant="homeHero" />
           {/* End of infinite scroll animation  */}
@@ -387,15 +340,7 @@ export default function Hero() {
           <div className="races !max-h-[100vh] w-full flex" ref={racesRef}>
             {tabs.map((tab, index: number) => (
               <div key={index} className="racesDiv relative">
-                <Image
-                  key={index}
-                  src={tab.image}
-                  alt={`Images ${index}`}
-                  width={1920}
-                  height={150}
-                  className="h-screen object-cover"
-                  style={{ zIndex: 0 }}
-                />
+                <Image key={index} src={tab.image} alt={`Images ${index}`} width={1920} height={150} className="h-screen object-cover" style={{ zIndex: 0 }} />
 
                 <div
                   className="description-container absolute inset-0 w-full h-full"
@@ -405,42 +350,23 @@ export default function Hero() {
                       linear-gradient(0deg, rgba(0, 0, 0, 0) 81.66%, rgba(0, 0, 0, 0.4) 110.95%)`,
                   }}
                 >
-                  <div
-                    className="lg:h-[55%] h-[90%] description flex flex-col gap-5 justify-center items-center lg:items-start lg:pl-[6%] w-full"
-                    data-index={index}
-                  >
+                  <div className="lg:h-[55%] h-[90%] description flex flex-col gap-5 justify-center items-center lg:items-start lg:pl-[6%] w-full" data-index={index}>
                     <div className="w-full  lg:max-w-[100%]">
-                      <h2 className="text-white text-[32px] sm:text-[32px] lg:text-6xl font-semibold text-center lg:text-left satoshi">
-                        {tabs[index].title}
-                      </h2>
+                      <h2 className="text-white text-[32px] sm:text-[32px] lg:text-6xl font-semibold text-center lg:text-left satoshi">{tabs[index].title}</h2>
                       <p className="text-white text-sm lg:text-xl mx-auto lg:mx-0 max-w-[80%] lg:max-w-full mt-5 text-center lg:text-left">
                         {tabs[index].description} <br />
                         {tabs[index].description1}{" "}
-                        <a
-                          href="https://tours.walktheplanet.com/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <span className="underline">
-                            {tabs[index].customLink}
-                          </span>
+                        <a href="https://tours.walktheplanet.com/" target="_blank" rel="noopener noreferrer">
+                          <span className="underline">{tabs[index].customLink}</span>
                         </a>
                       </p>
                     </div>
 
                     <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 mt-8 justify-center lg:justify-start w-full max-w-[330px] sm:max-w-[360px] lg:max-w-[500px]">
-                      <button
-                        onClick={() =>
-                          (window.location.href = tabs[index].link)
-                        }
-                        className="px-6 py-4 bg-[#D0F6FF] text-[#00537F] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min w-full lg:w-auto"
-                      >
+                      <button onClick={() => (window.location.href = tabs[index].link)} className="px-6 py-4 bg-[#D0F6FF] text-[#00537F] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min w-full lg:w-auto">
                         {tab.buttonText1}
                       </button>
-                      <button
-                        onClick={() => (window.location.href = "/contact-us")}
-                        className="px-6 py-4 bg-white text-[#333] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min w-full lg:w-auto"
-                      >
+                      <button onClick={() => (window.location.href = "/contact-us")} className="px-6 py-4 bg-white text-[#333] font-bold rounded-xl text-sm sm:text-base cursor-pointer h-min w-full lg:w-auto">
                         {tab.buttonText2}
                       </button>
                     </div>
@@ -451,11 +377,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <AnimatePresence>
-        {isOpenDesktop && (
-          <Menu toggleMenu={toggleMenu} headerRect={headerRect} />
-        )}
-      </AnimatePresence>
+      <AnimatePresence>{isOpenDesktop && <Menu toggleMenu={toggleMenu} headerRect={headerRect} />}</AnimatePresence>
 
       {/* Mobile Menu  */}
       <div className="w-full relative overflow-hidden rounded-xl max-[480px]:rounded-none max-w-full mx-auto flex justify-between">
@@ -463,12 +385,7 @@ export default function Hero() {
           {/* Logo Menu */}
           <div className="fixed z-10 top-[70px] w-full flex items-center justify-center">
             {/* Header - only visible when menu is closed */}
-            <div
-              ref={headerRefMobile}
-              className={`flex items-center justify-between px-4 py-3 rounded-full w-[300px] lg:w-[436px] bg-white ${
-                isOpenMobile ? "invisible" : "visible"
-              }`}
-            >
+            <div ref={headerRefMobile} className={`flex items-center justify-between px-4 py-3 rounded-full w-[300px] lg:w-[436px] bg-white ${isOpenMobile ? "invisible" : "visible"}`}>
               <Image src={Logo} alt="logo" width={70} height={50} />
               <div onClick={toggleMenuMobile} className="cursor-pointer">
                 <MenuSvg />
@@ -476,14 +393,7 @@ export default function Hero() {
             </div>
           </div>
           {/* Menu Mobile View*/}
-          <AnimatePresence>
-            {isOpenMobile && (
-              <Menu
-                toggleMenu={toggleMenuMobile}
-                headerRect={headerRectMobile}
-              />
-            )}
-          </AnimatePresence>
+          <AnimatePresence>{isOpenMobile && <Menu toggleMenu={toggleMenuMobile} headerRect={headerRectMobile} />}</AnimatePresence>
         </div>
       </div>
     </>
