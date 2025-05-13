@@ -21,7 +21,7 @@ function ToursPackages() {
       <div className="absolute top-0 w-full h-full flex items-center justify-center bg-[#00000066]">
         <div className="flex flex-col gap-10 text-2xl font-generalSans z-1 items-center">
           <div className="flex flex-col gap-5">
-            <p className="text-[64px] font-bold text-white font-satoshi uppercase text-center max-[490px]:text-[40px]">
+            <p className="text-[38px] md:text-[64px] font-bold text-white font-satoshi uppercase text-center ">
               TOURS AND
               <br /> TRAVEL PACKAGES
             </p>
@@ -42,7 +42,7 @@ function ToursPackages() {
               )}
             </p>
           </div>
-          <div className="buttons flex gap-10 max-[490px]:flex-col max-[490px]:gap-5">
+          <div className="buttons flex gap-2 max-[490px]:flex-col">
             <button
               onClick={() => setIsDomestic(true)}
               className={`px-[24px] py-4 rounded-2xl max-[490px]:rounded-full flex items-center justify-center text-[16px] font-semibold cursor-pointer ${
