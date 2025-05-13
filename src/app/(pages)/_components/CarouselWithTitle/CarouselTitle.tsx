@@ -61,7 +61,7 @@ function CarouselTitle({
           <div className="flex flex-col gap-2 max-[490px]:px-5 max-[490px]:gap-5 mt-30 md:mt-0">
             <TextReveal>
               <div className="text-[64px] max-[490px]:text-[35px] font-extrabold text-[#14476F] font-satoshi uppercase">
-                <span className="text-[40px] md:text-[64px]">{title}</span>
+                <span className="text-[37px] md:text-[64px]">{title}</span>
               </div>
               <div className="text-black text-2xl max-[490px]:text-[16px] ">
                 {description}
