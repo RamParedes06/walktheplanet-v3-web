@@ -4,15 +4,15 @@ import Image from "next/image";
 
 function GridMotionMobile() {
   const images = [
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1745824794/boat_v0lvx6.webp",
+    "https://res.cloudinary.com/dmxvasob7/image/upload/v1745907516/Card-2_zs4not.webp",
     "https://res.cloudinary.com/dmxvasob7/image/upload/v1745907515/Card-1_twpap0.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1745824794/buildings_wwhdum.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1745824793/beach_u2kewx.webp",
+    "https://res.cloudinary.com/dmxvasob7/image/upload/v1745907515/Card_ffs8g2.webp",
+    "https://res.cloudinary.com/dmxvasob7/image/upload/v1745907515/Card-1_twpap0.webp",
     "https://res.cloudinary.com/dmxvasob7/image/upload/v1745907515/Card_ffs8g2.webp",
     "https://res.cloudinary.com/dmxvasob7/image/upload/v1745907516/Card-3_ovtswt.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1745824793/sky_unzaf5.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1745907516/Card-2_zs4not.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1745824792/sunset_shlbmr.webp",
+    "https://res.cloudinary.com/dmxvasob7/image/upload/v1745907515/Card_ffs8g2.webp",
+    "https://res.cloudinary.com/dmxvasob7/image/upload/v1745907516/Card-3_ovtswt.webp",
+    "https://res.cloudinary.com/dmxvasob7/image/upload/v1745907515/Card_ffs8g2.webp",
   ];
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-black min-[770px]:hidden overflow-hidden">
