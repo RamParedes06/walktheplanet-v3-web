@@ -38,21 +38,24 @@ function AllInProducts() {
         title="ALL-IN PRODUCTS"
         description={
           <div className="flex flex-col">
-            {isMobile ? (
-              <span>
-                Explore our personalized travel services designed <br /> for
-                worry-free experiences. We arrange flights,
-                <br /> stays, transfers and more so you can save money
-                <br /> and time while you explore amazing destinations.
-              </span>
-            ) : (
-              <span>
-                <p className="font-medium text-2xl text-[#7EE7FC]">
+            {!isMobile ? (
+              <p>
+                <span className="font-medium text-[#7EE7FC]">
                   Explore our personalized travel services
-                </p>{" "}
-                designed for worry-free experiences. We arrange flights, stays,
-                transfers and more so you can save money and time while you
-                explore amazing destinations.
+                </span>{" "}
+                designed for
+                <br /> worry-free experiences. We arrange flights, stays,
+                <br /> transfers and more so you can save money and time
+                <br /> while you explore amazing destinations.
+              </p>
+            ) : (
+              <span className="text-sm">
+                Explore our personalized travel services designed
+                <br />
+                for worry-free experiences. We arrange flights,
+                <br />
+                stays, transfers and more so you can save money
+                <br /> and time while you explore amazing destinations.
               </span>
             )}
           </div>
