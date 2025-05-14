@@ -11,19 +11,23 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const TravelOffersV2 = () => {
   const [isMobileView, setIsMobileView] = useState(false);
 
-  useEffect(() => {
-    // update state based on window width
-    const handleResize = () => {
-      setIsMobileView(window.innerWidth < 768);
-    };
 
-    // Call once (initial state)
-    handleResize();
-    window.addEventListener("resize", handleResize);
 
-    // Cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    useEffect(() => {
+      // update state based on window width
+      const handleResize = () => {
+        setIsMobileView(window.innerWidth < 768);
+      };
+
+      // Call once (initial state)
+      handleResize();
+      window.addEventListener("resize", handleResize);
+
+
+      // Cleanup
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
 
   //! Travel Offers Animation GSAP
   const [mounted, setMounted] = useState(false);
@@ -38,16 +42,20 @@ const TravelOffersV2 = () => {
       //! Cards travel offers
       const calculateSpacer = () => {
         // For larger screens, use larger spacing
-        if (window.innerWidth >= 1200) {
-          return 80; // 15% of viewport height on large screens
+        if (window.innerWidth > 2000) {
+          return 50;
+        }
+
+        else if (window.innerWidth >= 1200) {
+          return 70;
         }
         // For medium screens
         else if (window.innerWidth > 768) {
-          return 50; // 12% of viewport height on medium screens
+          return 50;
         }
         // For smaller screens and mobile devices
         else {
-          return 50; // 8% of viewport height on small screens
+          return 70;
         }
       };
 
@@ -58,9 +66,9 @@ const TravelOffersV2 = () => {
       const cards = gsap.utils.toArray<HTMLElement>(".card");
 
       // Position other cards off-screen initially
-      gsap.set(cards.slice(1), {
-        y: (index) => window.innerHeight / 2 + spacer * index,
-      });
+      // gsap.set(cards.slice(1), {
+      //   y: (index) => window.innerHeight / 2 + spacer * index ,
+      // });
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -77,28 +85,28 @@ const TravelOffersV2 = () => {
       tl.fromTo(
         ".card:not(:first-child)",
         {
-          y: (index) => window.innerHeight / 2 + spacer * index,
-          width: "100%", // Starting width for non-first cards
+          y: (index) =>
+            // window.innerWidth > 768 ? window.innerHeight / 2 + spacer * index : window.innerHeight / 2 + spacer * index + 30,
+            window.innerHeight / 2 + spacer * index,
+          width: "100%",
           stagger: 0.5,
           backgroundColor: (index, element) => {
             // Get the original background color from inline style or computed style
             const bgColor =
               element.style.backgroundColor ||
               window.getComputedStyle(element).backgroundColor;
-            return bgColor; // Keep original background color initially
+            return bgColor;
           },
         },
         {
           y: (index) => spacer * (index + 1),
-          width: "100%", // Ending width - same as starting to maintain consistency
+          width: "100%",
           backgroundColor: (index, element) => {
             // Get the original background color
             const bgColor =
               element.style.backgroundColor ||
               window.getComputedStyle(element).backgroundColor;
 
-            // Create a more opaque version by adding alpha channel
-            // This preserves the color but makes it more solid
             if (bgColor.includes("rgba")) {
               // If already has transparency, modify it
               return bgColor.replace(
@@ -114,26 +122,17 @@ const TravelOffersV2 = () => {
           stagger: 0.5,
         }
       );
-
-      // Clean up
-      //   return () => {
-      // 	ScrollTrigger.getAll().forEach((trigger) => {
-      // 	  if (trigger.vars.id && trigger.vars.id.startsWith("desc-")) {
-      // 		trigger.kill();
-      // 	  }
-      // 	});
-      //   };
     }
   }, [mounted]);
   return (
     <div>
-      <div className="travel-section">
+      <div className="travel-section h-screen">
         {" "}
         {/*  parent container */}
         {/* Black overlay with low opacity */}
-        <div className="absolute inset-0 bg-black opacity-30"></div>
+        <div className="absolute inset-0 bg-black opacity-30 h-screen"></div>
         <div
-          className="travel-offers-container bg-cover bg-center bg-fixed"
+          className="travel-offers-container bg-cover bg-center bg-fixed h-screen"
           style={{
             backgroundImage: `url(${travelOffers.src})`,
             backgroundSize: "cover",
@@ -141,7 +140,7 @@ const TravelOffersV2 = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="cards-parent h-[275px] lg:h-[230px] bg-cover bg-center flex justify-center items-center relative z-10 ">
+          <div className="cards-parent h-[28vh] lg:h-[26vh] bg-cover bg-center flex justify-center items-center relative z-10">
             <div className="wrap marquee-container  mt-20 lg:mt-0 w-full overflow-hidden">
               <div className="marquee text-[32px] lg:text-8xl font-semibold text-white opacity-90">
                 <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">
@@ -186,7 +185,7 @@ const TravelOffersV2 = () => {
             </div>
           </div>
 
-          <div className="cardss ">
+          <div className="cardss overflow-hidden h-screen">
             <div
               className="card "
               style={{
@@ -195,16 +194,16 @@ const TravelOffersV2 = () => {
                 zIndex: 1,
               }}
             >
-              <p className="satoshi font-medium text-md lg:text-xl p-5 lg:p-[32px_40px]">
+              <p className="satoshi font-medium text-md lg:text-xl p-6  lg:p-[32px_40px]">
                 TRAVEL PACKAGE ESSENTIALS
               </p>
               <div className="slider-container relative mt-4 ">
                 <TravelCarousel
                   images={TravelSlides}
-                  height={isMobileView ? 160 : 300}
+                  height={isMobileView ? 212 : 314}
                 />
 
-                <div className="absolute top-0 left-20 max-[490px]:left-5 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
+                <div className="absolute top-0 left-20 max-[490px]:left-5 right-0 white-overlay  p-8 h-[212px] md:h-full  md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
                   <p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">
                     GLOBAL DATA SIM
                   </p>
@@ -229,17 +228,17 @@ const TravelOffersV2 = () => {
               className="card"
               style={{ backgroundColor: "rgba(254, 96, 0, 0.9)", zIndex: 2 }}
             >
-              <p className="satoshi font-medium text-md lg:text-xl p-5 lg:p-[32px_40px]">
+              <p className="satoshi font-medium text-md lg:text-xl p-6 lg:p-[32px_40px]">
                 LOCAL DESTINATIONS
               </p>
 
               <div className="slider-container relative ">
                 <TravelCarousel
                   images={LocalSlides}
-                  height={isMobileView ? 179 : 300}
+                  height={isMobileView ? 212 : 314}
                 />
 
-                <div className="absolute top-0 min-[1440px]:left-155 max-[490px]:left-5 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
+                <div className="absolute top-0 min-[1440px]:left-155 max-[490px]:left-5 min-[1200px]:left-125 right-0 white-overlay p-8 h-[212px] md:h-full md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
                   <p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">
                     PALAWAN TOUR
                   </p>
@@ -255,7 +254,7 @@ const TravelOffersV2 = () => {
                         "https://tours.walktheplanet.com/collections/local-destinations")
                     }
                   >
-                    Book Now
+                    Get Now
                   </button>
                 </div>
               </div>
@@ -264,7 +263,7 @@ const TravelOffersV2 = () => {
               className="card"
               style={{ backgroundColor: "rgba(51, 51, 51, 0.9)", zIndex: 3 }}
             >
-              <p className="satoshi font-medium text-md lg:text-xl p-5 lg:p-[32px_40px]">
+              <p className="satoshi font-medium text-md lg:text-xl p-6 lg:p-[32px_40px]">
                 {" "}
                 INTERNATIONAL DESTINATIONS
               </p>
@@ -272,9 +271,9 @@ const TravelOffersV2 = () => {
               <div className="slider-container relative ">
                 <TravelCarousel
                   images={InternationalSlides}
-                  height={isMobileView ? 160 : 300}
+                  height={isMobileView ? 212 : 314}
                 />
-                <div className="absolute top-0 left-20 max-[490px]:left-5 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
+                <div className="absolute top-0 left-20 max-[490px]:left-5 right-0 white-overlay  p-8 h-[212px] md:h-full  md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
                   <p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">
                     PARIS TOUR
                   </p>
@@ -300,17 +299,17 @@ const TravelOffersV2 = () => {
               className="card "
               style={{ backgroundColor: "rgba(0, 83, 127, 0.9)", zIndex: 4 }}
             >
-              <p className="satoshi font-medium text-md lg:text-xl p-5 lg:p-[32px_40px]">
+              <p className="satoshi font-medium text-md lg:text-xl p-6 lg:p-[32px_40px]">
                 {" "}
                 TRAVEL DOCUMENTATION{" "}
               </p>
               <div className="slider-container relative ">
                 <TravelCarousel
                   images={DocumentSlides}
-                  height={isMobileView ? 180 : 300}
+                  height={isMobileView ? 212 : 314}
                 />
 
-                <div className="absolute top-0 min-[1440px]:left-155 max-[490px]:left-5 min-[1200px]:left-125 right-0 white-overlay p-4 md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
+                <div className="absolute top-0 min-[1440px]:left-155 max-[490px]:left-5 min-[1200px]:left-125 right-0 white-overlay  p-8 h-[212px] md:h-full  md:p-16 bg-white max-w-[668px] max-[490px]:max-w-[300px] w-full  flex flex-col gap-4">
                   <p className="text-black text-3xl  satoshi font-bold max-[490px]:text-[16px]">
                     VISA PROCESSING
                   </p>
