@@ -33,7 +33,7 @@ const cards = [
 function Beliefs() {
 	return (
 		<div className="space-y-10 max-[480px]:hidden">
-			<ScrollVelocity texts={["OUR BELIEFS"]} className="custom-scroll-text pt-50" />
+			<ScrollVelocity texts={["OUR BELIEFS"]} className="custom-scroll-text pt-25" />
 			<p className="text-center max-w-6xl mx-auto text-[#333333A6] satoshi">
 				Your love for travel inspires the way for our passion to create unforgettable journeys.
 				<br /> We craft tailor-made experiences in the Philippines and the world, immersing you in culture, diversity,
