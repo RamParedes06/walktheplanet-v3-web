@@ -1,1 +1,5 @@
-export const TravelSlides = ["https://res.cloudinary.com/dmxvasob7/image/upload/v1744005573/travel-package-slide_esccon.png", "https://res.cloudinary.com/dmxvasob7/image/upload/v1744005573/travel-package-slide3_luxvxh.png", "https://res.cloudinary.com/dmxvasob7/image/upload/v1744005568/travel-package-slide2_ptbvgz.png"];
+export const TravelSlides = [
+  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005573/travel-package-slide_esccon.png',
+  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005573/travel-package-slide3_luxvxh.png',
+  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005568/travel-package-slide2_ptbvgz.png',
+]

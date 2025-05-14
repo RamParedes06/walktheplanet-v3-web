@@ -1,1 +1,5 @@
-export const InternationalSlides = ["https://res.cloudinary.com/dmxvasob7/image/upload/v1744005586/international2_vt6q90.png", "https://res.cloudinary.com/dmxvasob7/image/upload/v1744005589/international1_bk85yp.png", "https://res.cloudinary.com/dmxvasob7/image/upload/v1744005597/international3_sxtyor.png"];
+export const InternationalSlides = [
+  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005586/international2_vt6q90.png',
+  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005589/international1_bk85yp.png',
+  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005597/international3_sxtyor.png',
+]
