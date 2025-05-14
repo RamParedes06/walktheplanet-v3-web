@@ -1,6 +1,6 @@
 import React from "react";
 // import SmoothScroll from "../_components/SmoothScroll";
-import { aboutUsHero } from "@/library/CorpHero";
+import { aboutUsHero, aboutUsHeroMobile } from "@/library/CorpHero";
 
 import Footer from "../_components/Footer";
 
@@ -25,9 +25,25 @@ const AboutUs = () => {
     <>
       {/* <div className="snap-y snap-mandatory overflow-y-auto h-screen">
       <SmoothScroll> */}
-      <section id="hero" className="snap-start">
+      {/* Desktop */}
+      <section id="hero" className="hidden md:block snap-start">
         <Hero
           images={aboutUsHero}
+          title="ABOUT US"
+          description={
+            <p>
+              <span className="text-white">
+                Bringing Every Juan Closer to Their Dream
+              </span>{" "}
+              Destinations.
+            </p>
+          }
+        />
+      </section>
+      {/* Mobile */}
+      <section id="hero" className="md:hidden block snap-start">
+        <Hero
+          images={aboutUsHeroMobile}
           title="ABOUT US"
           description={
             <p>
@@ -53,8 +69,8 @@ const AboutUs = () => {
       <section id="core-values" className="snap-start bg-white">
         <CoreValues />
       </section>
-
-      <section id="call-to-action" className="snap-start">
+      {/* Desktop */}
+      <section id="call-to-action" className="hidden md:block snap-start">
         <CallToAction
           image1={image1}
           image2={image2}
@@ -63,6 +79,20 @@ const AboutUs = () => {
           image5={image5}
           image6={image6}
           title="Partner with us, and your success is our ultimate priority"
+          buttonLabel="Partner with WalkThePlanet today!"
+        />
+      </section>
+      {/* Mobile */}
+      <section id="call-to-action" className="md:hidden block snap-start">
+        <CallToAction
+          image1={image1}
+          image2={image2}
+          image3={image3}
+          image4={image4}
+          image5={image5}
+          image6={image6}
+          title="Partner with us,"
+          title1="and your success is our ultimate priority"
           buttonLabel="Partner with WalkThePlanet today!"
         />
       </section>

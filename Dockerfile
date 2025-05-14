@@ -12,7 +12,7 @@ COPY ./package-lock.json /app
 COPY ./package.json /app
 COPY ./next.config.ts /app
 
-RUN ls -la /app
+# RUN ls -la /app
 
 # # copy all files from current directory to /app in the container
 # COPY . /app

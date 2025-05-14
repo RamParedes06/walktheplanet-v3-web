@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import background from "@/assets/svg/about/Background.svg";
@@ -22,22 +21,17 @@ export default function CoreValues() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[#0e192b]"></div>
 
-          <Image
-            src={background}
-            alt="Background pattern"
-            fill
-            className="hidden md:block object-right md:object-contain"
-            priority
-          />
+          {/* Background image container */}
+          <div
+            className="absolute inset-0 bg-no-repeat bg-cover bg-right hidden md:block"
+            style={{ backgroundImage: `url(${background.src})` }}
+          ></div>
 
           {/* Mobile background */}
-          <Image
-            src={bgMobile}
-            alt="Background pattern"
-            fill
-            className="block md:hidden object-cover"
-            priority
-          />
+          <div
+            className="absolute inset-0 bg-no-repeat bg-cover md:hidden"
+            style={{ backgroundImage: `url(${bgMobile.src})` }}
+          ></div>
         </div>
 
         <div className="flex flex-col items-center justify-center h-full relative z-10">
@@ -55,7 +49,7 @@ export default function CoreValues() {
             </span>
           </h2>
 
-          <h2 className="text-white text-3xl md:py-15 md:text-5xl font-bold text-center relative md:hidden">
+          <h2 className="text-white text-[40px] md:py-15 md:text-5xl font-[900] text-center relative md:hidden">
             OUR <br /> CORE
             <span className="relative inline-block">
               <span className="ml-2">VALUES</span>
@@ -72,9 +66,9 @@ export default function CoreValues() {
       </div>
 
       {/* Image grid with letter overlays */}
-      <div className="grid grid-cols-1 md:grid-cols-4 relative">
+      <div className="grid grid-cols-1 md:grid-cols-4 relative gap-1 bg-black">
         {/* S Image */}
-        <div className="relative h-[300px] md:h-[600px] overflow-hidden">
+        <div className="relative h-[404px] md:h-[600px] overflow-hidden">
           <Image
             src="https://res.cloudinary.com/dmxvasob7/image/upload/v1745205398/core1_mzfk00.webp"
             alt="Person with raised arm celebrating"
@@ -82,14 +76,14 @@ export default function CoreValues() {
             className="object-cover object-center md:object-left"
           />
           <div className="absolute inset-0">
-            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] md:translate-y-[190px] text-white text-[200px] md:text-[400px] font-semibold opacity-70">
+            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] md:translate-y-[190px] text-white text-[364px] md:text-[400px] font-semibold opacity-70">
               S
             </span>
           </div>
         </div>
 
         {/* I Image */}
-        <div className="relative h-[300px] md:h-[600px] overflow-hidden">
+        <div className="relative h-[404px] md:h-[600px] overflow-hidden">
           <Image
             src="https://res.cloudinary.com/dmxvasob7/image/upload/v1745205397/core2_sxcxhg.webp"
             alt="Person reading"
@@ -97,14 +91,14 @@ export default function CoreValues() {
             className="object-cover object-center md:object-[33%_center]"
           />
           <div className="absolute inset-0">
-            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] md:translate-y-[190px] text-white text-[200px] md:text-[400px] font-semibold opacity-70">
+            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] md:translate-y-[190px] text-white text-[364px] md:text-[400px] font-semibold opacity-70">
               I
             </span>
           </div>
         </div>
 
         {/* P Image */}
-        <div className="relative h-[300px] md:h-[600px] overflow-hidden">
+        <div className="relative h-[404px] md:h-[600px] overflow-hidden">
           <Image
             src="https://res.cloudinary.com/dmxvasob7/image/upload/v1745205396/core3_fbq1ma.webp"
             alt="Person with luggage"
@@ -112,14 +106,14 @@ export default function CoreValues() {
             className="object-cover object-center md:object-[66%_center]"
           />
           <div className="absolute inset-0">
-            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] md:translate-y-[190px] text-white text-[200px] md:text-[400px] font-semibold opacity-70">
+            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] md:translate-y-[190px] text-white text-[364px] md:text-[400px] font-semibold opacity-70">
               P
             </span>
           </div>
         </div>
 
         {/* A Image */}
-        <div className="relative h-[300px] md:h-[600px] overflow-hidden">
+        <div className="relative h-[404px] md:h-[600px] overflow-hidden">
           <Image
             src="https://res.cloudinary.com/dmxvasob7/image/upload/v1745205397/core4_marhsx.webp"
             alt="Person smiling"
@@ -127,7 +121,7 @@ export default function CoreValues() {
             className="object-cover object-center md:object-right"
           />
           <div className="absolute inset-0">
-            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] md:translate-y-[190px] text-white text-[200px] md:text-[400px] font-semibold opacity-70">
+            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] md:translate-y-[190px] text-white text-[364px] md:text-[400px] font-semibold opacity-70">
               A
             </span>
           </div>

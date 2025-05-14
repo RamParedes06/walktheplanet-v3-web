@@ -31,10 +31,10 @@ export default function FrequentlyAskedQuestion() {
             FREQUENTLY
           </h1>
           <h1 className="md:block hidden text-[40px] md:text-3xl lg:text-[64px] text-[#333] font-semibold leading-none mt-2">
-            ASKED QUESTION
+            ASKED QUESTIONS
           </h1>
           <h1 className="md:hidden text-[40px] md:text-3xl lg:text-[64px] text-[#333] font-semibold leading-none mt-2">
-            ASKED <br /> QUESTION
+            ASKED <br /> QUESTIONS
           </h1>
           <p className="text-base lg:text-[24px] mt-4 lg:mt-8 text-[#333]">
             Before you pack your bags, get the details you

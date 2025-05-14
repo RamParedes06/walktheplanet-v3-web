@@ -11,19 +11,23 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const TravelOffersV2 = () => {
   const [isMobileView, setIsMobileView] = useState(false);
 
-  useEffect(() => {
-    // update state based on window width
-    const handleResize = () => {
-      setIsMobileView(window.innerWidth < 768);
-    };
 
-    // Call once (initial state)
-    handleResize();
-    window.addEventListener("resize", handleResize);
 
-    // Cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    useEffect(() => {
+      // update state based on window width
+      const handleResize = () => {
+        setIsMobileView(window.innerWidth < 768);
+      };
+
+      // Call once (initial state)
+      handleResize();
+      window.addEventListener("resize", handleResize);
+
+
+      // Cleanup
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
 
   //! Travel Offers Animation GSAP
   const [mounted, setMounted] = useState(false);
@@ -38,8 +42,12 @@ const TravelOffersV2 = () => {
       //! Cards travel offers
       const calculateSpacer = () => {
         // For larger screens, use larger spacing
-        if (window.innerWidth >= 1200) {
-          return 80;
+        if (window.innerWidth > 2000) {
+          return 50;
+        }
+
+        else if (window.innerWidth >= 1200) {
+          return 70;
         }
         // For medium screens
         else if (window.innerWidth > 768) {
@@ -80,7 +88,7 @@ const TravelOffersV2 = () => {
           y: (index) =>
             // window.innerWidth > 768 ? window.innerHeight / 2 + spacer * index : window.innerHeight / 2 + spacer * index + 30,
             window.innerHeight / 2 + spacer * index,
-          width: "100%", 
+          width: "100%",
           stagger: 0.5,
           backgroundColor: (index, element) => {
             // Get the original background color from inline style or computed style
@@ -132,7 +140,7 @@ const TravelOffersV2 = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="cards-parent h-[28vh] lg:h-[20vh] bg-cover bg-center flex justify-center items-center relative z-10">
+          <div className="cards-parent h-[28vh] lg:h-[26vh] bg-cover bg-center flex justify-center items-center relative z-10">
             <div className="wrap marquee-container  mt-20 lg:mt-0 w-full overflow-hidden">
               <div className="marquee text-[32px] lg:text-8xl font-semibold text-white opacity-90">
                 <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">
