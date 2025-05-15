@@ -1,9 +1,10 @@
 "use client";
 import useIsMobile from "@/hooks/useIsMobile";
-import React, { useState } from "react";
+import { useState } from "react";
 
-const bgDomestic = "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1745472642/Tilted_Container_iq7eje.png";
-const bgInternational = "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1745476015/international_zrcmuz.png";
+const bgDomestic = "https://res.cloudinary.com/dmxvasob7/image/upload/v1747295376/Domestic_Packages_xp40mq.png";
+const bgInternational = "https://res.cloudinary.com/dmxvasob7/image/upload/v1747295376/International_Packages_zeymgl.png";
+
 
 function ToursPackages() {
 	const [isDomestic, setIsDomestic] = useState(true);
