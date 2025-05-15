@@ -30,12 +30,10 @@ const LeisurePage = () => {
       />
       {/* Section 2 - Online booking  */}
       <OnlineBooking />
-
       {/* Section 3 - Tiktok Live Selling  */}
       <LiveSelling />
-
       {/* Section 4 - Tours Online Booking  */}
-      <Tours/>
+      <Tours />
       {/* Section 5 - Footer  */}
       <Footer />
     </div>
