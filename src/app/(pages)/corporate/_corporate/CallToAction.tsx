@@ -1,6 +1,6 @@
-import React, { JSX } from "react";
-import Image from "next/image";
-import bg from "@/assets/svg/BGCTA.png";
+import bg from '@/assets/svg/BGCTA.png'
+import Image from 'next/image'
+import { JSX } from 'react'
 
 //* How to use *//
 // <CallToAction
@@ -16,30 +16,19 @@ import bg from "@/assets/svg/BGCTA.png";
 // />
 
 interface CallToActionProps {
-  image1: string;
-  image2: string;
-  image3: string;
-  image4: string;
-  image5: string;
-  image6: string;
-  title: JSX.Element | string;
-  title1: JSX.Element | string;
-  buttonLabel: string;
-  url: string;
+  image1: string
+  image2: string
+  image3: string
+  image4: string
+  image5: string
+  image6: string
+  title?: JSX.Element | string // title of the call to action: hotfix for the title to proceed the build
+  title1: JSX.Element | string
+  buttonLabel: string
+  url: string
 }
 
-function CallToAction({
-  image1,
-  image2,
-  image3,
-  image4,
-  image5,
-  image6,
-  title,
-  title1,
-  buttonLabel,
-  url,
-}: CallToActionProps) {
+function CallToAction({ image1, image2, image3, image4, image5, image6, title, title1, buttonLabel, url }: CallToActionProps) {
   return (
     <div
       className="h-[30vh] md:h-[40vh]  bg-white relative bg-no-repeat bg-right  max-[490px]:bg-center bg-contain  max-[490px]:bg-cover overflow-hidden "
@@ -52,9 +41,7 @@ function CallToAction({
             {title1}
           </div>
           <a href={url}>
-            <span className="cta-button px-4 py-3.5 bg-[#FE6000] rounded-full text-white font-semibold md:text-xl text-base">
-              {buttonLabel}
-            </span>
+            <span className="cta-button px-4 py-3.5 bg-[#FE6000] rounded-full text-white font-semibold md:text-xl text-base">{buttonLabel}</span>
           </a>
 
           <Image
@@ -102,7 +89,7 @@ function CallToAction({
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default CallToAction;
+export default CallToAction
