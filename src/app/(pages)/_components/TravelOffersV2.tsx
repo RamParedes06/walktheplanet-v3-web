@@ -125,7 +125,7 @@ const TravelOffersV2 = () => {
         {' '}
         {/*  parent container */}
         {/* Black overlay with low opacity */}
-        <div className="absolute inset-0 bg-black opacity-30 h-screen"></div>
+        <div className="absolute inset-0 bg-white opacity-10 h-screen"></div>
         <div
           className="travel-offers-container bg-cover bg-center bg-fixed h-full"
           style={{
@@ -137,7 +137,7 @@ const TravelOffersV2 = () => {
         >
           <div className="cards-parent h-[30vh] lg:h-[27vh] bg-cover bg-center flex justify-center items-center relative z-10">
             <div className="wrap marquee-container  mt-20 lg:mt-0 w-full overflow-hidden">
-              <div className="marquee text-[32px] lg:text-8xl font-semibold text-white opacity-90">
+              <div className="marquee text-[32px] lg:text-8xl font-semibold text-white opacity-0">
                 <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{' OUR TRAVEL OFFERS '}</p>
                 <span className="inline-block" style={{ width: '100px' }}></span>
                 <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{' OUR TRAVEL OFFERS '}</p>
