@@ -105,17 +105,37 @@ function AllInProducts() {
       {/* Section 10 - Merchandise  */}
 
       {/* Section 11 - Call to Action  */}
-      <CallToAction
-        url="https://tours.walktheplanet.com/"
-        image1={image4}
-        image2={image5}
-        image3={image6}
-        image4={image1}
-        image5={image2}
-        image6={image3}
-        title="Got any travel plans in mind? We’re just one click away!"
-        buttonLabel="Shop your travel needs here!"
-      />
+      {/* Desktop */}
+      <div className="hidden md:block">
+        <CallToAction
+          url="https://tours.walktheplanet.com/"
+          image1={image4}
+          image2={image5}
+          image3={image6}
+          image4={image1}
+          image5={image2}
+          image6={image3}
+          title="Got any travel plans in mind? We’re just one click away!"
+          title1=""
+          buttonLabel="Shop your travel needs here!"
+        />
+      </div>
+
+      {/* Mobile */}
+      <div className="md:hidden block">
+        <CallToAction
+          url="https://tours.walktheplanet.com/"
+          image1={image4}
+          image2={image5}
+          image3={image6}
+          image4={image1}
+          image5={image2}
+          image6={image3}
+          title="Got any travel plans in mind?"
+          title1="We’re just one click away!"
+          buttonLabel="Shop your travel needs here!"
+        />
+      </div>
 
       <Footer />
       {/* </SmoothScroll>
