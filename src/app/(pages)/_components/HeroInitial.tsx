@@ -1,17 +1,17 @@
-"use client";
-import Logo from "@/assets/images/Logo.png";
-import MenuSvg from "@/assets/svg/MenuSvg";
-import "@/styles/hero-horizontal-scroll.scss";
-import "@/styles/slider.scss";
-import { AnimatePresence } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+'use client'
+import Logo from '@/assets/images/Logo.png'
+import MenuSvg from '@/assets/svg/MenuSvg'
+import '@/styles/hero-horizontal-scroll.scss'
+import '@/styles/slider.scss'
+import { AnimatePresence } from 'framer-motion'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Image from 'next/image'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
-import { tabs } from "@/library/Tab";
-import Marquee from "./Marquee";
-import Menu from "./Menu";
+import { tabs } from '@/library/Tab'
+import Marquee from './Marquee'
+import Menu from './Menu'
 
 export default function Hero() {
   //! For the full screen menu animation
@@ -30,47 +30,47 @@ export default function Hero() {
     left: 0,
     width: 0,
     height: 0,
-  });
+  })
 
   const [headerRectMobile, setHeaderRectMobile] = useState({
     top: 0,
     left: 0,
     width: 0,
     height: 0,
-  });
+  })
 
   const toggleMenu = () => {
     if (!isOpenDesktop && headerRef.current) {
-      const rect = headerRef.current.getBoundingClientRect();
+      const rect = headerRef.current.getBoundingClientRect()
       setHeaderRect({
         top: rect.top,
         left: rect.left,
         width: rect.width,
         height: rect.height,
-      });
+      })
     }
-    setIsOpenDesktop(!isOpenDesktop);
-  };
+    setIsOpenDesktop(!isOpenDesktop)
+  }
 
   const toggleMenuMobile = () => {
     if (!isOpenMobile && headerRefMobile.current) {
-      const rect = headerRefMobile.current.getBoundingClientRect();
+      const rect = headerRefMobile.current.getBoundingClientRect()
       setHeaderRectMobile({
         top: rect.top,
         left: rect.left,
         width: rect.width,
         height: rect.height,
-      });
+      })
     }
-    setIsOpenMobile(!isOpenMobile);
-  };
+    setIsOpenMobile(!isOpenMobile)
+  }
 
   // prevent scrolling when menu is open
   useEffect(() => {
     if (isOpenDesktop || isOpenMobile) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden'
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset'
     }
 
     return () => {
@@ -140,156 +140,156 @@ export default function Hero() {
   }, [isMenuVisible]);
 
   //! For horizontal content
-  const racesRef = useRef<HTMLDivElement>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const heroContainerRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [hoveredTab, setHoveredTab] = useState<number>(-1);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [initialSetupDone, setInitialSetupDone] = useState(false);
-  const autoPlayIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const racesRef = useRef<HTMLDivElement>(null)
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const heroContainerRef = useRef<HTMLDivElement>(null)
+  const [mounted, setMounted] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [hoveredTab, setHoveredTab] = useState<number>(-1)
+  const [isAnimating, setIsAnimating] = useState(false)
+  const [initialSetupDone, setInitialSetupDone] = useState(false)
+  const autoPlayIntervalRef = useRef<NodeJS.Timeout | null>(null)
 
   //! Sliding animation for the tabs
-  const tabsContainerRef = useRef<HTMLDivElement>(null);
-  const slideRef = useRef<HTMLDivElement>(null);
-  const [initialRender, setInitialRender] = useState(true);
+  const tabsContainerRef = useRef<HTMLDivElement>(null)
+  const slideRef = useRef<HTMLDivElement>(null)
+  const [initialRender, setInitialRender] = useState(true)
 
   // Clear any existing autoplay interval
   const clearAutoPlayInterval = useCallback(() => {
     if (autoPlayIntervalRef.current) {
-      clearInterval(autoPlayIntervalRef.current);
-      autoPlayIntervalRef.current = null;
+      clearInterval(autoPlayIntervalRef.current)
+      autoPlayIntervalRef.current = null
     }
-  }, []);
+  }, [])
 
   const startAutoPlay = useCallback(() => {
-    clearAutoPlayInterval();
+    clearAutoPlayInterval()
 
     autoPlayIntervalRef.current = setInterval(() => {
       if (!isAnimating) {
-        const nextIndex = (activeIndex + 1) % tabs.length;
-        goToSlide(nextIndex);
+        const nextIndex = (activeIndex + 1) % tabs.length
+        goToSlide(nextIndex)
       }
-    }, 3000);
+    }, 3000)
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeIndex, isAnimating, clearAutoPlayInterval]);
+  }, [activeIndex, isAnimating, clearAutoPlayInterval])
 
   const goToSlide = useCallback(
     (index: number) => {
       // Prevent clicking during animation or going to the same slide
-      if (isAnimating || activeIndex === index) return;
-      setIsAnimating(true);
-      setActiveIndex(index);
+      if (isAnimating || activeIndex === index) return
+      setIsAnimating(true)
+      setActiveIndex(index)
 
-      const races = racesRef.current;
+      const races = racesRef.current
       if (!races) {
-        setIsAnimating(false);
-        return;
+        setIsAnimating(false)
+        return
       }
 
       // Calculate the slide position - each slide is 100vw
-      const slideWidth = window.innerWidth;
-      const targetPosition = -(index * slideWidth);
+      const slideWidth = window.innerWidth
+      const targetPosition = -(index * slideWidth)
 
       gsap.to(races, {
         x: targetPosition,
         duration: 0.8,
-        ease: "power2.out",
+        ease: 'power2.out',
         onComplete: () => {
-          setIsAnimating(false);
+          setIsAnimating(false)
         },
-      });
+      })
 
-      const descriptions = document.querySelectorAll(".description");
+      const descriptions = document.querySelectorAll('.description')
 
       // hide all descriptions
       gsap.set(descriptions, {
         opacity: 0,
         y: 150,
-      });
+      })
 
       // reveal the current description
       gsap.to(descriptions[index], {
         opacity: 1,
         y: 0,
         duration: 0.8,
-        ease: "circ.out",
+        ease: 'circ.out',
         delay: 0.1,
-      });
+      })
     },
     [isAnimating, activeIndex]
-  );
+  )
 
   useEffect(() => {
-    setMounted(true);
-    window.scrollTo(0, 0);
+    setMounted(true)
+    window.scrollTo(0, 0)
 
     // Register GSAP plugins
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger)
 
     return () => {
       // Cleanup on unmount
-      clearAutoPlayInterval();
-    };
-  }, [clearAutoPlayInterval]);
+      clearAutoPlayInterval()
+    }
+  }, [clearAutoPlayInterval])
 
   // Setup after mounting
   useEffect(() => {
     // Only run the setup after the component is mounted and only once
     if (mounted && !initialSetupDone) {
-      const races = racesRef.current;
-      if (!races) return;
+      const races = racesRef.current
+      if (!races) return
 
       // Setup container styles
       if (heroContainerRef.current) {
-        heroContainerRef.current.style.height = "100vh";
-        heroContainerRef.current.style.width = "100%";
-        heroContainerRef.current.style.position = "relative";
-        heroContainerRef.current.style.overflow = "hidden";
+        heroContainerRef.current.style.height = '100vh'
+        heroContainerRef.current.style.width = '100%'
+        heroContainerRef.current.style.position = 'relative'
+        heroContainerRef.current.style.overflow = 'hidden'
       }
 
       // Set initial positioning for slides
-      const slideWidth = window.innerWidth;
-      const targetPosition = -(activeIndex * slideWidth);
+      const slideWidth = window.innerWidth
+      const targetPosition = -(activeIndex * slideWidth)
 
-      gsap.set(races, { x: targetPosition });
+      gsap.set(races, { x: targetPosition })
 
       // Set initial state for all description elements
-      const descriptions = document.querySelectorAll(".description");
+      const descriptions = document.querySelectorAll('.description')
       gsap.set(descriptions, {
         opacity: 0,
         y: 150,
-        position: "absolute",
-        top: "0%",
-        left: "0%",
-        width: "100%",
-      });
+        position: 'absolute',
+        top: '0%',
+        left: '0%',
+        width: '100%',
+      })
 
       // Only show the active description initially
       gsap.to(descriptions[activeIndex], {
         opacity: 1,
         y: 0,
         duration: 0.8,
-        ease: "circ.out",
-      });
+        ease: 'circ.out',
+      })
 
       // Make sure each slide takes up the full viewport width
-      const racesDivs = document.querySelectorAll(".racesDiv");
+      const racesDivs = document.querySelectorAll('.racesDiv')
       gsap.set(racesDivs, {
         width: window.innerWidth,
-      });
+      })
 
       // Make races container have the correct width
-      races.style.width = `${window.innerWidth * tabs.length}px`;
-      setInitialSetupDone(true);
+      races.style.width = `${window.innerWidth * tabs.length}px`
+      setInitialSetupDone(true)
     }
-  }, [mounted, activeIndex, initialSetupDone]);
+  }, [mounted, activeIndex, initialSetupDone])
 
   // Start autoplay after setup is complete
   useEffect(() => {
     if (mounted && initialSetupDone && !isOpenDesktop && !isOpenMobile) {
-      startAutoPlay();
+      startAutoPlay()
     }
 
     return () => {
@@ -305,62 +305,62 @@ export default function Hero() {
   ]);
 
   useEffect(() => {
-    if (!mounted) return;
+    if (!mounted) return
 
-    const races = racesRef.current;
-    if (!races) return;
+    const races = racesRef.current
+    if (!races) return
 
     const handleResize = () => {
       // Update each slide width
-      const racesDivs = document.querySelectorAll(".racesDiv");
+      const racesDivs = document.querySelectorAll('.racesDiv')
       gsap.set(racesDivs, {
         width: window.innerWidth,
-      });
+      })
 
       // Update total races container width
-      races.style.width = `${window.innerWidth * tabs.length}px`;
+      races.style.width = `${window.innerWidth * tabs.length}px`
 
       // Update the current slide position
-      const slideWidth = window.innerWidth;
-      const targetPosition = -(activeIndex * slideWidth);
+      const slideWidth = window.innerWidth
+      const targetPosition = -(activeIndex * slideWidth)
 
       gsap.set(races, {
         x: targetPosition,
-      });
-    };
+      })
+    }
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize)
 
     return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [mounted, activeIndex]);
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [mounted, activeIndex])
 
   // Update tab slider position
   useEffect(() => {
-    if (!tabsContainerRef.current || !slideRef.current) return;
+    if (!tabsContainerRef.current || !slideRef.current) return
 
-    const buttons = tabsContainerRef.current.querySelectorAll("button");
-    if (buttons.length === 0 || activeIndex >= buttons.length) return;
+    const buttons = tabsContainerRef.current.querySelectorAll('button')
+    if (buttons.length === 0 || activeIndex >= buttons.length) return
 
-    const activeButton = buttons[activeIndex];
+    const activeButton = buttons[activeIndex]
 
     // Position the sliding indicator
-    slideRef.current.style.transform = `translateX(${activeButton.offsetLeft}px)`;
-    slideRef.current.style.width = `${activeButton.offsetWidth}px`;
+    slideRef.current.style.transform = `translateX(${activeButton.offsetLeft}px)`
+    slideRef.current.style.width = `${activeButton.offsetWidth}px`
 
     // Remove initial render flag after first positioning
     if (initialRender) {
-      setInitialRender(false);
+      setInitialRender(false)
     }
-  }, [activeIndex, initialRender]);
+  }, [activeIndex, initialRender])
 
   // Pause/restart autoplay on menu open/close
   useEffect(() => {
     if (isOpenDesktop || isOpenMobile) {
-      clearAutoPlayInterval();
+      clearAutoPlayInterval()
     } else if (mounted && initialSetupDone) {
-      startAutoPlay();
+      startAutoPlay()
     }
   }, [
     isOpenDesktop,
@@ -424,10 +424,10 @@ export default function Hero() {
                 onMouseLeave={() => setHoveredTab(-1)}
                 onClick={() => {
                   // Clear the current interval before changing slide
-                  clearAutoPlayInterval();
-                  goToSlide(index);
+                  clearAutoPlayInterval()
+                  goToSlide(index)
                   // Restart autoplay after manual navigation
-                  startAutoPlay();
+                  startAutoPlay()
                 }}
               >
                 <tab.svg
@@ -558,5 +558,5 @@ export default function Hero() {
         </div>
       </div>
     </>
-  );
+  )
 }

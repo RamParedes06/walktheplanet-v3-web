@@ -1,10 +1,10 @@
 import React from 'react'
-import '../../../styles/marquee.scss'
+import '../../../../styles/marquee.scss'
 type MarqueeProps = {
   variant?: 'homeHero' | 'corporateHero'
   gradient?: string
 }
-const Marquee = ({ variant, gradient = 'bg-gradient-to-r from-[#0A2472] via-[#00A9CE] to-[#FF7A00]' }: MarqueeProps) => {
+const Marquee = ({ variant, gradient = 'bg-gradient-to-r from-[#FAAE19] via-[#198A6F] to-[#14476F]' }: MarqueeProps) => {
   return (
     <>
       {/* scroll animation!!  */}
@@ -23,20 +23,10 @@ const Marquee = ({ variant, gradient = 'bg-gradient-to-r from-[#0A2472] via-[#00
                   'Explore more, spend less! Get 20% off educational tours today! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Book now and enjoy 10% off your next adventure\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Travel smarter, save bigger! Get free upgrades on select packages!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
-              <p>
-                {
-                  'Explore more, spend less! Get 20% off educational tours today! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Book now and enjoy 10% off your next adventure\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Travel smarter, save bigger! Get free upgrades on select packages!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
-                }
-              </p>
             </div>
           </div>
           <div className="wrapper bottom-wrapper">
             <div className="marquee text-sm lg:text-[16px]">
-              <p>
-                {
-                  'Explore more, spend less! Get 20% off educational tours today! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Book now and enjoy 10% off your next adventure\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Travel smarter, save bigger! Get free upgrades on select packages!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
-                }
-              </p>
               <p>
                 {
                   'Explore more, spend less! Get 20% off educational tours today! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Book now and enjoy 10% off your next adventure\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Travel smarter, save bigger! Get free upgrades on select packages!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'

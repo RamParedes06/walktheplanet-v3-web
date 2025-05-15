@@ -1,13 +1,13 @@
-"use client";
-import MenuSvg from "@/assets/svg/MenuSvg";
-import Image from "next/image";
-import React, { JSX, useCallback, useEffect, useRef, useState } from "react";
-import Logo from "@/assets/images/Logo.png";
-import { AnimatePresence } from "framer-motion";
-import "../../../../styles/hero-horizontal-scroll.scss";
-import Marquee from "../../_components/Marquee";
-import TextReveal from "../../_components/TextReveal";
-import Menu from "../../_components/Menu";
+'use client'
+import Logo from '@/assets/images/Logo.png'
+import MenuSvg from '@/assets/svg/MenuSvg'
+import { AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+import { JSX, useCallback, useEffect, useRef, useState } from 'react'
+import '../../../../styles/hero-horizontal-scroll.scss'
+import Marquee from './Marquee'
+import Menu from '../../_components/Menu'
+import TextReveal from '../../_components/TextReveal'
 
 interface HeroProps {
   images: string[];
@@ -255,8 +255,12 @@ const Hero = ({
           {/* Gradient overlay with responsive classes */}
           <div
             className="absolute inset-0 w-full h-full 
+          {/* Gradient overlay with responsive classes */}
+          <div
+            className="absolute inset-0 w-full h-full 
                bg-gradient-to-l from-transparent to-[rgba(18,60,140,0.4)] 
                lg:bg-gradient-to-l lg:from-transparent lg:from-[52.21%] lg:to-[rgba(18,60,140,0.4)] lg:to-[60.75%]"
+          ></div>
           ></div>
 
           <div className="max-w-[600px] absolute bottom-[15%] left-[5%]">
@@ -270,6 +274,10 @@ const Hero = ({
             </TextReveal>
           </div>
 
+          <div className="absolute bottom-0 w-full h-[10vh]">
+            <Marquee variant="corporateHero" gradient={gradient} />
+          </div>
+        </div>
           <div className="absolute bottom-0 w-full h-[10vh]">
             <Marquee variant="corporateHero" gradient={gradient} />
           </div>
@@ -314,4 +322,4 @@ const Hero = ({
   );
 };
 
-export default Hero;
+export default Hero
