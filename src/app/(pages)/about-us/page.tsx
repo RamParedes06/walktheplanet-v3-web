@@ -1,24 +1,17 @@
-import React from "react";
+import React from 'react'
 // import SmoothScroll from "../_components/SmoothScroll";
-import { aboutUsHero, aboutUsHeroMobile } from "@/library/CorpHero";
+import { aboutUsHero, aboutUsHeroMobile } from '@/library/CorpHero'
 
-import Footer from "../_components/Footer";
+import Footer from '../_components/Footer'
 
-import {
-  image1,
-  image2,
-  image3,
-  image4,
-  image5,
-  image6,
-} from "@/app/components/CorpoCTA";
+import { image1, image2, image3, image4, image5, image6 } from '@/app/components/CorpoCTA'
 
-import StorySection from "@/app/components/StorySection";
-import WhoWeAreSection from "@/app/components/WhoWeAre";
-import Travel from "@/app/components/Travel";
-import CoreValues from "@/app/components/CoreValues";
-import CallToAction from "@/app/components/CallToAction";
-import Hero from "@/app/components/Hero";
+import StorySection from '@/app/components/StorySection'
+import WhoWeAreSection from '@/app/components/WhoWeAre'
+import Travel from '@/app/components/Travel'
+import CoreValues from '@/app/components/CoreValues'
+import CallToAction from '@/app/components/CallToAction'
+import Hero from '@/app/(pages)/about-us/_components/Hero'
 
 const AboutUs = () => {
   return (
@@ -32,10 +25,7 @@ const AboutUs = () => {
           title="ABOUT US"
           description={
             <p>
-              <span className="text-white">
-                Bringing Every Juan Closer to Their Dream
-              </span>{" "}
-              Destinations.
+              <span className="text-white">Bringing Every Juan Closer to Their Dream</span> Destinations.
             </p>
           }
         />
@@ -47,10 +37,7 @@ const AboutUs = () => {
           title="ABOUT US"
           description={
             <p>
-              <span className="text-white">
-                Bringing Every Juan Closer to Their Dream
-              </span>{" "}
-              Destinations.
+              <span className="text-white">Bringing Every Juan Closer to Their Dream</span> Destinations.
             </p>
           }
         />
@@ -102,7 +89,7 @@ const AboutUs = () => {
       {/* </SmoothScroll>
     </div> */}
     </>
-  );
-};
+  )
+}
 
-export default AboutUs;
+export default AboutUs
