@@ -204,6 +204,8 @@ const Hero = ({
     }
   }, [isMenuVisible]);
 
+  
+
   return (
     <>
       <div

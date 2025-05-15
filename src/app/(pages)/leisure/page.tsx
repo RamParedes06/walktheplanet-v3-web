@@ -1,5 +1,4 @@
 "use client";
-import { useRef } from "react";
 import Hero from "../corporate/_corporate/Hero";
 import { LeisureImages } from "@/library/LeisureHero";
 import Footer from "../_components/Footer";

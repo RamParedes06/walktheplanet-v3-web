@@ -62,7 +62,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
         className={`relative h-screen flex flex-col items-center px-0 py-4 md:p-8 pb-0 bg-white`}
       >
         {/* Description */}
-        <div className="relative h-[40%] w-full">
+        <div className="relative h-[335px] w-full">
           {/* SVG First Overlay - Hidden on mobile */}
 
           {!isMobile ? (
