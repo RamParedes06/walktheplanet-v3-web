@@ -1,13 +1,13 @@
 "use client";
-import MenuSvg from "@/assets/svg/MenuSvg";
-import Image from "next/image";
-import React, { JSX, useCallback, useEffect, useRef, useState } from "react";
-import Logo from "@/assets/images/Logo.png";
+import Logo from '@/assets/images/Logo.png'
+import MenuSvg from '@/assets/svg/MenuSvg'
 import { AnimatePresence } from "framer-motion";
+import Image from 'next/image'
+import { JSX, useCallback, useEffect, useRef, useState } from 'react'
 import "../../../../styles/hero-horizontal-scroll.scss";
 import Marquee from "../../_components/Marquee";
-import TextReveal from "../../_components/TextReveal";
-import Menu from "../../_components/Menu";
+import Menu from '../../_components/Menu'
+import TextReveal from '../../_components/TextReveal'
 
 interface HeroProps {
 	images: string[];
@@ -129,73 +129,70 @@ const Hero = ({ images, title, description, gradient = "bg-gradient-to-r from-[#
 	}, [isOpenDesktop, isOpenMobile]);
 
 	return (
-		<>
-			<div className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block">
-				{/* Header - only visible when menu is closed */}
-				<div ref={headerRef} className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl  rounded-full w-[300px] lg:w-[436px]  ${isOpenDesktop ? "invisible" : "visible"}`}>
-					<Image src={Logo} onClick={() => window.location.replace("/")} className="cursor-pointer" alt="logo" width={70} height={50} />
-					<div onClick={toggleMenu} className="cursor-pointer">
-						<MenuSvg />
-					</div>
-				</div>
-			</div>
+    <>
+      <div className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block">
+        {/* Header - only visible when menu is closed */}
+        <div ref={headerRef} className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl  rounded-full w-[300px] lg:w-[436px]  ${isOpenDesktop ? 'invisible' : 'visible'}`}>
+          <Image src={Logo} onClick={() => window.location.replace('/')} className="cursor-pointer" alt="logo" width={70} height={50} />
+          <div onClick={toggleMenu} className="cursor-pointer">
+            <MenuSvg />
+          </div>
+        </div>
+      </div>
 
-			<AnimatePresence>{isOpenDesktop && <Menu toggleMenu={toggleMenu} headerRect={headerRect} />}</AnimatePresence>
+      <AnimatePresence>{isOpenDesktop && <Menu toggleMenu={toggleMenu} headerRect={headerRect} />}</AnimatePresence>
 
-			<div className="relative w-screen h-[90vh] md:h-screen">
-				<div className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${corpImages})` }}>
-					{corpImages.map((image, index) => (
-						<div
-							key={index}
-							className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-500 ${getImageClasses(index)}`}
-							style={{ backgroundImage: `url(${image})` }}
-						></div>
-					))}
+      <div className="relative w-screen h-[90vh] md:h-screen">
+        <div className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${corpImages[0]})` }}>
+          {corpImages.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-500 ${getImageClasses(index)}`}
+              style={{ backgroundImage: `url(${image})` }}
+            ></div>
+          ))}
 
-					{/* Gradient overlay with responsive classes */}
-					<div
-						className="absolute inset-0 w-full h-full 
+          {/* Gradient overlay with responsive classes */}
+          <div
+            className="absolute inset-0 w-full h-full 
                bg-gradient-to-l from-transparent to-[rgba(18,60,140,0.4)] 
                lg:bg-gradient-to-l lg:from-transparent lg:from-[52.21%] lg:to-[rgba(18,60,140,0.4)] lg:to-[60.75%]"
-					></div>
+          ></div>
 
-					<div className="max-w-[600px] absolute bottom-[15%] left-[5%]">
-						<TextReveal>
-							<p className="font-satoshi lg:text-[64px] text-[40px] font-semibold max-[490px]:text-[35px]">{title}</p>
-							<div className="lg:text-2xl text-base font-generalSans">{description}</div>
-						</TextReveal>
-					</div>
+          <div className="max-w-[600px] absolute bottom-[15%] left-[5%]">
+            <TextReveal>
+              <p className="font-satoshi lg:text-[64px] text-[40px] font-semibold max-[490px]:text-[35px]">{title}</p>
+              <div className="lg:text-2xl text-base font-generalSans">{description}</div>
+            </TextReveal>
+          </div>
 
-					<div className="absolute bottom-0 w-full h-[10vh]">
-						<Marquee variant="corporateHero" gradient={gradient} />
-					</div>
-				</div>
+          <div className="absolute bottom-0 w-full h-[10vh]">
+            <Marquee variant="corporateHero" gradient={gradient} />
+          </div>
+        </div>
 
-				{/* Mobile Menu  */}
-				<div className=" w-full relative overflow-hidden rounded-xl max-[480px]:rounded-none max-w-full mx-auto flex justify-between">
-					<div className="lg:hidden">
-						{/* Logo Menu */}
-						{/* Header - only visible when not animating */}
-						<div className="fixed z-99 top-[70px]  w-full flex items-center justify-center ">
-							{/* Header - only visible when menu is closed */}
-							<div
-								ref={headerRefMobile}
-								className={`flex items-center justify-between px-4  py-3 rounded-full w-[300px] lg:w-[436px] bg-white ${isOpenMobile ? "invisible" : "visible"}`}
-							>
-								<Image src={Logo} alt="logo" width={70} height={50} />
-								<div onClick={toggleMenuMobile} className="cursor-pointer">
-									<MenuSvg />
-									{/* </div> */}
-								</div>
-							</div>
-						</div>
-						{/* Menu Mobile View*/}
-						<AnimatePresence>{isOpenMobile && <Menu toggleMenu={toggleMenuMobile} headerRect={headerRectMobile} />}</AnimatePresence>
-					</div>
-				</div>
-			</div>
-		</>
-	);
+        {/* Mobile Menu  */}
+        <div className=" w-full relative overflow-hidden rounded-xl max-[480px]:rounded-none max-w-full mx-auto flex justify-between">
+          <div className="lg:hidden">
+            {/* Logo Menu */}
+            {/* Header - only visible when not animating */}
+            <div className="fixed z-99 top-[70px]  w-full flex items-center justify-center ">
+              {/* Header - only visible when menu is closed */}
+              <div ref={headerRefMobile} className={`flex items-center justify-between px-4  py-3 rounded-full w-[300px] lg:w-[436px] bg-white ${isOpenMobile ? 'invisible' : 'visible'}`}>
+                <Image src={Logo} alt="logo" width={70} height={50} />
+                <div onClick={toggleMenuMobile} className="cursor-pointer">
+                  <MenuSvg />
+                  {/* </div> */}
+                </div>
+              </div>
+            </div>
+            {/* Menu Mobile View*/}
+            <AnimatePresence>{isOpenMobile && <Menu toggleMenu={toggleMenuMobile} headerRect={headerRectMobile} />}</AnimatePresence>
+          </div>
+        </div>
+      </div>
+    </>
+  )
 };
 
 export default Hero;
