@@ -125,9 +125,9 @@ const TravelOffersV2 = () => {
         {' '}
         {/*  parent container */}
         {/* Black overlay with low opacity */}
-        <div className="absolute inset-0 bg-black opacity-30"></div>
+        <div className="absolute inset-0 bg-black opacity-30 h-screen"></div>
         <div
-          className="travel-offers-container bg-cover bg-center bg-fixed"
+          className="travel-offers-container bg-cover bg-center bg-fixed h-screen"
           style={{
             backgroundImage: `url(${travelOffers.src})`,
             backgroundSize: 'cover',
@@ -135,7 +135,7 @@ const TravelOffersV2 = () => {
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <div className="cards-parent h-[275px] lg:h-[230px] bg-cover bg-center flex justify-center items-center relative z-10 ">
+          <div className="cards-parent h-[28vh] lg:h-[26vh] bg-cover bg-center flex justify-center items-center relative z-10">
             <div className="wrap marquee-container  mt-20 lg:mt-0 w-full overflow-hidden">
               <div className="marquee text-[32px] lg:text-8xl font-semibold text-white opacity-90">
                 <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{' OUR TRAVEL OFFERS '}</p>
@@ -153,7 +153,7 @@ const TravelOffersV2 = () => {
             </div>
           </div>
 
-          <div className="cardss ">
+          <div className="cardss overflow-hidden h-screen">
             <div
               className="card "
               style={{
