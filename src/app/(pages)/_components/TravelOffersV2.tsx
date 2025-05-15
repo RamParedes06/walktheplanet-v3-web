@@ -121,13 +121,13 @@ const TravelOffersV2 = () => {
   }, [mounted])
   return (
     <div>
-      <div className="travel-section">
+      <div className="travel-section h-screen">
         {' '}
         {/*  parent container */}
         {/* Black overlay with low opacity */}
-        <div className="absolute inset-0 bg-white opacity-0 h-screen"></div>
+        <div className="absolute inset-0  bg-black opacity-30 h-screen"></div>
         <div
-          className="travel-offers-container bg-cover bg-center bg-fixed h-full"
+          className="travel-offers-container bg-cover bg-center bg-fixed h-screen"
           style={{
             backgroundImage: `url(${travelOffers.src})`,
             backgroundSize: 'cover',
