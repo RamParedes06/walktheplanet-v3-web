@@ -13,7 +13,7 @@ function Footer() {
 	const pathname = usePathname();
 
 	return (
-		<>
+		<footer>
 			<div className=" bg-[#00537F]  w-full">
 				<div className="max-w-[1280px] mx-auto py-24">
 					<div className="gap-4 flex justify-between max-[490px]:flex-wrap  max-[490px]:items-center max-[490px]:justify-center">
@@ -145,7 +145,7 @@ function Footer() {
 					<div className="max-w-[1280px] mx-auto text-white">© 2023 WalkThePlanet, Inc. All rights reserved.</div>
 				</div>
 			</div>
-		</>
+		</footer>
 	);
 }
 

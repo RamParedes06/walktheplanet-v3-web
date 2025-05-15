@@ -1,8 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-// import HomePage from "./(pages)/Homepage/page";
 import Hero from "./(pages)/_components/HeroInitial";
 import TravelOffersV2 from "./(pages)/_components/TravelOffersV2";
 import Beliefs from "./(pages)/_components/beliefs";
@@ -19,6 +18,7 @@ const logo =
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const footerRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 2000);
@@ -56,7 +56,9 @@ export default function Home() {
           <InfiniteMenu items={partners} />
           <GridMotion items={HomeOffers} />
           <GridMotionMobile />
-          <Footer />
+          <div ref={footerRef}>
+            <Footer />
+          </div>
         </>
       )}
     </div>

@@ -17,10 +17,13 @@ export default function Hero() {
   //! For the full screen menu animation
   const [isOpenDesktop, setIsOpenDesktop] = useState(false);
   const [isOpenMobile, setIsOpenMobile] = useState(false);
+  const [isMenuVisible, setIsMenuVisible] = useState(true); // State to control menu visibility
 
   //! For Navigation Menu
   const headerRef = useRef<HTMLDivElement>(null);
   const headerRefMobile = useRef<HTMLDivElement>(null);
+  const headerContainerRef = useRef<HTMLDivElement>(null);
+  const headerContainerMobileRef = useRef<HTMLDivElement>(null);
   const [headerRect, setHeaderRect] = useState({
     top: 0,
     left: 0,
@@ -73,6 +76,54 @@ export default function Hero() {
       document.body.style.overflow = "unset";
     };
   }, [isOpenDesktop, isOpenMobile]);
+
+  // Set up intersection observer for footer
+  useEffect(() => {
+    const footerElement = document.querySelector("footer");
+    if (!footerElement) return;
+
+    const observerOptions = {
+      root: null, // viewport as root
+      rootMargin: "0px",
+      threshold: 0.1, // trigger when 10% of the footer is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        // Hide menu when footer is visible, show when it's not
+        setIsMenuVisible(!entry.isIntersecting);
+      });
+    }, observerOptions);
+
+    observer.observe(footerElement);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  // Apply visibility classes based on isMenuVisible state
+  useEffect(() => {
+    if (headerContainerRef.current) {
+      if (isMenuVisible) {
+        headerContainerRef.current.classList.remove("opacity-0", "pointer-events-none");
+        headerContainerRef.current.classList.add("opacity-100");
+      } else {
+        headerContainerRef.current.classList.add("opacity-0", "pointer-events-none");
+        headerContainerRef.current.classList.remove("opacity-100");
+      }
+    }
+
+    if (headerContainerMobileRef.current) {
+      if (isMenuVisible) {
+        headerContainerMobileRef.current.classList.remove("opacity-0", "pointer-events-none");
+        headerContainerMobileRef.current.classList.add("opacity-100");
+      } else {
+        headerContainerMobileRef.current.classList.add("opacity-0", "pointer-events-none");
+        headerContainerMobileRef.current.classList.remove("opacity-100");
+      }
+    }
+  }, [isMenuVisible]);
 
   //! For horizontal content
   const racesRef = useRef<HTMLDivElement>(null);
@@ -294,10 +345,16 @@ export default function Hero() {
 
   return (
     <>
-      {/* Logo Menu  */}
-      <div className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block ">
+      {/* Logo Menu - Desktop */}
+      <div 
+        ref={headerContainerRef}
+        className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block transition-opacity duration-300"
+      >
         {/* Header - only visible when menu is closed */}
-        <div ref={headerRef} className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl rounded-full w-[300px] lg:w-[436px]  ${isOpenDesktop ? "invisible" : "visible"}`}>
+        <div 
+          ref={headerRef} 
+          className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl rounded-full w-[300px] lg:w-[436px] ${isOpenDesktop ? "invisible" : "visible"}`}
+        >
           <Image src={Logo} onClick={() => window.location.replace("/")} className="cursor-pointer" alt="logo" width={70} height={50} />
           <div onClick={toggleMenu} className="cursor-pointer">
             <MenuSvg />
@@ -380,10 +437,13 @@ export default function Hero() {
       <AnimatePresence>{isOpenDesktop && <Menu toggleMenu={toggleMenu} headerRect={headerRect} />}</AnimatePresence>
 
       {/* Mobile Menu  */}
-      <div className="w-full relative overflow-hidden rounded-xl max-[480px]:rounded-none max-w-full mx-auto flex justify-between">
+      <div className="w-full relative overflow-hidden rounded-xl max-[480px]:rounded-none max-w-full mx-auto flex justify-between z-50">
         <div className="lg:hidden">
           {/* Logo Menu */}
-          <div className="fixed z-10 top-[70px] w-full flex items-center justify-center">
+          <div 
+            ref={headerContainerMobileRef}
+            className="fixed z-10 top-[70px] w-full flex items-center justify-center transition-opacity duration-300"
+          >
             {/* Header - only visible when menu is closed */}
             <div ref={headerRefMobile} className={`flex items-center justify-between px-4 py-3 rounded-full w-[300px] lg:w-[436px] bg-white ${isOpenMobile ? "invisible" : "visible"}`}>
               <Image src={Logo} alt="logo" width={70} height={50} />
