@@ -1,29 +1,21 @@
-import React from "react";
-import Pharmaceutical from "./_corporate/Pharmaceutical";
-import BusinessAdvertisingMedia from "./_corporate/BusinessAdvertisingMedia";
-import Infrastracture from "./_corporate/Infrastracture";
-import Section2 from "./_corporate/Section2";
+import BusinessAdvertisingMedia from './_corporate/BusinessAdvertisingMedia'
+import Infrastracture from './_corporate/Infrastracture'
+import Pharmaceutical from './_corporate/Pharmaceutical'
+import Section2 from './_corporate/Section2'
 
-import RealEstate from "./_corporate/RealEstate";
-import TravelAgencies from "./_corporate/TravelAgencies";
-import Insurance from "./_corporate/Insurance";
-import Manufacturing from "./_corporate/Manufacturing";
-import CargoLogistics from "./_corporate/CargoLogistics";
-import Manpower from "./_corporate/Manpower";
-import Hero from "./_corporate/Hero";
-import CallToAction from "./_corporate/CallToAction";
-import {
-  image1,
-  image2,
-  image3,
-  image4,
-  image5,
-  image6,
-} from "@/library/CorpoCTA";
-import Emergency from "./_corporate/Emergency";
-import Footer from "../_components/Footer";
+import { image1, image2, image3, image4, image5, image6 } from '@/library/CorpoCTA'
+import Footer from '../_components/Footer'
+import CallToAction from './_corporate/CallToAction'
+import CargoLogistics from './_corporate/CargoLogistics'
+import Emergency from './_corporate/Emergency'
+import Hero from './_corporate/Hero'
+import Insurance from './_corporate/Insurance'
+import Manpower from './_corporate/Manpower'
+import Manufacturing from './_corporate/Manufacturing'
+import RealEstate from './_corporate/RealEstate'
+import TravelAgencies from './_corporate/TravelAgencies'
 // import SmoothScroll from "../_components/SmoothScroll";
-import { corpoHero } from "@/library/CorpHero";
+import { corpoHero } from '@/library/CorpHero'
 
 function Corporate() {
   return (
@@ -36,10 +28,7 @@ function Corporate() {
           title="CORPORATE AND BUSINESS"
           description={
             <p>
-              <span className="text-[#7EE7FC] ">
-                Seamless travel experience
-              </span>{" "}
-              tailor-made for your corporate and business goals.
+              <span className="text-[#7EE7FC] ">Seamless travel experience</span> tailor-made for your corporate and business goals.
             </p>
           }
         />
@@ -96,7 +85,7 @@ function Corporate() {
       {/* </SmoothScroll> */}
       {/* </div> */}
     </>
-  );
+  )
 }
 
-export default Corporate;
+export default Corporate

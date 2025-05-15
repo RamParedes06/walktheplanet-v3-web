@@ -1,9 +1,10 @@
 export const corpoHero = [
-  "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743573279/Corporate_Business_1_en1vue.webp",
-  "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743582438/corporate-1_pynqyo.webp",
-  "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743582438/corporate-2_mpae3j.webp",
-  "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1743582437/corporate-4_etyyiy.webp",
-];
+  'https://res.cloudinary.com/dmxvasob7/image/upload/v1747289761/01_yjsvyb.png',
+  'https://res.cloudinary.com/dmxvasob7/image/upload/v1747289761/02_sjhjzs.png',
+  'https://res.cloudinary.com/dmxvasob7/image/upload/v1747289762/03_wgtkk2.png',
+  'https://res.cloudinary.com/dmxvasob7/image/upload/v1747289760/04_qd1ofm.png',
+  'https://res.cloudinary.com/dmxvasob7/image/upload/v1747289759/05_rp6rae.png',
+]
 
 export const aboutUsHero = [
   "https://res.cloudinary.com/dmxvasob7/image/upload/v1745204032/about1_ircbzf.webp",
