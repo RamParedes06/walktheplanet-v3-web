@@ -1,1 +1,5 @@
-export const DocumentSlides = ["https://res.cloudinary.com/dmxvasob7/image/upload/v1744005578/travel2_gtudtn.png", "https://res.cloudinary.com/dmxvasob7/image/upload/v1744005581/travel1_ypgers.png", "https://res.cloudinary.com/dmxvasob7/image/upload/v1744005574/travel3_bjwevz.png"];
+export const DocumentSlides = [
+  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005578/travel2_gtudtn.png',
+  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005581/travel1_ypgers.png',
+  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005574/travel3_bjwevz.png',
+]
