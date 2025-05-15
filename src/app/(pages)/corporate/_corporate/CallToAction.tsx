@@ -23,7 +23,7 @@ interface CallToActionProps {
   image5: string
   image6: string
   title?: JSX.Element | string // title of the call to action: hotfix for the title to proceed the build
-  title1: JSX.Element | string
+  title1?: JSX.Element | string // title of the call to action: hotfix for the title to proceed the build
   buttonLabel: string
   url: string
 }
