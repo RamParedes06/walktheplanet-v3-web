@@ -6,14 +6,12 @@ export const IgOpportunities = [
       {
         title: "MEETINGS",
         desc: "Business Opportunities",
-        image:
-          "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744090621/Meetings_Image_ozffww.webp",
+        image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1747287372/01_babtdg.png",
       },
       {
         title: "CONFERENCES",
         desc: "Business Opportunities",
-        image:
-          "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744090614/Conferences_Image_igaz3q.webp",
+        image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1747287371/02_m42ode.png",
       },
     ],
   },
@@ -24,32 +22,27 @@ export const IgOpportunities = [
       {
         title: "INCENTIVES       ",
         desc: "Motivation",
-        image:
-          "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744090617/Incentives_Image_y66aqg.webp",
+        image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1747287374/12_vzws3j.png",
       },
       {
         title: "YEAR-END PARTIES",
         desc: "Motivation",
-        image:
-          "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744090609/Year-end_Party_Image_jz1vln.webp",
+        image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1747287373/14_uhfp42.png",
       },
       {
         title: "ANNIVERSARIES",
         desc: "Motivation",
-        image:
-          "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744090610/Anniversaries_Image_gkabaq.webp",
+        image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1747287373/16_g5aahj.png",
       },
       {
         title: "TEAM BUILDING",
         desc: "Motivation",
-        image:
-          "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744090607/Team_Building_Image_i9vzrj.webp",
+        image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1747287374/18_bnm8lo.png",
       },
       {
         title: "COMPANY OUTINGS",
         desc: "Motivation",
-        image:
-          "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744090612/Company_Outings_Image_wvlndc.webp",
+        image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1747287374/20_irsrid.png",
       },
     ],
   },
@@ -60,15 +53,14 @@ export const IgOpportunities = [
       {
         title: "GOLF TOURNAMENTS ",
         desc: "Entertainment",
-        image:
-          "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744090616/Golf_Tournaments_Image_rb02ur.webp",
+        image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1747287374/22_quyhpf.png",
       },
       {
         title: "K-POP EVENTS",
         desc: "Entertainment",
-        image:
-          "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744090619/K-pop_events_Image_zrodor.webp",
+        image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1747287375/24_renvqr.png",
       },
     ],
   },
 ];
+

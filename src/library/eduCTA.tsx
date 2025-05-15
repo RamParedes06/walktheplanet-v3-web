@@ -1,6 +1,6 @@
-export const image1 = "https://res.cloudinary.com/dxg7sn3cy/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1744081255/cta1_vkcxyo.png";
-export const image2 = "https://res.cloudinary.com/dxg7sn3cy/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1744081289/cta2_dnfhxi.png";
-export const image3 = "https://res.cloudinary.com/dxg7sn3cy/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1744081190/cta3_myqmgy.png";
-export const image4 = "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744083305/cta4_zcwcwh.png";
-export const image5 = "https://res.cloudinary.com/dxg7sn3cy/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1744081306/cta5_zfdr7p.png";
-export const image6 = "https://res.cloudinary.com/dxg7sn3cy/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1744081717/cta6_zpu4ud.png";
+export const image1 = "https://res.cloudinary.com/dmxvasob7/image/upload/v1747215917/CTA-1_xal34s.webp";
+export const image2 = "https://res.cloudinary.com/dmxvasob7/image/upload/v1747215914/CTA-2_bdeavu.webp";
+export const image3 = "https://res.cloudinary.com/dmxvasob7/image/upload/v1747215914/CTA-3_xvzn9t.webp";
+export const image4 = "https://res.cloudinary.com/dmxvasob7/image/upload/v1747215915/CTA-4_oyqbf5.webp";
+export const image5 = "https://res.cloudinary.com/dmxvasob7/image/upload/v1747215919/CTA-5_eawfkd.webp";
+export const image6 = "https://res.cloudinary.com/dmxvasob7/image/upload/v1747215914/CTA-2_bdeavu.webp";

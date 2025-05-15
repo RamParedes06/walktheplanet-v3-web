@@ -1,35 +1,26 @@
 "use client";
-import React, { useEffect, useState } from "react";
 import { IgOpportunities } from "@/library/IgOpportunities";
+import { useEffect, useState } from "react";
 import CarouselItem from "./CarouselItem";
 
-const bg =
-  "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744089867/InstagramBg_ktopbj.png";
-const overlay =
-  "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744089957/LetterBg_cbmiri.png";
+const bg = "https://res.cloudinary.com/dmxvasob7/image/upload/v1747287373/Background_ab0byk.png";
+const overlay = "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744089957/LetterBg_cbmiri.png";
 
 function InstagramCards() {
   // Desktop State
   const [activeSetIndex, setActiveSetIndex] = useState(0);
-  const [completedSets, setCompletedSets] = useState(
-    IgOpportunities.map(() => false)
-  );
+  const [completedSets, setCompletedSets] = useState(IgOpportunities.map(() => false));
 
   // Mobile State
   const [activeSetIndexMobile, setActiveSetIndexMobile] = useState(0);
-  const [completedSetsMobile, setCompletedSetsMobile] = useState(
-    IgOpportunities.map(() => false)
-  );
+  const [completedSetsMobile, setCompletedSetsMobile] = useState(IgOpportunities.map(() => false));
 
   // Force completion flags
   const [forceCompleteMobile, setForceCompleteMobile] = useState(false);
   const [showLastSlideMobile, setShowLastSlideMobile] = useState(false);
 
   // Desktop - Handle set activation
-  const handleSetActivation = (
-    index: number,
-    reason: string | null | undefined
-  ) => {
+  const handleSetActivation = (index: number, reason: string | null | undefined) => {
     if (reason === "completed") {
       // Auto-advance to the next set when current set completes
       const nextSetIndex = (activeSetIndex + 1) % IgOpportunities.length;
@@ -73,10 +64,7 @@ function InstagramCards() {
   }, [completedSets]);
 
   // Mobile - Handle set activation
-  const handleSetActivationMobile = (
-    index: number,
-    reason: string | null | undefined
-  ) => {
+  const handleSetActivationMobile = (index: number, reason: string | null | undefined) => {
     console.log("Mobile activation called with:", index, reason);
 
     // Safety check
@@ -183,17 +171,11 @@ function InstagramCards() {
       >
         <div className="h-full flex flex-col justify-center items-center gap-10">
           <p className="flex flex-col gap-2 lg:gap-0 text-left lg:text-center italic text-base font-generalSans font-medium lg:text-2xl max-w-[1280px] lg:px-8 px-[20px]">
-            <span>
-              {" "}
-              We view each corporate occasion as a crucial opportunity for your
-              organization to reach its goals.
-            </span>
+            <span> We view each corporate occasion as a crucial opportunity for your organization to reach its goals.</span>
 
             <span>
               {" "}
-              From event management to travel arrangements, <br /> we craft
-              unforgettable experiences that help you achieve your desired
-              results
+              From event management to travel arrangements, <br /> we craft unforgettable experiences that help you achieve your desired results
             </span>
           </p>
 
@@ -201,14 +183,7 @@ function InstagramCards() {
           <div className="lg:flex md:flex gap-8 lg:w-[80%] w-[100%] hidden px-[5%]">
             {IgOpportunities.map((set, index) => (
               <div className="w-full" key={set.id}>
-                <CarouselItem
-                  set={set}
-                  isActive={index === activeSetIndex}
-                  isCompleted={completedSets[index]}
-                  onActivate={(reason) => handleSetActivation(index, reason)}
-                  forceCompleteAll={false}
-                  showLastSlide={false}
-                />
+                <CarouselItem set={set} isActive={index === activeSetIndex} isCompleted={completedSets[index]} onActivate={(reason) => handleSetActivation(index, reason)} forceCompleteAll={false} showLastSlide={false} />
               </div>
             ))}
           </div>
@@ -222,35 +197,17 @@ function InstagramCards() {
                   set={IgOpportunities[activeSetIndexMobile]}
                   isActive={true} // Always active since we only show one
                   isCompleted={completedSetsMobile[activeSetIndexMobile]}
-                  onActivate={(reason) =>
-                    handleSetActivationMobile(activeSetIndexMobile, reason)
-                  }
+                  onActivate={(reason) => handleSetActivationMobile(activeSetIndexMobile, reason)}
                   forceCompleteAll={forceCompleteMobile}
                   showLastSlide={showLastSlideMobile}
                 />
               </div>
 
               <div className="flex justify-end space-x-2 mt-5">
-                <button
-                  onClick={handlePrev}
-                  className={`text-white px-4 py-1 rounded-md ${
-                    activeSetIndexMobile === 0
-                      ? "opacity-50 cursor-not-allowed"
-                      : "hover:bg-white/50"
-                  }`}
-                  disabled={activeSetIndexMobile === 0}
-                >
+                <button onClick={handlePrev} className={`text-white px-4 py-1 rounded-md ${activeSetIndexMobile === 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-white/50"}`} disabled={activeSetIndexMobile === 0}>
                   Prev
                 </button>
-                <button
-                  onClick={handleNext}
-                  className={`text-white px-4 py-1 rounded-md ${
-                    activeSetIndexMobile === IgOpportunities.length - 1
-                      ? "opacity-50 cursor-not-allowed"
-                      : "hover:bg-white/50"
-                  }`}
-                  disabled={activeSetIndexMobile === IgOpportunities.length - 1}
-                >
+                <button onClick={handleNext} className={`text-white px-4 py-1 rounded-md ${activeSetIndexMobile === IgOpportunities.length - 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-white/50"}`} disabled={activeSetIndexMobile === IgOpportunities.length - 1}>
                   Next
                 </button>
               </div>
