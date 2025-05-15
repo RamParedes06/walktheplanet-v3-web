@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import { useRef } from "react";
 import Hero from "../corporate/_corporate/Hero";
 import { LeisureImages } from "@/library/LeisureHero";
 import Footer from "../_components/Footer";
@@ -30,12 +31,10 @@ const LeisurePage = () => {
       />
       {/* Section 2 - Online booking  */}
       <OnlineBooking />
-
       {/* Section 3 - Tiktok Live Selling  */}
       <LiveSelling />
-
       {/* Section 4 - Tours Online Booking  */}
-      <Tours/>
+      <Tours />
       {/* Section 5 - Footer  */}
       <Footer />
     </div>
