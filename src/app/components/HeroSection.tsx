@@ -74,7 +74,7 @@ const Hero = () => {
 
   return (
     <div className="relative">
-      <div className="absolute right-[5%] bottom-[20%] z-50 fixed hidden sm:hidden md:hidden lg:block overflow-hidden">
+      <div className="right-[5%] bottom-[20%] z-50 fixed hidden sm:hidden md:hidden lg:block overflow-hidden">
         <div
           ref={headerRef}
           className={`bg-white flex items-center justify-between px-8 py-[18px] rounded-full w-[300px] lg:w-[436px]  ${
@@ -114,8 +114,14 @@ const Hero = () => {
             <h1 className="font-satoshi lg:text-[64px] text-[40px] font-semibold text-white">
               CONTACT US
             </h1>
-            <p className="lg:text-2xl text-base font-generalSans text-white">
+            {/* Desktop */}
+            <p className="hidden md:block lg:text-2xl text-[16px] font-generalSans text-white">
               Every journey is unique and every experience matters.
+            </p>
+            {/* Mobile */}
+            <p className="md:hidden block lg:text-2xl text-[16px] font-generalSans text-white">
+              Every journey is unique <br />
+              and every experience matters.
             </p>
           </TextReveal>
         </div>

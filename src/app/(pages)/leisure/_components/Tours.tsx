@@ -1,9 +1,8 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { LeisureToursImages } from "@/library/LeisureTours";
+import { IllustrationManpowerSvg } from "@/assets/svg/IllustrationManpowerSvg";
 import { TravelEssentialsImages } from "@/library/AllInProductsTravelEssentials";
-import BackgroundSvg from "@/assets/svg/BGIllustrationManpower.svg";
-import Image from "next/image";
+import { LeisureToursImages } from "@/library/LeisureTours";
+import { useEffect, useState } from "react";
 import TextReveal from "../../_components/TextReveal";
 
 interface ToursProps {
@@ -67,41 +66,26 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
           {/* SVG First Overlay - Hidden on mobile */}
 
           {!isMobile ? (
-            <div>
-              {" "}
-              <div className="absolute left-0 -top-80 w-max">
-                <Image
-                  src={BackgroundSvg}
-                  alt="background"
-                  width={900}
-                  height={500}
-                  className="-rotate-35 w-full"
-                />
+            <div className="w-full">
+              <div className="absolute left-[40%] top-[-300px] -rotate-12 w-full ">
+                {/* <Image src={BackgroundSvg} alt="background" width={900} height={500} className="-rotate-35 w-full" /> */}
+                <IllustrationManpowerSvg />
               </div>
-              <div className="absolute -right-110 -top-80 w-max">
-                <Image
-                  src={BackgroundSvg}
-                  alt="background"
-                  width={900}
-                  height={500}
-                  className="-rotate-25 w-full"
-                />
+              <div className="absolute left-[-20%] top-[-300px] -rotate-12 w-full ">
+                {/* <Image src={BackgroundSvg} alt="background" width={900} height={500} className="-rotate-25 w-full" /> */}
+                <IllustrationManpowerSvg />
               </div>
             </div>
           ) : (
-            <div className="absolute left-0 w-max -top-60 -rotate-35">
-              <Image
-                src={BackgroundSvg}
-                alt="background"
-                width={900}
-                height={500}
-              />
+            <div className="absolute left-[-25%] w-max top-[-380px] -rotate-35">
+              {/* <Image src={BackgroundSvg} alt="background" width={900} height={500} /> */}
+              <IllustrationManpowerSvg />
             </div>
           )}
 
           <TextReveal>
             <div
-              className={`pt-[64px] md:pt-[54px] z-10 flex flex-col items-center`}
+              className={`pt-[80px] md:pt-[54px] z-10 flex flex-col items-center`}
             >
               <h1
                 className={`text-[40px] md:text-[64px] font-semibold text-center text-[#14476F] mb-4`}
@@ -113,12 +97,12 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
                 className={`text-base md:text-lg font-medium text-center text-black mb-1`}
               >
                 {productsVersion ? (
-                  <>
+                  <span className="md:text-[25px]">
                     Don&apos;t miss out on a travel necessity to{" "}
                     <span className="font-semibold italic">
                       take your journey to the next level!
                     </span>
-                  </>
+                  </span>
                 ) : (
                   "Start your endless adventures by visiting"
                 )}
@@ -156,7 +140,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
           </TextReveal>
         </div>
 
-        <div className="flex-grow w-full overflow-hidden relative bg-white h-[60%]">
+        <div className="flex-grow w-full overflow-hidden relative bg-white h-[90%]">
           <div className="absolute inset-0 flex items-center justify-center">
             {/* Left and right gradients */}
             <div
@@ -174,7 +158,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
 
             {/* Top curved white border */}
             <div
-              className="absolute top-0 w-full h-[75px] z-20 bg-white max-[490px]:hidden"
+              className="absolute top-0 w-full h-[99px] z-10 bg-white max-[460px]:hidden"
               style={{
                 borderBottomLeftRadius: "50% 100%",
                 borderBottomRightRadius: "50% 100%",
@@ -190,7 +174,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
 
             {/* Bottom curved white border */}
             <div
-              className="absolute bottom-0 w-full h-[75px] z-20 bg-white max-[490px]:hidden"
+              className="absolute bottom-0 w-full h-[50px] z-20 bg-white max-[490px]:hidden"
               style={{
                 borderTopLeftRadius: "50% 100%",
                 borderTopRightRadius: "50% 100%",
@@ -199,8 +183,8 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
             <div
               className="absolute bottom-0 w-full h-[75px] z-20 bg-white min-[491px]:hidden"
               style={{
-                borderTopLeftRadius: "100% 60%",
-                borderTopRightRadius: "100% 60%",
+                borderTopLeftRadius: "90% 60%",
+                borderTopRightRadius: "50% 60%",
               }}
             ></div>
 
@@ -212,8 +196,8 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
                   transform: `translateX(-${position}%)`,
                   width: `${
                     productsVersion
-                      ? duplicatedImages.length * 33.33
-                      : duplicatedProductsImages.length * 33.33
+                      ? duplicatedImages.length * 23.33
+                      : duplicatedProductsImages.length * 23.33
                   }%`, // each image ay ~33.33% of viewport width
                 }}
               >

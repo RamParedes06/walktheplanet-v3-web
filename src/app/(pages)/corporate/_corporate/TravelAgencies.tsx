@@ -23,11 +23,13 @@ function TravelAgencies() {
       >
         <div className="p-20 w-full max-[490px]:p-0">
           <Image
-            src={illustration}
+            src="https://res.cloudinary.com/dmxvasob7/image/upload/v1746674853/Frame_48098208_4_nc72nh.png"
             alt=""
             width={1200}
-            className="absolute -top-145 -right-110 "
+            height={1200}
+            className="absolute -top-5  -right-0 md:-right-10 "
           />
+
           <div className="flex flex-col gap-2 max-[490px] max-[490px]:gap-5 px-4 py-10">
             <TextReveal>
               <p className="font-[900] text-[38px] md:text-[64px] max-[490px]font-extrabold text-[#14476F] font-satoshi  uppercase">
