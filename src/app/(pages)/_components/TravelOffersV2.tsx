@@ -135,7 +135,7 @@ const TravelOffersV2 = () => {
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <div className="cards-parent h-[30vh] lg:h-[27vh] bg-cover bg-center flex justify-center items-center relative z-10">
+          <div className="cards-parent h-[30vh] lg:h-[26vh] bg-cover bg-center flex justify-center items-center relative z-10">
             <div className="wrap marquee-container  mt-20 lg:mt-0 w-full overflow-hidden">
               <div className="marquee text-[32px] lg:text-8xl font-semibold text-white opacity-90">
                 <p className="drop-shadow-xl inline-block text-[32px] lg:text-[64px] ">{' OUR TRAVEL OFFERS '}</p>
