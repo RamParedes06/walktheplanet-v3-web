@@ -2,7 +2,6 @@ import React from 'react'
 
 import Image from 'next/image'
 
-import illustration from '@/assets/svg/BGIllustration.svg'
 import TextReveal from '@/app/(pages)/_components/TextReveal'
 import Carousel from '@/app/(pages)/_components/Carousel'
 
