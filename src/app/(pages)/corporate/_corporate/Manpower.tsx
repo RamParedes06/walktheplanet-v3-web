@@ -1,36 +1,38 @@
-"use client";
-import React, { useEffect, useRef, useState } from "react";
+'use client'
+import React, { useEffect, useRef, useState } from 'react'
 
-import Image from "next/image";
-import background from "@/assets/svg/BGIllustrationManpower.svg";
-import TextReveal from "@/app/(pages)/_components/TextReveal";
+import Image from 'next/image'
+import background from '@/assets/svg/BGIllustrationManpower.svg'
+import TextReveal from '@/app/(pages)/_components/TextReveal'
 
 const Manpower = () => {
-  const [isPaused, setIsPaused] = useState(false);
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false)
+  const carouselRef = useRef<HTMLDivElement>(null)
 
   const images = [
-    "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fmanpower-original%2Fcabin-crew-air-hostess-working-airplane-airline-transportation-tourism-concept.webp&version_id=null",
-    "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fmanpower-original%2Fconfident-asian-male-security-guard-safeguarding-careers-ensuring-outdoor-protection-urb.webp&version_id=null",
-    "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fmanpower-original%2FCorporate%20%26%20Business%20Manpower%20Agencies%20and%20OFW%20Deployment%204.webp&version_id=null",
-    "http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fmanpower-original%2Fnurse-portrait-hospital.webp&version_id=null",
-  ];
+    'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fmanpower-original%2Fcabin-crew-air-hostess-working-airplane-airline-transportation-tourism-concept.webp&version_id=null',
+    'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fmanpower-original%2Fconfident-asian-male-security-guard-safeguarding-careers-ensuring-outdoor-protection-urb.webp&version_id=null',
+    'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fmanpower-original%2FCorporate%20%26%20Business%20Manpower%20Agencies%20and%20OFW%20Deployment%204.webp&version_id=null',
+    'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fmanpower-original%2Fnurse-portrait-hospital.webp&version_id=null',
+  ]
+
+  const bgDesktop = 'https://res.cloudinary.com/dmxvasob7/image/upload/v1747365762/Frame_48098208_7_objf30.png'
 
   useEffect(() => {
-    if (!carouselRef.current) return;
+    if (!carouselRef.current) return
 
-    const carousel = carouselRef.current;
+    const carousel = carouselRef.current
 
     if (isPaused) {
-      carousel.style.animationPlayState = "paused";
+      carousel.style.animationPlayState = 'paused'
     } else {
-      carousel.style.animationPlayState = "running";
+      carousel.style.animationPlayState = 'running'
     }
-  }, [isPaused]);
+  }, [isPaused])
 
   useEffect(() => {
     // Add animation keyframes dynamically
-    const style = document.createElement("style");
+    const style = document.createElement('style')
     style.innerHTML = `
         @keyframes carousel {
           0% {
@@ -40,18 +42,18 @@ const Manpower = () => {
             transform: translateX(calc(-100% * ${images.length}));
           }
         }
-      `;
-    document.head.appendChild(style);
+      `
+    document.head.appendChild(style)
 
     // Apply initial animation
     if (carouselRef.current) {
-      carouselRef.current.style.animation = "carousel 20s linear infinite";
+      carouselRef.current.style.animation = 'carousel 20s linear infinite'
     }
 
     return () => {
-      document.head.removeChild(style);
-    };
-  }, [images.length]);
+      document.head.removeChild(style)
+    }
+  }, [images.length])
 
   return (
     <div className="relative w-screen h-screen">
@@ -59,13 +61,7 @@ const Manpower = () => {
       <div className="absolute top-0 left-0 w-full h-full flex flex-col sm:flex-row bg-white  overflow-hidden">
         {/* First Background Image */}
         <div className="w-full sm:w-[50%] h-auto sm:h-full lg:translate-x-90 translate-x-50">
-          <Image
-            src={background}
-            alt="background"
-            width={500}
-            height={500}
-            className="w-full h-full object-cover bg-fixed"
-          />
+          <Image src={bgDesktop} alt="background" width={1264} height={1175} className="object-cover" />
         </div>
 
         {/* Second Background Image - Carousel Container */}
@@ -77,46 +73,20 @@ const Manpower = () => {
           <div className="block lg:hidden absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-white to-transparent z-20 pointer-events-none"></div>
 
           {/* Invisible overlay for hover detection that covers everything */}
-          <div
-            className="absolute inset-0 z-30 pointer-events-auto"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            style={{ background: "transparent" }}
-          ></div>
+          <div className="absolute inset-0 z-30 pointer-events-auto" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)} style={{ background: 'transparent' }}></div>
 
           {/* Carousel slider */}
           <div ref={carouselRef} className="flex h-full">
             {images.map((image, index) => (
-              <div
-                key={index}
-                className="min-w-full h-full flex-shrink-0"
-                style={{ width: "100%" }}
-              >
-                <Image
-                  width={1000}
-                  height={1000}
-                  alt={`Carousel Image ${index + 1}`}
-                  src={image}
-                  className="object-cover w-full h-full"
-                  priority={index < 2}
-                />
+              <div key={index} className="min-w-full h-full flex-shrink-0" style={{ width: '100%' }}>
+                <Image width={1000} height={1000} alt={`Carousel Image ${index + 1}`} src={image} className="object-cover w-full h-full" priority={index < 2} />
               </div>
             ))}
 
             {/* Duplicate first few images forda infinite loop */}
             {images.slice(0, 2).map((image, index) => (
-              <div
-                key={`duplicate-${index}`}
-                className="min-w-full h-full flex-shrink-0"
-                style={{ width: "100%" }}
-              >
-                <Image
-                  width={1000}
-                  height={1000}
-                  alt={`Carousel Image ${index + 1}`}
-                  src={image}
-                  className="object-cover w-full h-full"
-                />
+              <div key={`duplicate-${index}`} className="min-w-full h-full flex-shrink-0" style={{ width: '100%' }}>
+                <Image width={1000} height={1000} alt={`Carousel Image ${index + 1}`} src={image} className="object-cover w-full h-full" />
               </div>
             ))}
           </div>
@@ -129,18 +99,12 @@ const Manpower = () => {
             <TextReveal>
               <div>
                 <p className="font-[900] lg:text-[64px] text-[30px] text-[#14476F] font-satoshi uppercase">
-                  Manpower agencies & OFW Deployment
+                  Manpower <br /> agencies & OFW Deployment
                 </p>
                 <div className="text-black lg:text-2xl text-base font-generalSans lg:flex lg:flex-col lg:gap-5">
+                  <p>Discover top talent and connect them with the best opportunities, locally and globally. </p>
                   <p>
-                    Discover top talent and connect them with the best
-                    opportunities, locally and globally.{" "}
-                  </p>
-                  <p>
-                    <span className="font-semibold">
-                      {" "}
-                      We help you navigate the world,{" "}
-                    </span>
+                    <span className="font-semibold"> We help you navigate the world, </span>
                     seamlessly linking the right people with the right careers.
                   </p>
                 </div>
@@ -150,6 +114,6 @@ const Manpower = () => {
         </div>
       </div>
     </div>
-  );
-};
-export default Manpower;
+  )
+}
+export default Manpower
