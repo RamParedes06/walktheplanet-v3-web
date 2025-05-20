@@ -1,9 +1,8 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-import Image from 'next/image'
-import background from '@/assets/svg/BGIllustrationManpower.svg'
 import TextReveal from '@/app/(pages)/_components/TextReveal'
+import Image from 'next/image'
 
 const Manpower = () => {
   const [isPaused, setIsPaused] = useState(false)
