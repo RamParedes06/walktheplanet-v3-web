@@ -1,9 +1,10 @@
 'use client'
 import * as HoverCardPrimitive from '@radix-ui/react-hover-card'
 
+import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion'
+
 import { encode } from 'qss'
 import React from 'react'
-import { AnimatePresence, motion, useMotionValue, useSpring } from 'motion/react'
 
 import { cn } from '@/library/utils'
 
@@ -17,7 +18,7 @@ type LinkPreviewProps = {
   layout?: string
 } & ({ isStatic: true; imageSrc: string } | { isStatic?: false; imageSrc?: never })
 
-export const LinkPreview = ({ children, url, className, width = 200, height = 125, quality = 50, layout = 'fixed', isStatic = false, imageSrc = '' }: LinkPreviewProps) => {
+export const LinkPreview = ({ children, url, className, width = 200, height = 125, isStatic = false, imageSrc = '' }: LinkPreviewProps) => {
   let src
   if (!isStatic) {
     const params = encode({
@@ -49,10 +50,10 @@ export const LinkPreview = ({ children, url, className, width = 200, height = 12
 
   const translateX = useSpring(x, springConfig)
 
-  const handleMouseMove = (event: any) => {
-    const targetRect = event.target.getBoundingClientRect()
+  const handleMouseMove = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const targetRect = event.currentTarget.getBoundingClientRect()
     const eventOffsetX = event.clientX - targetRect.left
-    const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2 // Reduce the effect to make it subtle
+    const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2
     x.set(offsetFromCenter)
   }
 
@@ -71,8 +72,10 @@ export const LinkPreview = ({ children, url, className, width = 200, height = 12
           setOpen(open)
         }}
       >
-        <HoverCardPrimitive.Trigger onMouseMove={handleMouseMove} className={cn('text-black dark:text-white', className)} href={url}>
-          {children}
+        <HoverCardPrimitive.Trigger asChild>
+          <a href={url} onMouseMove={handleMouseMove} className={cn('text-black dark:text-white', className)}>
+            {children}
+          </a>
         </HoverCardPrimitive.Trigger>
 
         <HoverCardPrimitive.Content className="[transform-origin:var(--radix-hover-card-content-transform-origin)]" side="top" align="center" sideOffset={10}>
