@@ -4,6 +4,7 @@ import { TravelEssentialsImages } from '@/library/AllInProductsTravelEssentials'
 import { LeisureToursImages } from '@/library/LeisureTours'
 import { useEffect, useState } from 'react'
 import TextReveal from '../../_components/TextReveal'
+import { HoverTextAnimation } from './HoverTextAnimation'
 
 interface ToursProps {
   productsVersion?: boolean
@@ -82,10 +83,7 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
               </p>
               {!productsVersion ? (
                 <p className={`text-base md:text-lg font-medium text-center text-black mb-4`}>
-                  your one-stop-shop at{' '}
-                  <a href="https://tours.walktheplanet.com" className="text-[#006FA9] hover:underline italic">
-                    tours.walktheplanet.com
-                  </a>
+                  your one-stop-shop at <HoverTextAnimation />
                 </p>
               ) : (
                 <></>
