@@ -82,9 +82,9 @@ const Tours = ({ productsVersion = false }: ToursProps) => {
                 )}
               </p>
               {!productsVersion ? (
-                <p className={`text-base md:text-lg font-medium text-center text-black mb-4`}>
+                <span className={`text-base md:text-lg font-medium text-center text-black mb-4`}>
                   your one-stop-shop at <HoverTextAnimation />
-                </p>
+                </span>
               ) : (
                 <></>
               )}
