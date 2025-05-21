@@ -1,23 +1,23 @@
-'use client'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
-// import HomePage from "./(pages)/Homepage/page";
-import { partners } from '@/app/partners'
-import { HomeOffers } from '@/library/HomePartner'
-import BeliefsMobile from './(pages)/_components/BeliefMobile'
-import Beliefs from './(pages)/_components/beliefs'
-import InfiniteMenu from './(pages)/_components/discVertShaderSource'
-import Footer from './(pages)/_components/Footer'
-import GridMotion from './(pages)/_components/GridMotion'
-import GridMotionMobile from './(pages)/_components/GridMotionMobile'
-import Hero from './(pages)/_components/HeroInitial'
-import TravelOffersV2 from './(pages)/_components/TravelOffersV2'
+"use client";
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Hero from "./(pages)/_components/HeroInitial";
+import TravelOffersV2 from "./(pages)/_components/TravelOffersV2";
+import Beliefs from "./(pages)/_components/beliefs";
+import BeliefsMobile from "./(pages)/_components/BeliefMobile";
+import InfiniteMenu from "./(pages)/_components/discVertShaderSource";
+import GridMotion from "./(pages)/_components/GridMotion";
+import GridMotionMobile from "./(pages)/_components/GridMotionMobile";
+import Footer from "./(pages)/_components/Footer";
+import { partners } from "@/app/partners";
+import { HomeOffers } from "@/library/HomePartner";
 
 const logo = 'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005552/Logo-Only_u5157y.png'
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
+  const footerRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 2000)
@@ -49,7 +49,9 @@ export default function Home() {
           <InfiniteMenu items={partners} />
           <GridMotion items={HomeOffers} />
           <GridMotionMobile />
-          <Footer />
+          <div ref={footerRef}>
+            <Footer />
+          </div>
         </>
       )}
     </div>
