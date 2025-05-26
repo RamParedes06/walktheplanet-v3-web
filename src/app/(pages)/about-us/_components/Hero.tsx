@@ -154,10 +154,18 @@ const Hero = ({ images, title, description, gradient = 'bg-gradient-to-r from-[#
           ))}
 
           {/* Gradient overlay with responsive classes */}
+          {/* Desktop */}
           <div
-            className="absolute inset-0 w-full h-full 
+            className="hidden lg:block absolute inset-0 w-full h-full 
           
                bg-gradient-to-l from-transparent from-[52.21%] to-[rgba(0,0,0,0.4)] to-[60.75%]"
+          ></div>
+
+          {/* Mobile */}
+          <div
+            className="lg:hidden block absolute inset-0 w-full h-full 
+          
+               bg-gradient-to-l from-transparent from-[22.21%] to-[rgba(0,0,0,0.4)] to-[60.75%]"
           ></div>
 
           <div className="max-w-[600px] absolute bottom-[15%] left-[5%]">
