@@ -16,7 +16,7 @@ interface HeroProps {
   gradient?: string
 }
 
-const Hero = ({ images, title, description, gradient = 'bg-gradient-to-r from-[#0A2472] via-[#00A9CE] to-[#FF7A00]' }: HeroProps) => {
+const Hero = ({ images, title, description, gradient = 'bg-gradient-to-r from-[#FAAE19] via-[#198A6F] to-[#14476F]' }: HeroProps) => {
   const corpImages = images
 
   const [currentImage, setCurrentImage] = useState(0)
