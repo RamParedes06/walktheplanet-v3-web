@@ -15,17 +15,17 @@ const Marquee = ({ variant, gradient = 'bg-gradient-to-r from-[#0A2472] via-[#00
             <div className="marquee text-sm lg:text-[16px]">
               <p>
                 {
-                  'Explore more, spend less! Get 20% off educational tours today! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Book now and enjoy 10% off your next adventure\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Travel smarter, save bigger! Get free upgrades on select packages!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'Learn, explore, and get 20% OFF educational fun! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
               <p>
                 {
-                  'Explore more, spend less! Get 20% off educational tours today! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Book now and enjoy 10% off your next adventure\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Travel smarter, save bigger! Get free upgrades on select packages!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'Learn, explore, and get 20% OFF educational fun! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
               <p>
                 {
-                  'Explore more, spend less! Get 20% off educational tours today! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Book now and enjoy 10% off your next adventure\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Travel smarter, save bigger! Get free upgrades on select packages!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'Learn, explore, and get 20% OFF educational fun! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
             </div>
@@ -34,17 +34,17 @@ const Marquee = ({ variant, gradient = 'bg-gradient-to-r from-[#0A2472] via-[#00
             <div className="marquee text-sm lg:text-[16px]">
               <p>
                 {
-                  'Explore more, spend less! Get 20% off educational tours today! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Book now and enjoy 10% off your next adventure\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Travel smarter, save bigger! Get free upgrades on select packages!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'Learn, explore, and get 20% OFF educational fun! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
               <p>
                 {
-                  'Explore more, spend less! Get 20% off educational tours today! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Book now and enjoy 10% off your next adventure\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Travel smarter, save bigger! Get free upgrades on select packages!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'Learn, explore, and get 20% OFF educational fun! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
               <p>
                 {
-                  'Explore more, spend less! Get 20% off educational tours today! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Book now and enjoy 10% off your next adventure\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Travel smarter, save bigger! Get free upgrades on select packages!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'Learn, explore, and get 20% OFF educational fun! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
             </div>
@@ -58,17 +58,17 @@ const Marquee = ({ variant, gradient = 'bg-gradient-to-r from-[#0A2472] via-[#00
             <div className="marquee">
               <p>
                 {
-                  'GET FREE UPGRADES ON SELECTED PACKAGES \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0BOOK NOW AND ENJOY 10% OFF YOUR NEXT ADVENTURE\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0SPEND LESS, TRAVEL MORE\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'GET FREE UPGRADES ON SELECTED PACKAGES \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0SPEND LESS, TRAVEL MORE\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
               <p>
                 {
-                  'GET FREE UPGRADES ON SELECTED PACKAGES \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0BOOK NOW AND ENJOY 10% OFF YOUR NEXT ADVENTURE\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0SPEND LESS, TRAVEL MORE\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'GET FREE UPGRADES ON SELECTED PACKAGES \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0SPEND LESS, TRAVEL MORE\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
               <p>
                 {
-                  'GET FREE UPGRADES ON SELECTED PACKAGES \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0BOOK NOW AND ENJOY 10% OFF YOUR NEXT ADVENTURE\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0SPEND LESS, TRAVEL MORE\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'GET FREE UPGRADES ON SELECTED PACKAGES \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0SPEND LESS, TRAVEL MORE\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
             </div>
