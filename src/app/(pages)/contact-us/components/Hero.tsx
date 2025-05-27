@@ -1,77 +1,26 @@
 'use client'
-import MenuSvg from '@/assets/svg/MenuSvg'
-import Image from 'next/image'
-import React, { JSX, useCallback, useEffect, useRef, useState } from 'react'
 import Logo from '@/assets/images/Logo.png'
+import MenuSvg from '@/assets/svg/MenuSvg'
 import { AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+import { JSX, useEffect, useRef, useState } from 'react'
 import '../../../../styles/hero-horizontal-scroll.scss'
 import Marquee from '../../_components/Marquee'
-import TextReveal from '../../_components/TextReveal'
 import Menu from '../../_components/Menu'
+import TextReveal from '../../_components/TextReveal'
 
 interface HeroProps {
-  images: string[]
+  images: string
   title: string
   description?: JSX.Element
   gradient?: string
 }
 
-const Hero = ({ images, title, description, gradient = 'bg-gradient-to-r from-[#00A9CE] via-[#FAAE19] to-[#1A632D]' }: HeroProps) => {
+const Hero = ({ images, title, description, gradient = 'bg-gradient-to-r from-[#FAAE19] via-[#198A6F] to-[#14476F]' }: HeroProps) => {
   const corpImages = images
-
-  const [currentImage, setCurrentImage] = useState(0)
-  const [isAnimating, setIsAnimating] = useState(false)
-  const [direction, setDirection] = useState('next')
 
   //Check if the menu is visible
   const [isMenuVisible, setIsMenuVisible] = useState(true)
-
-  // For fixing lint warning about useCallback
-  const getNextIndex = useCallback((current: number) => (current === corpImages.length - 1 ? 0 : current + 1), [corpImages.length])
-
-  const getPrevIndex = (current: number) => (current === 0 ? corpImages.length - 1 : current - 1)
-
-  useEffect(() => {
-    const handleNextImage = () => {
-      if (isAnimating) return
-      setDirection('next')
-      setIsAnimating(true)
-
-      setTimeout(() => {
-        setCurrentImage(getNextIndex(currentImage))
-        setIsAnimating(false)
-      }, 500)
-    }
-
-    const interval = setInterval(() => {
-      if (!isAnimating) {
-        handleNextImage()
-      }
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [currentImage, isAnimating, getNextIndex])
-
-  // This function determines which class to apply to each image
-  const getImageClasses = (index: number) => {
-    // The visible image
-    if (index === currentImage) {
-      return isAnimating ? 'opacity-0' : 'opacity-100'
-    }
-
-    // Next image (always enters from right)
-    if (direction === 'next' && index === getNextIndex(currentImage)) {
-      return isAnimating ? 'opacity-100 translate-x-0' : 'opacity-0'
-    }
-
-    // Previous image (we'll bring it from right too for consistency)
-    if (direction === 'prev' && index === getPrevIndex(currentImage)) {
-      return isAnimating ? 'opacity-100 translate-x-0' : 'opacity-0'
-    }
-
-    // All other images - keep them at the right side
-    return 'opacity-0'
-  }
 
   //! For the full screen menu animation
   const [isOpenDesktop, setIsOpenDesktop] = useState(false)
@@ -198,19 +147,11 @@ const Hero = ({ images, title, description, gradient = 'bg-gradient-to-r from-[#
 
       <div className="relative w-screen h-[90vh] md:h-screen">
         <div className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${corpImages})` }}>
-          {corpImages.map((image, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-500 ${getImageClasses(index)}`}
-              style={{ backgroundImage: `url(${image})` }}
-            ></div>
-          ))}
-
           {/* Gradient overlay with responsive classes */}
           <div
             className="absolute inset-0 w-full h-full 
-               bg-gradient-to-l from-transparent to-[rgba(23,27,31,0.4)] 
-               lg:bg-gradient-to-l lg:from-transparent lg:from-[52.21%] lg:to-[rgba(26,27,30,0.4)] lg:to-[60.75%]"
+               bg-gradient-to-l from-transparent to-[rgba(18,60,140,0.4)] 
+               lg:bg-gradient-to-l lg:from-transparent lg:from-[52.21%] lg:to-[rgba(18,60,140,0.4)] lg:to-[60.75%]"
           ></div>
 
           <div className="max-w-[600px] absolute bottom-[15%] left-[5%]">
