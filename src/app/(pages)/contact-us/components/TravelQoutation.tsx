@@ -1,92 +1,57 @@
-import Image from "next/image";
-import qoutationMobile from "@/assets/images/contact/Qoutation Mobile.png";
-import qoutation from "@/assets/images/contact/Qoutation Section.png";
+import Image from 'next/image'
+import qoutationMobile from '@/assets/images/contact/Qoutation Mobile.png'
+import qoutation from '@/assets/images/contact/Qoutation Section.png'
 
 export default function TravelQuotation() {
   return (
     <div className="relative w-full h-[800px] overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
-        <Image
-          src={qoutation}
-          alt="Tropical beach scene with cocktails"
-          fill
-          className="md:block hidden"
-          priority
-        />
+        <Image src={qoutation} alt="Tropical beach scene with cocktails" fill className="md:block hidden" priority />
 
-        <Image
-          src={qoutationMobile}
-          alt="Tropical beach scene with cocktails"
-          fill
-          className="md:hidden object-fill opacity-90"
-          priority
-        />
+        <Image src={qoutationMobile} alt="Tropical beach scene with cocktails" fill className="md:hidden object-fill opacity-90" priority />
 
         <div className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-[#00537F] to-[#00537F00]" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center w-full h-full flex-col md:flex-row md:justify-start ">
-        <div className="w-full px-8 md:p-16 flex flex-col justify-center">
+        <div className="w-full px-6 md:p-16 flex flex-col justify-center">
           <div className="max-w-xl px-2">
-            <h2 className="text-white text-[16px] md:text-2xl md:font-medium mb-4">
-              For us to better provide a{" "}
-              <span className="text-sky-300 font-medium italic">quotation</span>
-              ,
-              <br /> you may simply share the following details,
-              <br /> we&apos;ll get back to you within two business days
-            </h2>
-
+            <h2 className="text-white text-[16px] md:text-2xl md:font-medium mb-4">Ready to turn your travel dreams into reality?</h2>
+            <p className="text-white text-[16px] md:text-2xl mb-4">
+              {' '}
+              Simply provide the following details, and look forward to your personalized quotation within <span className="font-medium">two business days:</span>
+            </p>
             <div className="mt-8 space-y-2">
               <div className="flex items-start gap-6">
-                <span className="text-white  text-[16px] md:text-2xl md:font-medium ">
-                  01
-                </span>
-                <span className="text-white text-[16px] md:text-2xl">
-                  Your desired travel service
-                </span>
+                <span className="text-white  text-[16px] md:text-2xl md:font-medium ">01</span>
+                <span className="text-white text-[16px] md:text-2xl">Your desired travel service</span>
               </div>
 
               <div className="flex items-start gap-6">
-                <span className="text-white  text-[16px] md:text-2xl md:font-medium ">
-                  02
-                </span>
-                <span className="text-white text-[16px] md:text-2xl">
-                  Destination
-                </span>
+                <span className="text-white  text-[16px] md:text-2xl md:font-medium ">02</span>
+                <span className="text-white text-[16px] md:text-2xl">Your dream destination</span>
               </div>
 
               <div className="flex items-start gap-6">
-                <span className="text-white  text-[16px] md:text-2xl md:font-medium ">
-                  03
-                </span>
-                <span className="text-white text-[16px] md:text-2xl">
-                  Preferred travel dates
-                </span>
+                <span className="text-white  text-[16px] md:text-2xl md:font-medium ">03</span>
+                <span className="text-white text-[16px] md:text-2xl">Your preferred travel dates</span>
               </div>
 
               <div className="flex items-start gap-6">
-                <span className="text-white  text-[16px] md:text-2xl md:font-medium ">
-                  04
-                </span>
-                <span className="text-white text-[16px] md:text-2xl">
-                  Number of travelers
-                </span>
+                <span className="text-white  text-[16px] md:text-2xl md:font-medium ">04</span>
+                <span className="text-white text-[16px] md:text-2xl">Approximate number of travelers</span>
               </div>
 
               <div className="flex items-start gap-6">
-                <span className="text-white  text-[16px] md:text-2xl md:font-medium">
-                  05
-                </span>
-                <span className="text-white text-[16px] md:text-2xl md:font-normal">
-                  Preferred budget (if applicable)
-                </span>
+                <span className="text-white  text-[16px] md:text-2xl md:font-medium">05</span>
+                <span className="text-white text-[16px] md:text-2xl md:font-normal">Your estimated budget</span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 }

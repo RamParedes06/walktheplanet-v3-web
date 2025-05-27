@@ -154,7 +154,7 @@ const Hero = ({ images, title, description, gradient = 'bg-gradient-to-r from-[#
                lg:bg-gradient-to-l lg:from-transparent lg:from-[52.21%] lg:to-[rgba(18,60,140,0.4)] lg:to-[60.75%]"
           ></div>
 
-          <div className="max-w-[600px] absolute bottom-[15%] left-[5%]">
+          <div className="max-w-[1000px] absolute bottom-[15%] left-[5%]">
             <TextReveal>
               <p className="font-satoshi lg:text-[64px] text-[40px] font-semibold max-[490px]:text-[35px]">{title}</p>
               <div className="lg:text-2xl text-base font-generalSans">{description}</div>
