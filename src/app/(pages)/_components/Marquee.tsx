@@ -15,17 +15,17 @@ const Marquee = ({ variant, gradient }: MarqueeProps) => {
             <div className="marquee text-sm lg:text-[16px]">
               <p>
                 {
-                  'Learn, explore, and get 20% OFF educational fun! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'Learn, explore, and get 20% OFF educational fun! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0One SIM card, endless connections around the world\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
               <p>
                 {
-                  'Learn, explore, and get 20% OFF educational fun! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'One SIM card, endless connections around the world\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0One SIM card, endless connections around the world\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
               <p>
                 {
-                  'Learn, explore, and get 20% OFF educational fun! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'One SIM card, endless connections around the world \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0One SIM card, endless connections around the world\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
             </div>
@@ -34,17 +34,17 @@ const Marquee = ({ variant, gradient }: MarqueeProps) => {
             <div className="marquee text-sm lg:text-[16px]">
               <p>
                 {
-                  'Learn, explore, and get 20% OFF educational fun! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'Learn, explore, and get 20% OFF educational fun! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0One SIM card, endless connections around the world\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
               <p>
                 {
-                  'Learn, explore, and get 20% OFF educational fun! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'One SIM card, endless connections around the world\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0One SIM card, endless connections around the world\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
               <p>
                 {
-                  'Learn, explore, and get 20% OFF educational fun! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'One SIM card, endless connections around the world \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0One SIM card, endless connections around the world\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
             </div>
@@ -55,20 +55,20 @@ const Marquee = ({ variant, gradient }: MarqueeProps) => {
         <>
           {/* scroll animation for corporate hero page */}
           <div className={`wrapper bottom-wrapper overflow-hidden ${gradient} !text-white font-semibold`}>
-            <div className="marquee">
+            <div className="marquee text-sm lg:text-[16px]">
               <p>
                 {
-                  'GET FREE UPGRADES ON SELECTED PACKAGES \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0SPEND LESS, TRAVEL MORE\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'Learn, explore, and get 20% OFF educational fun! \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0One SIM card, endless connections around the world\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
               <p>
                 {
-                  'GET FREE UPGRADES ON SELECTED PACKAGES \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0SPEND LESS, TRAVEL MORE\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'One SIM card, endless connections around the world\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0One SIM card, endless connections around the world\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
               <p>
                 {
-                  'GET FREE UPGRADES ON SELECTED PACKAGES \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0SPEND LESS, TRAVEL MORE\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
+                  'One SIM card, endless connections around the world \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Learn, explore, and get 20% OFF educational fun!\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0One SIM card, endless connections around the world\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ○ \u00A0\u00A0\u00A0'
                 }
               </p>
             </div>

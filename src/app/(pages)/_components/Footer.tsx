@@ -1,16 +1,16 @@
-"use client";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
-import React from "react";
-import logo from "@/assets/images/Logo-Footer.png";
-import FacebookSvg from "@/assets/svg/FacebookSvg";
-import InstagramSvg from "@/assets/svg/InstagramSvg";
-import TiktokSvg from "@/assets/svg/TiktokSvg";
-import LinkedInSvg from "@/assets/svg/LinkedInSvg";
-import Link from "next/link";
+'use client'
+import Image from 'next/image'
+import { usePathname } from 'next/navigation'
+import React from 'react'
+import logo from '@/assets/images/Logo-Footer.png'
+import FacebookSvg from '@/assets/svg/FacebookSvg'
+import InstagramSvg from '@/assets/svg/InstagramSvg'
+import TiktokSvg from '@/assets/svg/TiktokSvg'
+import LinkedInSvg from '@/assets/svg/LinkedInSvg'
+import Link from 'next/link'
 
 function Footer() {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   return (
     <footer>
@@ -19,60 +19,37 @@ function Footer() {
           <div className="gap-4 flex justify-between max-[490px]:flex-wrap  max-[490px]:items-center max-[490px]:justify-center">
             <div className="">
               <div className="flex flex-col justify-between h-full max-w-[230px] max-[490px]:text-center max-[490px]:items-center max-[490px]:sticky max-[490px]:top-5">
-                <Image
-                  src={logo}
-                  width={200}
-                  height={138}
-                  alt="walktheplanet inc"
-                  loading="lazy"
-                />
-                <p className="max-[490px]:hidden text-white">
-                  Unit 1803 PSE Tower 28th Street 5th Avenue Bonifacio Global
-                  City, Fort Bonifacio, City of Taguig
-                </p>
+                <Image src={logo} width={200} height={138} alt="walktheplanet inc" loading="lazy" />
+                <p className="max-[490px]:hidden text-white">Unit 1803 PSE Tower 28th Street 5th Avenue Bonifacio Global City, Fort Bonifacio, City of Taguig</p>
               </div>
             </div>
             <div className="flex flex-col max-[490px]:text-center max-[490px]:mt-15">
               <div className=" text-white pb-20 border-b-1 border-amber-100">
-                <h2 className="text-lg md:text-xl font-semibold mb-6">
-                  Send us an email
-                </h2>
+                <h2 className="text-lg md:text-xl font-semibold mb-6">Send us an email</h2>
 
                 <div className="flex flex-col md:flex-row md:justify-between gap-10">
                   <div className="space-y-10">
                     <div>
                       <p className="">For partnership</p>
-                      <a
-                        className="underline cursor-pointer"
-                        href="mailto:partners@walktheplanet.com"
-                      >
+                      <a className="underline cursor-pointer" href="mailto:partners@walktheplanet.com">
                         partners@walktheplanet.com
                       </a>
                     </div>
                     <div>
                       <p className="">For airline partnership</p>
-                      <a
-                        className="underline cursor-pointer"
-                        href="mailto:airline.partners@walktheplanet.com"
-                      >
+                      <a className="underline cursor-pointer" href="mailto:airline.partners@walktheplanet.com">
                         airline.partners@walktheplanet.com
                       </a>
                     </div>
                     <div>
                       <p className="">For M.I.C.E</p>
-                      <a
-                        className="underline cursor-pointer"
-                        href="mailto:m.i.c.e@walktheplanet.com"
-                      >
+                      <a className="underline cursor-pointer" href="mailto:m.i.c.e@walktheplanet.com">
                         M.I.C.E@walktheplanet.com
                       </a>
                     </div>
                     <div>
                       <p className="">For EduTourism</p>
-                      <a
-                        className="underline cursor-pointer"
-                        href="mailto:edutourism@walktheplanet.com"
-                      >
+                      <a className="underline cursor-pointer" href="mailto:edutourism@walktheplanet.com">
                         edutourism@walktheplanet.com
                       </a>
                     </div>
@@ -81,28 +58,19 @@ function Footer() {
                   <div className="space-y-10">
                     <div>
                       <p className="">For Sales</p>
-                      <a
-                        className="underline cursor-pointer"
-                        href="mailto:corpsales@walktheplanet.com"
-                      >
+                      <a className="underline cursor-pointer" href="mailto:corpsales@walktheplanet.com">
                         corpsales@walktheplanet.com
                       </a>
                     </div>
                     <div>
                       <p className="">For marketing</p>
-                      <a
-                        className="underline cursor-pointer"
-                        href="mailto:marketing@walktheplanet.com"
-                      >
+                      <a className="underline cursor-pointer" href="mailto:marketing@walktheplanet.com">
                         marketing@walktheplanet.com
                       </a>
                     </div>
                     <div>
                       <p className="">For operations</p>
-                      <a
-                        className="underline cursor-pointer"
-                        href="mailto:customersupport@walktheplanet.com"
-                      >
+                      <a className="underline cursor-pointer" href="mailto:customersupport@walktheplanet.com">
                         customersupport@walktheplanet.com
                       </a>
                     </div>
@@ -127,112 +95,46 @@ function Footer() {
                 </div>
               </div>
               <div className=" text-white pt-20">
-                <h2 className="text-lg md:text-xl font-semibold mb-6">
-                  Quick links
-                </h2>
+                <h2 className="text-lg md:text-xl font-semibold mb-6">Quick links</h2>
 
                 <div className="flex flex-col md:flex-row md:justify-between gap-6 md:gap-12">
                   <div className="space-y-10 flex flex-col">
-                    <Link
-                      href="/"
-                      className={`hover:underline ${
-                        pathname === "/"
-                          ? "font-medium"
-                          : "font-light text-[#FFFFFFA6]"
-                      }`}
-                    >
+                    <Link href="/" className={`hover:underline ${pathname === '/' ? 'font-medium' : 'font-light text-[#FFFFFFA6]'}`}>
                       Home
                     </Link>
-                    <a
-                      href="/edutourism"
-                      className={`hover:underline ${
-                        pathname === "/edutourism"
-                          ? "font-medium"
-                          : "font-light text-[#FFFFFFA6]"
-                      }`}
-                    >
+                    <a href="/edutourism" className={`hover:underline ${pathname === '/edutourism' ? 'font-medium' : 'font-light text-[#FFFFFFA6]'}`}>
                       EduTourism
                     </a>
-                    <a
-                      href="/mice"
-                      className={`hover:underline ${
-                        pathname === "/mice"
-                          ? "font-medium"
-                          : "font-light text-[#FFFFFFA6]"
-                      }`}
-                    >
+                    <a href="/mice" className={`hover:underline ${pathname === '/mice' ? 'font-medium' : 'font-light text-[#FFFFFFA6]'}`}>
                       M.I.C.E
                     </a>
                   </div>
 
                   <div className="space-y-10 flex flex-col">
-                    <a
-                      href="/corporate"
-                      className={`hover:underline ${
-                        pathname === "/corporate"
-                          ? "font-medium"
-                          : "font-light text-[#FFFFFFA6]"
-                      }`}
-                    >
-                      Corporate and Business
+                    <a href="/corporate" className={`hover:underline ${pathname === '/corporate' ? 'font-medium' : 'font-light text-[#FFFFFFA6]'}`}>
+                      Corp & Business
                     </a>
-                    <a
-                      href="/travel-stories"
-                      className={`hover:underline ${
-                        pathname === "/travel-stories"
-                          ? "font-medium"
-                          : "font-light text-[#FFFFFFA6]"
-                      }`}
-                    >
+                    <a href="/travel-stories" className={`hover:underline ${pathname === '/travel-stories' ? 'font-medium' : 'font-light text-[#FFFFFFA6]'}`}>
                       Travel Stories
                     </a>
-                    <a
-                      href="/leisure"
-                      className={`hover:underline ${
-                        pathname === "/leisure"
-                          ? "font-medium"
-                          : "font-light text-[#FFFFFFA6]"
-                      }`}
-                    >
+                    <a href="/leisure" className={`hover:underline ${pathname === '/leisure' ? 'font-medium' : 'font-light text-[#FFFFFFA6]'}`}>
                       Leisure travel offerings
                     </a>
                   </div>
 
                   <div className="space-y-10 flex flex-col">
-                    <a
-                      href="/all-in-products"
-                      className={`hover:underline ${
-                        pathname === "/all-in-products"
-                          ? "font-medium"
-                          : "font-light text-[#FFFFFFA6]"
-                      }`}
-                    >
+                    <a href="/all-in-products" className={`hover:underline ${pathname === '/all-in-products' ? 'font-medium' : 'font-light text-[#FFFFFFA6]'}`}>
                       All-in services
                     </a>
-                    <a
-                      href="/about-us"
-                      className={`hover:underline ${
-                        pathname === "/about-us"
-                          ? "font-medium"
-                          : "font-light text-[#FFFFFFA6]"
-                      }`}
-                    >
+                    <a href="/about-us" className={`hover:underline ${pathname === '/about-us' ? 'font-medium' : 'font-light text-[#FFFFFFA6]'}`}>
                       About us
                     </a>
-                    <a
-                      href="/contact-us"
-                      className={`hover:underline ${
-                        pathname === "/contact-us"
-                          ? "font-medium"
-                          : "font-light text-[#FFFFFFA6]"
-                      }`}
-                    >
+                    <a href="/contact-us" className={`hover:underline ${pathname === '/contact-us' ? 'font-medium' : 'font-light text-[#FFFFFFA6]'}`}>
                       Contact us
                     </a>
                   </div>
                   <p className="min-[481px]:hidden max-[490px]:text-[14px] mt-15 text-white max-[490px]:px-7">
-                    Unit 1803 PSE Tower 28th Street 5th Avenue Bonifacio Global
-                    City, Fort Bonifacio, City of Taguig
+                    Unit 1803 PSE Tower 28th Street 5th Avenue Bonifacio Global City, Fort Bonifacio, City of Taguig
                   </p>
                 </div>
               </div>
@@ -240,13 +142,11 @@ function Footer() {
           </div>
         </div>
         <div className="bg-[#124064] h-[50px] flex justify-start items-center">
-          <div className="max-w-[1280px] mx-auto text-white">
-            © 2023 WalkThePlanet, Inc. All rights reserved.
-          </div>
+          <div className="max-w-[1280px] mx-auto text-white">© 2023 WalkThePlanet, Inc. All rights reserved.</div>
         </div>
       </div>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

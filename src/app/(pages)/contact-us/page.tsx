@@ -16,10 +16,10 @@ const ContactPage = () => {
       {/* <HeroSection /> */}
       <Hero
         images={bg}
-        title="Let’s plan your dream getaway!"
+        title="Contact Us"
         description={
           <div className="flex flex-col gap-3">
-            <p>Leave the details to us so you can focus on enjoying your journey.</p>
+            <p>Your journey is unique and your experience matters.</p>
           </div>
         }
         gradient="bg-gradient-to-r from-[#FAAE19] via-[#198A6F] to-[#14476F]"
