@@ -56,7 +56,7 @@ export default function WhoWeAreSection() {
           </p>
           <br />
           <p className="text-[16px] md:text-[24px] text-gray-800 leading-relaxed">
-            <span className="font-semibold">Life is short. The world is calling. Let WalkThePlanet take you on your next dream trip NOW!</span>
+            Life is short. The world is calling. Let <span className="font-semibold">WalkThePlanet</span> take you on your next dream trip NOW!
           </p>
         </div>
 
