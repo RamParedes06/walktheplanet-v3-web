@@ -4,7 +4,7 @@ type MarqueeProps = {
   variant?: 'homeHero' | 'corporateHero'
   gradient?: string
 }
-const Marquee = ({ variant, gradient = 'bg-gradient-to-r from-[#0A2472] via-[#00A9CE] to-[#FF7A00]' }: MarqueeProps) => {
+const Marquee = ({ variant, gradient }: MarqueeProps) => {
   return (
     <>
       {/* scroll animation!!  */}
