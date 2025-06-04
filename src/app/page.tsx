@@ -1,19 +1,19 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { partners } from '@/app/partners'
+import { HomeOffers } from '@/library/HomePartner'
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Hero from "./(pages)/_components/HeroInitial";
-import TravelOffersV2 from "./(pages)/_components/TravelOffersV2";
-import Beliefs from "./(pages)/_components/beliefs";
+import { useEffect, useRef, useState } from 'react'
 import BeliefsMobile from "./(pages)/_components/BeliefMobile";
+import Beliefs from './(pages)/_components/beliefs'
 import InfiniteMenu from "./(pages)/_components/discVertShaderSource";
+import Footer from './(pages)/_components/Footer'
 import GridMotion from "./(pages)/_components/GridMotion";
 import GridMotionMobile from "./(pages)/_components/GridMotionMobile";
-import Footer from "./(pages)/_components/Footer";
-import { partners } from "@/app/partners";
-import { HomeOffers } from "@/library/HomePartner";
+import Hero from './(pages)/_components/HeroInitial'
+import TravelOffersV2 from './(pages)/_components/TravelOffersV2'
 
-const logo = 'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005552/Logo-Only_u5157y.png'
+const logo = process.env.NEXT_PUBLIC_ASSETS + '/Logo-Only_u5157y.png'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);

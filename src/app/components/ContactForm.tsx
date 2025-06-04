@@ -1,16 +1,16 @@
 'use client'
 
-import { useState } from 'react'
-import Image from 'next/image'
-import { useForm, SubmitHandler } from 'react-hook-form'
-import { z } from 'zod'
+import bg from '@/assets/svg/contact/bgIllustration.svg'
+import { schemaBusiness, schemaLeisure } from '@/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import axios from 'axios'
-import { schemaBusiness, schemaLeisure } from '@/schema'
-import bg from '@/assets/svg/contact/bgIllustration.svg'
+import Image from 'next/image'
+import { useState } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import { z } from 'zod'
 import Modal from './Modal'
 
-const mobileBG = 'https://res.cloudinary.com/dmxvasob7/image/upload/v1746606365/Frame_48098208_2_u6hdi6.png'
+const mobileBG = 'https://wtp-assets.oldhat.xyz/contact/Frame_48098208_2_u6hdi6.png'
 
 type LeisureFormData = z.infer<typeof schemaLeisure>
 type BusinessFormData = z.infer<typeof schemaBusiness>

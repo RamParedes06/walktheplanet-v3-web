@@ -1,14 +1,14 @@
 import ContactForm from '@/app/components/ContactForm'
 
+import Hero from '@/app/(pages)/contact-us/components/Hero'
 import Footer from '../_components/Footer'
 import ContactSection from './components/ContactSection'
 import FrequentlyAskedQuestion from './components/FrequentlyAskedQuestion'
 import LocationSection from './components/LocationSection'
 import TravelGallery from './components/TravelGallery'
 import TravelQuotation from './components/TravelQoutation'
-import Hero from '@/app/(pages)/contact-us/components/Hero'
 
-const bg = 'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005549/heroBanner_rx9i7u.webp'
+const bg = process.env.NEXT_PUBLIC_ASSETS + '/contact/heroBanner_rx9i7u.webp'
 
 const ContactPage = () => {
   return (

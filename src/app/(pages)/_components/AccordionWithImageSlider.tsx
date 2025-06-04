@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import Image from 'next/image'
+import React, { useEffect, useRef, useState } from 'react'
 
 interface AccordionItemData {
   id: number;
@@ -173,36 +173,19 @@ const AccordionWithImageSlider: React.FC<AccordionWithImageSliderProps> = ({
   return (
     <div className="flex flex-col md:flex-row w-full h-full md:h-screen">
       {/* Left side - Image with text overlay */}
-      <div
-        className={`w-full md:w-1/2 relative h-[428px] md:h-full overflow-hidden ${leftSideClassName}`}
-      >
+      <div className={`w-full md:w-1/2 relative h-[428px] md:h-full overflow-hidden ${leftSideClassName}`}>
         {/* Render all slides */}
         {slides.map((slide, index) => (
-          <div
-            key={`${slide.id}-${index}`}
-            className={`absolute inset-0 transition-all duration-600 ease-out ${getSlideClasses(
-              slide.position
-            )}`}
-          >
-            <Image
-              src={slide.image}
-              alt={`Slide ${slide.id}`}
-              fill
-              style={{ objectFit: "cover" }}
-              priority
-            />
+          <div key={`${slide.id}-${index}`} className={`absolute inset-0 transition-all duration-600 ease-out ${getSlideClasses(slide.position)}`}>
+            <Image src={slide.image} alt={`Slide ${slide.id}`} fill style={{ objectFit: 'cover' }} priority />
           </div>
         ))}
 
         {/* Text overlay with high z-index to stay on top */}
         {captionText && (
-          <div
-            className={`absolute bottom-0 left-0 p-6 md:p-12 lg:p-[112px_64px] w-full z-50 pointer-events-none ${textOverlayClassName}`}
-          >
+          <div className={`absolute bottom-0 left-0 p-6 md:p-12 lg:p-[112px_64px] w-full z-50 pointer-events-none ${textOverlayClassName}`}>
             <TextReveal>
-              <p className="text-white leading-relaxed md:text-2xl text-xl italic max-w-[590px]">
-                {captionText}
-              </p>
+              <p className="text-white leading-relaxed md:text-2xl text-xl italic max-w-[590px]">{captionText}</p>
             </TextReveal>
           </div>
         )}
@@ -212,16 +195,14 @@ const AccordionWithImageSlider: React.FC<AccordionWithImageSliderProps> = ({
       <div
         className={`w-full md:w-1/2 relative order-1`}
         style={{
-          background:
-            "linear-gradient(90deg, #006FA9 0%, #599D6A 50%, #FE8840 100%), " +
-            "linear-gradient(360deg, rgba(5, 18, 28, 0) 3.33%, rgba(20, 72, 113, 0.498536) 51.52%, #05121C 100%)",
+          background: 'linear-gradient(90deg, #006FA9 0%, #599D6A 50%, #FE8840 100%), ' + 'linear-gradient(360deg, rgba(5, 18, 28, 0) 3.33%, rgba(20, 72, 113, 0.498536) 51.52%, #05121C 100%)',
         }}
       >
         {/* Gradient background using Tailwind classes */}
         <div
           className="absolute inset-0 "
           style={{
-            backgroundImage: `url('https://res.cloudinary.com/dmxvasob7/image/upload/v1744594491/Noise_jbbzkn.webp')`,
+            backgroundImage: `url('https://wtp-assets.oldhat.xyz/reusable/Noise_jbbzkn.webp')`,
           }}
         ></div>
 
@@ -230,21 +211,14 @@ const AccordionWithImageSlider: React.FC<AccordionWithImageSliderProps> = ({
           <div className="w-full h-full flex justify-center items-center bg-gradient-to-b from-black/60 via-black/20 to-transparent">
             <div className="md:py-8 lg:px-4 px-6 py-16 w-full max-w-2xl">
               {accordionItems.map((item) => (
-                <Accordion
-                  key={item.id}
-                  number={item.number}
-                  title={item.title}
-                  content={item.content}
-                  isOpen={openItem === item.id}
-                  toggleAccordion={() => toggleAccordion(item.id)}
-                />
+                <Accordion key={item.id} number={item.number} title={item.title} content={item.content} isOpen={openItem === item.id} toggleAccordion={() => toggleAccordion(item.id)} />
               ))}
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 };
 
 export default AccordionWithImageSlider;

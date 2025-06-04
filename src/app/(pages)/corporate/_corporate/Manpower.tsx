@@ -9,13 +9,13 @@ const Manpower = () => {
   const carouselRef = useRef<HTMLDivElement>(null)
 
   const images = [
-    'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fmanpower-original%2Fcabin-crew-air-hostess-working-airplane-airline-transportation-tourism-concept.webp&version_id=null',
-    'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fmanpower-original%2Fconfident-asian-male-security-guard-safeguarding-careers-ensuring-outdoor-protection-urb.webp&version_id=null',
-    'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fmanpower-original%2FCorporate%20%26%20Business%20Manpower%20Agencies%20and%20OFW%20Deployment%204.webp&version_id=null',
-    'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fmanpower-original%2Fnurse-portrait-hospital.webp&version_id=null',
+    'https://wtp-assets.oldhat.xyz/corporate/manpower/cabin-crew-air-hostess-working-airplane-airline-transportation-tourism-concept.webp',
+    'https://wtp-assets.oldhat.xyz/corporate/manpower/confident-asian-male-security-guard-safeguarding-careers-ensuring-outdoor-protection-urb.webp',
+    'https://wtp-assets.oldhat.xyz/corporate/manpower/Corporate%20%26%20Business%20Manpower%20Agencies%20and%20OFW%20Deployment%204.webp',
+    'https://wtp-assets.oldhat.xyz/corporate/manpower/nurse-portrait-hospital.webp',
   ]
 
-  const bgDesktop = 'https://res.cloudinary.com/dmxvasob7/image/upload/v1747365762/Frame_48098208_7_objf30.png'
+  const bgDesktop = 'https://wtp-assets.oldhat.xyz/corporate/Frame_48098208_7_objf30.png'
 
   useEffect(() => {
     if (!carouselRef.current) return

@@ -1,13 +1,13 @@
-import React from 'react'
-import unforgetable1 from '@/assets/images/unforgetable1.png'
-import unforgetable2 from '@/assets/images/unforgetable2.png'
-import tailor1 from '@/assets/images/tailor1.png'
-import tailor2 from '@/assets/images/tailor2.png'
-import immersive1 from '@/assets/images/immersive1.png'
-import immersive2 from '@/assets/images/immersive2.png'
 import { DirectionAwareHover } from '@/app/(pages)/_components/direction-aware-hover'
 import ScrollReveal from '@/app/(pages)/_components/ScrollReveal'
 import ScrollVelocity from '@/app/(pages)/_components/ScrollVelocity'
+import immersive1 from '@/assets/images/immersive1.png'
+import immersive2 from '@/assets/images/immersive2.png'
+import tailor1 from '@/assets/images/tailor1.png'
+import tailor2 from '@/assets/images/tailor2.png'
+import unforgetable1 from '@/assets/images/unforgetable1.png'
+import unforgetable2 from '@/assets/images/unforgetable2.png'
+import React from 'react'
 
 const cards = [
   {
@@ -35,7 +35,7 @@ function Beliefs() {
     <div
       className="space-y-10 max-[480px]:hidden pt-30 bg-cover bg-center"
       style={{
-        backgroundImage: `url('https://res.cloudinary.com/dmxvasob7/image/upload/v1747298020/Background_jbvryv.png')`,
+        backgroundImage: `url('${process.env.NEXT_PUBLIC_ASSETS}/homepage/our beliefs/Background_jbvryv.png')`,
       }}
     >
       <ScrollVelocity texts={['OUR BELIEFS']} className="custom-scroll-text" />

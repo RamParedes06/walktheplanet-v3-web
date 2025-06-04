@@ -1,21 +1,19 @@
-import React from 'react'
-
 import Image from 'next/image'
 
-import TextReveal from '@/app/(pages)/_components/TextReveal'
 import Carousel from '@/app/(pages)/_components/Carousel'
+import TextReveal from '@/app/(pages)/_components/TextReveal'
 
 const images = [
-  'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcarousel%2FCorporate%20%26%20Business%20Insurance%201.webp&version_id=null',
-  'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcarousel%2FCorporate%20%26%20Business%20Insurance%202.webp&version_id=null',
-  'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcarousel%2FCorporate%20%26%20Business%20Insurance%203.webp&version_id=null',
-  'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcarousel%2FCorporate%20%26%20Business%20Insurance%204.webp&version_id=null',
-  'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcarousel%2FCorporate%20%26%20Business%20Insurance%205.webp&version_id=null',
-  'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fcarousel%2FCorporate%20%26%20Business%20Insurance%206.webp&version_id=null',
+  'https://wtp-assets.oldhat.xyz/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%201.webp',
+  'https://wtp-assets.oldhat.xyz/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%202.webp',
+  'https://wtp-assets.oldhat.xyz/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%203.webp',
+  'https://wtp-assets.oldhat.xyz/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%204.webp',
+  'https://wtp-assets.oldhat.xyz/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%205.webp',
+  'https://wtp-assets.oldhat.xyz/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%206.webp',
 ]
 
-const bgDesktop = 'https://res.cloudinary.com/dmxvasob7/image/upload/v1747364618/Frame_48098208_6_ezu6mk.png'
-const bgMobile = 'https://res.cloudinary.com/dmxvasob7/image/upload/v1747365110/Frame_48098208_1_z9ukxu.svg'
+const bgDesktop = 'https://wtp-assets.oldhat.xyz/corporate/Frame_48098208_6_ezu6mk.png'
+const bgMobile = 'https://wtp-assets.oldhat.xyz/corporate/Frame_48098208_1_z9ukxu.svg'
 
 function Insurance() {
   return (

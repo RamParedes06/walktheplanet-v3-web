@@ -1,13 +1,13 @@
 'use client'
-import MenuSvg from '@/assets/svg/MenuSvg'
-import Image from 'next/image'
-import React, { JSX, useCallback, useEffect, useRef, useState } from 'react'
 import Logo from '@/assets/images/Logo.png'
+import MenuSvg from '@/assets/svg/MenuSvg'
 import { AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+import { JSX, useCallback, useEffect, useRef, useState } from 'react'
 import '../../../../styles/hero-horizontal-scroll.scss'
 import Marquee from '../../_components/Marquee'
-import TextReveal from '../../_components/TextReveal'
 import Menu from '../../_components/Menu'
+import TextReveal from '../../_components/TextReveal'
 
 interface HeroProps {
   images: string[]
@@ -197,7 +197,7 @@ const Hero = ({ images, title, description, gradient = 'bg-[linear-gradient(to_r
       <AnimatePresence>{isOpenDesktop && <Menu toggleMenu={toggleMenu} headerRect={headerRect} />}</AnimatePresence>
 
       <div className="relative w-screen h-[90vh] md:h-screen">
-        <div className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${corpImages})` }}>
+        <div className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${corpImages[0]})` }}>
           {corpImages.map((image, index) => (
             <div
               key={index}

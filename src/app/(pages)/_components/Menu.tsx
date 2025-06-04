@@ -1,19 +1,19 @@
-import { motion } from 'framer-motion'
 import LogoSvg from '@/assets/svg/WTPLogo.svg'
-import FacebookSvg from '@/assets/svg/facebook-btn.svg'
-import InstagramSvg from '@/assets/svg/instagram-btn.svg'
-import LinkedInSvg from '@/assets/svg/linked-in.svg'
-import TiktokSvg from '@/assets/svg/tiktok-btn.svg'
-import FacebookColorSvg from '@/assets/svg/facebook-color-btn.svg'
-import InstagramColorSvg from '@/assets/svg/instagram-color-btn.svg'
-import LinkedInColorSvg from '@/assets/svg/linkedin-color-btn.svg'
-import TiktokColorSvg from '@/assets/svg/tiktok-color-btn.svg'
 import ArrowUpRight from '@/assets/svg/arrow-up-right.svg'
+import FacebookSvg from '@/assets/svg/facebook-btn.svg'
+import FacebookColorSvg from '@/assets/svg/facebook-color-btn.svg'
+import InstagramSvg from '@/assets/svg/instagram-btn.svg'
+import InstagramColorSvg from '@/assets/svg/instagram-color-btn.svg'
+import LinkedInSvg from '@/assets/svg/linked-in.svg'
+import LinkedInColorSvg from '@/assets/svg/linkedin-color-btn.svg'
+import TiktokSvg from '@/assets/svg/tiktok-btn.svg'
+import TiktokColorSvg from '@/assets/svg/tiktok-color-btn.svg'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import MenuTooltip from './MenuTooltip'
 import { usePathname } from 'next/navigation'
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import MenuTooltip from './MenuTooltip'
 
 type ExpandableMenuProps = {
   toggleMenu: () => void
@@ -81,9 +81,9 @@ function ContactTemplate({ forLabel, email }: { forLabel: string; email: string 
 }
 const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
   const pathname = usePathname()
-  const homeImage = 'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fmenu%2Fmenu-home.webp&version_id=null'
-  const productsImage = 'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fmenu%2Fmenu-products.webp&version_id=null'
-  const contactImage = 'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fmenu%2Fmenu-contact.webp&version_id=null'
+  const homeImage = 'https://wtp-assets.oldhat.xyz/menu/menu-home.webp'
+  const productsImage = 'https://wtp-assets.oldhat.xyz/menu/menu-products.webp'
+  const contactImage = 'https://wtp-assets.oldhat.xyz/menu/menu-contact.webp'
 
   const [isFacebookHovered, setIsFacebookHovered] = useState(false)
   const [isInstagramHovered, setIsInstagramHovered] = useState(false)
@@ -144,25 +144,25 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
         title: 'EDUTOURISM',
         href: '/edutourism',
         highlighted: true,
-        image: 'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fmenu%2Fmenu-edutourism.webp&version_id=null',
+        image: 'https://wtp-assets.oldhat.xyz/menu/menu-edutourism.webp',
       },
       {
         title: 'M.I.C.E',
         href: '/mice',
         highlighted: true,
-        image: 'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fmenu%2Fmenu-mice.webp&version_id=null',
+        image: 'https://wtp-assets.oldhat.xyz/menu/menu-mice.webp',
       },
       {
         title: 'CORP & BUSINESS',
         href: '/corporate',
         highlighted: true,
-        image: 'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fmenu%2Fmenu-corp.webp&version_id=null',
+        image: 'https://wtp-assets.oldhat.xyz/menu/menu-corp.webp',
       },
       {
         title: 'TRAVEL STORIES',
         href: '/travel-stories',
         highlighted: true,
-        image: 'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fmenu%2Fmenu-success.webp&version_id=null',
+        image: 'https://wtp-assets.oldhat.xyz/menu/menu-success.webp',
       },
       {
         title: 'ALL-IN PRODUCTS',
@@ -174,7 +174,7 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
         title: 'ABOUT US',
         href: '/about-us',
         highlighted: true,
-        image: 'https://res.cloudinary.com/dmxvasob7/image/upload/v1745204032/about1_ircbzf.webp',
+        image: 'https://wtp-assets.oldhat.xyz/about-us/hero/about1_ircbzf.webp',
       },
     ],
   }

@@ -1,9 +1,9 @@
 'use client'
-import { useEffect, useState } from 'react'
-import Image from 'next/image'
-import background from '@/assets/svg/about/Background.svg'
 import bgMobile from '@/assets/images/about/bgMobile.svg'
 import verctor from '@/assets/images/about/Vector 76.svg'
+import background from '@/assets/svg/about/Background.svg'
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
 export default function CoreValues() {
   const [isMounted, setIsMounted] = useState(false)
@@ -58,12 +58,7 @@ export default function CoreValues() {
             </div>
           </div>
 
-          <Image
-            src="https://res.cloudinary.com/dmxvasob7/image/upload/v1745205398/core1_mzfk00.webp"
-            alt="Person with raised arm celebrating"
-            fill
-            className="object-cover object-center md:object-left"
-          />
+          <Image src="https://wtp-assets.oldhat.xyz/about-us/core-values/core1_mzfk00.webp" alt="Person with raised arm celebrating" fill className="object-cover object-center md:object-left" />
           {/* Gradient overlay behind letter  */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/1 to-[#05121C]/80">
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] md:translate-y-[190px] text-white text-[364px] md:text-[400px] font-semibold opacity-70 ">S</span>
@@ -78,7 +73,7 @@ export default function CoreValues() {
               <p className="text-base pt-2">Smarter, better travel</p>
             </div>
           </div>
-          <Image src="https://res.cloudinary.com/dmxvasob7/image/upload/v1745205397/core2_sxcxhg.webp" alt="Person reading" fill className="object-cover object-center md:object-[33%_center]" />
+          <Image src="https://wtp-assets.oldhat.xyz/about-us/core-values/core2_sxcxhg.webp" alt="Person reading" fill className="object-cover object-center md:object-[33%_center]" />
           {/* Gradient overlay behind letter  */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/1 to-[#05121C]/80">
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] md:translate-y-[190px] text-white text-[364px] md:text-[400px] font-semibold opacity-70">I</span>
@@ -93,7 +88,7 @@ export default function CoreValues() {
               <p className="text-base pt-2">Driven by adventure</p>
             </div>
           </div>
-          <Image src="https://res.cloudinary.com/dmxvasob7/image/upload/v1745205396/core3_fbq1ma.webp" alt="Person with luggage" fill className="object-cover object-center md:object-[66%_center]" />
+          <Image src="https://wtp-assets.oldhat.xyz/about-us/core-values/core3_fbq1ma.webp" alt="Person with luggage" fill className="object-cover object-center md:object-[66%_center]" />
           {/* Gradient overlay behind letter  */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/1 to-[#05121C]/80">
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] md:translate-y-[190px] text-white text-[364px] md:text-[400px] font-semibold opacity-70">P</span>
@@ -108,7 +103,7 @@ export default function CoreValues() {
               <p className="text-base pt-2">Always improving</p>
             </div>
           </div>
-          <Image src="https://res.cloudinary.com/dmxvasob7/image/upload/v1745205397/core4_marhsx.webp" alt="Person smiling" fill className="object-cover object-center md:object-right" />
+          <Image src="https://wtp-assets.oldhat.xyz/about-us/core-values/core4_marhsx.webp" alt="Person smiling" fill className="object-cover object-center md:object-right" />
           {/* Gradient overlay behind letter  */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/1 to-[#05121C]/80">
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] md:translate-y-[190px] text-white text-[364px] md:text-[400px] font-semibold opacity-70">A</span>
