@@ -7,13 +7,13 @@ interface MerchandiseProps {
 export const MerchandiseImages: MerchandiseProps[] = [
   {
     id: 1,
-    image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1745475418/Merchandise1_kexzcd.webp",
-    label: "Waterproof Bags",
+    image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/products/merchandise/Merchandise1_kexzcd.webp',
+    label: 'Waterproof Bags',
   },
 
   {
     id: 2,
-    image: "https://res.cloudinary.com/dmxvasob7/image/upload/v1745475416/Merchandise2_suhjra.webp",
-    label: "Reusable Water Bottle",
+    image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/products/merchandise/Merchandise2_suhjra.webp',
+    label: 'Reusable Water Bottle',
   },
-];
+]

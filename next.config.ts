@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
  
 const nextConfig: NextConfig = {
   /* config options here */
- 
+
   images: {
     remotePatterns: [
       {
@@ -28,6 +28,11 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "res-console.cloudinary.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "wtp-assets.oldhat.xyz", // oleg madara cloudflare r2 object storage
         pathname: "/**",
       },
     ],

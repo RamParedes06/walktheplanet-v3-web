@@ -1,5 +1,5 @@
 export const TestimonialsImages = [
-"https://res.cloudinary.com/dmxvasob7/image/upload/v1744774301/testimonials1_mzspfo.webp",
-"https://res.cloudinary.com/dmxvasob7/image/upload/v1744774300/testimonials2_wkzfcp.webp",
-"https://res.cloudinary.com/dmxvasob7/image/upload/v1744774304/testimonials3_zzxcmp.webp",
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/travel-stories/testimonials/Desktop/testimonials1_mzspfo.webp',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/travel-stories/testimonials/Desktop/testimonials2_wkzfcp.webp',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/travel-stories/testimonials/Desktop/testimonials3_zzxcmp.webp',
 ]

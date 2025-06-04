@@ -1,12 +1,6 @@
-export const image1 =
-  "https://res.cloudinary.com/dmxvasob7/image/upload/v1745205559/aboutCTA1_vabtpo.webp";
-export const image2 =
-  "https://res.cloudinary.com/dmxvasob7/image/upload/v1745205557/aboutCTA2_iwviig.webp";
-export const image3 =
-  "https://res.cloudinary.com/dmxvasob7/image/upload/v1745205558/aboutCTA3_qlemoz.webp";
-export const image4 =
-  "https://res.cloudinary.com/dmxvasob7/image/upload/v1745205557/aboutCTA4_ahrhj2.webp";
-export const image5 =
-  "https://res.cloudinary.com/dmxvasob7/image/upload/v1745205558/aboutCTA5_rsbabp.webp";
-export const image6 =
-  "https://res.cloudinary.com/dmxvasob7/image/upload/v1745205557/aboutCTA6_sawhww.webp";
+export const image1 = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/about-us/CTA/aboutCTA1_vabtpo.webp'
+export const image2 = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/about-us/CTA/aboutCTA2_iwviig.webp'
+export const image3 = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/about-us/CTA/aboutCTA3_qlemoz.webp'
+export const image4 = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/about-us/CTA/aboutCTA4_ahrhj2.webp'
+export const image5 = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/about-us/CTA/aboutCTA5_rsbabp.webp'
+export const image6 = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/about-us/CTA/aboutCTA6_sawhww.webp'

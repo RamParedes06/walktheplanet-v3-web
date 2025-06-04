@@ -14,7 +14,7 @@ import GridMotionMobile from "./(pages)/_components/GridMotionMobile";
 import Hero from "./(pages)/_components/HeroInitial";
 import TravelOffersV2 from "./(pages)/_components/TravelOffersV2";
 
-const logo = "https://res.cloudinary.com/dmxvasob7/image/upload/v1744005552/Logo-Only_u5157y.png";
+const logo = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/Logo-Only_u5157y.png'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
