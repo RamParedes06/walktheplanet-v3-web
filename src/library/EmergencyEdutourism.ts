@@ -7,11 +7,11 @@ export interface AccordionItemData {
 
 //images 
 export const emergencyImages = [
-  "https://res.cloudinary.com/dmxvasob7/image/upload/v1744270642/edu-emergency1_ve4jl5.webp",
-  "https://res.cloudinary.com/dmxvasob7/image/upload/v1744270641/edu-emergency2_lychp5.webp",
-  "https://res.cloudinary.com/dmxvasob7/image/upload/v1744270648/edu-emergency3_nkvass.webp",
-  "https://res.cloudinary.com/dmxvasob7/image/upload/v1744270642/edu-emergency4_hahswi.webp"
-];
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/edutourism/emergency/edu-emergency1_ve4jl5.webp',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/edutourism/emergency/edu-emergency2_lychp5.webp',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/edutourism/emergency/edu-emergency3_nkvass.webp',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/edutourism/emergency/edu-emergency4_hahswi.webp',
+]
 
 //accordion data
 export const accordionData: AccordionItemData[] = [

@@ -1,6 +1,6 @@
-export const image1 = "https://res.cloudinary.com/dmxvasob7/image/upload/v1747215917/CTA-1_xal34s.webp";
-export const image2 = "https://res.cloudinary.com/dmxvasob7/image/upload/v1747215914/CTA-2_bdeavu.webp";
-export const image3 = "https://res.cloudinary.com/dmxvasob7/image/upload/v1747215914/CTA-3_xvzn9t.webp";
-export const image4 = "https://res.cloudinary.com/dmxvasob7/image/upload/v1747215915/CTA-4_oyqbf5.webp";
-export const image5 = "https://res.cloudinary.com/dmxvasob7/image/upload/v1747215919/CTA-5_eawfkd.webp";
-export const image6 = "https://res.cloudinary.com/dmxvasob7/image/upload/v1747215914/CTA-2_bdeavu.webp";
+export const image1 = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + "/edutourism/cta-banner/CTA-1_xal34s.webp";
+export const image2 = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + "/edutourism/cta-banner/CTA-2_bdeavu.webp";
+export const image3 = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + "/edutourism/cta-banner/CTA-3_xvzn9t.webp";
+export const image4 = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + "/edutourism/cta-banner/CTA-4_oyqbf5.webp";
+export const image5 = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + "/edutourism/cta-banner/CTA-5_eawfkd.webp";
+export const image6 = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + "/edutourism/cta-banner/CTA-2_bdeavu.webp";

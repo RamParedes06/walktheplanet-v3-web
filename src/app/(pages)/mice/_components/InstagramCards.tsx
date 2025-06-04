@@ -3,8 +3,8 @@ import { IgOpportunities } from "@/library/IgOpportunities";
 import { useEffect, useState } from "react";
 import CarouselItem from "./CarouselItem";
 
-const bg = "https://res.cloudinary.com/dmxvasob7/image/upload/v1747287373/Background_ab0byk.png";
-const overlay = "https://res.cloudinary.com/dxg7sn3cy/image/upload/v1744089957/LetterBg_cbmiri.png";
+const bg = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/Desktop/Value%20Propositions/Background_ab0byk.png'
+const overlay = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/Desktop/Value%20Propositions/Letter_Background_sot3ir.png'
 
 function InstagramCards() {
   // Desktop State

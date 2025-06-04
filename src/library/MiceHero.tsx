@@ -1,7 +1,7 @@
 export const MiceImages = [
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1744263735/mice1_sjztwm.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1744263735/mice2_vreydm.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1744263735/mice3_txgxj0.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1744263735/mice4_tmjflu.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1744263735/mice5_bqgejn.webp",
-];
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/mice1_sjztwm.webp',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/mice2_vreydm.webp',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/mice3_txgxj0.webp',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/mice4_tmjflu.webp',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/mice5_bqgejn.webp',
+]
