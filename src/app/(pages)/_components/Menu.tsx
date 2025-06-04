@@ -81,9 +81,9 @@ function ContactTemplate({ forLabel, email }: { forLabel: string; email: string 
 }
 const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
   const pathname = usePathname()
-  const homeImage = 'https://wtp-assets.oldhat.xyz/menu/menu-home.webp'
-  const productsImage = 'https://wtp-assets.oldhat.xyz/menu/menu-products.webp'
-  const contactImage = 'https://wtp-assets.oldhat.xyz/menu/menu-contact.webp'
+  const homeImage = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/menu/menu-home.webp'
+  const productsImage = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/menu/menu-products.webp'
+  const contactImage = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/menu/menu-contact.webp'
 
   const [isFacebookHovered, setIsFacebookHovered] = useState(false)
   const [isInstagramHovered, setIsInstagramHovered] = useState(false)
@@ -144,25 +144,25 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
         title: 'EDUTOURISM',
         href: '/edutourism',
         highlighted: true,
-        image: 'https://wtp-assets.oldhat.xyz/menu/menu-edutourism.webp',
+        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/menu/menu-edutourism.webp',
       },
       {
         title: 'M.I.C.E',
         href: '/mice',
         highlighted: true,
-        image: 'https://wtp-assets.oldhat.xyz/menu/menu-mice.webp',
+        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/menu/menu-mice.webp',
       },
       {
         title: 'CORP & BUSINESS',
         href: '/corporate',
         highlighted: true,
-        image: 'https://wtp-assets.oldhat.xyz/menu/menu-corp.webp',
+        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/menu/menu-corp.webp',
       },
       {
         title: 'TRAVEL STORIES',
         href: '/travel-stories',
         highlighted: true,
-        image: 'https://wtp-assets.oldhat.xyz/menu/menu-success.webp',
+        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/menu/menu-success.webp',
       },
       {
         title: 'ALL-IN PRODUCTS',
@@ -174,7 +174,7 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
         title: 'ABOUT US',
         href: '/about-us',
         highlighted: true,
-        image: 'https://wtp-assets.oldhat.xyz/about-us/hero/about1_ircbzf.webp',
+        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/about-us/hero/about1_ircbzf.webp',
       },
     ],
   }

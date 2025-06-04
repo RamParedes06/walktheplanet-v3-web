@@ -7,12 +7,12 @@ interface DocumentationProps {
 export const DocumentationImages: DocumentationProps[] = [
   {
     id: 1,
-    image: 'https://wtp-assets.oldhat.xyz/products/docu/Documentation_tn8kri.webp',
+    image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/products/docu/Documentation_tn8kri.webp',
     label: 'Visa Assistance',
   },
   {
     id: 2,
-    image: 'https://wtp-assets.oldhat.xyz/products/docu/Documentation2_fcogtf.webp',
+    image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/products/docu/Documentation2_fcogtf.webp',
     label: 'Immigration Assistance',
   },
 ]

@@ -9,13 +9,13 @@ const Manpower = () => {
   const carouselRef = useRef<HTMLDivElement>(null)
 
   const images = [
-    'https://wtp-assets.oldhat.xyz/corporate/manpower/cabin-crew-air-hostess-working-airplane-airline-transportation-tourism-concept.webp',
-    'https://wtp-assets.oldhat.xyz/corporate/manpower/confident-asian-male-security-guard-safeguarding-careers-ensuring-outdoor-protection-urb.webp',
-    'https://wtp-assets.oldhat.xyz/corporate/manpower/Corporate%20%26%20Business%20Manpower%20Agencies%20and%20OFW%20Deployment%204.webp',
-    'https://wtp-assets.oldhat.xyz/corporate/manpower/nurse-portrait-hospital.webp',
+    process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/manpower/cabin-crew-air-hostess-working-airplane-airline-transportation-tourism-concept.webp',
+    process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/manpower/confident-asian-male-security-guard-safeguarding-careers-ensuring-outdoor-protection-urb.webp',
+    process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/manpower/Corporate%20%26%20Business%20Manpower%20Agencies%20and%20OFW%20Deployment%204.webp',
+    process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/manpower/nurse-portrait-hospital.webp',
   ]
 
-  const bgDesktop = 'https://wtp-assets.oldhat.xyz/corporate/Frame_48098208_7_objf30.png'
+  const bgDesktop = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/Frame_48098208_7_objf30.png'
 
   useEffect(() => {
     if (!carouselRef.current) return

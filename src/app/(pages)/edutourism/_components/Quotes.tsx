@@ -16,7 +16,7 @@ function Quotes({ title }: QuotesProps) {
       <div
         className="md:hidden quotes h-[40vh] bg-contain bg-center bg-white bg-no-repeat flex items-center justify-center"
         style={{
-          backgroundImage: `url('https://wtp-assets.oldhat.xyz/mice/Frame_48098208_5_mr5qve.png')`,
+          backgroundImage: `url(process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/Frame_48098208_5_mr5qve.png')`,
         }}
       >
         <div className="text-3xl text-[#14476F] text-center italic">{title}</div>

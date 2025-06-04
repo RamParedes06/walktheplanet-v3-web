@@ -6,12 +6,12 @@ export const IgOpportunities = [
       {
         title: 'MEETINGS',
         desc: 'Business Opportunities',
-        image: 'https://res.cloudinary.com/dmxvasob7/image/upload/v1747287372/01_babtdg.png',
+        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/Desktop/Value%20Propositions/Card%201/Cut/01_babtdg.png',
       },
       {
         title: 'CONFERENCES',
         desc: 'Business Opportunities',
-        image: 'https://res.cloudinary.com/dmxvasob7/image/upload/v1747287371/02_m42ode.png',
+        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/Desktop/Value%20Propositions/Card%201/Cut/02_m42ode.png',
       },
     ],
   },
@@ -22,27 +22,27 @@ export const IgOpportunities = [
       {
         title: 'INCENTIVES       ',
         desc: 'Motivation',
-        image: 'https://res.cloudinary.com/dmxvasob7/image/upload/v1747287374/12_vzws3j.png',
+        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/Desktop/Value%20Propositions/Card%202/Cut/12_vzws3j.png',
       },
       {
         title: 'YEAR-END PARTIES',
         desc: 'Motivation',
-        image: 'https://res.cloudinary.com/dmxvasob7/image/upload/v1747287373/14_uhfp42.png',
+        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/Desktop/Value%20Propositions/Card%202/Cut/14_uhfp42.png',
       },
       {
         title: 'ANNIVERSARIES',
         desc: 'Motivation',
-        image: 'https://res.cloudinary.com/dmxvasob7/image/upload/v1747287373/16_g5aahj.png',
+        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/Desktop/Value%20Propositions/Card%202/Cut/16_g5aahj.png',
       },
       {
         title: 'TEAM BUILDING',
         desc: 'Motivation',
-        image: 'https://res.cloudinary.com/dmxvasob7/image/upload/v1747287374/18_bnm8lo.png',
+        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/Desktop/Value%20Propositions/Card%202/Cut/18_bnm8lo.png',
       },
       {
         title: 'COMPANY OUTINGS',
         desc: 'Motivation',
-        image: 'https://res.cloudinary.com/dmxvasob7/image/upload/v1747287374/20_irsrid.png',
+        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/Desktop/Value%20Propositions/Card%202/Cut/20_irsrid.png',
       },
     ],
   },
@@ -53,12 +53,12 @@ export const IgOpportunities = [
       {
         title: 'GOLF TOURNAMENTS ',
         desc: 'Entertainment',
-        image: 'https://res.cloudinary.com/dmxvasob7/image/upload/v1747287374/22_quyhpf.png',
+        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/Desktop/Value%20Propositions/Card%203/Cut/22_quyhpf.png',
       },
       {
         title: 'K-POP EVENTS',
         desc: 'Entertainment',
-        image: 'https://res.cloudinary.com/dmxvasob7/image/upload/v1747287375/24_renvqr.png',
+        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/Desktop/Value%20Propositions/Card%203/Cut/24_renvqr.png',
       },
     ],
   },

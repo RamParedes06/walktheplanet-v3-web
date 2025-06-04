@@ -1,8 +1,9 @@
 "use client";
 import { partners } from '@/app/partners'
 import { HomeOffers } from '@/library/HomePartner'
+import { cloudflareAssets } from '@/library/utils'
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import BeliefsMobile from "./(pages)/_components/BeliefMobile";
 import Beliefs from './(pages)/_components/beliefs'
@@ -13,11 +14,11 @@ import GridMotionMobile from "./(pages)/_components/GridMotionMobile";
 import Hero from './(pages)/_components/HeroInitial'
 import TravelOffersV2 from './(pages)/_components/TravelOffersV2'
 
-const logo = process.env.NEXT_PUBLIC_ASSETS + '/Logo-Only_u5157y.png'
+const logo = cloudflareAssets + '/Logo-Only_u5157y.png'
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-  const footerRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true)
+  const footerRef = useRef(null)
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 2000)

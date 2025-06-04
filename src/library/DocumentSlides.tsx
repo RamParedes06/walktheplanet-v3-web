@@ -1,5 +1,5 @@
 export const DocumentSlides = [
-  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005578/travel2_gtudtn.png',
-  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005581/travel1_ypgers.png',
-  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005574/travel3_bjwevz.png',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/travel2_gtudtn.png',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/travel1_ypgers.png',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/travel3_bjwevz.png',
 ]

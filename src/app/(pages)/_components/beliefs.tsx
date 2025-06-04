@@ -35,7 +35,7 @@ function Beliefs() {
     <div
       className="space-y-10 max-[480px]:hidden pt-30 bg-cover bg-center"
       style={{
-        backgroundImage: `url('${process.env.NEXT_PUBLIC_ASSETS}/homepage/our beliefs/Background_jbvryv.png')`,
+        backgroundImage: `url('${process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS}/homepage/our beliefs/Background_jbvryv.png')`,
       }}
     >
       <ScrollVelocity texts={['OUR BELIEFS']} className="custom-scroll-text" />

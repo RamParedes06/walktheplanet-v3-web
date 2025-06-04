@@ -15,11 +15,11 @@ const Emergency = () => {
   // Memoize the emergency images array to prevent unnecessary re-renders
   const emergencyImages = useMemo(
     () => [
-      'https://wtp-assets.oldhat.xyz/emergency/corporate-business-emergency-responsive.webp',
-      'https://wtp-assets.oldhat.xyz/emergency/car-road.webp',
-      'https://wtp-assets.oldhat.xyz/emergency/beautiful-girl-standing-airport.webp',
-      'https://wtp-assets.oldhat.xyz/emergency/high-angle-view-woman-using-mobile-phone-table.webp',
-      'https://wtp-assets.oldhat.xyz/emergency/portrait-male-security-guard-with-radio-station.webp',
+      process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/emergency/corporate-business-emergency-responsive.webp',
+      process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/emergency/car-road.webp',
+      process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/emergency/beautiful-girl-standing-airport.webp',
+      process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/emergency/high-angle-view-woman-using-mobile-phone-table.webp',
+      process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/emergency/portrait-male-security-guard-with-radio-station.webp',
     ],
     []
   )
@@ -156,7 +156,7 @@ const Emergency = () => {
             backgroundImage: `
               linear-gradient(90deg, #FF7A00 0%, #599D6A 50%, #00A9CE 100%),
               linear-gradient(360deg, rgba(5, 18, 28, 0) 3.33%, rgba(10, 36, 114, 0.498536) 51.52%, #05121C 100%),
-              url('https://wtp-assets.oldhat.xyz/reusable/Noise_jbbzkn.webp')
+              url(process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/reusable/Noise_jbbzkn.webp')
             `,
             backgroundBlendMode: 'overlay',
             backgroundSize: 'cover',
@@ -172,7 +172,7 @@ const Emergency = () => {
           <div
             className="w-full h-full flex justify-center items-center bg-gradient-to-b from-black/60 via-black/20 to-transparent "
             style={{
-              backgroundImage: `url('https://wtp-assets.oldhat.xyz/reusable/Noise_jbbzkn.webp')`,
+              backgroundImage: `url(process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/reusable/Noise_jbbzkn.webp')`,
             }}
           >
             <div className="md:py-8 lg:px-4 px-6 py-16 w-full max-w-2xl">

@@ -1,17 +1,18 @@
 // import eligibility from "@/assets/images/EligibilitySection.png";
+import { cloudflareAssets } from '@/library/utils'
 import Image from 'next/image'
 
 function GridMotionMobile() {
   const images = [
-    process.env.NEXT_PUBLIC_ASSETS + '/homepage/eligibility/Card-2_zs4not.webp',
-    process.env.NEXT_PUBLIC_ASSETS + '/homepage/eligibility/Card-1_twpap0.webp',
-    process.env.NEXT_PUBLIC_ASSETS + '/homepage/eligibility/Card_ffs8g2.webp',
-    process.env.NEXT_PUBLIC_ASSETS + '/homepage/eligibility/Card-1_twpap0.webp',
-    process.env.NEXT_PUBLIC_ASSETS + '/homepage/eligibility/Card_ffs8g2.webp',
-    process.env.NEXT_PUBLIC_ASSETS + '/homepage/eligibility/Card-3_ovtswt.webp',
-    process.env.NEXT_PUBLIC_ASSETS + '/homepage/eligibility/Card_ffs8g2.webp',
-    process.env.NEXT_PUBLIC_ASSETS + '/homepage/eligibility/Card-3_ovtswt.webp',
-    process.env.NEXT_PUBLIC_ASSETS + '/homepage/eligibility/Card_ffs8g2.webp',
+    cloudflareAssets + '/homepage/eligibility/Card-2_zs4not.webp',
+    cloudflareAssets + '/homepage/eligibility/Card-1_twpap0.webp',
+    cloudflareAssets + '/homepage/eligibility/Card_ffs8g2.webp',
+    cloudflareAssets + '/homepage/eligibility/Card-1_twpap0.webp',
+    cloudflareAssets + '/homepage/eligibility/Card_ffs8g2.webp',
+    cloudflareAssets + '/homepage/eligibility/Card-3_ovtswt.webp',
+    cloudflareAssets + '/homepage/eligibility/Card_ffs8g2.webp',
+    cloudflareAssets + '/homepage/eligibility/Card-3_ovtswt.webp',
+    cloudflareAssets + '/homepage/eligibility/Card_ffs8g2.webp',
   ]
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-black min-[770px]:hidden overflow-hidden">

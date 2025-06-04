@@ -10,7 +10,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import Modal from './Modal'
 
-const mobileBG = 'https://wtp-assets.oldhat.xyz/contact/Frame_48098208_2_u6hdi6.png'
+const mobileBG = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/contact/Frame_48098208_2_u6hdi6.png'
 
 type LeisureFormData = z.infer<typeof schemaLeisure>
 type BusinessFormData = z.infer<typeof schemaBusiness>

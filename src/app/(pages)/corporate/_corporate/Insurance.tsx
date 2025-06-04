@@ -4,16 +4,16 @@ import Carousel from '@/app/(pages)/_components/Carousel'
 import TextReveal from '@/app/(pages)/_components/TextReveal'
 
 const images = [
-  'https://wtp-assets.oldhat.xyz/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%201.webp',
-  'https://wtp-assets.oldhat.xyz/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%202.webp',
-  'https://wtp-assets.oldhat.xyz/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%203.webp',
-  'https://wtp-assets.oldhat.xyz/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%204.webp',
-  'https://wtp-assets.oldhat.xyz/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%205.webp',
-  'https://wtp-assets.oldhat.xyz/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%206.webp',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%201.webp',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%202.webp',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%203.webp',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%204.webp',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%205.webp',
+  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%206.webp',
 ]
 
-const bgDesktop = 'https://wtp-assets.oldhat.xyz/corporate/Frame_48098208_6_ezu6mk.png'
-const bgMobile = 'https://wtp-assets.oldhat.xyz/corporate/Frame_48098208_1_z9ukxu.svg'
+const bgDesktop = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/Frame_48098208_6_ezu6mk.png'
+const bgMobile = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/Frame_48098208_1_z9ukxu.svg'
 
 function Insurance() {
   return (

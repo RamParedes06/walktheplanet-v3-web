@@ -1,6 +1,6 @@
 import TextReveal from '@/app/(pages)/_components/TextReveal'
 
-const bg = 'https://wtp-assets.oldhat.xyz/products/Cruise.webp'
+const bg = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/products/Cruise.webp'
 
 function Cruise() {
   return (

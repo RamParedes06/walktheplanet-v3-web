@@ -19,8 +19,8 @@ const Testimonials = () => {
       title: 'TESTIMONIALS',
       message: 'Thank you again for all your hard work, patience, and courage in delivering a memorable activities week trip',
       user: '- International School’s Review',
-      image: 'https://wtp-assets.oldhat.xyz/travel-stories/testimonials/Desktop/testimonials1_mzspfo.webp',
-      imageMobile: 'https://wtp-assets.oldhat.xyz/travel-stories/testimonials/Mobile/Testimony_01_b9n02y.png',
+      image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/travel-stories/testimonials/Desktop/testimonials1_mzspfo.webp',
+      imageMobile: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/travel-stories/testimonials/Mobile/Testimony_01_b9n02y.png',
     },
     {
       id: 2,
@@ -28,8 +28,8 @@ const Testimonials = () => {
       message:
         'Overall, the transaction was smooth, from flights and hotel transfers to van rentals for tours and other arrangements. I also appreciate that my request to extend my stay from 3 to 4 days was accommodated. Thank you!',
       user: '- Claudio Rugay (Client for Coron Package)',
-      image: 'https://wtp-assets.oldhat.xyz/travel-stories/testimonials/Desktop/testimonials2_wkzfcp.webp',
-      imageMobile: 'https://wtp-assets.oldhat.xyz/travel-stories/testimonials/Mobile/Testimony_02_kxrcmk.png',
+      image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/travel-stories/testimonials/Desktop/testimonials2_wkzfcp.webp',
+      imageMobile: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/travel-stories/testimonials/Mobile/Testimony_02_kxrcmk.png',
     },
     {
       id: 3,
@@ -37,8 +37,8 @@ const Testimonials = () => {
       message:
         'Very smooth! Magmula sa booking process hanggang sa makauwi kami, very accommodating kayong lahat, pati ang staff ninyo sa Hong Kong, kaya masayang-masaya ang senior citizen. Kung puwede lang mag-book every month! Isa pa sa nagustuhan ko, kahit medyo rush, naitawid nang maayos ang travel. Good job, guys! Until our next travel. Discount po ha',
       user: '- Joven Caluag (Client for 4D3N Hong Kong Land Arrangement po with Disneyland)',
-      image: 'https://wtp-assets.oldhat.xyz/travel-stories/testimonials/Desktop/testimonials3_zzxcmp.webp',
-      imageMobile: 'https://wtp-assets.oldhat.xyz/travel-stories/testimonials/Mobile/Testimony_03_e79o1u.png',
+      image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/travel-stories/testimonials/Desktop/testimonials3_zzxcmp.webp',
+      imageMobile: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/travel-stories/testimonials/Mobile/Testimony_03_e79o1u.png',
     },
   ]
 

@@ -8,7 +8,7 @@ import LocationSection from './components/LocationSection'
 import TravelGallery from './components/TravelGallery'
 import TravelQuotation from './components/TravelQoutation'
 
-const bg = process.env.NEXT_PUBLIC_ASSETS + '/contact/heroBanner_rx9i7u.webp'
+const bg = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/contact/heroBanner_rx9i7u.webp'
 
 const ContactPage = () => {
   return (

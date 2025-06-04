@@ -202,7 +202,7 @@ const AccordionWithImageSlider: React.FC<AccordionWithImageSliderProps> = ({
         <div
           className="absolute inset-0 "
           style={{
-            backgroundImage: `url('https://wtp-assets.oldhat.xyz/reusable/Noise_jbbzkn.webp')`,
+            backgroundImage: `url(process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/reusable/Noise_jbbzkn.webp')`,
           }}
         ></div>
 

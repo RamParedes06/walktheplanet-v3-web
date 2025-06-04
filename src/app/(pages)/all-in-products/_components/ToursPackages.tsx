@@ -2,8 +2,8 @@
 import useIsMobile from "@/hooks/useIsMobile";
 import { useState } from 'react'
 
-const bgDomestic = 'https://wtp-assets.oldhat.xyz/products/Domestic_Packages_xp40mq.png'
-const bgInternational = 'https://wtp-assets.oldhat.xyz/products/International_Packages_zeymgl.png'
+const bgDomestic = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/products/Domestic_Packages_xp40mq.png'
+const bgInternational = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/products/International_Packages_zeymgl.png'
 
 function ToursPackages() {
   const [isDomestic, setIsDomestic] = useState(true);
