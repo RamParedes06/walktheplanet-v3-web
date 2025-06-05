@@ -60,6 +60,9 @@ build-prod:
   before_script:
     - rm -f -- .env
     - cp .env.prod .env
+    - npm clean-install
+    - npm run build
+    - rm -rf .next/cache
   script:
     - docker compose -f docker-compose.yml build --no-cache app-prod-service
     - docker compose -f docker-compose.yml up -d app-prod-service
