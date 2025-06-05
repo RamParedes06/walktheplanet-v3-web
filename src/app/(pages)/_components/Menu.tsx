@@ -8,6 +8,7 @@ import LinkedInSvg from '@/assets/svg/linked-in.svg'
 import LinkedInColorSvg from '@/assets/svg/linkedin-color-btn.svg'
 import TiktokSvg from '@/assets/svg/tiktok-btn.svg'
 import TiktokColorSvg from '@/assets/svg/tiktok-color-btn.svg'
+import { CloudflareR2Storage } from '@/library/utils'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -81,9 +82,9 @@ function ContactTemplate({ forLabel, email }: { forLabel: string; email: string 
 }
 const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
   const pathname = usePathname()
-  const homeImage = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/menu/menu-home.webp'
-  const productsImage = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/menu/menu-products.webp'
-  const contactImage = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/menu/menu-contact.webp'
+  const homeImage = CloudflareR2Storage + '/menu/menu-home.webp'
+  const productsImage = CloudflareR2Storage + '/menu/menu-products.webp'
+  const contactImage = CloudflareR2Storage + '/menu/menu-contact.webp'
 
   const [isFacebookHovered, setIsFacebookHovered] = useState(false)
   const [isInstagramHovered, setIsInstagramHovered] = useState(false)
@@ -144,25 +145,25 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
         title: 'EDUTOURISM',
         href: '/edutourism',
         highlighted: true,
-        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/menu/menu-edutourism.webp',
+        image: CloudflareR2Storage + '/menu/menu-edutourism.webp',
       },
       {
         title: 'M.I.C.E',
         href: '/mice',
         highlighted: true,
-        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/menu/menu-mice.webp',
+        image: CloudflareR2Storage + '/menu/menu-mice.webp',
       },
       {
         title: 'CORPORATE AND BUSINESS',
         href: '/corporate',
         highlighted: true,
-        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/menu/menu-corp.webp',
+        image: CloudflareR2Storage + '/menu/menu-corp.webp',
       },
       {
         title: 'TRAVEL STORIES',
         href: '/travel-stories',
         highlighted: true,
-        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/menu/menu-success.webp',
+        image: CloudflareR2Storage + '/menu/menu-success.webp',
       },
       {
         title: 'ALL-IN PRODUCTS',
@@ -174,7 +175,7 @@ const ExpandableMenu = ({ toggleMenu, headerRect }: ExpandableMenuProps) => {
         title: 'ABOUT US',
         href: '/about-us',
         highlighted: true,
-        image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/about-us/hero/about1_ircbzf.webp',
+        image: CloudflareR2Storage + '/about-us/hero/about1_ircbzf.webp',
       },
     ],
   }

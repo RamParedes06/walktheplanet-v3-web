@@ -1,1 +1,3 @@
-export const DocumentSlides = [process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + "/travel2_gtudtn.png", process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + "/travel1_ypgers.png", process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + "/travel3_bjwevz.png"];
+import { CloudflareR2Storage } from './utils'
+
+export const DocumentSlides = [CloudflareR2Storage + '/travel2_gtudtn.png', CloudflareR2Storage + '/travel1_ypgers.png', CloudflareR2Storage + '/travel3_bjwevz.png']

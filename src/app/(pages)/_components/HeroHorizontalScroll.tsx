@@ -20,6 +20,7 @@ import { TbMessage2Heart } from 'react-icons/tb'
 //! Slides
 
 import { partners } from '@/app/partners'
+import { CloudflareR2Storage } from '@/library/utils'
 import { IconType } from 'react-icons'
 import BeliefsMobile from './BeliefMobile'
 import Beliefs from './beliefs'
@@ -46,7 +47,7 @@ const tabs: Tab[] = [
   {
     id: 'edutourism',
     title: 'EDUTOURISM',
-    image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/homepage/hero/Hero1Figma_xcgzrt.png',
+    image: CloudflareR2Storage + '/homepage/hero/Hero1Figma_xcgzrt.png',
     description: 'Immersive tours for all levels of education to enrich your students’ knowledge.',
     svg: LuGraduationCap,
     buttonText1: 'See where learning takes you',
@@ -56,7 +57,7 @@ const tabs: Tab[] = [
   {
     id: 'corporate',
     title: 'CORPORATE & BUSINESS',
-    image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/homepage/hero/Corporate_Business_1_4_dab6y2.png',
+    image: CloudflareR2Storage + '/homepage/hero/Corporate_Business_1_4_dab6y2.png',
     description: 'Personalized services suited for all corporate and business travel needs.',
     svg: PiBriefcaseMetal,
     buttonText1: 'See how we elevate your business',
@@ -66,7 +67,7 @@ const tabs: Tab[] = [
   {
     id: 'mice',
     title: 'M.I.C.E',
-    image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/homepage/hero/MICE_1_2_c65uoh.png',
+    image: CloudflareR2Storage + '/homepage/hero/MICE_1_2_c65uoh.png',
     description: 'Meticulously planned events designed for your organization’s success.',
     svg: HiOutlinePresentationChartLine,
     buttonText1: 'Explore Solutions',
@@ -76,7 +77,7 @@ const tabs: Tab[] = [
   {
     id: 'travelpackage',
     title: 'TRAVEL PACKAGE ESSENTIALS',
-    image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/homepage/hero/Travel_Essentials_Global_Data_Sim_1_1_ieqaf6.png',
+    image: CloudflareR2Storage + '/homepage/hero/Travel_Essentials_Global_Data_Sim_1_1_ieqaf6.png',
     description: 'One SIM, 190+ destinations connecting you anywhere in the world.',
     svg: FaBusAlt,
     buttonText1: 'Find out what to pack',
@@ -86,7 +87,7 @@ const tabs: Tab[] = [
   {
     id: 'liveselling',
     title: 'LIVE SELLING',
-    image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/homepage/hero/Live_Selling_Tiktok_zjfzai.png',
+    image: CloudflareR2Storage + '/homepage/hero/Live_Selling_Tiktok_zjfzai.png',
     description: 'Exclusive rates and awesome discounts right at your fingertips! Book now on our TikTok live selling hours.',
     svg: TbMessage2Heart,
     buttonText1: 'Capture discounts and live updates',
@@ -96,7 +97,7 @@ const tabs: Tab[] = [
   {
     id: 'onlinestore',
     title: 'ONLINE STORE',
-    image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/homepage/hero/Online_Store_t1xmy8.png',
+    image: CloudflareR2Storage + '/homepage/hero/Online_Store_t1xmy8.png',
     description: 'One-stop shop packed with an array of options for all travelers. Explore our selections at tours.walktheplanet.com',
     svg: RiShoppingCart2Line,
     buttonText1: "See what's new in store",
@@ -106,7 +107,7 @@ const tabs: Tab[] = [
   {
     id: 'aboutus',
     title: 'ABOUT US',
-    image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/homepage/hero/hero-aboutus_rjysnm.png',
+    image: CloudflareR2Storage + '/homepage/hero/hero-aboutus_rjysnm.png',
     description: 'Exclusive Travel, Unique Experiences. Get to know who we are and where we play.',
     svg: AiOutlineHeart,
     buttonText1: 'Find out what drives us',

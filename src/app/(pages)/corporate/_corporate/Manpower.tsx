@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import TextReveal from '@/app/(pages)/_components/TextReveal'
 import background from "@/assets/svg/BGIllustrationManpower.svg";
+import { CloudflareR2Storage } from '@/library/utils'
 import Image from 'next/image'
 
 const Manpower = () => {
@@ -10,10 +11,10 @@ const Manpower = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const images = [
-    process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/manpower/cabin-crew-air-hostess-working-airplane-airline-transportation-tourism-concept.webp',
-    process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/manpower/confident-asian-male-security-guard-safeguarding-careers-ensuring-outdoor-protection-urb.webp',
-    process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/manpower/Corporate%20%26%20Business%20Manpower%20Agencies%20and%20OFW%20Deployment%204.webp',
-    process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/manpower/nurse-portrait-hospital.webp',
+    CloudflareR2Storage + '/corporate/manpower/cabin-crew-air-hostess-working-airplane-airline-transportation-tourism-concept.webp',
+    CloudflareR2Storage + '/corporate/manpower/confident-asian-male-security-guard-safeguarding-careers-ensuring-outdoor-protection-urb.webp',
+    CloudflareR2Storage + '/corporate/manpower/Corporate%20%26%20Business%20Manpower%20Agencies%20and%20OFW%20Deployment%204.webp',
+    CloudflareR2Storage + '/corporate/manpower/nurse-portrait-hospital.webp',
   ]
 
   useEffect(() => {

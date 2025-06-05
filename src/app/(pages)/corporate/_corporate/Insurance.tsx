@@ -3,14 +3,15 @@ import Image from 'next/image'
 import Carousel from '@/app/(pages)/_components/Carousel'
 import TextReveal from '@/app/(pages)/_components/TextReveal'
 import illustration from '@/assets/svg/BGIllustration.svg'
+import { CloudflareR2Storage } from '@/library/utils'
 
 const images = [
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%201.webp',
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%202.webp',
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%203.webp',
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%204.webp',
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%205.webp',
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%206.webp',
+  CloudflareR2Storage + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%201.webp',
+  CloudflareR2Storage + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%202.webp',
+  CloudflareR2Storage + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%203.webp',
+  CloudflareR2Storage + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%204.webp',
+  CloudflareR2Storage + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%205.webp',
+  CloudflareR2Storage + '/corporate/corporate-insurance/Corporate%20%26%20Business%20Insurance%206.webp',
 ]
 
 function Insurance() {

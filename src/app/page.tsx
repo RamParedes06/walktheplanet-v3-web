@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 // import HomePage from "./(pages)/Homepage/page";
 import { partners } from "@/app/partners";
 import { HomeOffers } from "@/library/HomePartner";
+import { CloudflareR2Storage } from '@/library/utils'
 import BeliefsMobile from "./(pages)/_components/BeliefMobile";
 import Beliefs from "./(pages)/_components/beliefs";
 import InfiniteMenu from "./(pages)/_components/discVertShaderSource";
@@ -14,7 +15,7 @@ import GridMotionMobile from "./(pages)/_components/GridMotionMobile";
 import Hero from "./(pages)/_components/HeroInitial";
 import TravelOffersV2 from "./(pages)/_components/TravelOffersV2";
 
-const logo = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/Logo-Only_u5157y.png'
+const logo = CloudflareR2Storage + '/Logo-Only_u5157y.png'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);

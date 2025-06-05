@@ -1,5 +1,3 @@
-export const LocalSlides = [
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/local-destination3_vsjid0.png',
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/local-destination1_ovi7di.png',
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/local-destination2_mltza7.png',
-]
+import { CloudflareR2Storage } from './utils'
+
+export const LocalSlides = [CloudflareR2Storage + '/local-destination3_vsjid0.png', CloudflareR2Storage + '/local-destination1_ovi7di.png', CloudflareR2Storage + '/local-destination2_mltza7.png']

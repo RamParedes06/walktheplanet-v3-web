@@ -1,14 +1,14 @@
 "use client";
+import Logo from '@/assets/images/Logo.png'
 import MenuSvg from "@/assets/svg/MenuSvg";
-import Image from "next/image";
-import React, { JSX, useCallback, useEffect, useRef, useState } from "react";
-import Logo from "@/assets/images/Logo.png";
+import '@/styles/hero-horizontal-scroll.scss'
 import { AnimatePresence } from "framer-motion";
-import "@/styles/hero-horizontal-scroll.scss";
+import Image from 'next/image'
+import { JSX, useCallback, useEffect, useRef, useState } from 'react'
 
 import Menu from "@/app/(pages)/_components/Menu";
-import TextReveal from "../(pages)/_components/TextReveal";
-import Marquee from "../(pages)/_components/Marquee";
+import Marquee from '../(pages)/_components/Marquee'
+import TextReveal from '../(pages)/_components/TextReveal'
 
 interface HeroProps {
   images: string[];
@@ -142,43 +142,22 @@ const Hero = ({
     <>
       <div className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block">
         {/* Header - only visible when menu is closed */}
-        <div
-          ref={headerRef}
-          className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl  rounded-full w-[300px] lg:w-[436px]  ${
-            isOpenDesktop ? "invisible" : "visible"
-          }`}
-        >
-          <Image
-            src={Logo}
-            onClick={() => window.location.replace("/")}
-            className="cursor-pointer"
-            alt="logo"
-            width={70}
-            height={50}
-          />
+        <div ref={headerRef} className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl  rounded-full w-[300px] lg:w-[436px]  ${isOpenDesktop ? 'invisible' : 'visible'}`}>
+          <Image src={Logo} onClick={() => window.location.replace('/')} className="cursor-pointer" alt="logo" width={70} height={50} />
           <div onClick={toggleMenu} className="cursor-pointer">
             <MenuSvg />
           </div>
         </div>
       </div>
 
-      <AnimatePresence>
-        {isOpenDesktop && (
-          <Menu toggleMenu={toggleMenu} headerRect={headerRect} />
-        )}
-      </AnimatePresence>
+      <AnimatePresence>{isOpenDesktop && <Menu toggleMenu={toggleMenu} headerRect={headerRect} />}</AnimatePresence>
 
       <div className="relative w-screen h-[90vh] md:h-screen">
-        <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${corpImages})` }}
-        >
+        <div className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${corpImages[0]})` }}>
           {corpImages.map((image, index) => (
             <div
               key={index}
-              className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-500 ${getImageClasses(
-                index
-              )}`}
+              className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-500 ${getImageClasses(index)}`}
               style={{ backgroundImage: `url(${image})` }}
             ></div>
           ))}
@@ -192,12 +171,8 @@ const Hero = ({
 
           <div className="max-w-[600px] absolute bottom-[15%] left-[5%]">
             <TextReveal>
-              <h1 className="font-satoshi lg:text-[64px] text-[40px] font-semibold">
-                {title}
-              </h1>
-              <div className="lg:text-2xl text-base font-generalSans">
-                {description}
-              </div>
+              <h1 className="font-satoshi lg:text-[64px] text-[40px] font-semibold">{title}</h1>
+              <div className="lg:text-2xl text-base font-generalSans">{description}</div>
             </TextReveal>
           </div>
 
@@ -213,12 +188,7 @@ const Hero = ({
             {/* Header - only visible when not animating */}
             <div className="fixed z-99 top-[70px]  w-full flex items-center justify-center ">
               {/* Header - only visible when menu is closed */}
-              <div
-                ref={headerRefMobile}
-                className={`flex items-center justify-between px-4  py-3 rounded-full w-[300px] lg:w-[436px] bg-white ${
-                  isOpenMobile ? "invisible" : "visible"
-                }`}
-              >
+              <div ref={headerRefMobile} className={`flex items-center justify-between px-4  py-3 rounded-full w-[300px] lg:w-[436px] bg-white ${isOpenMobile ? 'invisible' : 'visible'}`}>
                 <Image src={Logo} alt="logo" width={70} height={50} />
                 <div onClick={toggleMenuMobile} className="cursor-pointer">
                   <MenuSvg />
@@ -227,19 +197,12 @@ const Hero = ({
               </div>
             </div>
             {/* Menu Mobile View*/}
-            <AnimatePresence>
-              {isOpenMobile && (
-                <Menu
-                  toggleMenu={toggleMenuMobile}
-                  headerRect={headerRectMobile}
-                />
-              )}
-            </AnimatePresence>
+            <AnimatePresence>{isOpenMobile && <Menu toggleMenu={toggleMenuMobile} headerRect={headerRectMobile} />}</AnimatePresence>
           </div>
         </div>
       </div>
     </>
-  );
+  )
 };
 
 export default Hero;

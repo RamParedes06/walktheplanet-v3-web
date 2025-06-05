@@ -1,21 +1,22 @@
-"use client";
+'use client'
+import { CloudflareR2Storage } from '@/library/utils'
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 
 interface AccordionItemData {
-  id: number;
-  number: string;
-  title: string;
-  content: string;
+  id: number
+  number: string
+  title: string
+  content: string
 }
 
 // Props for the Accordion component
 interface AccordionProps {
-  number: string;
-  title: string;
-  content: string;
-  isOpen: boolean;
-  toggleAccordion: () => void;
+  number: string
+  title: string
+  content: string
+  isOpen: boolean
+  toggleAccordion: () => void
 }
 
 // The Accordion component with updated styling
@@ -168,7 +169,7 @@ const AccordionWithImageSlider: React.FC<AccordionWithImageSliderProps> = ({
         <div
           className="absolute inset-0 "
           style={{
-            backgroundImage: `url('${process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS}/reusable/Noise_jbbzkn.webp')`,
+            backgroundImage: `url('${CloudflareR2Storage}/reusable/Noise_jbbzkn.webp')`,
           }}
         ></div>
 
@@ -187,4 +188,4 @@ const AccordionWithImageSlider: React.FC<AccordionWithImageSliderProps> = ({
   )
 }
 
-export default AccordionWithImageSlider;
+export default AccordionWithImageSlider

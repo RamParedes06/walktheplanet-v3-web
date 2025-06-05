@@ -1,10 +1,11 @@
 "use client";
 import { IgOpportunities } from "@/library/IgOpportunities";
+import { CloudflareR2Storage } from '@/library/utils'
 import { useEffect, useState } from "react";
 import CarouselItem from "./CarouselItem";
 
-const bg = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/Desktop/Value%20Propositions/Background_ab0byk.png'
-const overlay = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/mice/Desktop/Value%20Propositions/Letter_Background_sot3ir.png'
+const bg = CloudflareR2Storage + '/mice/Desktop/Value%20Propositions/Background_ab0byk.png'
+const overlay = CloudflareR2Storage + '/mice/Desktop/Value%20Propositions/Letter_Background_sot3ir.png'
 
 function InstagramCards() {
   // Desktop State

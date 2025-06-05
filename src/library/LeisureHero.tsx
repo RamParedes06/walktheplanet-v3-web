@@ -1,7 +1,9 @@
+import { CloudflareR2Storage } from './utils'
+
 export const LeisureImages = [
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/leisure/hero/leisure-hero1_vapm8v.webp',
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/leisure/hero/leisure-hero2_k5kjsf.webp',
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/leisure/hero/leisure-hero3_eixyeq.webp',
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/leisure/hero/leisure-hero4_ozjns9.webp',
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/leisure/hero/leisure-hero5_x9vhga.webp',
+  CloudflareR2Storage + '/leisure/hero/leisure-hero1_vapm8v.webp',
+  CloudflareR2Storage + '/leisure/hero/leisure-hero2_k5kjsf.webp',
+  CloudflareR2Storage + '/leisure/hero/leisure-hero3_eixyeq.webp',
+  CloudflareR2Storage + '/leisure/hero/leisure-hero4_ozjns9.webp',
+  CloudflareR2Storage + '/leisure/hero/leisure-hero5_x9vhga.webp',
 ]

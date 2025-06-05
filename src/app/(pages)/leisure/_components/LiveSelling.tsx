@@ -1,8 +1,9 @@
 'use client'
+import { CloudflareR2Storage } from '@/library/utils'
 import TextReveal from '../../_components/TextReveal'
 
 const LiveSelling = () => {
-  const image = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/leisure/live-selling/LiveSellingTiktok_tzywel.webp'
+  const image = CloudflareR2Storage + '/leisure/live-selling/LiveSellingTiktok_tzywel.webp'
   return (
     <div
       className="w-screen h-screen"
