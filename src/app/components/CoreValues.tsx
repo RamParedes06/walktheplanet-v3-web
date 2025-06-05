@@ -3,6 +3,7 @@
 import bgMobile from '@/assets/images/about/bgMobile.svg'
 import verctor from '@/assets/images/about/Vector 76.svg'
 import background from '@/assets/svg/about/Background.svg'
+import { CloudflareR2Storage } from '@/library/utils'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
@@ -51,12 +52,7 @@ export default function CoreValues() {
       <div className="grid grid-cols-1 md:grid-cols-4 relative">
         {/* S Image */}
         <div className="relative h-[300px] md:h-[600px] overflow-hidden">
-          <Image
-            src={`${process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS}/about-us/core-values/core1_mzfk00.webp`}
-            alt="Person with raised arm celebrating"
-            fill
-            className="object-cover object-center md:object-left"
-          />
+          <Image src={`${CloudflareR2Storage}/about-us/core-values/core1_mzfk00.webp`} alt="Person with raised arm celebrating" fill className="object-cover object-center md:object-left" />
           <div className="absolute inset-0">
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] md:translate-y-[190px] text-white text-[200px] md:text-[400px] font-semibold opacity-70">S</span>
           </div>
@@ -64,7 +60,7 @@ export default function CoreValues() {
 
         {/* I Image */}
         <div className="relative h-[300px] md:h-[600px] overflow-hidden">
-          <Image src={`${process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS}/about-us/core-values/core2_sxcxhg.webp`} alt="Person reading" fill className="object-cover object-center md:object-[33%_center]" />
+          <Image src={`${CloudflareR2Storage}/about-us/core-values/core2_sxcxhg.webp`} alt="Person reading" fill className="object-cover object-center md:object-[33%_center]" />
           <div className="absolute inset-0">
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] md:translate-y-[190px] text-white text-[200px] md:text-[400px] font-semibold opacity-70">I</span>
           </div>
@@ -72,12 +68,7 @@ export default function CoreValues() {
 
         {/* P Image */}
         <div className="relative h-[300px] md:h-[600px] overflow-hidden">
-          <Image
-            src={`${process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS}/about-us/core-values/core3_fbq1ma.webp`}
-            alt="Person with luggage"
-            fill
-            className="object-cover object-center md:object-[66%_center]"
-          />
+          <Image src={`${CloudflareR2Storage}/about-us/core-values/core3_fbq1ma.webp`} alt="Person with luggage" fill className="object-cover object-center md:object-[66%_center]" />
           <div className="absolute inset-0">
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] md:translate-y-[190px] text-white text-[200px] md:text-[400px] font-semibold opacity-70">P</span>
           </div>
@@ -85,7 +76,7 @@ export default function CoreValues() {
 
         {/* A Image */}
         <div className="relative h-[300px] md:h-[600px] overflow-hidden">
-          <Image src={`${process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS}/about-us/core-values/core4_marhsx.webp`} alt="Person smiling" fill className="object-cover object-center md:object-right" />
+          <Image src={`${CloudflareR2Storage}/about-us/core-values/core4_marhsx.webp`} alt="Person smiling" fill className="object-cover object-center md:object-right" />
           <div className="absolute inset-0">
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[30%] md:translate-y-[190px] text-white text-[200px] md:text-[400px] font-semibold opacity-70">A</span>
           </div>

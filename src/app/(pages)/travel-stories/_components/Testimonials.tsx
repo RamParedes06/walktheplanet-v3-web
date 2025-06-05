@@ -1,4 +1,5 @@
 "use client";
+import { CloudflareR2Storage } from '@/library/utils'
 import { useState } from 'react'
 import TextReveal from "../../_components/TextReveal";
 import NavigationButton from "./NavigationButton";
@@ -18,7 +19,7 @@ const Testimonials = () => {
       title: 'TESTIMONIALS',
       message: 'Thank you again for all your hard work, patience, and courage in delivering a memorable activities week trip',
       user: '- International School’s Review',
-      image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/travel-stories/testimonials/Desktop/testimonials1_mzspfo.webp',
+      image: CloudflareR2Storage + '/travel-stories/testimonials/Desktop/testimonials1_mzspfo.webp',
     },
     {
       id: 2,
@@ -34,7 +35,7 @@ const Testimonials = () => {
       message:
         'Very smooth! Magmula sa booking process hanggang sa makauwi kami, very accommodating kayong lahat, pati ang staff ninyo sa Hong Kong, kaya masayang-masaya ang senior citizen. Kung puwede lang mag-book every month! Isa pa sa nagustuhan ko, kahit medyo rush, naitawid nang maayos ang travel. Good job, guys! Until our next travel. Discount po ha',
       user: '- Joven Caluag (Client for 4D3N Hong Kong Land Arrangement po with Disneyland)',
-      image: process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/travel-stories/testimonials/Desktop/testimonials3_zzxcmp.webp',
+      image: CloudflareR2Storage + '/travel-stories/testimonials/Desktop/testimonials3_zzxcmp.webp',
     },
   ]
 

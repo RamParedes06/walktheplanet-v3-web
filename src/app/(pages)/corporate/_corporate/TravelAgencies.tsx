@@ -3,13 +3,14 @@ import Image from 'next/image'
 import Carousel from '@/app/(pages)/_components/Carousel'
 import TextReveal from '@/app/(pages)/_components/TextReveal'
 import illustration from '@/assets/svg/BGIllustration.svg'
+import { CloudflareR2Storage } from '@/library/utils'
 
 const images = [
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/travel-agencies/CBT1_ekkf7e.webp',
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/travel-agencies/CBT2_epa8vy.webp',
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/travel-agencies/CBT3_rnpic3.webp',
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/travel-agencies/CBT4_erjkln.webp',
-  process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/corporate/travel-agencies/CBT5_eamboo.webp',
+  CloudflareR2Storage + '/corporate/travel-agencies/CBT1_ekkf7e.webp',
+  CloudflareR2Storage + '/corporate/travel-agencies/CBT2_epa8vy.webp',
+  CloudflareR2Storage + '/corporate/travel-agencies/CBT3_rnpic3.webp',
+  CloudflareR2Storage + '/corporate/travel-agencies/CBT4_erjkln.webp',
+  CloudflareR2Storage + '/corporate/travel-agencies/CBT5_eamboo.webp',
 ]
 
 function TravelAgencies() {

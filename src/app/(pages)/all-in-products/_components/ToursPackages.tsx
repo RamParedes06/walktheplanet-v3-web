@@ -1,9 +1,10 @@
 "use client";
 import useIsMobile from "@/hooks/useIsMobile";
+import { CloudflareR2Storage } from '@/library/utils'
 import { useState } from "react";
 
-const bgDomestic = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/products/Domestic_Packages_xp40mq.png'
-const bgInternational = process.env.NEXT_PUBLIC_CLOUDFLARE_ASSETS + '/products/International_Packages_zeymgl.png'
+const bgDomestic = CloudflareR2Storage + '/products/Domestic_Packages_xp40mq.png'
+const bgInternational = CloudflareR2Storage + '/products/International_Packages_zeymgl.png'
 
 
 function ToursPackages() {
