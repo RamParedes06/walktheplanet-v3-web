@@ -53,18 +53,18 @@ build-uat:
   after_script:
     - tail -2 .env
 
-# build-prod:
-#   stage: build-prod
-#   only:
-#     - main
-#   before_script:
-#     - rm -f -- .env
-#     - cp .env.prod .env
-#   script:
-#     - docker compose -f docker-compose.yml build --no-cache app-prod-service
-#     - docker compose -f docker-compose.yml up -d app-prod-service
-#   after_script:
-#     - tail -2 .env
+build-prod:
+  stage: build-prod
+  only:
+    - main
+  before_script:
+    - rm -f -- .env
+    - cp .env.prod .env
+  script:
+    - docker compose -f docker-compose.yml build --no-cache app-prod-service
+    - docker compose -f docker-compose.yml up -d app-prod-service
+  after_script:
+    - tail -2 .env
 
 clean:
   stage: clean
