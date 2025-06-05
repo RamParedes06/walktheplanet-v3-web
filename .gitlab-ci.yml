@@ -2,7 +2,7 @@ stages:
   - build-dev
   - build-test
   - build-uat
-  # - build-prod
+  - build-prod
   - clean
 
 build-dev:
