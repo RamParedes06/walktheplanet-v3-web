@@ -1,13 +1,15 @@
-export const LeisureToursImages = [
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1744781892/tours1_v1pvlg.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1744781892/tours2_bpafar.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1744781892/tours3_gp09ek.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1744781937/tours4_llgwir.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1744781939/tours5_ngnxre.webp",
+import { CloudflareR2Storage } from './utils'
 
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1744781892/tours1_v1pvlg.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1744781892/tours2_bpafar.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1744781892/tours3_gp09ek.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1744781937/tours4_llgwir.webp",
-    "https://res.cloudinary.com/dmxvasob7/image/upload/v1744781939/tours5_ngnxre.webp"
+export const LeisureToursImages = [
+  CloudflareR2Storage + '/leisure/tours/tours1_v1pvlg.webp',
+  CloudflareR2Storage + '/leisure/tours/tours2_bpafar.webp',
+  CloudflareR2Storage + '/leisure/tours/tours3_gp09ek.webp',
+  CloudflareR2Storage + '/leisure/tours/tours4_llgwir.webp',
+  CloudflareR2Storage + '/leisure/tours/tours5_ngnxre.webp',
+
+  CloudflareR2Storage + '/leisure/tours/tours1_v1pvlg.webp',
+  CloudflareR2Storage + '/leisure/tours/tours2_bpafar.webp',
+  CloudflareR2Storage + '/leisure/tours/tours3_gp09ek.webp',
+  CloudflareR2Storage + '/leisure/tours/tours4_llgwir.webp',
+  CloudflareR2Storage + '/leisure/tours/tours5_ngnxre.webp',
 ]

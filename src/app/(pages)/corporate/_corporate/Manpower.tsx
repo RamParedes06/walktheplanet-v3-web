@@ -2,6 +2,8 @@
 import { useEffect, useRef, useState } from 'react'
 
 import TextReveal from '@/app/(pages)/_components/TextReveal'
+import background from '@/assets/svg/BGIllustrationManpower.svg'
+import { CloudflareR2Storage } from '@/library/utils'
 import Image from 'next/image'
 
 const Manpower = () => {
@@ -9,13 +11,11 @@ const Manpower = () => {
   const carouselRef = useRef<HTMLDivElement>(null)
 
   const images = [
-    'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fmanpower-original%2Fcabin-crew-air-hostess-working-airplane-airline-transportation-tourism-concept.webp&version_id=null',
-    'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fmanpower-original%2Fconfident-asian-male-security-guard-safeguarding-careers-ensuring-outdoor-protection-urb.webp&version_id=null',
-    'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fmanpower-original%2FCorporate%20%26%20Business%20Manpower%20Agencies%20and%20OFW%20Deployment%204.webp&version_id=null',
-    'http://47.245.126.170:30085/api/v1/buckets/walktheplanet-assets/objects/download?preview=true&prefix=wtp-landing-page%2Fcorporate%2Fmanpower-original%2Fnurse-portrait-hospital.webp&version_id=null',
+    CloudflareR2Storage + '/corporate/manpower/cabin-crew-air-hostess-working-airplane-airline-transportation-tourism-concept.webp',
+    CloudflareR2Storage + '/corporate/manpower/confident-asian-male-security-guard-safeguarding-careers-ensuring-outdoor-protection-urb.webp',
+    CloudflareR2Storage + '/corporate/manpower/Corporate%20%26%20Business%20Manpower%20Agencies%20and%20OFW%20Deployment%204.webp',
+    CloudflareR2Storage + '/corporate/manpower/nurse-portrait-hospital.webp',
   ]
-
-  const bgDesktop = 'https://res.cloudinary.com/dmxvasob7/image/upload/v1747365762/Frame_48098208_7_objf30.png'
 
   useEffect(() => {
     if (!carouselRef.current) return
@@ -60,7 +60,7 @@ const Manpower = () => {
       <div className="absolute top-0 left-0 w-full h-full flex flex-col sm:flex-row bg-white  overflow-hidden">
         {/* First Background Image */}
         <div className="w-full sm:w-[50%] h-auto sm:h-full lg:translate-x-90 translate-x-50">
-          <Image src={bgDesktop} alt="background" width={1264} height={1175} className="object-cover" />
+          <Image src={background} alt="background" width={500} height={500} className="w-full h-full object-cover bg-fixed" />
         </div>
 
         {/* Second Background Image - Carousel Container */}
@@ -97,9 +97,7 @@ const Manpower = () => {
           <div className="lg:max-w-[55%] py-[30px] px-[24px] lg:py-[112px] lg:px-[80px] h-full flex flex-col lg:justify-end justify-start">
             <TextReveal>
               <div>
-                <p className="font-[900] lg:text-[64px] text-[30px] text-[#14476F] font-satoshi uppercase">
-                  Manpower <br /> agencies & OFW Deployment
-                </p>
+                <p className="font-[900] lg:text-[64px] text-[30px] text-[#14476F] font-satoshi uppercase">Manpower agencies & OFW Deployment</p>
                 <div className="text-black lg:text-2xl text-base font-generalSans lg:flex lg:flex-col lg:gap-5">
                   <p>Discover top talent and connect them with the best opportunities, locally and globally. </p>
                   <p>

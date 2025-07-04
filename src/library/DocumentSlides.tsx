@@ -1,5 +1,3 @@
-export const DocumentSlides = [
-  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005578/travel2_gtudtn.png',
-  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005581/travel1_ypgers.png',
-  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005574/travel3_bjwevz.png',
-]
+import { CloudflareR2Storage } from './utils'
+
+export const DocumentSlides = [CloudflareR2Storage + '/travel2_gtudtn.png', CloudflareR2Storage + '/travel1_ypgers.png', CloudflareR2Storage + '/travel3_bjwevz.png']

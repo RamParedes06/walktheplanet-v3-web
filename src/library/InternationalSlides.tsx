@@ -1,5 +1,3 @@
-export const InternationalSlides = [
-  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005586/international2_vt6q90.png',
-  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005589/international1_bk85yp.png',
-  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005597/international3_sxtyor.png',
-]
+import { CloudflareR2Storage } from './utils'
+
+export const InternationalSlides = [CloudflareR2Storage + '/international2_vt6q90.png', CloudflareR2Storage + '/international1_bk85yp.png', CloudflareR2Storage + '/international3_sxtyor.png']

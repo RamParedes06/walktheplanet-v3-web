@@ -1,17 +1,115 @@
 'use client'
 import Logo from '@/assets/images/Logo.png'
-import MenuSvg from '@/assets/svg/MenuSvg'
-import '@/styles/hero-horizontal-scroll.scss'
-import '@/styles/slider.scss'
 import { AnimatePresence } from 'framer-motion'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-import { tabs } from '@/library/Tab'
-import Marquee from './Marquee'
+import MenuSvg from '@/assets/svg/MenuSvg'
+
+import '@/styles/hero-horizontal-scroll.scss'
+import '@/styles/slider.scss'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { AiOutlineHeart } from 'react-icons/ai'
+import { FaBusAlt } from 'react-icons/fa'
+import { HiOutlinePresentationChartLine } from 'react-icons/hi'
+import { LuGraduationCap } from 'react-icons/lu'
+import { PiBriefcaseMetal } from 'react-icons/pi'
+import { RiShoppingCart2Line } from 'react-icons/ri'
+import { TbMessage2Heart } from 'react-icons/tb'
+
+//! Slides
+
+import { IconType } from 'react-icons'
 import Menu from './Menu'
+
+//! Slides
+import { CloudflareR2Storage } from '@/library/utils'
+import Marquee from './Marquee'
+
+interface Tab {
+  id: string
+  title: string
+  image: StaticImageData | string
+  description: string
+  svg: IconType
+  buttonText1: string
+  buttonText2: string
+  link: string
+}
+
+const tabs: Tab[] = [
+  {
+    id: 'edutourism',
+    title: 'EDUTOURISM',
+    image: CloudflareR2Storage + '/homepage/hero/Hero1Figma_xcgzrt.png',
+    description: "Immersive tours for all levels of education to enrich your students' knowledge.",
+    svg: LuGraduationCap,
+    buttonText1: 'See where learning takes you',
+    buttonText2: 'Contact Us',
+    link: '/edutourism',
+  },
+  {
+    id: 'corporate',
+    title: 'CORPORATE AND BUSINESS',
+    image: CloudflareR2Storage + '/homepage/hero/Corporate_Business_1_4_dab6y2.png',
+    description: 'Personalized services suited for all corporate and business travel needs.',
+    svg: PiBriefcaseMetal,
+    buttonText1: 'See how we elevate your business',
+    buttonText2: 'Contact Us',
+    link: '/corporate',
+  },
+  {
+    id: 'mice',
+    title: 'M.I.C.E',
+    image: CloudflareR2Storage + '/homepage/hero/MICE_1_2_c65uoh.png',
+    description: "Meticulously planned events designed for your organization's success.",
+    svg: HiOutlinePresentationChartLine,
+    buttonText1: 'Explore Solutions',
+    buttonText2: 'Contact Us',
+    link: '/mice',
+  },
+  {
+    id: 'travelpackage',
+    title: 'TRAVEL PACKAGE ESSENTIALS',
+    image: CloudflareR2Storage + '/homepage/hero/Travel_Essentials_Global_Data_Sim_1_1_ieqaf6.png',
+    description: 'One SIM, 190+ destinations connecting you anywhere in the world.',
+    svg: FaBusAlt,
+    buttonText1: 'Find out what to pack',
+    buttonText2: 'Contact Us',
+    link: '/leisure',
+  },
+  {
+    id: 'liveselling',
+    title: 'LIVE SELLING',
+    image: CloudflareR2Storage + '/homepage/hero/Live_Selling_Tiktok_zjfzai.png',
+    description: 'Exclusive rates and awesome discounts right at your fingertips! Book now on our TikTok live selling hours.',
+    svg: TbMessage2Heart,
+    buttonText1: 'Capture discounts and live updates',
+    buttonText2: 'Contact Us',
+    link: 'https://www.tiktok.com/@walktheplanetinc',
+  },
+  {
+    id: 'onlinestore',
+    title: 'ONLINE STORE',
+    image: CloudflareR2Storage + '/homepage/hero/Online_Store_t1xmy8.png',
+    description: 'One-stop shop packed with an array of options for all travelers. Explore our selections at tours.walktheplanet.com',
+    svg: RiShoppingCart2Line,
+    buttonText1: "See what's new in store",
+    buttonText2: 'Contact Us',
+    link: '/all-in-products',
+  },
+  {
+    id: 'aboutus',
+    title: 'ABOUT US',
+    image: CloudflareR2Storage + '/homepage/hero/hero-aboutus_rjysnm.png',
+    description: 'Exclusive Travel, Unique Experiences. Get to know who we are and where we play.',
+    svg: AiOutlineHeart,
+    buttonText1: 'Find out what drives us',
+    buttonText2: 'Contact Us',
+    link: '/about-us',
+  },
+]
 
 export default function Hero() {
   //! For the full screen menu animation
@@ -291,6 +389,9 @@ export default function Hero() {
     const races = racesRef.current
     if (!races) return
 
+    const races = racesRef.current
+    if (!races) return
+
     const handleResize = () => {
       // Update each slide width
       const racesDivs = document.querySelectorAll('.racesDiv')
@@ -350,7 +451,7 @@ export default function Hero() {
       {/* Logo Menu - Desktop */}
       <div ref={headerContainerRef} className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block transition-opacity duration-300">
         {/* Header - only visible when menu is closed */}
-        <div ref={headerRef} className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl rounded-full w-[300px] lg:w-[436px] ${isOpenDesktop ? 'invisible' : 'visible'}`}>
+        <div ref={headerRef} className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl rounded-full w-[300px] lg:w-[436px]  ${isOpenDesktop ? 'invisible' : 'visible'}`}>
           <Image src={Logo} onClick={() => window.location.replace('/')} className="cursor-pointer" alt="logo" width={70} height={50} />
           <div onClick={toggleMenu} className="cursor-pointer">
             <MenuSvg />
@@ -406,15 +507,9 @@ export default function Hero() {
                   }}
                 >
                   <div className="lg:h-[55%] h-[90%] description flex flex-col gap-5 justify-center items-center lg:items-start lg:pl-[6%] w-full" data-index={index}>
-                    <div className="w-full  lg:max-w-[100%]">
+                    <div className="w-full max-w-[90%] lg:max-w-[100%]">
                       <h2 className="text-white text-[32px] sm:text-[32px] lg:text-6xl font-semibold text-center lg:text-left satoshi">{tabs[index].title}</h2>
-                      <p className="text-white text-sm lg:text-xl mx-auto lg:mx-0 max-w-[80%] lg:max-w-full mt-5 text-center lg:text-left">
-                        {tabs[index].description} <br />
-                        {tabs[index].description1}{' '}
-                        <a href="https://tours.walktheplanet.com/" target="_blank" rel="noopener noreferrer">
-                          <span className="underline">{tabs[index].customLink}</span>
-                        </a>
-                      </p>
+                      <p className="text-white text-base sm:text-lg lg:text-xl mx-auto lg:mx-0 max-w-[80%] lg:max-w-full mt-5 text-center lg:text-left">{tabs[index].description}</p>
                     </div>
 
                     <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 mt-8 justify-center lg:justify-start w-full max-w-[330px] sm:max-w-[360px] lg:max-w-[500px]">

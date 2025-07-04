@@ -1,7 +1,9 @@
+import { CloudflareR2Storage } from './utils'
+
 export const ProductsImages = [
-	"https://res.cloudinary.com/dmxvasob7/image/upload/v1745205899/Hero_Banner_mmjtqx.webp",
-	"https://res.cloudinary.com/dmxvasob7/image/upload/v1745205898/6_vdnmdx.webp",
-	"https://res.cloudinary.com/dmxvasob7/image/upload/v1745205899/7_ldduly.webp",
-	"https://res.cloudinary.com/dmxvasob7/image/upload/v1745205897/8_u54vap.webp",
-	"https://res.cloudinary.com/dmxvasob7/image/upload/v1745205897/9_vrmrwl.webp",
-];
+  CloudflareR2Storage + '/products/hero/Hero_Banner_mmjtqx.webp',
+  CloudflareR2Storage + '/products/hero/6_vdnmdx.webp',
+  CloudflareR2Storage + '/products/hero/7_ldduly.webp',
+  CloudflareR2Storage + '/products/hero/8_u54vap.webp',
+  CloudflareR2Storage + '/products/hero/9_vrmrwl.webp',
+]
