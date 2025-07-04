@@ -1,5 +1,7 @@
+import { CloudflareR2Storage } from './utils'
+
 export const TravelSlides = [
-  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005573/travel-package-slide_esccon.png',
-  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005573/travel-package-slide3_luxvxh.png',
-  'https://res.cloudinary.com/dmxvasob7/image/upload/v1744005568/travel-package-slide2_ptbvgz.png',
+  CloudflareR2Storage + '/travel-package-slide_esccon.png',
+  CloudflareR2Storage + '/travel-package-slide3_luxvxh.png',
+  CloudflareR2Storage + '/travel-package-slide2_ptbvgz.png',
 ]

@@ -16,6 +16,7 @@ import RealEstate from './_corporate/RealEstate'
 import TravelAgencies from './_corporate/TravelAgencies'
 // import SmoothScroll from "../_components/SmoothScroll";
 import { corpoHero } from '@/library/CorpHero'
+import Marines from './_corporate/Marines'
 
 function Corporate() {
   return (
@@ -45,6 +46,10 @@ function Corporate() {
       <section id="cargo-logistics" className="snap-start">
         <CargoLogistics />
       </section>
+      <section id="marines" className="snap-start">
+        <Marines />
+      </section>
+
       <section id="business-advertising-media" className="snap-start">
         <BusinessAdvertisingMedia />
       </section>
