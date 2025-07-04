@@ -1,14 +1,14 @@
-"use client";
+'use client'
 import { useEffect, useRef, useState } from 'react'
 
 import TextReveal from '@/app/(pages)/_components/TextReveal'
-import background from "@/assets/svg/BGIllustrationManpower.svg";
+import background from '@/assets/svg/BGIllustrationManpower.svg'
 import { CloudflareR2Storage } from '@/library/utils'
 import Image from 'next/image'
 
 const Manpower = () => {
-  const [isPaused, setIsPaused] = useState(false);
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false)
+  const carouselRef = useRef<HTMLDivElement>(null)
 
   const images = [
     CloudflareR2Storage + '/corporate/manpower/cabin-crew-air-hostess-working-airplane-airline-transportation-tourism-concept.webp',
@@ -112,5 +112,5 @@ const Manpower = () => {
       </div>
     </div>
   )
-};
-export default Manpower;
+}
+export default Manpower

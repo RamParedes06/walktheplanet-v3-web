@@ -1,5 +1,4 @@
-"use client";
-
+'use client'
 import bgMobile from '@/assets/images/about/bgMobile.svg'
 import verctor from '@/assets/images/about/Vector 76.svg'
 import background from '@/assets/svg/about/Background.svg'
@@ -29,7 +28,7 @@ export default function CoreValues() {
           <Image src={bgMobile} alt="Background pattern" fill className="block md:hidden object-cover" priority />
         </div>
 
-        <div className="flex flex-col items-center justify-center h-full relative z-10">
+        <div className="flex flex-col items-center justify-center h-full relative ">
           <h2 className="text-white text-3xl md:py-15 md:text-5xl font-bold text-center relative md:block hidden">
             OUR CORE
             <span className="relative inline-block">
@@ -38,7 +37,7 @@ export default function CoreValues() {
             </span>
           </h2>
 
-          <h2 className="text-white text-3xl md:py-15 md:text-5xl font-bold text-center relative md:hidden">
+          <h2 className="text-white text-[40px] md:py-15 md:text-5xl font-[900] text-center relative md:hidden">
             OUR <br /> CORE
             <span className="relative inline-block">
               <span className="ml-2">VALUES</span>
@@ -49,7 +48,7 @@ export default function CoreValues() {
       </div>
 
       {/* Image grid with letter overlays */}
-      <div className="grid grid-cols-1 md:grid-cols-4 relative">
+      <div className="grid grid-cols-1 md:grid-cols-4 relative md:gap-1 bg-black">
         {/* S Image */}
         <div className="relative h-[300px] md:h-[600px] overflow-hidden">
           <Image src={`${CloudflareR2Storage}/about-us/core-values/core1_mzfk00.webp`} alt="Person with raised arm celebrating" fill className="object-cover object-center md:object-left" />

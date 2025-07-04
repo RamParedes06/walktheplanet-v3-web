@@ -27,6 +27,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "api.microlink.io",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "res-console.cloudinary.com",
         pathname: "/**",
       },

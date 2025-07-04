@@ -1,10 +1,10 @@
-"use client";
+'use client'
 
-import Image from "next/image";
+import Image from 'next/image'
 
-import bg from "@/assets/svg/contact/bgIllustration.svg";
-import bgMobile from "@/assets/svg/contact/Frame 48098208.png";
-import FAQSection from "./FaqSection";
+import bg from '@/assets/svg/contact/bgIllustration.svg'
+import bgMobile from '@/assets/svg/contact/Frame 48098208.png'
+import FAQSection from './FaqSection'
 
 export default function FrequentlyAskedQuestion() {
   return (
@@ -13,10 +13,10 @@ export default function FrequentlyAskedQuestion() {
         <div
           className="absolute md:block hidden"
           style={{
-            width: "1190px",
-            height: "1190px",
-            top: "-300px",
-            right: "-350px",
+            width: '1190px',
+            height: '1190px',
+            top: '-300px',
+            right: '-350px',
           }}
         >
           <Image src={bg} alt="Background Illustration" />
@@ -27,19 +27,12 @@ export default function FrequentlyAskedQuestion() {
 
         {/* Content */}
         <div className="relative z-10 px-2 py-20 md:px-10 lg:px-20 ml-4 lg:ml-8 mb-2">
-          <h1 className="text-[20px] md:text-3xl lg:text-[32px] text-[#333] font-normal leading-none">
-            FREQUENTLY
-          </h1>
-          <h1 className="md:block hidden text-[40px] md:text-3xl lg:text-[64px] text-[#333] font-semibold leading-none mt-2">
-            ASKED QUESTION
-          </h1>
+          <h1 className="text-[20px] md:text-3xl lg:text-[32px] text-[#333] font-normal leading-none">FREQUENTLY</h1>
+          <h1 className="md:block hidden text-[40px] md:text-3xl lg:text-[64px] text-[#333] font-semibold leading-none mt-2">ASKED QUESTIONS</h1>
           <h1 className="md:hidden text-[40px] md:text-3xl lg:text-[64px] text-[#333] font-semibold leading-none mt-2">
-            ASKED <br /> QUESTION
+            ASKED <br /> QUESTIONS
           </h1>
-          <p className="text-base lg:text-[24px] mt-4 lg:mt-8 text-[#333]">
-            Before you pack your bags, get the details you
-            <br /> need for a stress-free trip
-          </p>
+          <p className="text-base lg:text-[24px] mt-4 lg:mt-8 text-[#333]">Everything you need to know before you pack your bags for a stress-free trip</p>
         </div>
       </section>
 
@@ -49,5 +42,5 @@ export default function FrequentlyAskedQuestion() {
         <FAQSection />
       </section>
     </div>
-  );
+  )
 }

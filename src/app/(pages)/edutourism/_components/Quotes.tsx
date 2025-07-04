@@ -1,8 +1,8 @@
-import bg from "@/assets/images/bgEduQuotes.png";
-import { JSX } from "react";
+import bg from '@/assets/images/bgEduQuotes.png'
+import { JSX } from 'react'
 
 interface QuotesProps {
-  title: JSX.Element;
+  title: JSX.Element
 }
 
 function Quotes({ title }: QuotesProps) {
@@ -10,7 +10,7 @@ function Quotes({ title }: QuotesProps) {
     <div className="quotes h-[40vh] bg-contain bg-center bg-white bg-no-repeat flex items-center justify-center" style={{ backgroundImage: `url(${bg.src})` }}>
       <div className="text-3xl text-[#14476F] text-center italic">{title}</div>
     </div>
-  );
+  )
 }
 
-export default Quotes;
+export default Quotes

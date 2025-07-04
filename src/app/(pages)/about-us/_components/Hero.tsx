@@ -1,13 +1,13 @@
-"use client";
-import Logo from "@/assets/images/Logo.png";
-import MenuSvg from "@/assets/svg/MenuSvg";
-import { AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import { JSX, useCallback, useEffect, useRef, useState } from "react";
-import "../../../../styles/hero-horizontal-scroll.scss";
-import Marquee from "../../_components/Marquee";
-import Menu from "../../_components/Menu";
-import TextReveal from "../../_components/TextReveal";
+'use client'
+import MenuSvg from '@/assets/svg/MenuSvg'
+import Image from 'next/image'
+import React, { JSX, useCallback, useEffect, useRef, useState } from 'react'
+import Logo from '@/assets/images/Logo.png'
+import { AnimatePresence } from 'framer-motion'
+import '../../../../styles/hero-horizontal-scroll.scss'
+import Marquee from '../../_components/Marquee'
+import TextReveal from '../../_components/TextReveal'
+import Menu from '../../_components/Menu'
 
 interface HeroProps {
   images: string[]
@@ -16,7 +16,7 @@ interface HeroProps {
   gradient?: string
 }
 
-const Hero = ({ images, title, description, gradient = 'bg-[linear-gradient(to_right,_#0A2472_20%,_#0A2472_20%,_#00A9CE_40%,_#00A9CE_80%,_#FF7A00_100%,_#FF7A00_100%)]' }: HeroProps) => {
+const Hero = ({ images, title, description, gradient = 'bg-gradient-to-r from-[#00A9CE] via-[#FAAE19] to-[#1A632D]' }: HeroProps) => {
   const corpImages = images
 
   const [currentImage, setCurrentImage] = useState(0)
@@ -24,7 +24,7 @@ const Hero = ({ images, title, description, gradient = 'bg-[linear-gradient(to_r
   const [direction, setDirection] = useState('next')
 
   //Check if the menu is visible
-  // const [isMenuVisible, setIsMenuVisible] = useState(true)
+  const [isMenuVisible, setIsMenuVisible] = useState(true)
 
   // For fixing lint warning about useCallback
   const getNextIndex = useCallback((current: number) => (current === corpImages.length - 1 ? 0 : current + 1), [corpImages.length])
@@ -79,8 +79,8 @@ const Hero = ({ images, title, description, gradient = 'bg-[linear-gradient(to_r
   //! For Navigation Menu
   const headerRef = useRef<HTMLDivElement>(null)
   const headerRefMobile = useRef<HTMLDivElement>(null)
-  // const headerContainerRef = useRef<HTMLDivElement>(null)
-  // const headerContainerMobileRef = useRef<HTMLDivElement>(null)
+  const headerContainerRef = useRef<HTMLDivElement>(null)
+  const headerContainerMobileRef = useRef<HTMLDivElement>(null)
   const [headerRect, setHeaderRect] = useState({
     top: 0,
     left: 0,
@@ -127,12 +127,65 @@ const Hero = ({ images, title, description, gradient = 'bg-[linear-gradient(to_r
     } else {
       document.body.style.overflow = 'unset'
     }
-  })
+
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpenDesktop, isOpenMobile])
+
+  //! For hiding the menu header as it reaches the footer section
+
+  // intersection observer for footer
+  useEffect(() => {
+    const footerElement = document.querySelector('footer')
+    if (!footerElement) return
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.05, // trigger when 10% of the footer is visible
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        // hide menu when footer is visible, else show it
+        setIsMenuVisible(!entry.isIntersecting)
+      })
+    }, observerOptions)
+
+    observer.observe(footerElement)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
+
+  // apply visibility classes based the state of isMenuVisible!!
+  useEffect(() => {
+    if (headerContainerRef.current) {
+      if (isMenuVisible) {
+        headerContainerRef.current.classList.remove('opacity-0', 'pointer-events-none')
+        headerContainerRef.current.classList.add('opacity-100')
+      } else {
+        headerContainerRef.current.classList.add('opacity-0', 'pointer-events-none')
+        headerContainerRef.current.classList.remove('opacity-100')
+      }
+    }
+
+    if (headerContainerMobileRef.current) {
+      if (isMenuVisible) {
+        headerContainerMobileRef.current.classList.remove('opacity-0', 'pointer-events-none')
+        headerContainerMobileRef.current.classList.add('opacity-100')
+      } else {
+        headerContainerMobileRef.current.classList.add('opacity-0', 'pointer-events-none')
+        headerContainerMobileRef.current.classList.remove('opacity-100')
+      }
+    }
+  }, [isMenuVisible])
 
   return (
     <>
-      <div className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block">
-        {/* Header - only visible when menu is closed */}
+      <div ref={headerContainerRef} className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block transition-opacity duration-300">
         <div ref={headerRef} className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl  rounded-full w-[300px] lg:w-[436px]  ${isOpenDesktop ? 'invisible' : 'visible'}`}>
           <Image src={Logo} onClick={() => window.location.replace('/')} className="cursor-pointer" alt="logo" width={70} height={50} />
           <div onClick={toggleMenu} className="cursor-pointer">
@@ -144,7 +197,7 @@ const Hero = ({ images, title, description, gradient = 'bg-[linear-gradient(to_r
       <AnimatePresence>{isOpenDesktop && <Menu toggleMenu={toggleMenu} headerRect={headerRect} />}</AnimatePresence>
 
       <div className="relative w-screen h-[90vh] md:h-screen">
-        <div className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${corpImages[0]})` }}>
+        <div className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${corpImages})` }}>
           {corpImages.map((image, index) => (
             <div
               key={index}
@@ -156,8 +209,8 @@ const Hero = ({ images, title, description, gradient = 'bg-[linear-gradient(to_r
           {/* Gradient overlay with responsive classes */}
           <div
             className="absolute inset-0 w-full h-full 
-               bg-gradient-to-l from-transparent to-[rgba(18,60,140,0.4)] 
-               lg:bg-gradient-to-l lg:from-transparent lg:from-[52.21%] lg:to-[rgba(18,60,140,0.4)] lg:to-[60.75%]"
+               bg-gradient-to-l from-transparent to-[rgba(23,27,31,0.4)] 
+               lg:bg-gradient-to-l lg:from-transparent lg:from-[52.21%] lg:to-[rgba(26,27,30,0.4)] lg:to-[60.75%]"
           ></div>
 
           <div className="max-w-[600px] absolute bottom-[15%] left-[5%]">
@@ -177,7 +230,7 @@ const Hero = ({ images, title, description, gradient = 'bg-[linear-gradient(to_r
           <div className="lg:hidden">
             {/* Logo Menu */}
             {/* Header - only visible when not animating */}
-            <div className="fixed z-99 top-[70px]  w-full flex items-center justify-center ">
+            <div ref={headerContainerMobileRef} className="fixed z-99 top-[70px]  w-full flex items-center justify-center transition-opacity duration-300">
               {/* Header - only visible when menu is closed */}
               <div ref={headerRefMobile} className={`flex items-center justify-between px-4  py-3 rounded-full w-[300px] lg:w-[436px] bg-white ${isOpenMobile ? 'invisible' : 'visible'}`}>
                 <Image src={Logo} alt="logo" width={70} height={50} />
@@ -194,6 +247,6 @@ const Hero = ({ images, title, description, gradient = 'bg-[linear-gradient(to_r
       </div>
     </>
   )
-};
+}
 
 export default Hero

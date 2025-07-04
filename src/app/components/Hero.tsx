@@ -166,7 +166,7 @@ const Hero = ({
           <div
             className="absolute inset-0 w-full h-full 
                bg-gradient-to-l from-transparent to-[rgba(109,122,145,0.4)] 
-               lg:bg-gradient-to-l lg:from-transparent lg:from-[52.21%] lg:to-[rgba(55,62,77,0.4)] lg:to-[60.75%]"
+               lg:bg-gradient-to-l lg:from-transparent lg:from-[52.21%] lg:to-[rgba(0,0,0,0.4)] lg:to-[60.75%]"
           ></div>
 
           <div className="max-w-[600px] absolute bottom-[15%] left-[5%]">

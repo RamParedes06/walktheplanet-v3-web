@@ -1,6 +1,6 @@
 // import eligibility from "@/assets/images/EligibilitySection.png";
 import { CloudflareR2Storage } from '@/library/utils'
-import Image from "next/image";
+import Image from 'next/image'
 
 function GridMotionMobile() {
   const images = [
@@ -26,7 +26,7 @@ function GridMotionMobile() {
         ))}
       </div>
     </div>
-  );
+  )
 }
 
-export default GridMotionMobile;
+export default GridMotionMobile
