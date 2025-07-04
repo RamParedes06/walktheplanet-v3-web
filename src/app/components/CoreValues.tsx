@@ -1,5 +1,4 @@
-'ause client'
-
+'use client'
 import bgMobile from '@/assets/images/about/bgMobile.svg'
 import verctor from '@/assets/images/about/Vector 76.svg'
 import background from '@/assets/svg/about/Background.svg'

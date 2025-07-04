@@ -17,12 +17,9 @@ import { LuGraduationCap } from 'react-icons/lu'
 import { PiBriefcaseMetal } from 'react-icons/pi'
 import { RiShoppingCart2Line } from 'react-icons/ri'
 import { TbMessage2Heart } from 'react-icons/tb'
-
 //! Slides
-
 import { IconType } from 'react-icons'
 import Menu from './Menu'
-
 //! Slides
 import { CloudflareR2Storage } from '@/library/utils'
 import Marquee from './Marquee'
@@ -385,9 +382,6 @@ export default function Hero() {
 
   useEffect(() => {
     if (!mounted) return
-
-    const races = racesRef.current
-    if (!races) return
 
     const races = racesRef.current
     if (!races) return

@@ -24,7 +24,7 @@ const Hero = ({ images, title, description, gradient = 'bg-[linear-gradient(to_r
   const [direction, setDirection] = useState('next')
 
   //Check if the menu is visible
-  const [isMenuVisible, setIsMenuVisible] = useState(true)
+  // const [isMenuVisible, setIsMenuVisible] = useState(true)
 
   // For fixing lint warning about useCallback
   const getNextIndex = useCallback((current: number) => (current === corpImages.length - 1 ? 0 : current + 1), [corpImages.length])
@@ -79,8 +79,8 @@ const Hero = ({ images, title, description, gradient = 'bg-[linear-gradient(to_r
   //! For Navigation Menu
   const headerRef = useRef<HTMLDivElement>(null)
   const headerRefMobile = useRef<HTMLDivElement>(null)
-  const headerContainerRef = useRef<HTMLDivElement>(null)
-  const headerContainerMobileRef = useRef<HTMLDivElement>(null)
+  // const headerContainerRef = useRef<HTMLDivElement>(null)
+  // const headerContainerMobileRef = useRef<HTMLDivElement>(null)
   const [headerRect, setHeaderRect] = useState({
     top: 0,
     left: 0,
@@ -127,13 +127,14 @@ const Hero = ({ images, title, description, gradient = 'bg-[linear-gradient(to_r
     } else {
       document.body.style.overflow = 'unset'
     }
+  })
 
-	return (
+  return (
     <>
       <div className="fixed right-[5%] bottom-[20%] z-50 hidden sm:hidden md:hidden lg:block">
         {/* Header - only visible when menu is closed */}
-        <div ref={headerRef} className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl  rounded-full w-[300px] lg:w-[436px]  ${isOpenDesktop ? "invisible" : "visible"}`}>
-          <Image src={Logo} onClick={() => window.location.replace("/")} className="cursor-pointer" alt="logo" width={70} height={50} />
+        <div ref={headerRef} className={`bg-white flex items-center justify-between px-8 py-[18px] shadow-xl  rounded-full w-[300px] lg:w-[436px]  ${isOpenDesktop ? 'invisible' : 'visible'}`}>
+          <Image src={Logo} onClick={() => window.location.replace('/')} className="cursor-pointer" alt="logo" width={70} height={50} />
           <div onClick={toggleMenu} className="cursor-pointer">
             <MenuSvg />
           </div>
@@ -145,7 +146,11 @@ const Hero = ({ images, title, description, gradient = 'bg-[linear-gradient(to_r
       <div className="relative w-screen h-[90vh] md:h-screen">
         <div className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${corpImages[0]})` }}>
           {corpImages.map((image, index) => (
-            <div key={index} className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-500 ${getImageClasses(index)}`} style={{ backgroundImage: `url(${image})` }}></div>
+            <div
+              key={index}
+              className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-all duration-500 ${getImageClasses(index)}`}
+              style={{ backgroundImage: `url(${image})` }}
+            ></div>
           ))}
 
           {/* Gradient overlay with responsive classes */}
@@ -174,7 +179,7 @@ const Hero = ({ images, title, description, gradient = 'bg-[linear-gradient(to_r
             {/* Header - only visible when not animating */}
             <div className="fixed z-99 top-[70px]  w-full flex items-center justify-center ">
               {/* Header - only visible when menu is closed */}
-              <div ref={headerRefMobile} className={`flex items-center justify-between px-4  py-3 rounded-full w-[300px] lg:w-[436px] bg-white ${isOpenMobile ? "invisible" : "visible"}`}>
+              <div ref={headerRefMobile} className={`flex items-center justify-between px-4  py-3 rounded-full w-[300px] lg:w-[436px] bg-white ${isOpenMobile ? 'invisible' : 'visible'}`}>
                 <Image src={Logo} alt="logo" width={70} height={50} />
                 <div onClick={toggleMenuMobile} className="cursor-pointer">
                   <MenuSvg />
@@ -188,7 +193,7 @@ const Hero = ({ images, title, description, gradient = 'bg-[linear-gradient(to_r
         </div>
       </div>
     </>
-  );
+  )
 };
 
 export default Hero
